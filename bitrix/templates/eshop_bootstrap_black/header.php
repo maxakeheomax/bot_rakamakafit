@@ -11,7 +11,19 @@ $theme = COption::GetOptionString("main", "wizard_eshop_bootstrap_theme_id", "bl
     <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width">
     <link rel="shortcut icon" type="image/x-icon" href="<?=htmlspecialcharsbx(SITE_DIR)?>favicon.ico" />
     <?$APPLICATION->ShowHead();?>
+    
     <?
+    //////////////////// CUSTOM CSS
+    $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH."/libs/owl.carousel2/dist/assets/owl.carousel.min.css", true);
+    $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH."/libs/owl.carousel2/dist/assets/owl.theme.default.min.css", true);
+    $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH."/libs/slick-1.8.1/slick/slick-theme.css", true);
+    $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH."/libs/slick-1.8.1/slick/slick.css", true);
+    $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH."/libs/all.css", true);
+    //////////////////// CUSTOM JS
+    $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH."/libs/jquery.min.js");
+    $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH."/libs/owl.carousel2/dist/owl.carousel.min.js");
+    $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH."/libs/slick-1.8.1/slick/slick.min.js");
+
     $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH."/colors.css", true);
     $APPLICATION->SetAdditionalCSS("/bitrix/css/main/bootstrap.css");
     $APPLICATION->SetAdditionalCSS("/bitrix/css/main/font-awesome.css");
