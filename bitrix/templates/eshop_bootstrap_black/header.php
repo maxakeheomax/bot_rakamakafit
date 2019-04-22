@@ -57,7 +57,7 @@ global $arParams;
                         <? if($USER->IsAuthorized()): ?>
                             <a href="/personal/"> Личный кабинет </a>
                         <? else:?>
-                            <a href="/login/?login=yes&backurl=<?= $APPLICATION->GetCurUri() ?>"> Личный кабинет </a>
+                            <a href="/login/?login=yes&backurl=<?= $APPLICATION->GetCurUri() ?>"> Вход </a>
                         <?endif;?>
                        
                         </span>
@@ -95,13 +95,3 @@ global $arParams;
                     <a href="#" class="aside-block__icons_link"><img src="<?= SITE_TEMPLATE_PATH ?>/assets/inst.svg" alt="" class="aside-block__icons-item"></a>
                 </div>
             </div>
-    <div class="workarea">
-        <div class="container bx-content-seection">
-            <div class="row">
-                <?
-                $hideSidebar =
-                    defined("HIDE_SIDEBAR") && HIDE_SIDEBAR == true
-                    || preg_match("~^".SITE_DIR."(catalog|personal\\/cart|personal\\/order\\/make)/~", $curPage)
-                        ? true : false;
-                ?>
-                <div class="bx-content <?=($hideSidebar ? "col-xs-12" : "col-md-9 col-sm-8")?>">
