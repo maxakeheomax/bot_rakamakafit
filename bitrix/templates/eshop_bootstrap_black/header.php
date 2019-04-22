@@ -3,6 +3,7 @@ IncludeTemplateLangFile($_SERVER["DOCUMENT_ROOT"]."/bitrix/templates/".SITE_TEMP
 CJSCore::Init(array("fx"));
 $curPage = $APPLICATION->GetCurPage(true);
 $theme = COption::GetOptionString("main", "wizard_eshop_bootstrap_theme_id", "blue", SITE_ID);
+global $arParams;
 ?>
 <!DOCTYPE html>
 <html xml:lang="<?=LANGUAGE_ID?>" lang="<?=LANGUAGE_ID?>">
@@ -24,9 +25,6 @@ $theme = COption::GetOptionString("main", "wizard_eshop_bootstrap_theme_id", "bl
     $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH."/libs/owl.carousel2/dist/owl.carousel.min.js");
     $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH."/libs/slick-1.8.1/slick/slick.min.js");
 
-    $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH."/colors.css", true);
-    $APPLICATION->SetAdditionalCSS("/bitrix/css/main/bootstrap.css");
-    $APPLICATION->SetAdditionalCSS("/bitrix/css/main/font-awesome.css");
     ?>
     <title><?$APPLICATION->ShowTitle()?></title>
 </head>
@@ -34,135 +32,56 @@ $theme = COption::GetOptionString("main", "wizard_eshop_bootstrap_theme_id", "bl
 <div id="panel"><?$APPLICATION->ShowPanel();?></div>
 <?$APPLICATION->IncludeComponent("bitrix:eshop.banner", "", array());?>
 <div class="bx-wrapper" id="bx_eshop_wrap">
-    <header class="bx-header">
-        <div class="bx-header-section container">
-            <div class="row">
-                <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
-                    <div class="bx-logo">
-                        <a class="bx-logo-block hidden-xs" href="<?=htmlspecialcharsbx(SITE_DIR)?>">
-                            <?$APPLICATION->IncludeComponent("bitrix:main.include", "", array("AREA_FILE_SHOW" => "file", "PATH" => SITE_DIR."include/company_logo.php"), false);?>
+    <div class="page_wrapper">
+        <div class="page_content">
+            <header class="header">
+                <nav class="header__nav-bar">
+                    <div class="header__nav-bar__logo">
+                        <img src="<?= SITE_TEMPLATE_PATH ?>/assets/logo.png" alt="logo" class="header__nav-bar__logo-img">
+                    </div>
+                    <div class="header__nav-bar-block">
+                        <ul class="header__nav-bar__navs">
+                            <li class="header__nav-bar__navs-item"><a href="#" class="header__nav-bar__navs-item__link nav-bar__navs-item__link--active">Оборудование</a></li>
+                            <li class="header__nav-bar__navs-item"><a href="#" class="header__nav-bar__navs-item__link">Тренировки</a></li>
+                            <li class="header__nav-bar__navs-item"><a href="#" class="header__nav-bar__navs-item__link">Оплата</a></li>
+                            <li class="header__nav-bar__navs-item"><a href="#" class="header__nav-bar__navs-item__link">Доставка</a></li>
+                            <li class="header__nav-bar__navs-item"><a href="#" class="header__nav-bar__navs-item__link">Полезная информация</a></li>
+                            <li class="header__nav-bar__navs-item"><a href="#" class="header__nav-bar__navs-item__link">О компании</a></li>
+                        </ul>
+                    </div>
+                    <div class="header__nav-bar__login-button">
+                        <span class="header__nav-bar__login-button__text">
+                        
+                        <? if($USER->IsAuthorized()): ?>
+                            <a href="/personal/"> Личный кабинет </a>
+                        <? else:?>
+                            <a href="/login/?login=yes&backurl=<?= $APPLICATION->GetCurUri() ?>"> Личный кабинет </a>
+                        <?endif;?>
+                       
+                        </span>
+                    </div>
+                </nav>	
+                <nav class="header__inner-nav-bar">
+                    <div class="header__inner-nav-bar-block">
+                        <ul class="header__inner-nav-bar__navs header__inner-nav-bar__navs--black-text">
+                            <li class="header__inner-nav-bar__navs-item"><a href="#" class="header__inner-nav-bar__navs-item__link inner-nav-bar__navs-item__link--active">Все товары</a></li>
+                            <li class="header__inner-nav-bar__navs-item"><a href="#" class="header__inner-nav-bar__navs-item__link">Фитнес ленты</a></li>
+                            <li class="header__inner-nav-bar__navs-item"><a href="#" class="header__inner-nav-bar__navs-item__link">Фитбол</a></li>
+                            <li class="header__inner-nav-bar__navs-item"><a href="#" class="header__inner-nav-bar__navs-item__link">Наборы</a></li>
+                            <li class="header__inner-nav-bar__navs-item"><a href="#" class="header__inner-nav-bar__navs-item__link">Питание</a></li>
+                            <li class="header__inner-nav-bar__navs-item"><a href="#" class="header__inner-nav-bar__navs-item__link">Дневник тренировок</a></li>
+                        </ul>			
+                    </div>
+                    <div class="header__nav-bar__cart-block">
+                        <a href="/personal/cart/" class="header__nav-bar__cart-block-link">	
+                            <img src="<?= SITE_TEMPLATE_PATH ?>/assets/cart.svg" alt="" class="header__nav-bar__cart-block__cart-icon">
+                            <span class="header__nav-bar__cart-block__cart-text">Корзина</span>
+                            <span class="header__nav-bar__cart-block__items-counter"><?= $arResult['NUM_PRODUCTS'] > 0 ? $arResult['NUM_PRODUCTS'] : "" ?></span>
                         </a>
-                        <a class="bx-logo-block hidden-lg hidden-md hidden-sm text-center" href="<?=htmlspecialcharsbx(SITE_DIR)?>">
-                            <?$APPLICATION->IncludeComponent("bitrix:main.include", "", array("AREA_FILE_SHOW" => "file", "PATH" => SITE_DIR."include/company_logo_mobile.php"), false);?>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
-                    <div class="bx-inc-orginfo">
-                        <div>
-                            <span class="bx-inc-orginfo-phone"><i class="fa fa-phone"></i> <?$APPLICATION->IncludeComponent("bitrix:main.include", "", array("AREA_FILE_SHOW" => "file", "PATH" => SITE_DIR."include/telephone.php"), false);?></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 hidden-sm hidden-xs">
-                    <div class="bx-worktime">
-                        <div class="bx-worktime-prop">
-                            <?$APPLICATION->IncludeComponent("bitrix:main.include", "", array("AREA_FILE_SHOW" => "file", "PATH" => SITE_DIR."include/schedule.php"), false);?>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 hidden-xs">
-                    <?$APPLICATION->IncludeComponent("bitrix:sale.basket.basket.line", "", array(
-                        "PATH_TO_BASKET" => SITE_DIR."personal/cart/",
-                        "PATH_TO_PERSONAL" => SITE_DIR."personal/",
-                        "SHOW_PERSONAL_LINK" => "N",
-                        "SHOW_NUM_PRODUCTS" => "Y",
-                        "SHOW_TOTAL_PRICE" => "Y",
-                        "SHOW_PRODUCTS" => "N",
-                        "POSITION_FIXED" =>"N",
-                        "SHOW_AUTHOR" => "Y",
-                        "PATH_TO_REGISTER" => SITE_DIR."login/",
-                        "PATH_TO_PROFILE" => SITE_DIR."personal/"
-                    ),
-                        false,
-                        array()
-                    );?>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12 hidden-xs">
-                    <?$APPLICATION->IncludeComponent("bitrix:menu", "catalog_horizontal", array(
-                        "ROOT_MENU_TYPE" => "left",
-                        "MENU_CACHE_TYPE" => "A",
-                        "MENU_CACHE_TIME" => "36000000",
-                        "MENU_CACHE_USE_GROUPS" => "Y",
-                        "MENU_THEME" => "site",
-                        "CACHE_SELECTED_ITEMS" => "N",
-                        "MENU_CACHE_GET_VARS" => array(
-                        ),
-                        "MAX_LEVEL" => "3",
-                        "CHILD_MENU_TYPE" => "left",
-                        "USE_EXT" => "Y",
-                        "DELAY" => "N",
-                        "ALLOW_MULTI_SELECT" => "N",
-                    ),
-                        false
-                    );?>
-                </div>
-            </div>
-            <?if ($curPage != SITE_DIR."index.php"):?>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <?$APPLICATION->IncludeComponent("bitrix:search.title", "visual", array(
-                            "NUM_CATEGORIES" => "1",
-                            "TOP_COUNT" => "5",
-                            "CHECK_DATES" => "N",
-                            "SHOW_OTHERS" => "N",
-                            "PAGE" => SITE_DIR."catalog/",
-                            "CATEGORY_0_TITLE" => GetMessage("SEARCH_GOODS") ,
-                            "CATEGORY_0" => array(
-                                0 => "iblock_catalog",
-                            ),
-                            "CATEGORY_0_iblock_catalog" => array(
-                                0 => "all",
-                            ),
-                            "CATEGORY_OTHERS_TITLE" => GetMessage("SEARCH_OTHER"),
-                            "SHOW_INPUT" => "Y",
-                            "INPUT_ID" => "title-search-input",
-                            "CONTAINER_ID" => "search",
-                            "PRICE_CODE" => array(
-                                0 => "BASE",
-                            ),
-                            "SHOW_PREVIEW" => "Y",
-                            "PREVIEW_WIDTH" => "75",
-                            "PREVIEW_HEIGHT" => "75",
-                            "CONVERT_CURRENCY" => "Y"
-                        ),
-                            false
-                        );?>
-                    </div>
-                </div>
-            <?endif?>
-
-            <?
-            if ($curPage != SITE_DIR."index.php")
-            {
-                ?>
-                <div class="row">
-                    <div class="col-lg-12" id="navigation">
-                        <?$APPLICATION->IncludeComponent("bitrix:breadcrumb", "", array(
-                            "START_FROM" => "0",
-                            "PATH" => "",
-                            "SITE_ID" => "-"
-                        ),
-                            false,
-                            Array('HIDE_ICONS' => 'Y')
-                        );?>
-                    </div>
-                </div>
-                <h1 class="bx-title dbg_title" id="pagetitle"><?=$APPLICATION->ShowTitle(false);?></h1>
-                <?
-            }
-            else
-            {
-                ?>
-                <h1 style="display: none"><?$APPLICATION->ShowTitle()?></h1>
-                <?
-            }
-            ?>
-        </div>
-    </header>
-
+                    </div>                        
+                </nav>
+            </header>
+  
     <div class="workarea">
         <div class="container bx-content-seection">
             <div class="row">
