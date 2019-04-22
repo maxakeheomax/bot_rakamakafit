@@ -1,3 +1,7 @@
+/*                   NORMALIZE CSS          */
+a { 
+    text-decoration: none !important; 
+   }
 
 /* 					 HEADER                */
 
@@ -25,7 +29,7 @@ body {
 .header {
 	font-family: 'Roboto', sans-serif;	
 	position:relative;
-	z-index: 9999;		
+	z-index: 99;		
 }
 .header__nav-bar {
 	height: 72px;
@@ -150,4 +154,42 @@ body {
 .header__nav-bar__login-button__text a{
 	color: inherit !important;
 	text-decoration: none
+}
+
+/*                          ASIDE BLOCK                    */
+.aside-block {
+	margin-top: 185px;
+	height:279px;
+	position: fixed;
+	left: -69px;
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: space-between;
+	z-index: 99;
+
+}
+.aside-block__shedule {
+	display: flex;
+	width: 192px;
+	justify-content: space-around;
+	transform: rotate(90deg);
+	background-color: #f7f7fb;
+
+}
+.aside-block__shedule-text {
+	font-family: 'Roboto', sans-serif;	
+
+}
+.aside-block__shedule-logo {
+	transform: rotate(-90deg);
+}
+.aside-block__icons {
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: space-around;
+
+	text-align:center;
+}
+.aside-block__icons_link:hover .aside-block__icons-item {
+	fill:#fce57e;
 }

@@ -37,7 +37,9 @@ global $arParams;
             <header class="header">
                 <nav class="header__nav-bar">
                     <div class="header__nav-bar__logo">
-                        <img src="<?= SITE_TEMPLATE_PATH ?>/assets/logo.png" alt="logo" class="header__nav-bar__logo-img">
+                        <a href="/">
+                            <img src="<?= SITE_TEMPLATE_PATH ?>/assets/logo.png" alt="logo" class="header__nav-bar__logo-img">
+                        </a>
                     </div>
                     <div class="header__nav-bar-block">
                         <ul class="header__nav-bar__navs">
@@ -82,6 +84,17 @@ global $arParams;
                 </nav>
             </header>
   
+            <div class="aside-block">
+                <div class="aside-block__shedule">
+                    <p class="aside-block__shedule-text">График работы</p>
+                    <img src="<?= SITE_TEMPLATE_PATH ?>/assets/calendar.svg" alt="calendar" class="aside-block__shedule-logo">
+                </div>
+                <div class="aside-block__icons">
+                    <a href="#" class="aside-block__icons_link"><img src="<?= SITE_TEMPLATE_PATH ?>/assets/vk.svg" alt="" class="aside-block__icons-item"></a>
+                    <a href="#" class="aside-block__icons_link"><img src="<?= SITE_TEMPLATE_PATH ?>/assets/ytb.svg" alt="" class="aside-block__icons-item"></a>
+                    <a href="#" class="aside-block__icons_link"><img src="<?= SITE_TEMPLATE_PATH ?>/assets/inst.svg" alt="" class="aside-block__icons-item"></a>
+                </div>
+            </div>
     <div class="workarea">
         <div class="container bx-content-seection">
             <div class="row">
