@@ -2,6 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9c16e741-5cd0-4025-b3ba-cfbd87a6dc57" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/rakamakafit.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/bitrix/templates/eshop_bootstrap_black/components/bitrix/news.list/banner_roma_slider/.parameters.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/bitrix/templates/eshop_bootstrap_black/components/bitrix/news.list/banner_roma_slider/lang/en/.parameters.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/bitrix/templates/eshop_bootstrap_black/components/bitrix/news.list/banner_roma_slider/lang/en/template.php" afterDir="false" />
@@ -183,12 +189,12 @@
       <option name="presentableId" value="Default" />
       <updated>1556011547035</updated>
       <workItem from="1556011548226" duration="140000" />
-      <workItem from="1556011808126" duration="2250000" />
+      <workItem from="1556011808126" duration="2501000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2390000" />
+    <option name="totallyTimeSpent" value="2641000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
