@@ -1,46 +1,46 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?
 $aMenuLinks = Array(
 	Array(
-		"Êàê êóïèòü", 
+		"ÐžÐ±Ð¾Ñ€ÑƒÐ´Ð¾Ð²Ð°Ð½Ð¸Ðµ", 
 		"about/howto/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
-		"Äîñòàâêà", 
+		"Ð¢Ñ€ÐµÐ½Ð¸Ñ€Ð¾Ð²ÐºÐ¸", 
 		"about/delivery/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
-		"Î ìàãàçèíå", 
+		"ÐžÐ¿Ð»Ð°Ñ‚Ð°", 
 		"about/", 
 		Array(), 
 		Array(), 
 		"" 
-	),	
+	),
 	Array(
-		"Ãàðàíòèÿ", 
+		"Ð”Ð¾ÑÑ‚Ð°Ð²ÐºÐ° ", 
 		"about/guaranty/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
-		"Êîíòàêòû",
-		"about/contacts/",
-		Array(),
-		Array(),
-		""
+		"ÐŸÐ¾Ð»ÐµÐ·Ð½Ð°Ñ Ð¸Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ð¸Ñ", 
+		"about/contacts/", 
+		Array(), 
+		Array(), 
+		"" 
 	),
 	Array(
-		"Ìîé êàáèíåò",
-		"personal/",
-		Array(),
-		Array(),
-		"CUser::IsAuthorized()"
-	),
+		"Ðž ÐºÐ¾Ð¼Ð¿Ð°Ð½Ð¸Ð¸", 
+		"personal/", 
+		Array(), 
+		Array(), 
+		"CUser::IsAuthorized()" 
+	)
 );
 ?>

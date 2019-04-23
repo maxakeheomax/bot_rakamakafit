@@ -1,8 +1,8 @@
 <?
-$MESS["MFT_CAPTCHA"] = "Çàõèñò â³ä àâòîìàòè÷íèõ ïîâ³äîìëåíü";
-$MESS["MFT_MESSAGE"] = "Ïîâ³äîìëåííÿ";
-$MESS["MFT_NAME"] = "Âàøå ³ì'ÿ";
-$MESS["MFT_SUBMIT"] = "Íàä³ñëàòè";
-$MESS["MFT_CAPTCHA_CODE"] = "Ââåä³òü ñëîâî íà êàðòèíö³";
-$MESS["MFT_EMAIL"] = "Âàø E-mail";
+$MESS["MFT_CAPTCHA"] = "Ð—Ð°Ñ…Ð¸ÑÑ‚ Ð²Ñ–Ð´ Ð°Ð²Ñ‚Ð¾Ð¼Ð°Ñ‚Ð¸Ñ‡Ð½Ð¸Ñ… Ð¿Ð¾Ð²Ñ–Ð´Ð¾Ð¼Ð»ÐµÐ½ÑŒ";
+$MESS["MFT_MESSAGE"] = "ÐŸÐ¾Ð²Ñ–Ð´Ð¾Ð¼Ð»ÐµÐ½Ð½Ñ";
+$MESS["MFT_NAME"] = "Ð’Ð°ÑˆÐµ Ñ–Ð¼'Ñ";
+$MESS["MFT_SUBMIT"] = "ÐÐ°Ð´Ñ–ÑÐ»Ð°Ñ‚Ð¸";
+$MESS["MFT_CAPTCHA_CODE"] = "Ð’Ð²ÐµÐ´Ñ–Ñ‚ÑŒ ÑÐ»Ð¾Ð²Ð¾ Ð½Ð° ÐºÐ°Ñ€Ñ‚Ð¸Ð½Ñ†Ñ–";
+$MESS["MFT_EMAIL"] = "Ð’Ð°Ñˆ E-mail";
 ?>

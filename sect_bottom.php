@@ -42,7 +42,7 @@
 		);?>
 		<?endif?>
 		<br/>
-		<h2 style="padding-left: 14px;">Новости</h2>
+		<h2 style="padding-left: 14px;">РќРѕРІРѕСЃС‚Рё</h2>
 		<?$APPLICATION->IncludeComponent(
 			"bitrix:news.list",
 			"flat",
@@ -106,7 +106,7 @@
 				"SEARCH_PAGE" => "/search/",
 				"USE_RATING" => "N",
 				"USE_SHARE" => "N",
-				"PAGER_TITLE" => "Новости",
+				"PAGER_TITLE" => "РќРѕРІРѕСЃС‚Рё",
 				"PAGER_BASE_LINK_ENABLE" => "N",
 				"SHOW_404" => "N",
 				"MESSAGE_404" => "",

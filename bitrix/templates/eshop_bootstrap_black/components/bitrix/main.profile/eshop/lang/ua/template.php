@@ -1,11 +1,11 @@
 <?
-$MESS["NAME"] = "²ì'ÿ";
-$MESS["LAST_NAME"] = "Ïð³çâèùå";
-$MESS["SECOND_NAME"] = "Ïî áàòüêîâ³";
-$MESS["NEW_PASSWORD_CONFIRM"] = "Ï³äòâåðäæåííÿ ïàðîëÿ";
-$MESS["NEW_PASSWORD_REQ"] = "Íîâèé ïàðîëü";
-$MESS["MAIN_SAVE"] = "Çáåðåãòè íàëàøòóâàííÿ ïðîô³ëþ";
-$MESS["MAIN_PSWD"] = "Ïàðîëü";
-$MESS["PROFILE_DATA_SAVED"] = "Çì³íè çáåðåæåí³";
-$MESS["LEGEND_PROFILE"] = "Îñîáèñò³ äàí³";
+$MESS["NAME"] = "Ð†Ð¼'Ñ";
+$MESS["LAST_NAME"] = "ÐŸÑ€Ñ–Ð·Ð²Ð¸Ñ‰Ðµ";
+$MESS["SECOND_NAME"] = "ÐŸÐ¾ Ð±Ð°Ñ‚ÑŒÐºÐ¾Ð²Ñ–";
+$MESS["NEW_PASSWORD_CONFIRM"] = "ÐŸÑ–Ð´Ñ‚Ð²ÐµÑ€Ð´Ð¶ÐµÐ½Ð½Ñ Ð¿Ð°Ñ€Ð¾Ð»Ñ";
+$MESS["NEW_PASSWORD_REQ"] = "ÐÐ¾Ð²Ð¸Ð¹ Ð¿Ð°Ñ€Ð¾Ð»ÑŒ";
+$MESS["MAIN_SAVE"] = "Ð—Ð±ÐµÑ€ÐµÐ³Ñ‚Ð¸ Ð½Ð°Ð»Ð°ÑˆÑ‚ÑƒÐ²Ð°Ð½Ð½Ñ Ð¿Ñ€Ð¾Ñ„Ñ–Ð»ÑŽ";
+$MESS["MAIN_PSWD"] = "ÐŸÐ°Ñ€Ð¾Ð»ÑŒ";
+$MESS["PROFILE_DATA_SAVED"] = "Ð—Ð¼Ñ–Ð½Ð¸ Ð·Ð±ÐµÑ€ÐµÐ¶ÐµÐ½Ñ–";
+$MESS["LEGEND_PROFILE"] = "ÐžÑÐ¾Ð±Ð¸ÑÑ‚Ñ– Ð´Ð°Ð½Ñ–";
 ?>

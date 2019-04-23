@@ -1,3 +1,6 @@
+php_value mbstring.func_overload 2 
+php_value mbstring.internal_encoding UTF-8 
+
 Options -Indexes 
 ErrorDocument 404 /404.php
 

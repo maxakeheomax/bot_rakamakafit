@@ -1,7 +1,7 @@
 <?
-$MESS["SEARCH_GOODS"] = "Òîâàðû";
-$MESS["SEARCH_OTHER"] = "Ïðî÷åå";
-$MESS["FOOTER_COMPANY_ABOUT"] = "Ïîäðîáíåå î êîìïàíèè";
-$MESS["FOOTER_COMPANY_PHONE"] = "Ñâÿæèòåñü ñ íàìè";
-$MESS["FOOTER_UP_BUTTON"] = "Íàâåðõ";
+$MESS["SEARCH_GOODS"] = "Ð¢Ð¾Ð²Ð°Ñ€Ñ‹";
+$MESS["SEARCH_OTHER"] = "ÐŸÑ€Ð¾Ñ‡ÐµÐµ";
+$MESS["FOOTER_COMPANY_ABOUT"] = "ÐŸÐ¾Ð´Ñ€Ð¾Ð±Ð½ÐµÐµ Ð¾ ÐºÐ¾Ð¼Ð¿Ð°Ð½Ð¸Ð¸";
+$MESS["FOOTER_COMPANY_PHONE"] = "Ð¡Ð²ÑÐ¶Ð¸Ñ‚ÐµÑÑŒ Ñ Ð½Ð°Ð¼Ð¸";
+$MESS["FOOTER_UP_BUTTON"] = "ÐÐ°Ð²ÐµÑ€Ñ…";
 ?>

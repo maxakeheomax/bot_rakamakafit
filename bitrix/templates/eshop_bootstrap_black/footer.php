@@ -10,19 +10,19 @@
 					<div class="footer__nav-bar-block">
 						<ul class="footer__nav-bar__navs">
 							<li class="footer__nav-bar__navs-item"><a href="#"
-									class="header__nav-bar__navs-item__link">Фитнес ленты</a></li>
+									class="header__nav-bar__navs-item__link">Р¤РёС‚РЅРµСЃ Р»РµРЅС‚С‹</a></li>
 							<li class="footer__nav-bar__navs-item"><a href="#"
-									class="header__nav-bar__navs-item__link">Эспандеры</a></li>
+									class="header__nav-bar__navs-item__link">Р­СЃРїР°РЅРґРµСЂС‹</a></li>
 							<li class="footer__nav-bar__navs-item"><a href="#"
-									class="header__nav-bar__navs-item__link">Фитбол</a></li>
+									class="header__nav-bar__navs-item__link">Р¤РёС‚Р±РѕР»</a></li>
 							<li class="footer__nav-bar__navs-item"><a href="#"
-									class="header__nav-bar__navs-item__link">Наборы</a></li>
+									class="header__nav-bar__navs-item__link">РќР°Р±РѕСЂС‹</a></li>
 							<li class="footer__nav-bar__navs-item"><a href="#"
-									class="header__nav-bar__navs-item__link">Питание</a></li>
+									class="header__nav-bar__navs-item__link">РџРёС‚Р°РЅРёРµ</a></li>
 							<li class="footer__nav-bar__navs-item"><a href="#"
-									class="header__nav-bar__navs-item__link">Дневник тренировок</a></li>
+									class="header__nav-bar__navs-item__link">Р”РЅРµРІРЅРёРє С‚СЂРµРЅРёСЂРѕРІРѕРє</a></li>
 							<li class="footer__nav-bar__navs-item"><a href="#"
-									class="header__nav-bar__navs-item__link">Программа тренировок</a></li>
+									class="header__nav-bar__navs-item__link">РџСЂРѕРіСЂР°РјРјР° С‚СЂРµРЅРёСЂРѕРІРѕРє</a></li>
 						</ul>
 					</div>
 				</div>
@@ -34,10 +34,10 @@
 					</div>
 					<div class="footer__footer-credits__official-info">
 						<ul>
-							<li><a href="#">Доставка и оплата</a></li>
-							<li><a href="#">Полезная информация</a></li>
-							<li><a href="#">О компании</a></li>
-							<li><a href="#">Контакты</a></li>
+							<li><a href="#">Р”РѕСЃС‚Р°РІРєР° Рё РѕРїР»Р°С‚Р°</a></li>
+							<li><a href="#">РџРѕР»РµР·РЅР°СЏ РёРЅС„РѕСЂРјР°С†РёСЏ</a></li>
+							<li><a href="#">Рћ РєРѕРјРїР°РЅРёРё</a></li>
+							<li><a href="#">РљРѕРЅС‚Р°РєС‚С‹</a></li>
 						</ul>
 					</div>
 					<div class="footer__footer-credits__phones">
@@ -54,14 +54,14 @@
 						</ul>
 					</div>
 					<div class="footer__footer-credits__requisites">
-						ИП Чирченко А.И. 119261,?<br>
-						Москва, Ленинский проспект 85 <br>
-						ИНН 770970317833 /?<br>
-						ОГРНИП 316774600448261
+						РРџ Р§РёСЂС‡РµРЅРєРѕ Рђ.Р. 119261,?<br>
+						РњРѕСЃРєРІР°, Р›РµРЅРёРЅСЃРєРёР№ РїСЂРѕСЃРїРµРєС‚ 85 <br>
+						РРќРќ 770970317833 /?<br>
+						РћР“Р РќРРџ 316774600448261
 					</div>
 				</div>
 				<div class="footer__brand">
-					© 2019. RAKAMAKAFIT
+					В© 2019. RAKAMAKAFIT
 				</div>
 			</div>
 		</footer>
