@@ -1,48 +1,53 @@
 <?
 $aMenuLinks = Array(
 	Array(
-		"Íîâîñòè",
-		"news/",
-		Array(),
-		Array(),
-		""
-	),
-
-	Array(
-		"Êàê êóïèòü",
-		"about/howto/",
-		Array(), 
-		Array(), 
-		"" 
-	),
-
-	Array(
-		"Äîñòàâêà",
-		"about/delivery/",
+		"Ð¤Ð¸Ñ‚Ð½ÐµÑ Ð»ÐµÐ½Ñ‚Ñ‹", 
+		"news/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
-		"Î ìàãàçèíå",
-		"about/",
-		Array(),
-		Array(),
-		""
+		"Ð­ÑÐ¿Ð°Ð½Ð´ÐµÑ€Ñ‹", 
+		"about/howto/", 
+		Array(), 
+		Array(), 
+		"" 
 	),
 	Array(
-		"Ãàðàíòèÿ",
-		"about/guaranty/",
-		Array(),
-		Array(),
-		""
+		"Ð¤Ð¸Ñ‚Ð±Ð¾Ð»", 
+		"about/delivery/", 
+		Array(), 
+		Array(), 
+		"" 
 	),
 	Array(
-		"Êîíòàêòû",
-		"about/contacts/",
-		Array(),
-		Array(),
-		""
+		"ÐÐ°Ð±Ð¾Ñ€Ñ‹ ", 
+		"about/", 
+		Array(), 
+		Array(), 
+		"" 
 	),
+	Array(
+		"ÐŸÐ¸Ñ‚Ð°Ð½Ð¸Ðµ", 
+		"about/guaranty/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Ð”Ð½ÐµÐ²Ð½Ð¸Ðº Ñ‚Ñ€ÐµÐ½Ð¸Ñ€Ð¾Ð²Ð¾Ðº", 
+		"about/contacts/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"ÐŸÑ€Ð¾Ð³Ñ€Ð°Ð¼Ð¼Ð° Ñ‚Ñ€ÐµÐ½Ð¸Ñ€Ð¾Ð²Ð¾Ðº", 
+		"about/trainingprograms/", 
+		Array(), 
+		Array(), 
+		"" 
+	)
 );
 ?>

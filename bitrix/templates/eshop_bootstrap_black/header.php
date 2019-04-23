@@ -43,21 +43,21 @@ global $arParams;
                     </div>
                     <div class="header__nav-bar-block">
                         <ul class="header__nav-bar__navs">
-                            <li class="header__nav-bar__navs-item"><a href="#" class="header__nav-bar__navs-item__link nav-bar__navs-item__link--active">Оборудование</a></li>
-                            <li class="header__nav-bar__navs-item"><a href="#" class="header__nav-bar__navs-item__link">Тренировки</a></li>
-                            <li class="header__nav-bar__navs-item"><a href="#" class="header__nav-bar__navs-item__link">Оплата</a></li>
-                            <li class="header__nav-bar__navs-item"><a href="#" class="header__nav-bar__navs-item__link">Доставка</a></li>
-                            <li class="header__nav-bar__navs-item"><a href="#" class="header__nav-bar__navs-item__link">Полезная информация</a></li>
-                            <li class="header__nav-bar__navs-item"><a href="#" class="header__nav-bar__navs-item__link">О компании</a></li>
+                            <li class="header__nav-bar__navs-item"><a href="#" class="header__nav-bar__navs-item__link nav-bar__navs-item__link--active">РћР±РѕСЂСѓРґРѕРІР°РЅРёРµ</a></li>
+                            <li class="header__nav-bar__navs-item"><a href="#" class="header__nav-bar__navs-item__link">РўСЂРµРЅРёСЂРѕРІРєРё</a></li>
+                            <li class="header__nav-bar__navs-item"><a href="#" class="header__nav-bar__navs-item__link">РћРїР»Р°С‚Р°</a></li>
+                            <li class="header__nav-bar__navs-item"><a href="#" class="header__nav-bar__navs-item__link">Р”РѕСЃС‚Р°РІРєР°</a></li>
+                            <li class="header__nav-bar__navs-item"><a href="#" class="header__nav-bar__navs-item__link">РџРѕР»РµР·РЅР°СЏ РёРЅС„РѕСЂРјР°С†РёСЏ</a></li>
+                            <li class="header__nav-bar__navs-item"><a href="#" class="header__nav-bar__navs-item__link">Рћ РєРѕРјРїР°РЅРёРё</a></li>
                         </ul>
                     </div>
                     <div class="header__nav-bar__login-button">
                         <span class="header__nav-bar__login-button__text">
                         
                         <? if($USER->IsAuthorized()): ?>
-                            <a href="/personal/"> Личный кабинет </a>
+                            <a href="/personal/"> Р›РёС‡РЅС‹Р№ РєР°Р±РёРЅРµС‚ </a>
                         <? else:?>
-                            <a href="/login/?login=yes&backurl=<?= $APPLICATION->GetCurUri() ?>"> Вход </a>
+                            <a href="/login/?login=yes&backurl=<?= $APPLICATION->GetCurUri() ?>"> Р’С…РѕРґ </a>
                         <?endif;?>
                        
                         </span>
@@ -66,18 +66,18 @@ global $arParams;
                 <nav class="header__inner-nav-bar">
                     <div class="header__inner-nav-bar-block">
                         <ul class="header__inner-nav-bar__navs header__inner-nav-bar__navs--black-text">
-                            <li class="header__inner-nav-bar__navs-item"><a href="#" class="header__inner-nav-bar__navs-item__link inner-nav-bar__navs-item__link--active">Все товары</a></li>
-                            <li class="header__inner-nav-bar__navs-item"><a href="#" class="header__inner-nav-bar__navs-item__link">Фитнес ленты</a></li>
-                            <li class="header__inner-nav-bar__navs-item"><a href="#" class="header__inner-nav-bar__navs-item__link">Фитбол</a></li>
-                            <li class="header__inner-nav-bar__navs-item"><a href="#" class="header__inner-nav-bar__navs-item__link">Наборы</a></li>
-                            <li class="header__inner-nav-bar__navs-item"><a href="#" class="header__inner-nav-bar__navs-item__link">Питание</a></li>
-                            <li class="header__inner-nav-bar__navs-item"><a href="#" class="header__inner-nav-bar__navs-item__link">Дневник тренировок</a></li>
+                            <li class="header__inner-nav-bar__navs-item"><a href="#" class="header__inner-nav-bar__navs-item__link inner-nav-bar__navs-item__link--active">Р’СЃРµ С‚РѕРІР°СЂС‹</a></li>
+                            <li class="header__inner-nav-bar__navs-item"><a href="#" class="header__inner-nav-bar__navs-item__link">Р¤РёС‚РЅРµСЃ Р»РµРЅС‚С‹</a></li>
+                            <li class="header__inner-nav-bar__navs-item"><a href="#" class="header__inner-nav-bar__navs-item__link">Р¤РёС‚Р±РѕР»</a></li>
+                            <li class="header__inner-nav-bar__navs-item"><a href="#" class="header__inner-nav-bar__navs-item__link">РќР°Р±РѕСЂС‹</a></li>
+                            <li class="header__inner-nav-bar__navs-item"><a href="#" class="header__inner-nav-bar__navs-item__link">РџРёС‚Р°РЅРёРµ</a></li>
+                            <li class="header__inner-nav-bar__navs-item"><a href="#" class="header__inner-nav-bar__navs-item__link">Р”РЅРµРІРЅРёРє С‚СЂРµРЅРёСЂРѕРІРѕРє</a></li>
                         </ul>			
                     </div>
                     <div class="header__nav-bar__cart-block">
                         <a href="/personal/cart/" class="header__nav-bar__cart-block-link">	
                             <img src="<?= SITE_TEMPLATE_PATH ?>/assets/cart.svg" alt="" class="header__nav-bar__cart-block__cart-icon">
-                            <span class="header__nav-bar__cart-block__cart-text">Корзина</span>
+                            <span class="header__nav-bar__cart-block__cart-text">РљРѕСЂР·РёРЅР°</span>
                             <span class="header__nav-bar__cart-block__items-counter"><?= $arResult['NUM_PRODUCTS'] > 0 ? $arResult['NUM_PRODUCTS'] : "" ?></span>
                         </a>
                     </div>                        
@@ -86,7 +86,7 @@ global $arParams;
   
             <div class="aside-block">
                 <div class="aside-block__shedule">
-                    <p class="aside-block__shedule-text">График работы</p>
+                    <p class="aside-block__shedule-text">Р“СЂР°С„РёРє СЂР°Р±РѕС‚С‹</p>
                     <img src="<?= SITE_TEMPLATE_PATH ?>/assets/calendar.svg" alt="calendar" class="aside-block__shedule-logo">
                 </div>
                 <div class="aside-block__icons">

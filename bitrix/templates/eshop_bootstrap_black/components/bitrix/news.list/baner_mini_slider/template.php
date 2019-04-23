@@ -34,7 +34,7 @@ $items = $arResult['ITEMS'];
 					<p class="owl-carousel__up-slider-item__slider-content__slogan"><?= $item['PREVIEW_TEXT']?></p>
 					<div class="owl-carousel__up-slider__content_bottom">
 						<div class="owl-carousel__slider-item-button">
-							<span class="owl-carousel__slider-item-button__text">Купить</span>
+							<span class="owl-carousel__slider-item-button__text">РљСѓРїРёС‚СЊ</span>
 						</div>
 					</div>
 				</div>
