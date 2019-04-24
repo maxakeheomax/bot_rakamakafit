@@ -81,7 +81,7 @@
 			margin:10,
 			dots: false,
 			nav:true,
-			navText: [`<img src="<?= SITE_TEMPLATE_PATH ?>/assets/nav-arrow-left.svg">`,`<img <src="<?= SITE_TEMPLATE_PATH ?>/assets/nav-arrow-right.svg">`]
+			navText: [`<img src="<?= SITE_TEMPLATE_PATH ?>/assets/nav-arrow-left.svg">`,`<img src="<?= SITE_TEMPLATE_PATH ?>/assets/nav-arrow-right.svg">`]
 		});
 
 		$('.owl-carousel.middle-slider').owlCarousel({
@@ -91,7 +91,7 @@
 			margin:10,
 			dots: true,
 			nav:true,
-			navText: [`<img src="<?= SITE_TEMPLATE_PATH ?>/assets/nav-arrow-left.svg">`,`<img <src="<?= SITE_TEMPLATE_PATH ?>/assets/nav-arrow-right.svg">`]
+			navText: [`<img src="<?= SITE_TEMPLATE_PATH ?>/assets/nav-arrow-left.svg">`,`<img src="<?= SITE_TEMPLATE_PATH ?>/assets/nav-arrow-right.svg">`]
 		});
 
 		$('.owl-carousel.bottom-slider').owlCarousel({
@@ -103,7 +103,7 @@
 			margin:10,
 			dots: false,
 			nav:true,
-			navText: [`<img <src="<?= SITE_TEMPLATE_PATH ?>/assets/arrow-white-left.svg">`,`<img <src="<?= SITE_TEMPLATE_PATH ?>/assets/arrow-white-right.svg">`]
+			navText: [`<img src="<?= SITE_TEMPLATE_PATH ?>/assets/arrow-white-left.svg">`,`<img src="<?= SITE_TEMPLATE_PATH ?>/assets/arrow-white-right.svg">`]
 		});
 
 		$('.slick-slider').slick({
@@ -111,8 +111,8 @@
 			slidesToScroll: 1,
 			arrows: true,
 			appendArrows: $('.bottom-slider-nav-buttons'),
-			prevArrow: `<img <src="<?= SITE_TEMPLATE_PATH ?>/assets/arrow-white-left.svg">`,
-			nextArrow: `<img <src="<?= SITE_TEMPLATE_PATH ?>/assets/arrow-white-right.svg">`,
+			prevArrow: `<img src="<?= SITE_TEMPLATE_PATH ?>/assets/arrow-white-left.svg">`,
+			nextArrow: `<img src="<?= SITE_TEMPLATE_PATH ?>/assets/arrow-white-right.svg">`,
 			swipe:true,
 			draggable: true,
 			variableWidth: true,
