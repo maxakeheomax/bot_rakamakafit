@@ -1,8 +1,8 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-$APPLICATION->SetTitle("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ-пїЅпїЅпїЅпїЅпїЅпїЅпїЅ \"пїЅпїЅпїЅпїЅпїЅпїЅ\"");
+$APPLICATION->SetTitle("test");
 ?>
-<?$APPLICATION->IncludeComponent(
+<?/*$APPLICATION->IncludeComponent(
 	"bitrix:news.list",
 	"baner_mini_slider",
 	Array(
@@ -27,7 +27,7 @@ $APPLICATION->SetTitle("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ-пїЅ�
 		"DISPLAY_TOP_PAGER" => "N",
 		"FIELD_CODE" => array("", ""),
 		"FILTER_NAME" => "",
-		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
+		"HIDE_LINK_WHEN_NO_DETAIL" => "N",,
 		"IBLOCK_ID" => "4",
 		"IBLOCK_TYPE" => "banner",
 		"INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
@@ -58,7 +58,7 @@ $APPLICATION->SetTitle("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ-пїЅ�
 		"SORT_ORDER2" => "ASC",
 		"STRICT_SECTION_CHECK" => "N"
 	)
-);?>
+);*/?>
 
 
 <?$APPLICATION->IncludeComponent(
@@ -87,7 +87,7 @@ $APPLICATION->SetTitle("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ-пїЅ�
 		"FIELD_CODE" => array("", ""),
 		"FILTER_NAME" => "",
 		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
-		"IBLOCK_ID" => "4",
+		"IBLOCK_ID" => "5",
 		"IBLOCK_TYPE" => "banner",
 		"INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
 		"INCLUDE_SUBSECTIONS" => "Y",
@@ -111,10 +111,8 @@ $APPLICATION->SetTitle("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ-пїЅ�
 		"SET_STATUS_404" => "N",
 		"SET_TITLE" => "Y",
 		"SHOW_404" => "N",
-		"SORT_BY1" => "ACTIVE_FROM",
-		"SORT_BY2" => "SORT",
+		"SORT_BY1" => "SORT",
 		"SORT_ORDER1" => "DESC",
-		"SORT_ORDER2" => "ASC",
 		"STRICT_SECTION_CHECK" => "N"
 	)
 );?>
