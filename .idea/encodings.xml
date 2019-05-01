@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/bitrix/templates/eshop_bootstrap_black/components/bitrix/news.list/UpSlider/template.php" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/bitrix/templates/eshop_bootstrap_black/components/bitrix/news.list/baner_mini_slider/template.php" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/bitrix/templates/eshop_bootstrap_black/components/bitrix/news.list/banner_roma_slider/template.php" charset="UTF-8" />
   </component>
