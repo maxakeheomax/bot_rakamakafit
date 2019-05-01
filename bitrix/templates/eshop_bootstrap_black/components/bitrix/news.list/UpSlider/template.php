@@ -18,28 +18,22 @@ $this->setFrameMode(true);
 $iblock = GetIBlock($arResult['ITEMS'][0]['IBLOCK_ID']);
 $items = $arResult['ITEMS'];
 ?>
-<!-- <pre>
-	<? 
-	// var_dump( GetIBlock($arResult['ITEMS'][0]['IBLOCK_ID']) )
-	 ?>
-</pre> -->
+
 <div class="up-block">
 	<div class="up-slider-wrapper">
 		<div class="owl-carousel up-slider owl-theme">
 			<? foreach ($items as $item): ?>
-				
 			<div class="owl-carousel__up-up-slider-item">
 				<div class="owl-carousel__up-slider-item__slider-content">
-					<p class="owl-carousel__up-slider-item__slider-content__promo-title"> <?= $item['NAME']?></p> 
+					<p class="owl-carousel__up-slider-item__slider-content__promo-title"><?= $item['NAME']?></p>
 					<p class="owl-carousel__up-slider-item__slider-content__slogan"><?= $item['PREVIEW_TEXT']?></p>
 					<div class="owl-carousel__up-slider__content_bottom">
 						<div class="owl-carousel__slider-item-button">
-							<span class="owl-carousel__slider-item-button__text">Купить</span>
+							<span class="owl-carousel__slider-item-button__text">РљСѓРїРёС‚СЊ</span>
 						</div>
 					</div>
 				</div>
 			</div>
-
 			<? endforeach; ?>			
 		</div>
 	</div>
