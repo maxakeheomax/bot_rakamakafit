@@ -12,9 +12,6 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var string $componentPath */
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
-
-// $APPLICATION->AddHeadScript(__DIR__."/");
-
 $iblock = GetIBlock($arResult['ITEMS'][0]['IBLOCK_ID']);
 $items = $arResult['ITEMS'];
 ?>
@@ -35,7 +32,7 @@ $items = $arResult['ITEMS'];
                     <div class="special-offer-block__item__old-price"><?= $item['OLD_PRICE']?></div>
                 </div>
             </div>
-        </div>>
+        </div>
     <? endforeach; ?>
     </div>
 </div>
