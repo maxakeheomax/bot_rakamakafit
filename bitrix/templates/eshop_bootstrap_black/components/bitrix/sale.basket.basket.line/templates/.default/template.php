@@ -25,7 +25,7 @@ var <?=$cartId?> = new BitrixSmallCart;
 </script>
 <div id="<?=$cartId?>" class="header__nav-bar__cart-block <?=$cartStyle?>">
 	<a href="#" class="header__nav-bar__cart-block-link">	
-		<img src="assets/cart.svg" alt="" class="header__nav-bar__cart-block__cart-icon">
+		<img src="<?= SITE_TEMPLATE_PATH ?>/assets/cart.svg" alt="" class="header__nav-bar__cart-block__cart-icon">
 		<span class="header__nav-bar__cart-block__cart-text">корзина</span>
 		<span class="header__nav-bar__cart-block__items-counter">(3)</span>
 	</a>
