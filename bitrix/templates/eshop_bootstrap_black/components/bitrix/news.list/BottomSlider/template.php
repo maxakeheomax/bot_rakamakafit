@@ -21,7 +21,7 @@ $items = $arResult['ITEMS'];
         <div class="bottom-slider-block__slider-header_top-content">
             <div class="bottom-slider-block__slider-header__left-block">
                 <p class="bottom-slider-block__slider-header__left-block__slogan">стань частью <span class="bottom-slider-block__slider-header__left-block__slogan__underline-block-up">@rakamaka.fit</span></p>
-                <img class="bottom-slider-block__slider-header__left-block__logo" src="assets/bottom-slider-inst.svg" alt="">
+                <img class="bottom-slider-block__slider-header__left-block__logo" src="<?= SITE_TEMPLATE_PATH ?>/assets/bottom-slider-inst.svg" alt="">
             </div>
             <div class="bottom-slider-block__slider-header__right-block">
                 <div class="bottom-slider-block__slogan-button-wrapper">
@@ -31,21 +31,21 @@ $items = $arResult['ITEMS'];
                 </div>
             </div>
         </div>
-        <img class="bottom-slider-block____slider-header__right-block_img" src="assets/bottom-hashtag.svg" alt="">
+        <img class="bottom-slider-block____slider-header__right-block_img" src="<?= SITE_TEMPLATE_PATH ?>/assets/bottom-hashtag.svg" alt="">
     </div>
     <div class="bottom-slider-block__slider-footer"></div>
     <div class="bottom-slider-block__slider-wrapper">
         <div class="slick-slider">
-            <div><img src="assets/bottom-slider-img-1.jpg" alt=""></div>
-            <div><img src="assets/bottom-slider-img-1.jpg" alt=""></div>
-            <div><img src="assets/bottom-slider-img-2.jpg" alt=""></div>
-            <div><img src="assets/bottom-slider-img-1.jpg" alt=""></div>
-            <div><img src="assets/bottom-slider-img-2.jpg" alt=""></div>
-            <div><img src="assets/bottom-slider-img-1.jpg" alt=""></div>
-            <div><img src="assets/bottom-slider-img-2.jpg" alt=""></div>
-            <div><img src="assets/bottom-slider-img-2.jpg" alt=""></div>
-            <div><img src="assets/bottom-slider-img-1.jpg" alt=""></div>
-            <div><img src="assets/bottom-slider-img-2.jpg" alt=""></div>
+            <div><img src="<?= SITE_TEMPLATE_PATH ?>/assets/bottom-slider-img-1.jpg" alt=""></div>
+            <div><img src="<?= SITE_TEMPLATE_PATH ?>/assets/bottom-slider-img-1.jpg" alt=""></div>
+            <div><img src="<?= SITE_TEMPLATE_PATH ?>/assets/bottom-slider-img-2.jpg" alt=""></div>
+            <div><img src="<?= SITE_TEMPLATE_PATH ?>/assets/bottom-slider-img-1.jpg" alt=""></div>
+            <div><img src="<?= SITE_TEMPLATE_PATH ?>/assets/bottom-slider-img-2.jpg" alt=""></div>
+            <div><img src="<?= SITE_TEMPLATE_PATH ?>/assets/bottom-slider-img-1.jpg" alt=""></div>
+            <div><img src="<?= SITE_TEMPLATE_PATH ?>/assets/bottom-slider-img-2.jpg" alt=""></div>
+            <div><img src="<?= SITE_TEMPLATE_PATH ?>/assets/bottom-slider-img-2.jpg" alt=""></div>
+            <div><img src="<?= SITE_TEMPLATE_PATH ?>/assets/bottom-slider-img-1.jpg" alt=""></div>
+            <div><img src="<?= SITE_TEMPLATE_PATH ?>/assets/bottom-slider-img-2.jpg" alt=""></div>
         </div>
         <div class="bottom-slider-nav-buttons"></div>
     </div>
@@ -60,7 +60,7 @@ $items = $arResult['ITEMS'];
             margin:10,
             dots: false,
             nav:true,
-            navText: [`<img src="assets/nav-arrow-left.svg">`,`<img src="assets/nav-arrow-right.svg">`]
+            navText: [`<img src="<?= SITE_TEMPLATE_PATH ?>/assets/nav-arrow-left.svg">`,`<img src="<?= SITE_TEMPLATE_PATH ?>/assets/nav-arrow-right.svg">`]
         });
 
         $('.owl-carousel.middle-slider').owlCarousel({
@@ -70,7 +70,7 @@ $items = $arResult['ITEMS'];
             margin:10,
             dots: true,
             nav:true,
-            navText: [`<img src="assets/nav-arrow-left.svg">`,`<img src="assets/nav-arrow-right.svg">`]
+            navText: [`<img src="<?= SITE_TEMPLATE_PATH ?>/assets/nav-arrow-left.svg">`,`<img src="<?= SITE_TEMPLATE_PATH ?>/assets/nav-arrow-right.svg">`]
         });
 
         $('.owl-carousel.bottom-slider').owlCarousel({
@@ -82,7 +82,7 @@ $items = $arResult['ITEMS'];
             margin:10,
             dots: false,
             nav:true,
-            navText: [`<img src="assets/arrow-white-left.svg">`,`<img src="assets/arrow-white-right.svg">`]
+            navText: [`<img src="<?= SITE_TEMPLATE_PATH ?>/assets/arrow-white-left.svg">`,`<img src="<?= SITE_TEMPLATE_PATH ?>/assets/arrow-white-right.svg">`]
         });
 
         $('.slick-slider').slick({
@@ -90,8 +90,8 @@ $items = $arResult['ITEMS'];
             slidesToScroll: 1,
             arrows: true,
             appendArrows: $('.bottom-slider-nav-buttons'),
-            prevArrow: `<img src="assets/arrow-white-left.svg">`,
-            nextArrow: `<img src="assets/arrow-white-right.svg">`,
+            prevArrow: `<img src="<?= SITE_TEMPLATE_PATH ?>/assets/arrow-white-left.svg">`,
+            nextArrow: `<img src="<?= SITE_TEMPLATE_PATH ?>/assets/arrow-white-right.svg">`,
             swipe:true,
             draggable: true,
             variableWidth: true,
