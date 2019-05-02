@@ -49,7 +49,7 @@ $items = $arResult['ITEMS'];
         </div>
         <div class="pop-products-block__item">
             <div class="pop-products-block__item__img-block">
-                <img src="assets/lenti-tubus.jpg" alt="">
+                <img src="<?= SITE_TEMPLATE_PATH ?>/assets/lenti-tubus.jpg" alt="">
             </div>
             <div class="pop-products-block__item__title"><span class="title-span">5 фитнес лент в удобной упаковке</span></div>
             <div class="pop-products-block__item__prices">
@@ -60,7 +60,7 @@ $items = $arResult['ITEMS'];
         </div>
         <div class="pop-products-block__item">
             <div class="pop-products-block__item__img-block">
-                <img src="assets/diary.jpg" alt="">
+                <img src="<?= SITE_TEMPLATE_PATH ?>/assets/diary.jpg" alt="">
             </div>
             <div class="pop-products-block__item__title"><span class="title-span">Дневник питания</span></div>
             <div class="pop-products-block__item__prices">
@@ -71,7 +71,7 @@ $items = $arResult['ITEMS'];
         </div>
         <div class="pop-products-block__item">
             <div class="pop-products-block__item__img-block">
-                <img src="assets/grif-01.jpg" alt="">
+                <img src="<?= SITE_TEMPLATE_PATH ?>/assets/grif-01.jpg" alt="">
             </div>
             <div class="pop-products-block__item__title"><span class="title-span">Фитнес гриф Rakamakafit</span></div>
             <div class="pop-products-block__item__prices">
