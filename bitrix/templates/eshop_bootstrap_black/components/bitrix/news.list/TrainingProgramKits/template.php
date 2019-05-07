@@ -21,20 +21,37 @@ $item_properties = CIBlockElement::GetByID($item['ID'])->GetNextElement()->GetPr
 $item
 ?>
 
-<div class="promo-train-block__slider-item">
-    <div class="promo-train-block__slider-item__slider-content">
-        <p class="promo-train-block__slider-item__slider-content__promo-title">программа тренировок</p>
-        <p class="promo-train-block__slider-item__slider-content__slogan">При покупке любого оборудования Rakamakafit - <span class="promo-train-block__title_underline-block-up"> 7-дневный доступ
-		к программе в подарок</span> </p>
-        <p class="promo-train-block__slider-item__slider-content__dicription">Тебя ждет от 4 тренировки в неделю, программа питания на каждый день, мотивационные лекции и статьи, удобное отслеживание результатов.</p>
-        <div class="promo-train-block__slider__content_bottom">
-            <div class="promo-train-block__slider-item-button">
-                <span class="promo-train-block__slider-item-button__text">Купить</span>
+<div class="special-offer-block">
+    <div class="special-offer-block__title">
+        <p class="special-offer-block__title__name">Наборы с программой тренировок</p>
+        <div class="special-offer-block__title__link-to-all">все</div>
+    </div>
+    <div class="special-offer-block__items">
+        <div class="special-offer-block__item">
+            <img src="assets/offer-1.jpg" alt="">
+            <div class="special-offer-block__item__title">Персональная 5-недельная программа тренировок и питания RAKAMAKAFIT ONLINE</div>
+
+            <div class="special-offer-block__item__prices">
+                <div class="special-offer-block__item__price">5980 ₽</div>
+                <div class="special-offer-block__item__old-price">7980 ₽</div>
             </div>
-            <div class="promo-train-block__slider-item-more">
-                <span class="promo-train-block__slider-item-more__text">Подробнее</span>
+        </div>
+        <div class="special-offer-block__item">
+            <img src="assets/offer-2.jpg" alt="">
+            <div class="special-offer-block__item__title">Набор эспандеров + персональная 5-недельная программа тренировок и питания RAKAMAKAFIT ONLINE</div>
+            <div class="special-offer-block__item__prices">
+                <div class="special-offer-block__item__price">7980 ₽</div>
+                <div class="special-offer-block__item__old-price"></div>
+            </div>
+        </div>
+        <div class="special-offer-block__item">
+            <img src="assets/offer-3.jpg" alt="">
+            <div class="special-offer-block__item__title">Набор эспандеры + ленты + гриф + персональная 5-недельная программа тренировок и питания RAKAMAKAFIT ONLINE</div>
+
+            <div class="special-offer-block__item__prices">
+                <div class="special-offer-block__item__price">5980 ₽</div>
+                <div class="special-offer-block__item__old-price"></div>
             </div>
         </div>
     </div>
 </div>
-
