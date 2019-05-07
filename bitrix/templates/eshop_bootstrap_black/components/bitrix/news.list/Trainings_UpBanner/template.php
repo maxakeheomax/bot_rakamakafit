@@ -26,12 +26,11 @@ $item
         <div class="up-slider owl-theme">
             <div class="owl-carousel__up-up-slider-item">
                 <div class="owl-carousel__up-slider-item__slider-content">
-                    <p class="owl-carousel__up-slider-item__name"><?= $item_properties['START']['VALUE'] ?></p>
-                    <p class="owl-carousel__up-slider-item__slider-content__promo-title"><?= $item['NAME']?></p>
-                    <p class="owl-carousel__up-slider-item__slider-content__slogan"><?= $item_properties['DESCRIPTION']['TEXT'] ?> </p>
+                    <p class="owl-carousel__up-slider-item__slider-content__promo-title">Красивое тело за пять недель - это реально!</p>
+                    <p class="owl-carousel__up-slider-item__slider-content__slogan">Кардинальное преображение ждет тебя в персональной программе тренировок и питания от Насти RAKAMAKAFIT </p>
                     <div class="owl-carousel__up-slider__content_bottom">
                         <div class="owl-carousel__slider-item-button">
-                            <span class="owl-carousel__slider-item-button__text">Участвовать</span>
+                            <span class="owl-carousel__slider-item-button__text">Получить</span>
                         </div>
                     </div>
                 </div>

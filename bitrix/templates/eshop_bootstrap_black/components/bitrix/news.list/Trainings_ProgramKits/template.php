@@ -28,7 +28,7 @@ $item
     </div>
     <div class="special-offer-block__items">
         <div class="special-offer-block__item">
-            <img src="assets/offer-1.jpg" alt="">
+            <img src="<?= SITE_TEMPLATE_PATH ?>/assets/offer-1.jpg" alt="">
             <div class="special-offer-block__item__title">Персональная 5-недельная программа тренировок и питания RAKAMAKAFIT ONLINE</div>
 
             <div class="special-offer-block__item__prices">
@@ -37,7 +37,7 @@ $item
             </div>
         </div>
         <div class="special-offer-block__item">
-            <img src="assets/offer-2.jpg" alt="">
+            <img src="<?= SITE_TEMPLATE_PATH ?>/assets/offer-2.jpg" alt="">
             <div class="special-offer-block__item__title">Набор эспандеров + персональная 5-недельная программа тренировок и питания RAKAMAKAFIT ONLINE</div>
             <div class="special-offer-block__item__prices">
                 <div class="special-offer-block__item__price">7980 ₽</div>
@@ -45,7 +45,7 @@ $item
             </div>
         </div>
         <div class="special-offer-block__item">
-            <img src="assets/offer-3.jpg" alt="">
+            <img src="<?= SITE_TEMPLATE_PATH ?>/assets/offer-3.jpg" alt="">
             <div class="special-offer-block__item__title">Набор эспандеры + ленты + гриф + персональная 5-недельная программа тренировок и питания RAKAMAKAFIT ONLINE</div>
 
             <div class="special-offer-block__item__prices">
