@@ -18,7 +18,7 @@ $this->setFrameMode(true);
 $iblock = GetIBlock($arResult['ITEMS'][0]['IBLOCK_ID']);
 $item = $arResult['ITEMS'][ count($arResult['ITEMS'])-1 ];
 $item_properties = CIBlockElement::GetByID($item['ID'])->GetNextElement()->GetProperties();
-$itemж
+$item
 
 ?>
 <!-- <pre>

@@ -61,6 +61,7 @@ $APPLICATION->SetTitle("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ-пїЅ�
 );?>
 
 
+
 <?$APPLICATION->IncludeComponent(
 	"bitrix:news.list",
 	"banner_roma_slider",
