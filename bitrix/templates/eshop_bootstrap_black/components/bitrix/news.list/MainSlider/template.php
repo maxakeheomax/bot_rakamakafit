@@ -20,21 +20,49 @@ $items = $arResult['ITEMS'];
 ?>
 
 <div class="owl-carousel middle-slider owl-theme">
-    <? foreach ($items as $item): ?>
-        <div class="owl-carousel__slider-item" style="background: url('<?=CFile::GetPath($iblock["PICTURE"]);?>');background-size: 100% 100%; ">
-            <div class="owl-carousel__slider-item__slider-content">
-                <p class="owl-carousel__slider-item__slider-content__promo-title"><?= $item['NAME']?></p>
-                <p class="owl-carousel__slider-item__slider-content__slogan"><?= $item['PREVIEW_TEXT']?></p>
-                <p class="owl-carousel__slider-item__slider-content__dicription"><?= $item['DETAIL_TEXT']?></p>
-                <div class="owl-carousel__slider__content_bottom">
-                    <div class="owl-carousel__slider-item-button">
-                        <span class="owl-carousel__main-slider-item-button__text">Купить</span>
-                    </div>
-                    <div class="owl-carousel__slider-item-more">
-                        <span class="owl-carousel__slider-item-more__text">Подробнее</span>
-                    </div>
+    <div class="owl-carousel__slider-item" style="background: url('<?= SITE_TEMPLATE_PATH ?>/assets/slider-bg.jpg'); background-size: 100% 100%; ">
+        <div class="owl-carousel__slider-item__slider-content">
+            <p class="owl-carousel__slider-item__slider-content__promo-title">Твой фитнес клуб в сумочке</p>
+            <p class="owl-carousel__slider-item__slider-content__slogan">Прочные и широкие фитнес ленты</p>
+            <p class="owl-carousel__slider-item__slider-content__dicription">легко брать с собой,  комбинировать друг с другом и прорабатывать все группы мышц. С резинками Rakamakafit из натурального латекса заниматься дома или на свежем воздухе можно в любую минуту.</p>
+            <div class="owl-carousel__slider__content_bottom">
+                <div class="owl-carousel__slider-item-button">
+                    <span class="owl-carousel__main-slider-item-button__text">Купить</span>
+                </div>
+                <div class="owl-carousel__slider-item-more">
+                    <span class="owl-carousel__slider-item-more__text">Подробнее</span>
                 </div>
             </div>
         </div>
-    <? endforeach; ?>
+    </div>
+    <div class="owl-carousel__slider-item" style="background: url('<?= SITE_TEMPLATE_PATH ?>/assets/slider-bg.jpg'); background-size: 100% 100%; ">
+        <div class="owl-carousel__slider-item__slider-content">
+            <p class="owl-carousel__slider-item__slider-content__promo-title">Твой фитнес клуб в сумочке</p>
+            <p class="owl-carousel__slider-item__slider-content__slogan">Прочные и широкие фитнес ленты</p>
+            <p class="owl-carousel__slider-item__slider-content__dicription">легко брать с собой, комбинировать друг с другом и прорабатывать все группы мышц. С резинками Rakamakafit из натурального латекса заниматься дома или на свежем воздухе можно в любую минуту.</p>
+            <div class="owl-carousel__slider__content_bottom">
+                <div class="owl-carousel__slider-item-button">
+                    <span class="owl-carousel__main-slider-item-button__text">Купить</span>
+                </div>
+                <div class="owl-carousel__slider-item-more">
+                    <span class="owl-carousel__slider-item-more__text">Подробнее</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="owl-carousel__slider-item" style="background: url('<?= SITE_TEMPLATE_PATH ?>/assets/slider-bg.jpg'); background-size: 100% 100%; ">
+        <div class="owl-carousel__slider-item__slider-content">
+            <p class="owl-carousel__slider-item__slider-content__promo-title">Твой фитнес клуб в сумочке</p>
+            <p class="owl-carousel__slider-item__slider-content__slogan">Прочные и широкие фитнес ленты</p>
+            <p class="owl-carousel__slider-item__slider-content__dicription">легко брать с собой,  комбинировать друг с другом и прорабатывать все группы мышц. С резинками Rakamakafit из натурального латекса заниматься дома или на свежем воздухе можно в любую минуту.</p>
+            <div class="owl-carousel__slider__content_bottom">
+                <div class="owl-carousel__slider-item-button">
+                    <span class="owl-carousel__main-slider-item-button__text">Купить</span>
+                </div>
+                <div class="owl-carousel__slider-item-more">
+                    <span class="owl-carousel__slider-item-more__text">Подробнее</span>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
