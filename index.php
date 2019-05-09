@@ -227,6 +227,7 @@ $APPLICATION->SetTitle("test"); ?>
 	)
 );?>
 
+
 <?$APPLICATION->IncludeComponent(
 	"bitrix:news.list",
 	"PromoFormBlock",
