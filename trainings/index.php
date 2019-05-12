@@ -5,7 +5,7 @@ $APPLICATION->SetTitle("Тренировки");
 
 <?$APPLICATION->IncludeComponent(
 	"bitrix:news.list",
-	"Trainings_UpBanner",
+	"UpBanner",
 	Array(
 		"ACTIVE_DATE_FORMAT" => "d.m.Y",
 		"ADD_SECTIONS_CHAIN" => "Y",
@@ -61,7 +61,7 @@ $APPLICATION->SetTitle("Тренировки");
 
 <?$APPLICATION->IncludeComponent(
     "bitrix:news.list",
-    "Trainings_ProgramKits",
+    "ProgramKits",
     Array(
         "ACTIVE_DATE_FORMAT" => "d.m.Y",
         "ADD_SECTIONS_CHAIN" => "Y",
@@ -117,7 +117,7 @@ $APPLICATION->SetTitle("Тренировки");
 
 <?$APPLICATION->IncludeComponent(
 	"bitrix:news.list",
-	"Trainings_PromoTrainBlockUp",
+	"PromoTrainBlockUp",
 	Array(
 		"ACTIVE_DATE_FORMAT" => "d.m.Y",
 		"ADD_SECTIONS_CHAIN" => "Y",
@@ -173,7 +173,7 @@ $APPLICATION->SetTitle("Тренировки");
 
 <?$APPLICATION->IncludeComponent(
 	"bitrix:news.list",
-	"Trainings_HowToStart",
+	"HowToStart",
 	Array(
 		"ACTIVE_DATE_FORMAT" => "d.m.Y",
 		"ADD_SECTIONS_CHAIN" => "Y",
@@ -229,7 +229,7 @@ $APPLICATION->SetTitle("Тренировки");
 
 <?$APPLICATION->IncludeComponent(
 	"bitrix:news.list",
-	"Trainings_PromoTrainBlockDown",
+	"PromoTrainBlockDown",
 	Array(
 		"ACTIVE_DATE_FORMAT" => "d.m.Y",
 		"ADD_SECTIONS_CHAIN" => "Y",
@@ -285,7 +285,7 @@ $APPLICATION->SetTitle("Тренировки");
 
 <?$APPLICATION->IncludeComponent(
 	"bitrix:news.list",
-	"Trainings_HelloBlock",
+	"HelloBlock",
 	Array(
 		"ACTIVE_DATE_FORMAT" => "d.m.Y",
 		"ADD_SECTIONS_CHAIN" => "Y",
@@ -341,7 +341,7 @@ $APPLICATION->SetTitle("Тренировки");
 
 <?$APPLICATION->IncludeComponent(
 	"bitrix:news.list",
-	"Trainings_FAQ",
+	"FAQ",
 	Array(
 		"ACTIVE_DATE_FORMAT" => "d.m.Y",
 		"ADD_SECTIONS_CHAIN" => "Y",
