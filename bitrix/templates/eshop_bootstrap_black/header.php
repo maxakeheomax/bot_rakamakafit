@@ -44,7 +44,7 @@ global $arParams;
                     <div class="header__nav-bar-block">
                         <ul class="header__nav-bar__navs">
                             <li class="header__nav-bar__navs-item"><a href="#" class="header__nav-bar__navs-item__link nav-bar__navs-item__link--active">Оборудование</a></li>
-                            <li class="header__nav-bar__navs-item"><a href="#" class="header__nav-bar__navs-item__link">Тренировки</a></li>
+                            <li class="header__nav-bar__navs-item"><a href="/trainings" class="header__nav-bar__navs-item__link">Тренировки</a></li>
                             <li class="header__nav-bar__navs-item"><a href="#" class="header__nav-bar__navs-item__link">Оплата</a></li>
                             <li class="header__nav-bar__navs-item"><a href="#" class="header__nav-bar__navs-item__link">Доставка</a></li>
                             <li class="header__nav-bar__navs-item"><a href="#" class="header__nav-bar__navs-item__link">Полезная информация</a></li>
