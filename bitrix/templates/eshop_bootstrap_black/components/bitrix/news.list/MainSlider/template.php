@@ -37,5 +37,5 @@ $items = $arResult['ITEMS'];
                 </div>
             </div>
         </div>
-    <? endforeach; ?>
+    </div>
 </div>

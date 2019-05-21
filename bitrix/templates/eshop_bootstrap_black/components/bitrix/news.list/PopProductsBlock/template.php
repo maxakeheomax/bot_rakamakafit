@@ -25,12 +25,12 @@ $items = $arResult['ITEMS'];
         <!-- cycle start -->
         <div class="pop-products-block__item">
             <div class="pop-products-block__item__img-block">
-                <img src="<?=CFile::GetPath($iblock["PICTURE"]);?>" alt="">
+                <img src="<?= SITE_TEMPLATE_PATH ?>/assets/ipad-03.jpg" alt="">
             </div>
-            <div class="pop-products-block__item__title"><span class="title-span"><?= $item['NAME']?></span></div>
+            <div class="pop-products-block__item__title"><span class="title-span">Программа тренировок Rakamakafit Online</span></div>
             <div class="pop-products-block__item__prices">
-                <div class="pop-products-block__item__price"><?= $item['PRICE']?></div>
-                <div class="pop-products-block__item__old-price"><?= $item['OLD_PRICE']?></div>
+                <div class="pop-products-block__item__price">5980 ₽</div>
+                <div class="pop-products-block__item__old-price">7980 ₽</div>
                 <div class="pop-products-block__item-cart"></div>
             </div>
         </div>
@@ -38,9 +38,9 @@ $items = $arResult['ITEMS'];
 
         <div class="pop-products-block__item">
             <div class="pop-products-block__item__img-block">
-                <img src="<?=CFile::GetPath($iblock["PICTURE"]);?>" alt="">
+                <img src="<?= SITE_TEMPLATE_PATH ?>/assets/fitball-01.jpg" alt="">
             </div>
-            <div class="pop-products-block__item__title"><span class="title-span"><?= $item['NAME']?></span></div>
+            <div class="pop-products-block__item__title"><span class="title-span">Фитбол Rakamakafit</span></div>
             <div class="pop-products-block__item__prices">
                 <div class="pop-products-block__item__price">1370 ₽</div>
                 <div class="pop-products-block__item__old-price"></div>
