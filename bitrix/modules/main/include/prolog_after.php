@@ -25,7 +25,7 @@ if(!headers_sent())
 
 if(defined("DEMO") && DEMO=="Y")
 {
-	if(defined("OLDSITEEXPIREDATE") && defined("SITEEXPIREDATE") && OLDSITEEXPIREDATE != SITEEXPIREDATE)
+	/*if(defined("OLDSITEEXPIREDATE") && defined("SITEEXPIREDATE") && OLDSITEEXPIREDATE != SITEEXPIREDATE)
 		die(GetMessage("expire_mess2"));
 
 	//wizard customization file
@@ -65,7 +65,7 @@ if(defined("DEMO") && DEMO=="Y")
 	elseif($daysToExpire == 0)
 	{
 		echo GetMessage("expire_mess1");
-	}
+	}*/
 }
 elseif (defined("TIMELIMIT_EDITION") && TIMELIMIT_EDITION == "Y")
 {

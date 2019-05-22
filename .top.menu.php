@@ -2,45 +2,45 @@
 $aMenuLinks = Array(
 	Array(
 		"Оборудование", 
-		"about/howto/", 
+		"equipment/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
 		"Тренировки", 
-		"about/delivery/", 
+		"trainings/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
 		"Оплата", 
-		"about/", 
+		"payment/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
 		"Доставка ", 
-		"about/guaranty/", 
+		"delivery/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
 		"Полезная информация", 
-		"about/contacts/", 
+		"information/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
 		"О компании", 
-		"personal/", 
+		"about/", 
 		Array(), 
 		Array(), 
-		"CUser::IsAuthorized()" 
+		"" 
 	)
 );
 ?>

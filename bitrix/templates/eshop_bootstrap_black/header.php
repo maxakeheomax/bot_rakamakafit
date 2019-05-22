@@ -43,13 +43,16 @@ global $arParams;
                     </div>
                     <div class="header__nav-bar-block">
                         <ul class="header__nav-bar__navs">
-                            <li class="header__nav-bar__navs-item"><a href="#" class="header__nav-bar__navs-item__link nav-bar__navs-item__link--active">Оборудование</a></li>
-                            <li class="header__nav-bar__navs-item"><a href="#" class="header__nav-bar__navs-item__link">Тренировки</a></li>
-                            <li class="header__nav-bar__navs-item"><a href="#" class="header__nav-bar__navs-item__link">Оплата</a></li>
-                            <li class="header__nav-bar__navs-item"><a href="#" class="header__nav-bar__navs-item__link">Доставка</a></li>
-                            <li class="header__nav-bar__navs-item"><a href="#" class="header__nav-bar__navs-item__link">Полезная информация</a></li>
-                            <li class="header__nav-bar__navs-item"><a href="#" class="header__nav-bar__navs-item__link">О компании</a></li>
-                        </ul>
+                        <?$APPLICATION->IncludeComponent(
+                            "bitrix:menu",
+                            "top_menu",
+                            Array(
+                                "ROOT_MENU_TYPE" => "top", 
+                                "MAX_LEVEL" => "3", 
+                                "CHILD_MENU_TYPE" => "left", 
+                                "USE_EXT" => "Y" 
+                            )
+                        );?>
                     </div>
                     <div class="header__nav-bar__login-button">
                         <span class="header__nav-bar__login-button__text">
