@@ -293,7 +293,7 @@ a {
 	text-align: center;
 	text-transform: uppercase;
 }
-.owl-carousel__slider-item-button__text {
+.owl-carousel__slider-item-button__text, owl-carousel__main-slider-item-button__text {
 	font-size: 16px;
 	font-weight: bold;
 	font-style: normal;
