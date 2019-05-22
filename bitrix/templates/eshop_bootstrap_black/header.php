@@ -48,8 +48,8 @@ global $arParams;
                             "top_menu",
                             Array(
                                 "ROOT_MENU_TYPE" => "top", 
+                                "CHILD_MENU_TYPE" => "left",
                                 "MAX_LEVEL" => "3", 
-                                "CHILD_MENU_TYPE" => "left", 
                                 "USE_EXT" => "Y" 
                             )
                         );?>
@@ -67,15 +67,17 @@ global $arParams;
                     </div>
                 </nav>	
                 <nav class="header__inner-nav-bar">
-                    <div class="header__inner-nav-bar-block">
-                        <ul class="header__inner-nav-bar__navs header__inner-nav-bar__navs--black-text">
-                            <li class="header__inner-nav-bar__navs-item"><a href="#" class="header__inner-nav-bar__navs-item__link inner-nav-bar__navs-item__link--active">Все товары</a></li>
-                            <li class="header__inner-nav-bar__navs-item"><a href="#" class="header__inner-nav-bar__navs-item__link">Фитнес ленты</a></li>
-                            <li class="header__inner-nav-bar__navs-item"><a href="#" class="header__inner-nav-bar__navs-item__link">Фитбол</a></li>
-                            <li class="header__inner-nav-bar__navs-item"><a href="#" class="header__inner-nav-bar__navs-item__link">Наборы</a></li>
-                            <li class="header__inner-nav-bar__navs-item"><a href="#" class="header__inner-nav-bar__navs-item__link">Питание</a></li>
-                            <li class="header__inner-nav-bar__navs-item"><a href="#" class="header__inner-nav-bar__navs-item__link">Дневник тренировок</a></li>
-                        </ul>			
+                    <div class="header__inner-nav-bar-block">                        
+                        <?$APPLICATION->IncludeComponent(
+                            "bitrix:menu",
+                            "equipment_menu",
+                            Array(
+                                "ROOT_MENU_TYPE" => "subtop", 
+                                //"CHILD_MENU_TYPE" => "left",
+                                "MAX_LEVEL" => "3", 
+                                "USE_EXT" => "Y" 
+                            )
+                        );?>
                     </div>
                     <div class="header__nav-bar__cart-block">
                         <a href="/personal/cart/" class="header__nav-bar__cart-block-link">	

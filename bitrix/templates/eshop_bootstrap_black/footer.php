@@ -7,24 +7,16 @@
 					<div class="footer__nav__logo">
 						<img src="<?= SITE_TEMPLATE_PATH ?>/assets/logo-footer.png" alt="">
 					</div>
-					<div class="footer__nav-bar-block">
-						<ul class="footer__nav-bar__navs">
-							<li class="footer__nav-bar__navs-item"><a href="#"
-									class="header__nav-bar__navs-item__link">Фитнес ленты</a></li>
-							<li class="footer__nav-bar__navs-item"><a href="#"
-									class="header__nav-bar__navs-item__link">Эспандеры</a></li>
-							<li class="footer__nav-bar__navs-item"><a href="#"
-									class="header__nav-bar__navs-item__link">Фитбол</a></li>
-							<li class="footer__nav-bar__navs-item"><a href="#"
-									class="header__nav-bar__navs-item__link">Наборы</a></li>
-							<li class="footer__nav-bar__navs-item"><a href="#"
-									class="header__nav-bar__navs-item__link">Питание</a></li>
-							<li class="footer__nav-bar__navs-item"><a href="#"
-									class="header__nav-bar__navs-item__link">Дневник тренировок</a></li>
-							<li class="footer__nav-bar__navs-item"><a href="#"
-									class="header__nav-bar__navs-item__link">Программа тренировок</a></li>
-						</ul>
-					</div>
+					<?$APPLICATION->IncludeComponent(
+                            "bitrix:menu",
+                            "bottom_menu",
+                            Array(
+                                "ROOT_MENU_TYPE" => "bottom", 
+                                //"CHILD_MENU_TYPE" => "left",
+                                "MAX_LEVEL" => "3", 
+                                "USE_EXT" => "Y" 
+                            )
+                        );?>
 				</div>
 				<div class="footer__footer-credits">
 					<div class="footer__footer-credits__icons">
@@ -46,7 +38,7 @@
 								<nobr><a href="tel:88003331363">8 (800) 333 13 63</a></nobr>
 							</li>
 							<li>
-								<nobr><a href="tel:88001234573?">8 (800) 123 45 73?</a></nobr>
+								<nobr><a href="tel:88001234573?">8 (800) 123 45 73</a></nobr>
 							</li>
 							<li>
 								<nobr><a href="tel:88003331363">8 (800) 333 13 63</a></nobr>
@@ -54,9 +46,9 @@
 						</ul>
 					</div>
 					<div class="footer__footer-credits__requisites">
-						ИП Чирченко А.И. 119261,?<br>
+						ИП Чирченко А.И. 119261,<br>
 						Москва, Ленинский проспект 85 <br>
-						ИНН 770970317833 /?<br>
+						ИНН 770970317833<br>
 						ОГРНИП 316774600448261
 					</div>
 				</div>
