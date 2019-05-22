@@ -12,6 +12,26 @@
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
 ?>
+<!-- HEADER START -->
+
+<div class="up-hello-block">
+	<div class="up-hello-block__left-side">
+		<div class="up-hello-block__left-side__decor-item"></div>
+	<div class="up-hello-block__left-side__title-block">
+		<div class="up-hello-block__left-side__title">Привет! <br>
+		Я - Настя #RAKAMAKAFIT</div>
+		<div class="up-hello-block__left-side__desc">Приветствую тебя в своем блоге!</div>
+	</div>
+	</div>
+	<div class="up-hello-block__right-side">
+			<div class="up-hello-block__right-side__down-decor-item"></div>
+		<div class="up-hello-block__right-side__img"><img src="<?= SITE_TEMPLATE_PATH ?>/assets/up-hello-block.jpg" alt=""></div>
+			<div class="up-hello-block__right-side__up-decor-item"></div>
+	</div>
+</div>
+
+
+<!-- HEADER END -->
 <div class="news-list">
 <?if($arParams["DISPLAY_TOP_PAGER"]):?>
 	<?=$arResult["NAV_STRING"]?><br />
