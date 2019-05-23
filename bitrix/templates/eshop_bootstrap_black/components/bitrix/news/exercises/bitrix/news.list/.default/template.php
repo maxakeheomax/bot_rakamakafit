@@ -12,8 +12,6 @@
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
 ?>
-<?= $APPLICATION->GetCurDir(); ?>
-<?= $APPLICATION->GetCurPage();?>
 
 <?
 if($APPLICATION->GetCurPage() == '/trainings/exercises/'):
@@ -61,8 +59,7 @@ while ($arSection = $dbSection->Fetch()) {
 		</ul>
 	</div>
 	<? endforeach; ?>
-</div>
-<div class="row">
+
 	<div class=" col-md-6 exercises-list-block__item">
 		<div class="exercises-list-block__item-title"><span>Упражнения с эспандерами</span></div>
 		<ul class="exercises-list-block__exercises-list">
@@ -84,4 +81,4 @@ while ($arSection = $dbSection->Fetch()) {
 </div>
 
 
-<?  ?>
+<? endif; ?>
