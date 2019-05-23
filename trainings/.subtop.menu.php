@@ -2,21 +2,21 @@
 $aMenuLinks = Array(
 	Array(
 		"Программа тренировок", 
-		"news/", 
+		"programm/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
 		"Бесплатный марафон", 
-		"about/howto/", 
+		"free-marafone/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
 		"Упражнения", 
-		"about/delivery/", 
+		"exercises/", 
 		Array(), 
 		Array(), 
 		"" 
