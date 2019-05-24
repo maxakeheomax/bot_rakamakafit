@@ -3,7 +3,7 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Упражнения");
 ?><?$APPLICATION->IncludeComponent(
 	"bitrix:news",
-	"",
+	"exercises",
 	Array(
 		"ADD_ELEMENT_CHAIN" => "N",
 		"ADD_SECTIONS_CHAIN" => "Y",
@@ -73,4 +73,4 @@ $APPLICATION->SetTitle("Упражнения");
 		"USE_SEARCH" => "N",
 		"USE_SHARE" => "N"
 	)
-);?><br><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+);?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

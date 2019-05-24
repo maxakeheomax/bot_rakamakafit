@@ -30,7 +30,6 @@ $this->setFrameMode(true);
 	),
 	$component
 );?>
-<br />
 <?endif?>
 <?if($arParams["USE_FILTER"]=="Y"):?>
 <?$APPLICATION->IncludeComponent(
