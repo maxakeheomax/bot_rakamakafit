@@ -14,7 +14,7 @@ $this->setFrameMode(true);
 ?>
 <? //var_dump($arResult); ?>
 <?
-if( ! preg_match('|\/trainings\/exercises\/\D+\/|', $APPLICATION->GetCurUri()) ):
+if(!preg_match('|\/trainings\/exercises\/\w+|', $APPLICATION->GetCurUri()) ):
 	$arFilter = Array("IBLOCK_ID"=>'13', "ACTIVE"=>"Y");
 
 	$dbSection = CIBlockSection::GetList(Array(), $arFilter, false);
