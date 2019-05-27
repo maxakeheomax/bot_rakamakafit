@@ -12,9 +12,6 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 /** @var string $componentPath */
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
-
-// $APPLICATION->AddHeadScript(__DIR__."/");
-
 $iblock = GetIBlock($arResult['ITEMS'][0]['IBLOCK_ID']);
 $items = $arResult['ITEMS'];
 ?>
@@ -24,18 +21,33 @@ $items = $arResult['ITEMS'];
         <p class="special-offer-block__title__name">спецпредложения</p>
         <div class="special-offer-block__title__link-to-all">все</div>
     </div>
-    <? foreach ($items as $item): ?>
-        <div class="special-offer-block__items">
-            <div class="special-offer-block__item">
-                <img src="<?=CFile::GetPath($iblock["PICTURE"]);?>" alt="">
-                <div class="special-offer-block__item__title"><?= $item['NAME']?></div>
-                <div class="special-offer-block__item__desc"><?= $item['DETAIL_TEXT']?></div>
-                <div class="special-offer-block__item__prices">
-                    <div class="special-offer-block__item__price"><?= $item['PRICE']?></div>
-                    <div class="special-offer-block__item__old-price"><?= $item['OLD_PRICE']?></div>
-                </div>
+    <div class="special-offer-block__items">
+        <div class="special-offer-block__item">
+            <img src="<?= SITE_TEMPLATE_PATH ?>/assets/offer-3.jpg" alt="">
+            <div class="special-offer-block__item__title">Новогодний набор с лентами</div>
+            <div class="special-offer-block__item__desc">Таким образом рамки и место обучения кадров позволяет оценить значение дальнейших направлений развития.</div>
+            <div class="special-offer-block__item__prices">
+                <div class="special-offer-block__item__price">5980 ₽</div>
+                <div class="special-offer-block__item__old-price">7980 ₽</div>
             </div>
-        </div>>
-    <? endforeach; ?>
+        </div>
+        <div class="special-offer-block__item">
+            <img src="<?= SITE_TEMPLATE_PATH ?>/assets/offer-2.jpg" alt="">
+            <div class="special-offer-block__item__title">Новогодний набор с эспандерами и лентами</div>
+            <div class="special-offer-block__item__desc">Комплексный анализ ситуации разнородно синхронизирует эмпирический контент</div>
+            <div class="special-offer-block__item__prices">
+                <div class="special-offer-block__item__price">7980 ₽</div>
+                <div class="special-offer-block__item__old-price"></div>
+            </div>
+        </div>
+        <div class="special-offer-block__item">
+            <img src="<?= SITE_TEMPLATE_PATH ?>/assets/offer-1.jpg" alt="">
+            <div class="special-offer-block__item__title">Новогодний набор с эспандерами, лентами и грифом</div>
+            <div class="special-offer-block__item__desc">Взаимодействие корпорации и клиента спонтанно нейтрализует нишевый проект</div>
+            <div class="special-offer-block__item__prices">
+                <div class="special-offer-block__item__price">5980 ₽</div>
+                <div class="special-offer-block__item__old-price"></div>
+            </div>
+        </div>
     </div>
 </div>

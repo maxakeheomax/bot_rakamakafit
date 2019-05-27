@@ -16,12 +16,14 @@ $this->setFrameMode(true);
 if (empty($arResult))
 	return;
 ?>
-<nav class="bx-inclinksfooter-container">
-	<ul class="bx-inclinksfooter-list">
+<div class="footer__nav-bar-block">
+	<ul class="footer__nav-bar__navs">
 		<?foreach($arResult as $itemIdex => $arItem):?>
 			<?if ($arItem["DEPTH_LEVEL"] == "1"):?>
-				<li class="bx-inclinksfooter-item"><a href="<?=htmlspecialcharsbx($arItem["LINK"])?>"><?=htmlspecialcharsbx($arItem["TEXT"])?></a></li>
+				<li class="footer__nav-bar__navs-item" >
+					<a href="<?=htmlspecialcharsbx($arItem["LINK"])?>" class="footer__nav-bar__navs-item__link" style="color: white"><?=htmlspecialcharsbx($arItem["TEXT"])?></a>
+				</li>
 			<?endif?>
 		<?endforeach;?>
 	</ul>
-</nav>
+</div>

@@ -43,13 +43,16 @@ global $arParams;
                     </div>
                     <div class="header__nav-bar-block">
                         <ul class="header__nav-bar__navs">
-                            <li class="header__nav-bar__navs-item"><a href="#" class="header__nav-bar__navs-item__link nav-bar__navs-item__link--active">Оборудование</a></li>
-                            <li class="header__nav-bar__navs-item"><a href="/trainings" class="header__nav-bar__navs-item__link">Тренировки</a></li>
-                            <li class="header__nav-bar__navs-item"><a href="#" class="header__nav-bar__navs-item__link">Оплата</a></li>
-                            <li class="header__nav-bar__navs-item"><a href="#" class="header__nav-bar__navs-item__link">Доставка</a></li>
-                            <li class="header__nav-bar__navs-item"><a href="#" class="header__nav-bar__navs-item__link">Полезная информация</a></li>
-                            <li class="header__nav-bar__navs-item"><a href="#" class="header__nav-bar__navs-item__link">О компании</a></li>
-                        </ul>
+                        <?$APPLICATION->IncludeComponent(
+                            "bitrix:menu",
+                            "top_menu",
+                            Array(
+                                "ROOT_MENU_TYPE" => "top", 
+                                "CHILD_MENU_TYPE" => "left",
+                                "MAX_LEVEL" => "3", 
+                                "USE_EXT" => "Y" 
+                            )
+                        );?>
                     </div>
                     <div class="header__nav-bar__login-button">
                         <span class="header__nav-bar__login-button__text">
@@ -64,15 +67,17 @@ global $arParams;
                     </div>
                 </nav>	
                 <nav class="header__inner-nav-bar">
-                    <div class="header__inner-nav-bar-block">
-                        <ul class="header__inner-nav-bar__navs header__inner-nav-bar__navs--black-text">
-                            <li class="header__inner-nav-bar__navs-item"><a href="#" class="header__inner-nav-bar__navs-item__link inner-nav-bar__navs-item__link--active">Все товары</a></li>
-                            <li class="header__inner-nav-bar__navs-item"><a href="#" class="header__inner-nav-bar__navs-item__link">Фитнес ленты</a></li>
-                            <li class="header__inner-nav-bar__navs-item"><a href="#" class="header__inner-nav-bar__navs-item__link">Фитбол</a></li>
-                            <li class="header__inner-nav-bar__navs-item"><a href="#" class="header__inner-nav-bar__navs-item__link">Наборы</a></li>
-                            <li class="header__inner-nav-bar__navs-item"><a href="#" class="header__inner-nav-bar__navs-item__link">Питание</a></li>
-                            <li class="header__inner-nav-bar__navs-item"><a href="#" class="header__inner-nav-bar__navs-item__link">Дневник тренировок</a></li>
-                        </ul>			
+                    <div class="header__inner-nav-bar-block">                        
+                        <?$APPLICATION->IncludeComponent(
+                            "bitrix:menu",
+                            "equipment_menu",
+                            Array(
+                                "ROOT_MENU_TYPE" => "subtop", 
+                                //"CHILD_MENU_TYPE" => "left",
+                                "MAX_LEVEL" => "3", 
+                                "USE_EXT" => "Y" 
+                            )
+                        );?>
                     </div>
                     <div class="header__nav-bar__cart-block">
                         <a href="/personal/cart/" class="header__nav-bar__cart-block-link">	
@@ -84,7 +89,7 @@ global $arParams;
                 </nav>
             </header>
   
-            <div class="aside-block">
+            <div class="aside-block" style="display: none; zaebala: yes;">
                 <div class="aside-block__shedule">
                     <p class="aside-block__shedule-text">График работы</p>
                     <img src="<?= SITE_TEMPLATE_PATH ?>/assets/calendar.svg" alt="calendar" class="aside-block__shedule-logo">
