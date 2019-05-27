@@ -1,8 +1,7 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $this->setFrameMode(true);
 ?>
-her
-<?/*$APPLICATION->IncludeComponent(
+<?$APPLICATION->IncludeComponent(
 	"bitrix:catalog.section.list",
 	"",
 	Array(
@@ -15,7 +14,7 @@ her
 		"SECTION_URL" => $arResult["FOLDER"].$arResult["URL_TEMPLATES"]["section"]
 	),
 	$component
-);*/
+);
 ?>
 
 

@@ -1,86 +1,33 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $this->setFrameMode(true);
 ?>
-<?
-// $APPLICATION->IncludeComponent(
-// 	"bitrix:catalog.section.list",
-// 	"",
-// 	Array(
-// 		"IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
-// 		"IBLOCK_ID" => $arParams["IBLOCK_ID"],
-// 		"SECTION_ID" => $arResult["VARIABLES"]["SECTION_ID"],
-// 		"SECTION_CODE" => $arResult["VARIABLES"]["SECTION_CODE"],
-// 		"DISPLAY_PANEL" => "N",
-// 		"CACHE_TYPE" => $arParams["CACHE_TYPE"],
-// 		"CACHE_TIME" => $arParams["CACHE_TIME"],
-// 		"CACHE_GROUPS" => $arParams["CACHE_GROUPS"],
+<?$APPLICATION->IncludeComponent(
+	"bitrix:breadcrumb",
+	"",
+	Array(
+		"PATH" => "",
+		"SITE_ID" => SITE_ID,
+		"START_FROM" => 0
+	)
+);?>
 
-// 		"SECTION_URL" => $arResult["FOLDER"].$arResult["URL_TEMPLATES"]["section"],
-// 	),
-// 	$component
-// );
-?>
+<?$APPLICATION->IncludeComponent(
+	"bitrix:catalog.section.list",
+	"",
+	Array(
+		"IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
+		"IBLOCK_ID" => $arParams["IBLOCK_ID"],
+		"SECTION_ID" => $arResult["VARIABLES"]["SECTION_ID"],
+		"SECTION_CODE" => $arResult["VARIABLES"]["SECTION_CODE"],
+		"DISPLAY_PANEL" => "N",
+		"CACHE_TYPE" => $arParams["CACHE_TYPE"],
+		"CACHE_TIME" => $arParams["CACHE_TIME"],
+		"CACHE_GROUPS" => $arParams["CACHE_GROUPS"],
 
-
-			<?
-                if (CModule::IncludeModule("iblock")) {
-                    $arFilter = array(
-                        "ACTIVE" => "Y",
-                        "GLOBAL_ACTIVE" => "Y",
-                        "IBLOCK_ID" => $arParams["IBLOCK_ID"],
-                    );
-                    if (strlen($arResult["VARIABLES"]["SECTION_CODE"]) > 0) {
-                        $arFilter["=CODE"] = $arResult["VARIABLES"]["SECTION_CODE"];
-                    } elseif ($arResult["VARIABLES"]["SECTION_ID"] > 0) {
-                        $arFilter["ID"] = $arResult["VARIABLES"]["SECTION_ID"];
-                    }
-                    $obCache = new CPHPCache;
-                    if ($obCache->InitCache(36000, serialize($arFilter), "/iblock/catalog")) {
-                        $arCurSection = $obCache->GetVars();
-                    } else {
-                        $arCurSection = array();
-                        $dbRes = CIBlockSection::GetList(array(), $arFilter, false, array("ID"));
-                        $dbRes = new CIBlockResult($dbRes);
-                        if (defined("BX_COMP_MANAGED_CACHE")) {
-                            global $CACHE_MANAGER;
-                            $CACHE_MANAGER->StartTagCache("/iblock/catalog");
-
-                            if ($arCurSection = $dbRes->GetNext()) {
-                                $CACHE_MANAGER->RegisterTag("iblock_id_" . $arParams["IBLOCK_ID"]);
-                            }
-                            $CACHE_MANAGER->EndTagCache();
-                        } else {
-                            if (!$arCurSection = $dbRes->GetNext())
-                                $arCurSection = array();
-                        }
-                        $obCache->EndDataCache($arCurSection);
-                    }
-                    ?>
-                        <? $APPLICATION->IncludeComponent(
-                            "bitrix:catalog.smart.filter",
-                            ".default",
-                            Array(
-                                "PRICE_CODE" => $arParams["PRICE_CODE"],
-                                "IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
-                                "IBLOCK_ID" => $arParams["IBLOCK_ID"],
-                                "SECTION_ID" => $arCurSection['ID'],
-                                "FILTER_NAME" => 'searchFilter',
-                                "CACHE_TYPE" => $arParams["CACHE_TYPE"],
-                                "CACHE_TIME" => $arParams["CACHE_TIME"],
-                                "CACHE_GROUPS" => $arParams["CACHE_GROUPS"],
-                                "SAVE_IN_SESSION" => "N",
-                                "XML_EXPORT" => "Y",
-                                "SECTION_TITLE" => "NAME",
-                                "SECTION_DESCRIPTION" => "DESCRIPTION",
-                                'HIDE_NOT_AVAILABLE' => $arParams["HIDE_NOT_AVAILABLE"],
-                                "TEMPLATE_THEME" => 'wood'
-                            ),
-                            $component,
-                            array('HIDE_ICONS' => 'Y')
-                        ); ?>
-                    <? 
-                } ?>
-
+		"SECTION_URL" => $arResult["FOLDER"].$arResult["URL_TEMPLATES"]["section"],
+	),
+	$component
+);?>
 
 
 

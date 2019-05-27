@@ -60,7 +60,7 @@ global $arParams;
                         <? if($USER->IsAuthorized()): ?>
                             <a href="/personal/"> Личный кабинет </a>
                         <? else:?>
-                            <a href="/login/?login=yes&backurl=<?= $APPLICATION->GetCurUri() ?>"> Вход </a>
+                            <a href="/login/?login=yes&backurl=<?= $APPLICATION->GetCurUri() ?>"> Войти </a>
                         <?endif;?>
                        
                         </span>
