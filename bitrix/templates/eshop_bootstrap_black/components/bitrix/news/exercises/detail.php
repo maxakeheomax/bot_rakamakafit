@@ -12,8 +12,6 @@
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
 ?>
-<div class="article-page-content">
-	<div class="article-left-column">
 <?$ElementID = $APPLICATION->IncludeComponent(
 	"bitrix:news.detail",
 	"",
@@ -171,39 +169,3 @@ $this->setFrameMode(true);
 	$component
 );?>
 <?endif?>
-	</div>
-	<div class="article-right-column">
-		<!-- article-navigation-block -->
-		<div class="article-navigation-block">
-			<div class="article-navigation-block__title">Разделы</div>
-			<ul class="exercises-list-block__exercises-list">
-				<li><a href="#"><span>Тренировки</span></a></li>
-				<li><a href="#"><span>Питание</span></a></li>
-				<li><a href="#"><span>Лайфстайл</span></a></li>
-			</ul>
-		</div>
-		<!-- end of article-navigation-block -->
-
-
-
-		<!-- same articles block -->
-
-		<!-- <div class="same-articles-block">	
-			<div class="same-articles-block__title">Похожие статьи</div>
-
-			<div class="article special-offer-block__item">
-				<img src="assets/offer-3.jpg" alt="">
-				<div class="special-offer-block__item__title">Новогодний набор с лентами</div>
-				<div class="special-offer-block__item__desc">Таким образом рамки и место обучения кадров позволяет оценить значение дальнейших направлений развития.</div>
-			</div>
-			<div class="article special-offer-block__item">
-				<img src="assets/offer-3.jpg" alt="">
-				<div class="special-offer-block__item__title">Новогодний набор с лентами</div>
-				<div class="special-offer-block__item__desc">Таким образом рамки и место обучения кадров позволяет оценить значение дальнейших направлений развития.</div>
-			</div>
-
-		</div> 	 --> 
-		<!-- end of same articles block  -->
-	</div> 
-
-</div>

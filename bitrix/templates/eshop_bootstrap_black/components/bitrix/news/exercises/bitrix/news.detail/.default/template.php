@@ -13,67 +13,61 @@
 $this->setFrameMode(true);
 
 
+
+
+$arFilter = Array("IBLOCK_ID"=>'13', "ACTIVE"=>"Y");
+
+$dbSection = CIBlockSection::GetList(Array(), $arFilter, false);
+
+$sections = [];
+while ($arSection = $dbSection->Fetch()) {
+	if(!$arSection["IBLOCK_SECTION_ID"]){
+		$sections[$arSection["ID"]] = array(
+			"NAME" => "{$arSection["NAME"]}", 
+			"CODE" => $arSection["CODE"]
+		);
+	}else{
+		$sections[$arSection["IBLOCK_SECTION_ID"]]['sub'][] = array(
+			"NAME" => "{$arSection["NAME"]}", 
+			"CODE" => $arSection["CODE"]
+		);
+	}
+}
+$current_section = $sections[ $arResult['SECTION']['PATH'][0]['ID'] ];
+echo '<pre>';
+// var_dump($sections);
+echo '</pre>';
 ?>
 
+	
 
-<div class="article-title-block__title">
 
-	<!-- main sider -->
-	<div class="article-slider owl-carousel middle-slider owl-theme">
-		<? foreach($arResult['PROPERTIES']['PICTURES']['VALUE'] as $image_id): ?>
-			<div class="owl-carousel__slider-item" style="background: url('<?= CFile::GetPath( $image_id )?>');background-size: 100% 100%; ">
-			</div>
-		<? endforeach;?>
-	</div>
-	<!-- end of main sider -->
+<!-- main sider -->
+<div class="article-slider owl-carousel middle-slider owl-theme">
+	<? foreach($arResult['PROPERTIES']['PICTURES']['VALUE'] as $image_id): ?>
+		<div class="owl-carousel__slider-item" style="background: url('<?= CFile::GetPath( $image_id )?>');background-size: 100% 100%; ">
+		</div>
+	<? endforeach;?>
+</div>
+<!-- end of main sider -->
 
-	<?if($arParams["DISPLAY_DATE"]!="N" && $arResult["DISPLAY_ACTIVE_FROM"]):?>
-		
-	<?endif;?>
+<div class="white-bg ceo-text-block">
+	<div class="ceo-text-block__content">
 	<?if($arParams["DISPLAY_NAME"]!="N" && $arResult["NAME"]):?>
-		<div class="article-title-block__title"><?=$arResult["NAME"]?></div>
-		<div class="article-title-block__slogan"></div>
+		<div class="ceo-text-block__title"><?=$arResult["NAME"]?></div>
 	<?endif;?>
-	<?if($arParams["DISPLAY_PREVIEW_TEXT"]!="N" && $arResult["FIELDS"]["PREVIEW_TEXT"]):?>
-		<p><?=$arResult["FIELDS"]["PREVIEW_TEXT"];unset($arResult["FIELDS"]["PREVIEW_TEXT"]);?></p>
-	<?endif;?>
-	<?if($arResult["NAV_RESULT"]):?>
-		<?if($arParams["DISPLAY_TOP_PAGER"]):?><?=$arResult["NAV_STRING"]?><br /><?endif;?>
-		<?echo $arResult["NAV_TEXT"];?>
-		<?if($arParams["DISPLAY_BOTTOM_PAGER"]):?><br /><?=$arResult["NAV_STRING"]?><?endif;?>
-	<?elseif(strlen($arResult["DETAIL_TEXT"])>0):?>
-		<?echo $arResult["DETAIL_TEXT"];?>
+	</div>
+	
+	<?if(strlen($arResult["DETAIL_TEXT"])>0):?>
+		<div class="ceo-text-block__text">
+			<?echo $arResult["DETAIL_TEXT"];?>
+		</div>
 	<?else:?>
-		<?echo $arResult["PREVIEW_TEXT"];?>
+		<div class="ceo-text-block__text">
+			<?echo $arResult["PREVIEW_TEXT"];?>
+		</div>
 	<?endif?>
-	<div style="clear:both"></div>
-	<br />
-	<?foreach($arResult["FIELDS"] as $code=>$value):
-		if ('PREVIEW_PICTURE' == $code || 'DETAIL_PICTURE' == $code)
-		{
-			?><?=GetMessage("IBLOCK_FIELD_".$code)?>:&nbsp;<?
-			if (!empty($value) && is_array($value))
-			{
-				?><img border="0" src="<?=$value["SRC"]?>" width="<?=$value["WIDTH"]?>" height="<?=$value["HEIGHT"]?>"><?
-			}
-		}
-		else
-		{
-			?><?=GetMessage("IBLOCK_FIELD_".$code)?>:&nbsp;<?=$value;?><?
-		}
-		?><br />
-	<?endforeach;
-	foreach($arResult["DISPLAY_PROPERTIES"] as $pid=>$arProperty):?>
-
-		<?=$arProperty["NAME"]?>:&nbsp;
-		<?if(is_array($arProperty["DISPLAY_VALUE"])):?>
-			<?=implode("&nbsp;/&nbsp;", $arProperty["DISPLAY_VALUE"]);?>
-		<?else:?>
-			<?=$arProperty["DISPLAY_VALUE"];?>
-		<?endif?>
-		<br />
-	<?endforeach;
-	if(array_key_exists("USE_SHARE", $arParams) && $arParams["USE_SHARE"] == "Y")
+	<?if(array_key_exists("USE_SHARE", $arParams) && $arParams["USE_SHARE"] == "Y")
 	{
 		?>
 		<div class="news-detail-share">
@@ -96,4 +90,28 @@ $this->setFrameMode(true);
 		<?
 	}
 	?>
+	</div>
+</div>
+
+<div class="exercises-tabs-block">
+		<div class="exercises-tabs-block__title"><?= $arResult['SECTION']['PATH'][0]['NAME']?></div>
+		<div class="exercises-tabs-block__tabs">
+			<? foreach($current_section['sub'] as $sub_section): ?>
+			<a href="<?= $current_section['CODE'].'/'.$sub_section['CODE']?>">
+				<div class="exercises-tabs-block__tabs__item hands"><p><?= $sub_section['NAME'] ?></p></div>
+			</a>	
+			<? endforeach; ?>
+		</ul>
+	</div>
+</div>
+
+<div class="personal-programm promo-train-block__slider-item" >
+	<div class="promo-train-block__slider-item__slider-content">
+		<p class="promo-train-block__slider-item__slider-content__slogan">Мы подберем для тебя <span class="promo-train-block__title_underline-block-up"> программу тренировок</span> на все группы мышц </p>
+		<div class="promo-train-block__slider__content_bottom">
+			<div class="promo-train-block__slider-item-button">
+				<span class="promo-train-block__slider-item-button__text">Купить</span>
+			</div>
+		</div>
+	</div>
 </div>
