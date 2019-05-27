@@ -56,7 +56,7 @@ echo '</pre>';
 	<?if($arParams["DISPLAY_NAME"]!="N" && $arResult["NAME"]):?>
 		<div class="ceo-text-block__title"><?=$arResult["NAME"]?></div>
 	<?endif;?>
-	</div>
+	
 	
 	<?if(strlen($arResult["DETAIL_TEXT"])>0):?>
 		<div class="ceo-text-block__text">
