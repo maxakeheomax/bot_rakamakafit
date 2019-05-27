@@ -34,9 +34,7 @@ while ($arSection = $dbSection->Fetch()) {
 	}
 }
 $current_section = $sections[ $arResult['SECTION']['PATH'][0]['ID'] ];
-echo '<pre>';
 // var_dump($sections);
-echo '</pre>';
 ?>
 
 	
