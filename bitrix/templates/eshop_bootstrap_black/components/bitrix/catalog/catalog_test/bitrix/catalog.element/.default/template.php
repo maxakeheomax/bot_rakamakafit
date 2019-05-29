@@ -5,7 +5,7 @@ $this->setFrameMode(true);
 
 <!-- Картинка детальная -->
 <img src="<?=$arResult["DETAIL_PICTURE"]["SRC"]?>" alt="<?=$arResult["NAME"]?>" title="<?=$arResult["NAME"]?>" />
-				
+				<pre></pre>
 
 <!-- Доп картинки -->
 				<?
