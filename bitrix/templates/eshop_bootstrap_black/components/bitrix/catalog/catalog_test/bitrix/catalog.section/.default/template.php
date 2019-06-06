@@ -10,45 +10,113 @@ $this->setFrameMode(true);
 <div class="tapes promo-train-block__slider-item" >
 	<div class="promo-train-block__slider-item__slider-content">
 		
-	<?
+		
+		
+		
+		<div class="promo-train-block__slider-item__slider-content-tabs">
+		<? $index = 0;
+		foreach($arResult["ITEMS"] as $cell=>$arElement):?>
+			<a class="promo-train-block__slider-item__slider-content-tab <?  if($index == 0) echo 'active' ?>" id="<?= $index ?>" href="#">	<p class="promo-train-block__slider-item__slider-content__promo-title "><?=$arElement["NAME"]?></p> </a>						
+			<? $index++ ?>
+		<? endforeach; ?>									
+		</div>
+		<? $index = 0;
+		foreach($arResult["ITEMS"] as $cell=>$arElement):?>
+		<?
 		$this->AddEditAction($arElement['ID'], $arElement['EDIT_LINK'], CIBlock::GetArrayByID($arParams["IBLOCK_ID"], "ELEMENT_EDIT"));
 		$this->AddDeleteAction($arElement['ID'], $arElement['DELETE_LINK'], CIBlock::GetArrayByID($arParams["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BCS_ELEMENT_DELETE_CONFIRM')));
 		?>
-		
-		<div class="promo-train-block__slider-item__slider-content-tabs">
-			<? $index = 0;
-			foreach($arResult["ITEMS"] as $cell=>$arElement):?>
-				<p class="promo-train-block__slider-item__slider-content__promo-title <?  if($index == 0) echo 'active' ?>"><?=$arElement["NAME"]?></p> 
-				<? $index++ ?>
-			<? endforeach; ?>
-		</div>
-
-		<?foreach($arResult["ITEMS"] as $cell=>$arElement):?>
-		<p class="promo-train-block__slider-item__slider-content__slogan"><?=$arElement["PROPERTIES"]["SLOGAN"]['VALUE']['TEXT']?></p>
-		<p class="promo-train-block__slider-item__slider-content__dicription"><?=$arElement["PREVIEW_TEXT"]?></p>
-		<div class="promo-train-block__slider__content_bottom">
-			<div class="promo-train-block__slider-item-button">
-				<a href="<?=$arElement["DETAIL_PAGE_URL"]?>"> 
-					<span class="promo-train-block__slider-item-button__text">Подробнее</span>
-				</a>
-			</div>
-			<div class="promo-train-block__slider-item-more">
-				<a href="#">
-
-					<span class="promo-train-block__slider-item-more__text"><img src="<?=$arElement["PROPERTIES"]["YUOTUBELINK"]['VALUE']?>" alt="">Смотреть видео тренировок</span></a>
+		<div class="promo-train-block__slider-item__slider-content-tab__content" id="<?= $index ?>">
+			<p class="promo-train-block__slider-item__slider-content__slogan"><?=$arElement["PROPERTIES"]["SLOGAN"]['VALUE']['TEXT']?></p>
+			<p class="promo-train-block__slider-item__slider-content__dicription"><?=$arElement["PREVIEW_TEXT"]?></p>
+			<div class="promo-train-block__slider__content_bottom">
+				<div class="promo-train-block__slider-item-button">
+					<span class="promo-train-block__slider-item-button__text">Купить</span>
+				</div>
+				<div class="promo-train-block__slider-item-more">
+					<a href="<?=$arElement["PROPERTIES"]["YUOTUBELINK"]['VALUE']?>">
+						<span class="promo-train-block__slider-item-more__text"><img src="assets/ytb-color.svg" alt="">Смотреть видео тренировок</span>
+					</a>
 				</div>
 			</div>
 		</div>
-		
-		
-		<? break; 
-			/////////////////////// new HTML needed
-		?>
+		<? $index++ ?>
+		<? endforeach; ?>
 
-		<?endforeach;?>
 	</div>
 </div>
+<script>
+$(document).ready(function(){
+	$('.owl-carousel.up-slider').owlCarousel({
+		items:1,
+		lazyLoad:true,
+		loop:true,
+		margin:10,
+		dots: false,
+		nav:true,
+		navText: [`<img src="assets/nav-arrow-left.svg">`,`<img src="assets/nav-arrow-right.svg">`]
+	});
 
+	$('.owl-carousel.middle-slider').owlCarousel({
+		items:1,
+		lazyLoad:true,
+		loop:true,
+		margin:10,
+		dots: true,
+		nav:true,
+		navText: [`<img src="assets/nav-arrow-left.svg">`,`<img src="assets/nav-arrow-right.svg">`]
+	});
+
+	$('.owl-carousel.bottom-slider').owlCarousel({
+		items:5,
+		stagePadding: 60,
+		lazyLoad:true,
+		loop:true,
+		autoplay:true,
+		margin:10,
+		dots: false,
+		nav:true,
+		navText: [`<img src="assets/arrow-white-left.svg">`,`<img src="assets/arrow-white-right.svg">`]
+	});
+
+	$('.slick-slider').slick({
+		slidesToShow:3,
+		slidesToScroll: 1,
+		arrows: true,
+		appendArrows: $('.bottom-slider-nav-buttons'),
+		prevArrow: `<img src="assets/arrow-white-left.svg">`,
+		nextArrow: `<img src="assets/arrow-white-right.svg">`,
+		swipe:true,
+		draggable: true,
+		variableWidth: true,
+		easing: 'ease-in-out',
+		cssEase: 'ease-in-out',
+		autoplay: true
+	});
+});
+
+function toggleTabs(clickBlock, toggleBlock) {
+	$(clickBlock).click(function(e){
+		let a
+		let b = $(this).attr('id');
+		e.preventDefault();
+
+		$(clickBlock).removeClass('active');
+		$(this).addClass('active');
+
+		$(toggleBlock).each(function(){
+			a = $(this).attr('id');
+			if(b == a) {
+				$(toggleBlock).addClass('hidden-block');
+				$(this).removeClass('hidden-block');
+			}										
+		});
+	});
+}
+toggleTabs('.exercises-promo-block__right-side__tab', '.img-block_img-link');
+toggleTabs('.promo-train-block__slider-item__slider-content-tab','.promo-train-block__slider-item__slider-content-tab__content');
+</script>
+						
 <?if($arParams["DISPLAY_BOTTOM_PAGER"]):?>
 	<?=$arResult["NAV_STRING"]?>
 <?endif;?>
@@ -169,11 +237,12 @@ $this->setFrameMode(true);
 		"STRICT_SECTION_CHECK" => "N"
 	)
 );?>
+<? echo '<pre>'; var_dump($arResult["SECTIONS"][0]['NAME']); echo '</pre>'; ?>
 <!-- exercises-promo-block -->
 <div class="container-fluid exercises-promo-block">
 	<div class="row xercises-promo-block_row">
 		<div class="col-md-6 exercises-promo-block__left-side">
-			<div class="exercises-promo-block__left-side__title">Упражнения с фитнес лентами</div>
+			<div class="exercises-promo-block__left-side__title"><?= $arResult["SECTIONS"][0]['NAME'] ?></div>
 			<div class="exercises-promo-block__left-side__desc">Мы собрали для тебя примеры самых убойных
 				упражений с фитнес лентами на любую группу мышц</div>
 			<a href="#">
