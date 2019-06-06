@@ -14,6 +14,7 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $this->setFrameMode(true);
 $iblock = GetIBlock($arResult['ITEMS'][0]['IBLOCK_ID']);
 $items = $arResult['ITEMS'];
+
 ?>
 
 
@@ -35,8 +36,8 @@ $items = $arResult['ITEMS'];
 					<div class="special-offer-block__item__title"><?= $item['NAME'] ?></div>
 					<div class="special-offer-block__item__desc"><?= $item['PREVIEW_TEXT'] ?></div>
 					<div class="special-offer-block__item__prices">
-						<div class="special-offer-block__item__price"><?= $item['PROPERTIES']['PRICE']['VALUE'] ?> </div>
-						<div class="special-offer-block__item__old-price"><?= $item['PROPERTIES']['OLD_PRICE']['VALUE'] ?></div>
+						<div class="special-offer-block__item__price"><?= $item['PROPERTIES']['PRICE']['VALUE'] ?> ₽</div>
+						<div class="special-offer-block__item__old-price"><?= $item['PROPERTIES']['OLD_PRICE']['VALUE'] ?> ₽</div>
 						<a href="<?= $item['DETAIL_PAGE_URL'] ?>">
 							<div class="special-offer--block__item-cart"><span
 									class="special-offer--block__item-cart-button__text">купить</span></div>
@@ -46,19 +47,4 @@ $items = $arResult['ITEMS'];
 			<? endforeach; ?>
 		</div>
 	</div>
-</div>
-
-<div class="mixit owl-carousel middle-slider owl-theme">
-    <? foreach($items as $item): ?>
-        <div class="owl-carousel__slider-item"
-            style="background: url('<?= $item['PREVIEW_PICTURE']['SRC'] ?>');background-size: 100% 100%; ">
-            
-            <div class="owl-carousel__slider-item__slider-content">
-                <p class="owl-carousel__slider-item__slider-content__promo-title"><?= $item['NAME'] ?>
-                    <span class="promo-form-block__title_underline-block">в подарок</span></p>
-
-                <p class="owl-carousel__slider-item__slider-content__dicription"><?= $item['PREVIEW_TEXT'] ?></p>
-            </div>
-        </div>
-    <? endforeach; ?>
 </div>

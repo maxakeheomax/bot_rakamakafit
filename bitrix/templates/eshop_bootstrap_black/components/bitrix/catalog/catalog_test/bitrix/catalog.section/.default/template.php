@@ -169,3 +169,43 @@ $this->setFrameMode(true);
 		"STRICT_SECTION_CHECK" => "N"
 	)
 );?>
+<!-- exercises-promo-block -->
+<div class="container-fluid exercises-promo-block">
+	<div class="row xercises-promo-block_row">
+		<div class="col-md-6 exercises-promo-block__left-side">
+			<div class="exercises-promo-block__left-side__title">Упражнения с фитнес лентами</div>
+			<div class="exercises-promo-block__left-side__desc">Мы собрали для тебя примеры самых убойных
+				упражений с фитнес лентами на любую группу мышц</div>
+			<a href="#">
+				<div class="exercises-promo-block__left-side__button">
+					<span class="exercises-promo-block__left-side__button__text">примеры упражнений</span>
+				</div>
+			</a>
+		</div>
+		<div class="col-md-6 exercises-promo-block__right-side">
+			<div class="img-block">
+				<a href="#"> <img class="img-block__eye-button" src="assets/eye-button.svg" alt=""></a>
+				<img class="img-block__exercise-pic" src="assets/exercises-promo.jpg" alt="">
+				<div class="exercises-promo-block__right-side__tabs">
+					<ul>
+						<a href="#">
+							<li>спина</li>
+						</a>
+						<a href="#">
+							<li>ягодицы</li>
+						</a>
+						<a href="#">
+							<li>руки</li>
+						</a>
+						<a href="#">
+							<li>плечи</li>
+						</a>
+						<a href="#">
+							<li>ноги</li>
+						</a>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

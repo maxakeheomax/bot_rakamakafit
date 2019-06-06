@@ -2,11 +2,16 @@
 $this->setFrameMode(true);
 ?>
 
+
 <?
 $TOP_DEPTH = $arResult["SECTION"]["DEPTH_LEVEL"];
 $CURRENT_DEPTH = $TOP_DEPTH;
-if($arResult["SECTION"]["DEPTH_LEVEL"] === 0){
-	foreach($arResult["SECTIONS"] as $arSection):
+if($arResult["SECTION"]["DEPTH_LEVEL"] === 0):?>
+
+<div class="product-catalog exercises-tabs-block">
+	<div class="exercises-tabs-block__title">Категории товаров</div>
+	<div class="exercises-tabs-block__tabs">
+	<?foreach($arResult["SECTIONS"] as $arSection):
 		$this->AddEditAction($arSection['ID'], $arSection['EDIT_LINK'], CIBlock::GetArrayByID($arSection["IBLOCK_ID"], "SECTION_EDIT"));
 		$this->AddDeleteAction($arSection['ID'], $arSection['DELETE_LINK'], CIBlock::GetArrayByID($arSection["IBLOCK_ID"], "SECTION_DELETE"), array("CONFIRM" => GetMessage('CT_BCSL_ELEMENT_DELETE_CONFIRM')));
 		if($CURRENT_DEPTH < $arSection["DEPTH_LEVEL"])
@@ -39,6 +44,7 @@ if($arResult["SECTION"]["DEPTH_LEVEL"] === 0){
 		echo "</li>";
 		echo "\n",str_repeat("\t", $CURRENT_DEPTH-$TOP_DEPTH),"</ul>","\n",str_repeat("\t", $CURRENT_DEPTH-$TOP_DEPTH-1);
 		$CURRENT_DEPTH--;
-	}
-}
-?>
+	}?>
+	</div>
+</div>
+<?endif;?>
