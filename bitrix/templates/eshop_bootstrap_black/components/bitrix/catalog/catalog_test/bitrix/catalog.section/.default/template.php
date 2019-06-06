@@ -237,7 +237,7 @@ toggleTabs('.promo-train-block__slider-item__slider-content-tab','.promo-train-b
 		"STRICT_SECTION_CHECK" => "N"
 	)
 );?>
-<? echo '<pre>'; var_dump($arResult["SECTIONS"][0]['NAME']); echo '</pre>'; ?>
+<? echo '<pre>'; var_dump( $arResult["ITEMS_SECTION"]); echo '</pre>'; ?>
 <!-- exercises-promo-block -->
 <div class="container-fluid exercises-promo-block">
 	<div class="row xercises-promo-block_row">

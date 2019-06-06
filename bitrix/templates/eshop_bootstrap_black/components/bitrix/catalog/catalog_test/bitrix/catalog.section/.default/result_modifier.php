@@ -7,6 +7,15 @@ $arSection = array();
 $arResult["ITEMS_SECTION"] = array();
 $maxElement = $arParams["PAGE_ELEMENT_COUNT"];
 $countMaxElement = 0;
+
+$arFilter = Array('DEPTH_LEVEL' => 2);
+$sections = CIBlockSection::GetList([], $arFilter, true);
+$arr_sections = null;
+while ($section = $sections->Fetch()) {
+    echo '<pre>'; var_dump($section); echo '</pre>';
+    $arr_sections = $section;
+}
+echo '<pre>'; var_dump($arr_sections); echo '</pre>';
 foreach ($arResult["ITEMS"] as $count=>$arItem) {
     if ($arItem["DETAIL_PICTURE"]) {
         $file = CFile::ResizeImageGet($arItem["DETAIL_PICTURE"], array('width'=> $widthPreview, 'height'=> $heightPreview), BX_RESIZE_IMAGE_PROPORTIONAL, true);
