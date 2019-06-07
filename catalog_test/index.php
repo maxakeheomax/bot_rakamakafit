@@ -79,7 +79,7 @@ $APPLICATION->SetTitle("Каталог");
 		"HIDE_NOT_AVAILABLE" => "N",
 		"HIDE_NOT_AVAILABLE_OFFERS" => "N",
 		"IBLOCK_ID" => "2",
-		"IBLOCK_TYPE" => "catalog",
+		"IBLOCK_TYPE" => "offers",
 		"INCLUDE_SUBSECTIONS" => "Y",
 		"INSTANT_RELOAD" => "N",
 		"LAZY_LOAD" => "N",

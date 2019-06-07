@@ -23,7 +23,7 @@ foreach ($arResult["ITEMS"] as $count=>$arItem) {
     $resGroup = CIBlockElement::GetElementGroups($arItem["ID"], true);
     while($arGroup = $resGroup->Fetch()) {
         $arGroups[] = $arGroup;
-        $arSection[0] = $arGroup;
+        $arSection[$arGroup["ID"]] = $arGroup;
         $arResult["ITEMS_SECTION"][$arGroup["ID"]][] = $arItem;
     }
     if ($countMaxElement < $maxElement) {
