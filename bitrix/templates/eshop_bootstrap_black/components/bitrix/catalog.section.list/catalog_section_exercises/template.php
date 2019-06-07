@@ -2,7 +2,7 @@
 $this->setFrameMode(true);
 $current_section = $arResult['SECTIONS'][0];
 unset( $arResult['SECTIONS'][0] );
-echo '<pre>'; var_dump($current_section); echo '</pre>';
+// echo '<pre>'; var_dump($current_section); echo '</pre>';
 ?>
 
 
@@ -12,9 +12,8 @@ echo '<pre>'; var_dump($current_section); echo '</pre>';
 	<div class="row xercises-promo-block_row">
 		<div class="col-md-6 exercises-promo-block__left-side">
 			<div class="exercises-promo-block__left-side__title"><?= $current_section['NAME'] ?></div>
-			<div class="exercises-promo-block__left-side__desc"><?= $current_section ?>Мы собрали для тебя примеры самых убойных
-				упражений с фитнес лентами на любую группу мышц</div>
-			<a href="#">
+			<div class="exercises-promo-block__left-side__desc"><?= $current_section['DESCRIPTION'] ?></div>
+			<a href="/trainings/exercises/<?= $current_section['CODE'] ?>">
 				<div class="exercises-promo-block__left-side__button">
 					<span class="exercises-promo-block__left-side__button__text">примеры упражнений</span>
 				</div>
@@ -22,25 +21,15 @@ echo '<pre>'; var_dump($current_section); echo '</pre>';
 		</div>
 		<div class="col-md-6 exercises-promo-block__right-side">
 			<div class="img-block">
-				<a href="#"> <img class="img-block__eye-button" src="assets/eye-button.svg" alt=""></a>
-				<img class="img-block__exercise-pic" src="assets/exercises-promo.jpg" alt="">
+				<a href="#"> <img class="img-block__eye-button" src="<?= SITE_TEMPLATE_PATH ?>/assets/eye-button.svg" alt=""></a>
+				<img class="img-block__exercise-pic" src="<?= $current_section['PICTURE']['SRC'] ?>" alt="">
 				<div class="exercises-promo-block__right-side__tabs">
 					<ul>
-						<a href="#">
-							<li>спина</li>
+						<? foreach($arResult['SECTIONS'] as $section): ?>
+						<a href="/trainings/exercises/<?= $section['CODE'] ?>">
+							<li><?= $section['NAME'] ?></li>
 						</a>
-						<a href="#">
-							<li>ягодицы</li>
-						</a>
-						<a href="#">
-							<li>руки</li>
-						</a>
-						<a href="#">
-							<li>плечи</li>
-						</a>
-						<a href="#">
-							<li>ноги</li>
-						</a>
+						<? endforeach; ?>
 					</ul>
 				</div>
 			</div>
