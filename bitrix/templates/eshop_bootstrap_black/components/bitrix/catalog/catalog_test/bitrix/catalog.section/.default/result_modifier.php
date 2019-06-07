@@ -11,11 +11,28 @@ $countMaxElement = 0;
 $arFilter = Array('DEPTH_LEVEL' => 2);
 $sections = CIBlockSection::GetList([], $arFilter, true);
 $arr_sections = null;
-while ($section = $sections->Fetch()) {
-    echo '<pre>'; var_dump($section); echo '</pre>';
-    $arr_sections = $section;
-}
-echo '<pre>'; var_dump($arr_sections); echo '</pre>';
+$menuList = array();
+$lev = 0;
+$lastInd = 0;
+$parents = array();
+// foreach ($sections as $arItem) {
+//     $lev = $arItem['DEPTH_LEVEL'];
+    
+//     if ($arItem['IS_PARENT']) {
+//         $arItem['CHILDREN'] = array();
+//     }
+    
+//         if ($lev == 1) {
+//         $menuList[] = $arItem;
+//         $lastInd = count($menuList)-1;
+//         $parents[$lev] = &$menuList[$lastInd];
+//     } else {
+//         $parents[$lev-1]['CHILDREN'][] = $arItem;
+//         $lastInd = count($parents[$lev-1]['CHILDREN'])-1;
+//         $parents[$lev] = &$parents[$lev-1]['CHILDREN'][$lastInd];
+//     }
+// }
+// echo '<pre>'; var_dump($menuList); echo '</pre>';
 foreach ($arResult["ITEMS"] as $count=>$arItem) {
     if ($arItem["DETAIL_PICTURE"]) {
         $file = CFile::ResizeImageGet($arItem["DETAIL_PICTURE"], array('width'=> $widthPreview, 'height'=> $heightPreview), BX_RESIZE_IMAGE_PROPORTIONAL, true);

@@ -237,44 +237,27 @@ toggleTabs('.promo-train-block__slider-item__slider-content-tab','.promo-train-b
 		"STRICT_SECTION_CHECK" => "N"
 	)
 );?>
-<? echo '<pre>'; var_dump( $arResult["ITEMS_SECTION"]); echo '</pre>'; ?>
+
+
+<?
+$iblock_id = CIBlock::GetList(array(),array("CODE"=>"exercises","TYPE"=>"trainings"))->Fetch()['ID'];
+$APPLICATION->IncludeComponent(
+	"bitrix:catalog.section.list",
+	"catalog_section_exercises",
+	Array(
+		"IBLOCK_TYPE" => "trainings",
+		"IBLOCK_ID" => $iblock_id,
+		// "SECTION_ID" => $arResult["VARIABLES"]["SECTION_ID"],
+		"SECTION_CODE" => $arResult["VARIABLES"]["SECTION_CODE"],
+		"DISPLAY_PANEL" => "N",
+		"CACHE_TYPE" => $arParams["CACHE_TYPE"],
+		"CACHE_TIME" => $arParams["CACHE_TIME"],
+		"CACHE_GROUPS" => $arParams["CACHE_GROUPS"],
+
+		"SECTION_URL" => $arResult["FOLDER"].$arResult["URL_TEMPLATES"]["section"],
+	),
+	$component
+);
+?>
+<? //echo '<pre>'; var_dump( $arResult["ITEMS_SECTION"]); echo '</pre>'; ?>
 <!-- exercises-promo-block -->
-<div class="container-fluid exercises-promo-block">
-	<div class="row xercises-promo-block_row">
-		<div class="col-md-6 exercises-promo-block__left-side">
-			<div class="exercises-promo-block__left-side__title"><?= $arResult["SECTIONS"][0]['NAME'] ?></div>
-			<div class="exercises-promo-block__left-side__desc">Мы собрали для тебя примеры самых убойных
-				упражений с фитнес лентами на любую группу мышц</div>
-			<a href="#">
-				<div class="exercises-promo-block__left-side__button">
-					<span class="exercises-promo-block__left-side__button__text">примеры упражнений</span>
-				</div>
-			</a>
-		</div>
-		<div class="col-md-6 exercises-promo-block__right-side">
-			<div class="img-block">
-				<a href="#"> <img class="img-block__eye-button" src="assets/eye-button.svg" alt=""></a>
-				<img class="img-block__exercise-pic" src="assets/exercises-promo.jpg" alt="">
-				<div class="exercises-promo-block__right-side__tabs">
-					<ul>
-						<a href="#">
-							<li>спина</li>
-						</a>
-						<a href="#">
-							<li>ягодицы</li>
-						</a>
-						<a href="#">
-							<li>руки</li>
-						</a>
-						<a href="#">
-							<li>плечи</li>
-						</a>
-						<a href="#">
-							<li>ноги</li>
-						</a>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
