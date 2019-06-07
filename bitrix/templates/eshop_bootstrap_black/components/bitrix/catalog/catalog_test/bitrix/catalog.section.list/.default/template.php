@@ -12,6 +12,7 @@ if($arResult["SECTION"]["DEPTH_LEVEL"] === 0):?>
 	<div class="exercises-tabs-block__title">Категории товаров</div>
 	<div class="exercises-tabs-block__tabs">
 	<?foreach($arResult["SECTIONS"] as $arSection):
+		if($arResult["SECTION"]["DEPTH_LEVEL"] < 2):
 		$this->AddEditAction($arSection['ID'], $arSection['EDIT_LINK'], CIBlock::GetArrayByID($arSection["IBLOCK_ID"], "SECTION_EDIT"));
 		$this->AddDeleteAction($arSection['ID'], $arSection['DELETE_LINK'], CIBlock::GetArrayByID($arSection["IBLOCK_ID"], "SECTION_DELETE"), array("CONFIRM" => GetMessage('CT_BCSL_ELEMENT_DELETE_CONFIRM')));
 		if($CURRENT_DEPTH < $arSection["DEPTH_LEVEL"])
@@ -38,6 +39,7 @@ if($arResult["SECTION"]["DEPTH_LEVEL"] === 0):?>
 			</a>
 			<?
 		$CURRENT_DEPTH = $arSection["DEPTH_LEVEL"];
+		endif;
 	endforeach;
 	while($CURRENT_DEPTH > $TOP_DEPTH)
 	{
