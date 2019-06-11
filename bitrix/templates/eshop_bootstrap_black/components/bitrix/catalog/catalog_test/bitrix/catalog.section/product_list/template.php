@@ -8,46 +8,36 @@ $this->setFrameMode(true);
 <?if($arParams["DISPLAY_TOP_PAGER"]):?>
 	<?=$arResult["NAV_STRING"]?>
 <?endif;?>
+<div class="catalog_block">
+	<div class="catalog__bl`ock__tabs">
+		<div class="catalog__block__tabs__title">Сортировать</div>
+		<a href="#">по полуярности</a>
+		<a href="#">по цене</a>
+		<a href="#">по наличию</a>
+	</div>
 
 
-<div class="tapes promo-train-block__slider-item" >
-	<div class="promo-train-block__slider-item__slider-content">
-		
-	<?
+
+	<div class="pop-products-block__items">
+		<?foreach($arResult["ITEMS"] as $key => $arElement):?>
+
+		<?
 		$this->AddEditAction($arElement['ID'], $arElement['EDIT_LINK'], CIBlock::GetArrayByID($arParams["IBLOCK_ID"], "ELEMENT_EDIT"));
 		$this->AddDeleteAction($arElement['ID'], $arElement['DELETE_LINK'], CIBlock::GetArrayByID($arParams["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BCS_ELEMENT_DELETE_CONFIRM')));
 		?>
-		
-		<div class="promo-train-block__slider-item__slider-content-tabs">
-			<? $index = 0;
-			foreach($arResult["ITEMS"] as $cell=>$arElement):?>
-				<p class="promo-train-block__slider-item__slider-content__promo-title <?  if($index == 0) echo 'active' ?>"><?=$arElement["NAME"]?></p> 
-				<? $index++ ?>
-			<? endforeach; ?>
-		</div>
-
-		<?foreach($arResult["ITEMS"] as $cell=>$arElement):?>
-		<p class="promo-train-block__slider-item__slider-content__slogan"><?=$arElement["PROPERTIES"]["SLOGAN"]['VALUE']['TEXT']?></p>
-		<p class="promo-train-block__slider-item__slider-content__dicription"><?=$arElement["PREVIEW_TEXT"]?></p>
-		<div class="promo-train-block__slider__content_bottom">
-			<div class="promo-train-block__slider-item-button">
-				<a href="<?=$arElement["DETAIL_PAGE_URL"]?>"> 
-					<span class="promo-train-block__slider-item-button__text">Подробнее</span>
-				</a>
-			</div>
-			<div class="promo-train-block__slider-item-more">
-				<a href="#">
-
-					<span class="promo-train-block__slider-item-more__text"><img src="<?=$arElement["PROPERTIES"]["YUOTUBELINK"]['VALUE']?>" alt="">Смотреть видео тренировок</span></a>
+		<div class="pop-products-block__item" id="<?=$this->GetEditAreaId($arElement['ID']);?>">		
+			<a href="<?=$arElement["DETAIL_PAGE_URL"]?>" title="<?=$arElement["NAME"]?>">
+				<div class="pop-products-block__item__img-block">
+					<img src="<?=$arElement["PREVIEW_PICTURE"]["SRC"]?>" alt="<?=$arElement["NAME"]?>">
 				</div>
+			</a>
+			<div class="pop-products-block__item__title"><span class="title-span"><?=$arElement["PREVIEW_TEXT"]?></span></div>
+			<div class="pop-products-block__item__prices">
+				<div class="pop-products-block__item__price">5980 ₽</div>
+				<div class="pop-products-block__item__old-price">7980 ₽</div>
+				<a href="#"><div class="pop-products-block__item-cart"></div></a>
 			</div>
 		</div>
-		
-		
-		<? break; 
-			/////////////////////// new HTML needed
-		?>
-
 		<?endforeach;?>
 	</div>
 </div>
