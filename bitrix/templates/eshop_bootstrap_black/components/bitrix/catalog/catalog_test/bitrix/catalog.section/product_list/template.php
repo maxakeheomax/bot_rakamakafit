@@ -9,7 +9,7 @@ $this->setFrameMode(true);
 	<?=$arResult["NAV_STRING"]?>
 <?endif;?>
 <div class="catalog_block">
-	<div class="catalog__bl`ock__tabs">
+	<div class="catalog__block__tabs">
 		<div class="catalog__block__tabs__title">Сортировать</div>
 		<a href="#">по полуярности</a>
 		<a href="#">по цене</a>
@@ -28,7 +28,12 @@ $this->setFrameMode(true);
 		<div class="pop-products-block__item" id="<?=$this->GetEditAreaId($arElement['ID']);?>">		
 			<a href="<?=$arElement["DETAIL_PAGE_URL"]?>" title="<?=$arElement["NAME"]?>">
 				<div class="pop-products-block__item__img-block">
-					<img src="<?=$arElement["PREVIEW_PICTURE"]["SRC"]?>" alt="<?=$arElement["NAME"]?>">
+					<? if($arElement["PREVIEW_PICTURE"]["SRC"]){
+						$image = $arElement["PREVIEW_PICTURE"]["SRC"];
+					}else{
+						$image = $arElement["DETAIL_PICTURE"]["SRC"];
+					}?>
+					<img src="<?=$image?>" alt="<?=$arElement["NAME"]?>">
 				</div>
 			</a>
 			<div class="pop-products-block__item__title"><span class="title-span"><?=$arElement["PREVIEW_TEXT"]?></span></div>
