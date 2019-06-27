@@ -60,80 +60,227 @@
 	</div>
 
 
+<!--reg-block -->
+<div class="auth-container">
+	<div class="blur-block"></div>
+	<div class="auth-block">
+		<div class="close-button"></div>
+		<!--LogIn-block -->
+		<div class="LogIn-block">
+			<h2>Вход</h2>
+			<form class="auth-block-form" action="#">
+				<div class="auth-reg-wrapper login-block">
+					<input id="email" class="auth-reg__form__input" type="email" required pattern="\S+@[a-z]+.[a-z]+" placeholder='Email*' >
+					<label name="mail"></label>
+					<input id="pass" class="auth-reg__form__input pass" type="password"  placeholder='Пароль*'>
+					<label for="pass" name="password"></label>
 
+					<div class="promo-form-block__form__input-checkbox-wrapper">			
+						<input  class="promo-form-block__form__checbox"  type="checkbox" name="" id="auth-checkbox" >
+						<label for="auth-checkbox"></label>
+						<p class="promo-form-block__form__checbox-desc ">Запомнить меня</a></p>
+					</div>
+					<button class="login-block__form__submit" type="submit">войти</button>
+				</div>
+			</form>
+			<h2>Первый раз тут?</h2>
+			<button class="reg-button" type="submit">регистрация</button>
+			<p class="login-block__p">Войти с помощью</p>
+			<div class="auth-social-block">
+				<a href="#"><div class="auth-social-block-item"style="background:url(assets/vk-reg-form.svg)no-repeat center;"></div></a>
+				<a href="#"><div class="auth-social-block-item"style="background:url(assets/fb-reg-form.svg)no-repeat center;"></div></a>
+				<a href="#"><div class="auth-social-block-item"style="background:url(assets/ggl-plus-reg-form.svg)no-repeat center;"></div></a>
+			</div>
+		</div>
+		<!--end of LogIn-block -->
+
+		<!-- reg-block -->
+		<div class="registr-block hidden-block">
+			<h2>Регистрация</h2> 
+			<form class="auth-block-form" action="#">
+				<div class="auth-reg-wrapper">
+					
+					<input id="name" class="auth-reg__form__input registration_field" type="text" pattern="[A-Za-zА-Яа-яЁё]+" placeholder='Имя'>
+					<label for="name" name="name"></label>
+					
+					<input id="email" class="auth-reg__form__input registration_field" type="email" required pattern="\S+@[a-z]+.[a-z]+" placeholder='Email*' >
+					<label name="mail"></label>
+					
+					<input id="pass" class="auth-reg__form__input registration_field pass" type="password"  placeholder='Пароль*'>
+					<label for="pass" name="password"></label>
+
+					
+					<input id="repeat-pass" class="auth-reg__form__input registration_field pass" type="password"  placeholder='Повторите пароль*'>
+					<label for="repeat-pass" name="repeat-password"></label>
+
+
+					<div class="promo-form-block__form__input-checkbox-wrapper">			
+						<input  class="promo-form-block__form__checbox"  type="checkbox" name="" id="reg-checkbox" >
+						<label class='big-label' for="reg-checkbox"></label>
+						<p class="promo-form-block__form__checbox-desc">Я согласен с <a href="#">обработкой данных</a></p>
+					</div>
+					<button class="promo-form-block__form__submit continue " type="submit" disabled>продолжить</button>
+				</div>
+			</form>
+		</div>
+		<!-- end of reg block -->
+		<!-- greetings-block -->
+
+		<div class="greetings-block hidden-block">
+			<h2>Регистрация прошла успешно!</h2>
+			<span class="hello-icon" style="background: url('assets/waving-hand-sign.png') no-repeat; background-size:contain; "></span>
+			<div class="up-hello-block__left-side__title">Привет, Капитолина</div>
+			<p class="greetings-block__disc">Мы рады, что ты к нам присоединилась! 
+			Начни меняться вместе с нами прямо сейчас!</p>
+			<div class="auth-reg-wrapper">
+				<button class="login-block__form__submit" type="submit">хорошо</button>
+			</div>
+		</div>
+		<!-- end of greetings-block -->
+
+	</div>
+</div> 
 
 
 
 	<script>
-    $(document).ready(function(){
-    $('.owl-carousel.up-slider').owlCarousel({
-        items:1,
-        lazyLoad:true,
-        loop:true,
-        margin:10,
-        dots: false,
-        nav:true,
-        navText: [`<img src="<?= SITE_TEMPLATE_PATH ?>/assets/nav-arrow-left.svg">`,`<img src="<?= SITE_TEMPLATE_PATH ?>/assets/nav-arrow-right.svg">`]
-    });
+		
+		$(document).ready(function(){
 
-    $('.owl-carousel.middle-slider').owlCarousel({
-        items:1,
-        lazyLoad:true,
-        loop:true,
-        margin:10,
-        dots: true,
-        nav:true,
-        navText: [`<img src="<?= SITE_TEMPLATE_PATH ?>/assets/nav-arrow-left.svg">`,`<img src="<?= SITE_TEMPLATE_PATH ?>/assets/nav-arrow-right.svg">`]
-    });
 
-    $('.owl-carousel.bottom-slider').owlCarousel({
-        items:5,
-        stagePadding: 60,
-        lazyLoad:true,
-        loop:true,
-        autoplay:true,
-        margin:10,
-        dots: false,
-        nav:true,
-        navText: [`<img src="<?= SITE_TEMPLATE_PATH ?>/assets/arrow-white-left.svg">`,`<img src="<?= SITE_TEMPLATE_PATH ?>/assets/arrow-white-right.svg">`]
-    });
+			$('.owl-carousel.up-slider').owlCarousel({
+				items:1,
+				lazyLoad:true,
+				loop:true,
+				margin:10,
+				dots: false,
+				nav:true,
+				navText: [`<img src="assets/nav-arrow-left.svg">`,`<img src="assets/nav-arrow-right.svg">`]
+			});
 
-    $('.slick-slider').slick({
-        slidesToShow:3,
-        slidesToScroll: 1,
-        arrows: true,
-        appendArrows: $('.bottom-slider-nav-buttons'),
-        prevArrow: `<img src="<?= SITE_TEMPLATE_PATH ?>/assets/arrow-white-left.svg">`,
-        nextArrow: `<img src="<?= SITE_TEMPLATE_PATH ?>/assets/arrow-white-right.svg">`,
-        swipe:true,
-        draggable: true,
-        variableWidth: true,
-        easing: 'ease-in-out',
-        cssEase: 'ease-in-out',
-        autoplay: true
-    });
-});
+			$('.owl-carousel.middle-slider').owlCarousel({
+				items:1,
+				lazyLoad:true,
+				loop:true,
+				margin:10,
+				dots: true,
+				nav:true,
+				smartSpeed: 800,
+				navText: [`<img src="assets/nav-arrow-left.svg">`,`<img src="assets/nav-arrow-right.svg">`]
+			});
+			$('.slick-slider').slick({
+				slidesToShow:4,
+				slidesToScroll: 1,
+				arrows: true,
+				appendArrows: $('.bottom-slider-nav-buttons'),
+				prevArrow: `<img src="assets/arrow-white-left.svg">`,
+				nextArrow: `<img src="assets/arrow-white-right.svg">`,
+				swipe:true,
+				draggable: true,
+				speed: 1000,
+				variableWidth: true,
+				easing: 'ease-in-out',
+				cssEase: 'ease-in-out',
+				// autoplay: true,
+				infinite: true
+			});
 
-function toggleTabs(clickBlock, toggleBlock) {
-    $(clickBlock).click(function(e){
-        let a
-        let b = $(this).attr('id');
-        e.preventDefault();
+			$(window).scroll(function() {
+				if($(window).scrollTop() > 200) {
+					$('.aside-block__shedule *').fadeOut();
+					$('.aside-block__shedule').css({background:'transparent'});
+				}
+				else{
+					$('.aside-block__shedule *').fadeIn();
+					$('.aside-block__shedule').css({background:'#f7f7fb'});	
+				};
 
-        $(clickBlock).removeClass('active');
-        $(this).addClass('active');
+				if($(window).scrollTop() >= $('.in-the-know-form-block').offset().top) {
+					$('.aside-block__icons *').fadeOut();
+				}
+				else {
+					$('.aside-block__icons *').fadeIn();
+				}
+			});
 
-        $(toggleBlock).each(function(){
-            a = $(this).attr('id');
-            if(b == a) {
-                $(toggleBlock).addClass('hidden-block');
-                $(this).removeClass('hidden-block');
-            }										
-        });
-    });
-}
-toggleTabs('.exercises-promo-block__right-side__tab', '.img-block_img-link');
-toggleTabs('.promo-train-block__slider-item__slider-content-tab','.promo-train-block__slider-item__slider-content-tab__content');
-</script>
+			($('.pass').next()).click(function(){
+				($(this).prev()).toggleClass('pass-visible');
+				$('.pass').each(function() {
+					if($(this).hasClass('pass-visible')) {
+						$(this).attr('type','text')
+					}
+					else{
+						$(this).attr('type','password');
+					}
+				});
+			});
+
+
+			const form = $('.auth-block-form'); 
+
+			form.find('.reg__form__input').addClass('empty_field');
+			function checkInput(){
+				form.find('.registration_field').each(function(){
+
+					
+					if($(this).val() != ''){       
+						$(this).removeClass('empty_field');
+					}else {
+						$(this).addClass('empty_field');
+					}
+				});
+			}
+
+			setInterval(function(){
+				checkInput();
+				const sizeEmpty = form.find('.empty_field').length;
+
+				if(sizeEmpty > 0 || !$('#reg-checkbox').prop('checked')){
+
+					$('.promo-form-block__form__submit.continue').attr('disabled','disabled');
+					
+				} else {
+					$('.promo-form-block__form__submit.continue').removeAttr('disabled');
+				}
+
+			},500);
+
+
+
+
+			$('.header__nav-bar__login-button').click(function(){
+				$('body').css('overflow-y','hidden');
+				$('.page_content').css('filter', 'blur(10px)');
+				$('.auth-container').fadeIn().css('display','flex');
+				$('.auth-block').animate({'right': 0},500);
+			});
+
+
+			$('.reg-button').click(function(){
+				$('.LogIn-block, .registr-block').toggleClass('hidden-block');
+			});
+			$('.promo-form-block__form__submit.continue').click(function(){
+				$('.registr-block, .greetings-block').toggleClass('hidden-block');
+			});
+
+			function closeAsideForm(click_block) {
+				$(click_block).click(function(){
+					$('.auth-block').animate({'right': -500},500);
+					$('body').css('overflow-y','inherit');
+					$('.page_content').css('filter', 'none')
+					$('.auth-container').fadeOut();
+					setTimeout(function(){
+						$('.registr-block, .greetings-block').addClass('hidden-block');
+						$('.LogIn-block').removeClass('hidden-block');
+
+					},1000);
+				});
+			}
+
+			closeAsideForm('.close-button');
+			closeAsideForm('.login-block__form__submit');
+
+		});
+	</script>
 </body>
 </html>
