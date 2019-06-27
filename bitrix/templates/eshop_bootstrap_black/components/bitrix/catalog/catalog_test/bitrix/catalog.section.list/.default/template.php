@@ -4,49 +4,26 @@ $this->setFrameMode(true);
 
 
 <?
-$TOP_DEPTH = $arResult["SECTION"]["DEPTH_LEVEL"];
-$CURRENT_DEPTH = $TOP_DEPTH;
-if($arResult["SECTION"]["DEPTH_LEVEL"] === 0):?>
+if($arResult['SECTION']["DEPTH_LEVEL"] === 0):
+//  echo '<pre>'; var_dump($arResult["SECTIONS"]); echo '</pre>';
+?>
 
+<!-- exercises-tabs-block -->
 <div class="product-catalog exercises-tabs-block">
 	<div class="exercises-tabs-block__title">Категории товаров</div>
 	<div class="exercises-tabs-block__tabs">
-	<?foreach($arResult["SECTIONS"] as $arSection):
-		if($arResult["SECTION"]["DEPTH_LEVEL"] < 2):
-		$this->AddEditAction($arSection['ID'], $arSection['EDIT_LINK'], CIBlock::GetArrayByID($arSection["IBLOCK_ID"], "SECTION_EDIT"));
-		$this->AddDeleteAction($arSection['ID'], $arSection['DELETE_LINK'], CIBlock::GetArrayByID($arSection["IBLOCK_ID"], "SECTION_DELETE"), array("CONFIRM" => GetMessage('CT_BCSL_ELEMENT_DELETE_CONFIRM')));
-		if($CURRENT_DEPTH < $arSection["DEPTH_LEVEL"])
-			echo "\n",str_repeat("\t", $arSection["DEPTH_LEVEL"]-$TOP_DEPTH),"<ul>";
-		elseif($CURRENT_DEPTH == $arSection["DEPTH_LEVEL"])
-			echo "</li>";
-		else
-		{
-			while($CURRENT_DEPTH > $arSection["DEPTH_LEVEL"])
-			{
-				echo "</li>";
-				echo "\n",str_repeat("\t", $CURRENT_DEPTH-$TOP_DEPTH),"</ul>","\n",str_repeat("\t", $CURRENT_DEPTH-$TOP_DEPTH-1);
-				$CURRENT_DEPTH--;
-			}
-			echo "\n",str_repeat("\t", $CURRENT_DEPTH-$TOP_DEPTH),"</li>";
-		}
-
-		echo "\n",str_repeat("\t", $arSection["DEPTH_LEVEL"]-$TOP_DEPTH);
-		?>
-		<li id="<?=$this->GetEditAreaId($arSection['ID']);?>">
-			<a href="<?=$arSection["SECTION_PAGE_URL"]?>">
-				<?=$arSection["NAME"]?>
-				(<?=$arSection["ELEMENT_CNT"]?>)
-			</a>
+	<?	
+	foreach($arResult["SECTIONS"] as $arSection):
+			if($arSection["DEPTH_LEVEL"] == 1):
+			$this->AddEditAction($arSection['ID'], $arSection['EDIT_LINK'], CIBlock::GetArrayByID($arSection["IBLOCK_ID"], "SECTION_EDIT"));
+			$this->AddDeleteAction($arSection['ID'], $arSection['DELETE_LINK'], CIBlock::GetArrayByID($arSection["IBLOCK_ID"], "SECTION_DELETE"), array("CONFIRM" => GetMessage('CT_BCSL_ELEMENT_DELETE_CONFIRM')));
+			?>
+			
+			<a href="<?= $arSection['SECTION_PAGE_URL']?>"><div class="exercises-tabs-block__tabs__item " style="background-image:url('<?= $arSection['PICTURE']['SRC'] ?>'); background-size: cover;"><p><?= $section['NAME'] ?></p></div></a>					
 			<?
-		$CURRENT_DEPTH = $arSection["DEPTH_LEVEL"];
 		endif;
 	endforeach;
-	while($CURRENT_DEPTH > $TOP_DEPTH)
-	{
-		echo "</li>";
-		echo "\n",str_repeat("\t", $CURRENT_DEPTH-$TOP_DEPTH),"</ul>","\n",str_repeat("\t", $CURRENT_DEPTH-$TOP_DEPTH-1);
-		$CURRENT_DEPTH--;
-	}?>
+?>
 	</div>
 </div>
 <?endif;?>
