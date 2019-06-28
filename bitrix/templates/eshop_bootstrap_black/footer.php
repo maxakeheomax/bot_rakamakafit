@@ -68,7 +68,8 @@
 		<!--LogIn-block -->
 		<div class="LogIn-block">
 			<h2>Вход</h2>
-			<form class="auth-block-form" action="#">
+			<form class="auth-block-form" action="/auth.php">
+                <input type="hidden" name="ajax_key" value="<?= md5('ajax_'.LICENSE_KEY)?>" />
 				<div class="auth-reg-wrapper login-block">
 					<input id="email" class="auth-reg__form__input" type="email" required pattern="\S+@[a-z]+.[a-z]+" placeholder='Email*' >
 					<label name="mail"></label>
@@ -129,7 +130,7 @@
 		<div class="greetings-block hidden-block">
 			<h2>Регистрация прошла успешно!</h2>
 			<span class="hello-icon" style="background: url('assets/waving-hand-sign.png') no-repeat; background-size:contain; "></span>
-			<div class="up-hello-block__left-side__title">Привет, Капитолина</div>
+			<div class="up-hello-block__left-side__title">Привет,  <span id="UserName"> Капитолина </span></div>
 			<p class="greetings-block__disc">Мы рады, что ты к нам присоединилась! 
 			Начни меняться вместе с нами прямо сейчас!</p>
 			<div class="auth-reg-wrapper">
@@ -280,7 +281,24 @@
 			closeAsideForm('.close-button');
 			closeAsideForm('.login-block__form__submit');
 
+			$('.LogIn-block form').submit(function(){
+				console.log('asd');
+                var $form = $(this);
+                $.post($form.attr('action'), $form.serialize(), function(data){
+					console.log(data);
+                    $('input', $form).removeAttr('disabled');
+                    if (data.type == 'error') {
+                        alert(data.message);
+                    } else {
+                        window.location = window.location;
+                    }
+                }, 'json');
+                return false;
+            });
+
 		});
+
+
 	</script>
 </body>
 </html>
