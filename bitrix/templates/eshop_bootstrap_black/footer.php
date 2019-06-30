@@ -277,22 +277,26 @@
 					},1000);
 				});
 			}
+			// closeAsideForm('.login-block__form__submit');
 
 			closeAsideForm('.close-button');
-			closeAsideForm('.login-block__form__submit');
+			
 
 			$('.LogIn-block form').submit(function(){
 				console.log('asd');
-                var $form = $(this);
-                $.post($form.attr('action'), $form.serialize(), function(data){
-					console.log(data);
-                    $('input', $form).removeAttr('disabled');
-                    if (data.type == 'error') {
-                        alert(data.message);
-                    } else {
-                        window.location = window.location;
+                var form = $(this)[0];
+                
+                $.ajax({
+                    type: 'POST',
+                    url: form.action,
+                    data: $(this).serialize(),
+                    success: function(data) {
+                        console.log('s '+ data);
+                    },
+                    error:  function(xhr, str){
+                        console.log('e '+ data);
                     }
-                }, 'json');
+                });
                 return false;
             });
 
