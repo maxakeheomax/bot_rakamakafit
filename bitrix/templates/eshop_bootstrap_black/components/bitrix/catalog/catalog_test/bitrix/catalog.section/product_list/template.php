@@ -11,14 +11,15 @@ $this->setFrameMode(true);
 <div class="catalog_block">
 	<div class="catalog__block__tabs">
 		<div class="catalog__block__tabs__title">Сортировать</div>
-		<a href="#">по полуярности</a>
-		<a href="#">по цене</a>
-		<a href="#">по наличию</a>
+		<a href="<?= $APPLICATION->GetCurPageParam("sort=rating",array("sort"), false) ?>">по полуярности</a>
+		<a href="<?= $APPLICATION->GetCurPageParam("sort=price",array("sort"), false) ?>">по цене</a>
+		<a href="<?= $APPLICATION->GetCurPageParam("sort=available",array("sort"), false) ?>">по наличию</a>
 	</div>
 
 
 
 	<div class="pop-products-block__items">
+		<? var_dump($arResult["ITEMS"][0]) ?>
 		<?foreach($arResult["ITEMS"] as $key => $arElement):?>
 
 		<?
@@ -36,10 +37,10 @@ $this->setFrameMode(true);
 					<img src="<?=$image?>" alt="<?=$arElement["NAME"]?>">
 				</div>
 			</a>
-			<div class="pop-products-block__item__title"><span class="title-span"><?=$arElement["PREVIEW_TEXT"]?></span></div>
+			<div class="pop-products-block__item__title"><span class="title-span"><?=$arElement["NAME"]?></span></div>
 			<div class="pop-products-block__item__prices">
-				<div class="pop-products-block__item__price">5980 ₽</div>
-				<div class="pop-products-block__item__old-price">7980 ₽</div>
+				<div class="pop-products-block__item__price"><?=$arElement["PRICE"]?></div>
+				<div class="pop-products-block__item__old-price"><?=$arElement["DISCOUNT"]?></div>
 				<a href="#"><div class="pop-products-block__item-cart"></div></a>
 			</div>
 		</div>
