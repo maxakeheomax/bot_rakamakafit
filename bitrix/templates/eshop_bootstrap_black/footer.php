@@ -71,13 +71,13 @@
 			<form class="auth-block-form" action="/auth.php">
                 <input type="hidden" name="ajax_key" value="<?= md5('ajax_'.LICENSE_KEY)?>" />
 				<div class="auth-reg-wrapper login-block">
-					<input id="email" class="auth-reg__form__input" type="email" required pattern="\S+@[a-z]+.[a-z]+" placeholder='Email*' >
-					<label name="mail"></label>
-					<input id="pass" class="auth-reg__form__input pass" type="password"  placeholder='Пароль*'>
-					<label for="pass" name="password"></label>
+					<input name="mail" id="email" class="auth-reg__form__input" type="email" required pattern="\S+@[a-z]+.[a-z]+" placeholder='Email*' >
+					<label ></label>
+					<input name="password" id="pass" class="auth-reg__form__input pass" type="password"  placeholder='Пароль*'>
+					<label for="pass" ></label>
 
 					<div class="promo-form-block__form__input-checkbox-wrapper">			
-						<input  class="promo-form-block__form__checbox"  type="checkbox" name="" id="auth-checkbox" >
+						<input  class="promo-form-block__form__checbox"  type="checkbox" name="remember" id="auth-checkbox" >
 						<label for="auth-checkbox"></label>
 						<p class="promo-form-block__form__checbox-desc ">Запомнить меня</a></p>
 					</div>
@@ -98,21 +98,21 @@
 		<!-- reg-block -->
 		<div class="registr-block hidden-block">
 			<h2>Регистрация</h2> 
-			<form class="auth-block-form" action="#">
+			<form id="register_form" class="auth-block-form" action="/register.php">
 				<div class="auth-reg-wrapper">
 					
-					<input id="name" class="auth-reg__form__input registration_field" type="text" pattern="[A-Za-zА-Яа-яЁё]+" placeholder='Имя'>
-					<label for="name" name="name"></label>
+					<input name="name" id="name" class="auth-reg__form__input registration_field" type="text" pattern="[A-Za-zА-Яа-яЁё]+" placeholder='Имя'>
+					<label for="name" ></label>
 					
-					<input id="email" class="auth-reg__form__input registration_field" type="email" required pattern="\S+@[a-z]+.[a-z]+" placeholder='Email*' >
-					<label name="mail"></label>
+					<input name="mail" id="email" class="auth-reg__form__input registration_field" type="email" required pattern="\S+@[a-z]+.[a-z]+" placeholder='Email*' >
+					<label ></label>
 					
-					<input id="pass" class="auth-reg__form__input registration_field pass" type="password"  placeholder='Пароль*'>
-					<label for="pass" name="password"></label>
+					<input name="password" id="pass" class="auth-reg__form__input registration_field pass" type="password"  placeholder='Пароль*'>
+					<label for="pass" ></label>
 
 					
-					<input id="repeat-pass" class="auth-reg__form__input registration_field pass" type="password"  placeholder='Повторите пароль*'>
-					<label for="repeat-pass" name="repeat-password"></label>
+					<input name="repeat-password" id="repeat-pass" class="auth-reg__form__input registration_field pass" type="password"  placeholder='Повторите пароль*'>
+					<label for="repeat-pass" ></label>
 
 
 					<div class="promo-form-block__form__input-checkbox-wrapper">			
@@ -130,11 +130,11 @@
 		<div class="greetings-block hidden-block">
 			<h2>Регистрация прошла успешно!</h2>
 			<span class="hello-icon" style="background: url('assets/waving-hand-sign.png') no-repeat; background-size:contain; "></span>
-			<div class="up-hello-block__left-side__title">Привет,  <span id="UserName"> Капитолина </span></div>
+			<div class="up-hello-block__left-side__title">Привет,  <span id="login_username"> Капитолина </span></div>
 			<p class="greetings-block__disc">Мы рады, что ты к нам присоединилась! 
 			Начни меняться вместе с нами прямо сейчас!</p>
 			<div class="auth-reg-wrapper">
-				<button class="login-block__form__submit" type="submit">хорошо</button>
+				<button id='after_login_submit' class="login-block__form__submit" type="submit">хорошо</button>
 			</div>
 		</div>
 		<!-- end of greetings-block -->
@@ -156,7 +156,7 @@
 				margin:10,
 				dots: false,
 				nav:true,
-				navText: [`<img src="assets/nav-arrow-left.svg">`,`<img src="assets/nav-arrow-right.svg">`]
+				navText: [`<img src="<?= SITE_TEMPLATE_PATH ?>/assets/nav-arrow-left.svg">`,`<img src="<?= SITE_TEMPLATE_PATH ?>/assets/nav-arrow-right.svg">`]
 			});
 
 			$('.owl-carousel.middle-slider').owlCarousel({
@@ -167,15 +167,15 @@
 				dots: true,
 				nav:true,
 				smartSpeed: 800,
-				navText: [`<img src="assets/nav-arrow-left.svg">`,`<img src="assets/nav-arrow-right.svg">`]
+				navText: [`<img src="<?= SITE_TEMPLATE_PATH ?>/assets/nav-arrow-left.svg">`,`<img src="<?= SITE_TEMPLATE_PATH ?>/assets/nav-arrow-right.svg">`]
 			});
 			$('.slick-slider').slick({
 				slidesToShow:4,
 				slidesToScroll: 1,
 				arrows: true,
 				appendArrows: $('.bottom-slider-nav-buttons'),
-				prevArrow: `<img src="assets/arrow-white-left.svg">`,
-				nextArrow: `<img src="assets/arrow-white-right.svg">`,
+				prevArrow: `<img src="<?= SITE_TEMPLATE_PATH ?>/assets/arrow-white-left.svg">`,
+				nextArrow: `<img src="<?= SITE_TEMPLATE_PATH ?>/assets/arrow-white-right.svg">`,
 				swipe:true,
 				draggable: true,
 				speed: 1000,
@@ -260,9 +260,9 @@
 			$('.reg-button').click(function(){
 				$('.LogIn-block, .registr-block').toggleClass('hidden-block');
 			});
-			$('.promo-form-block__form__submit.continue').click(function(){
-				$('.registr-block, .greetings-block').toggleClass('hidden-block');
-			});
+			// $('.promo-form-block__form__submit.continue').click(function(){
+			// 	$('.registr-block, .greetings-block').toggleClass('hidden-block');
+			// });
 
 			function closeAsideForm(click_block) {
 				$(click_block).click(function(){
@@ -283,7 +283,6 @@
 			
 
 			$('.LogIn-block form').submit(function(){
-				console.log('asd');
                 var form = $(this)[0];
                 
                 $.ajax({
@@ -291,18 +290,50 @@
                     url: form.action,
                     data: $(this).serialize(),
                     success: function(data) {
-                        console.log('s '+ data);
+						if(data['name']){
+							$('.registr-block, .LogIn-block').addClass('hidden-block');
+							$('.greetings-block').removeClass('hidden-block');
+
+							$('#login_username').text(data['name']);
+						}
                     },
-                    error:  function(xhr, str){
-                        console.log('e '+ data);
+                    error:  function(data){
+                        console.log(data);
                     }
                 });
                 return false;
-            });
+			});
+			
+			$('#after_login_submit').click(function(){
+				window.location.reload(false); 
+			});
 
+			$('#register_form').submit(function(){
+                var form = $(this)[0];
+                
+                $.ajax({
+                    type: 'POST',
+                    url: form.action,
+                    data: $(this).serialize(),
+                    success: function(data) {
+						if(data['name']){
+							$('.registr-block, .LogIn-block').addClass('hidden-block');
+							$('.greetings-block').removeClass('hidden-block');
+
+							$('#login_username').text(data['name']);
+						}
+                    },
+                    error:  function(xhr, str){
+                        console.log(data);
+                    }
+                });
+                return false;
+			});
+			
+			$('#after_login_submit').click(function(){
+				window.location.reload(false); 
+			});
 		});
-
-
 	</script>
 </body>
 </html>
