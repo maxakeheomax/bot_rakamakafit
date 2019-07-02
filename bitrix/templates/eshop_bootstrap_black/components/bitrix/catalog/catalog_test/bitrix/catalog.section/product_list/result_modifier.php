@@ -46,16 +46,5 @@ foreach ($arResult["PROPERTIES"] as $pid => &$arProp)
    }
 }
 
-// if ($_GET["sort"] == "price")
-// {
-// $arParams["TOP_ELEMENT_SORT_FIELD"] = "property_PRICE_1";
-// $price="asortvibor";
-// $brend="";
-// }
-// if ($_GET["sort"] == "Brend")
-// {
-// $arParams["TOP_ELEMENT_SORT_FIELD"] = "property_Brendy";
-// $brend="asortvibor";
-// $price="";
-// }
 
+?>

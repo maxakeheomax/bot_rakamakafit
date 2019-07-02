@@ -1,5 +1,10 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $this->setFrameMode(true);
+
+
+
+// echo $_GET['my_range'];
+// die;
 ?>
 
 
@@ -11,7 +16,7 @@ $this->setFrameMode(true);
 <div class="catalog_block">
 	<div class="catalog__block__tabs">
 		<div class="catalog__block__tabs__title">Сортировать</div>
-		<a href="<?= $APPLICATION->GetCurPageParam("sort=rating",array("sort"), false) ?>">по полуярности</a>
+		<a href="<?= $APPLICATION->GetCurPageParam("sort=popular",array("sort"), false) ?>">по полуярности</a>
 		<a href="<?= $APPLICATION->GetCurPageParam("sort=price",array("sort"), false) ?>">по цене</a>
 		<a href="<?= $APPLICATION->GetCurPageParam("sort=available",array("sort"), false) ?>">по наличию</a>
 	</div>
@@ -19,7 +24,7 @@ $this->setFrameMode(true);
 
 
 	<div class="pop-products-block__items">
-		<? var_dump($arResult["ITEMS"][0]) ?>
+		<? //echo '<pre>' . var_export( CPrice::GetBasePrice($arResult["ITEMS"][0]['ID']), true) . '</pre>'; ?>
 		<?foreach($arResult["ITEMS"] as $key => $arElement):?>
 
 		<?
@@ -39,7 +44,7 @@ $this->setFrameMode(true);
 			</a>
 			<div class="pop-products-block__item__title"><span class="title-span"><?=$arElement["NAME"]?></span></div>
 			<div class="pop-products-block__item__prices">
-				<div class="pop-products-block__item__price"><?=$arElement["PRICE"]?></div>
+				<div class="pop-products-block__item__price"><?= CPrice::GetBasePrice($arElement['ID'])['PRICE']?></div>
 				<div class="pop-products-block__item__old-price"><?=$arElement["DISCOUNT"]?></div>
 				<a href="#"><div class="pop-products-block__item-cart"></div></a>
 			</div>
@@ -49,5 +54,5 @@ $this->setFrameMode(true);
 </div>
 
 <?if($arParams["DISPLAY_BOTTOM_PAGER"]):?>
-	<?=$arResult["NAV_STRING"]?>
+	<? //$arResult["NAV_STRING"]?>
 <?endif;?>
