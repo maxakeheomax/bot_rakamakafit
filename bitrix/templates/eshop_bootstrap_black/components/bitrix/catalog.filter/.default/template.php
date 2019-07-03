@@ -14,61 +14,13 @@ $this->setFrameMode(true);
 ?>
 <div class="filters_block">
 	<form name="<?echo $arResult["FILTER_NAME"]."_form"?>" action="<?echo $arResult["FORM_ACTION"]?>" method="get">
-			<!-- <div class="filters_block-title">Фильтры по параметрам</div>
-				<div class="filters__blok__items">
-					 <div class="filters_block__filter">
-						<div class="filters_block__filter__title">Цена</div>
-						<div class="filters_block__filter__item-list inline">
-							<input class="valueFrom" type="text" name="" id="">
-							<input class="valueTo" type="text" name="" id="">
-						</div>
-						<input type="text" class="js-range-slider" name="my_range" value="" />
-					</div>
-					<div class="filters_block__filter width-block">
-						<div class="filters_block__filter__title">Материал</div>
-						<div class="filters_block__filter__item-list">
-							<ul>
-								<li><input id="filter_id-1" type="checkbox"><label for="filter_id-1">100% Латекс</label></li>
-								<li><input id="filter_id-2" type="checkbox"><label for="filter_id-2">Латекс, полипропилен, неопрен</label></li>
-								<li><input id="filter_id-3" type="checkbox"><label for="filter_id-3">Латекс, полипропилен</label></li>
-							</ul>
-						</div>
-					</div> -->
-					<!-- <div class="filters_block__filter">
-						<div class="filters_block__filter__title">Длина, см (по окружности)</div>
-						<div class="filters_block__filter__item-list">
-							<ul>
-								<li><input id="filter-2_id-1" type="checkbox"><label for="filter-2_id-1">30</label></li>
-								<li><input id="filter-2_id-2" type="checkbox"><label for="filter-2_id-2">30 - 60</label></li>
-								<li><input id="filter-2_id-3" type="checkbox"><label for="filter-2_id-3">64</label></li>
-								<li><input id="filter-2_id-4" type="checkbox"><label for="filter-2_id-4">74</label></li>
-								<li><input id="filter-2_id-5" type="checkbox"><label for="filter-2_id-5">84</label></li>
-							</ul>
-						</div>
-					</div>
-					<div class="filters_block__filter">
-						<div class="filters_block__filter__title">Вес, кг</div>
-					
-						<div class="filters_block__filter__item-list inline">
-							<input type="text" name="" id="" pattern="[0-9]+">
-							<input type="text" name="" id="" pattern="[0-9]+">
-						</div>
-					</div>
-				</div>
-				<button class="promo-form-block__form__submit" type="submit">показать</button>
-				<div class="reset-filters">
-					<a href="<?= $APPLICATION->GetCurPage(false) ?>"><span>Сбросить фильтры</span></a>
-				</div> -->
-
-
-
 		<?foreach($arResult["ITEMS"] as $arItem):
 			if(array_key_exists("HIDDEN", $arItem)):
 				echo $arItem["INPUT"];
 			endif;
 		endforeach;
 		// var_dump($arResult["ITEMS"]);
-		// var_dump($_GET);
+		var_dump($_GET);
 
 		?>
 		<div class="filters_block-title">Фильтры по параметрам</div>
@@ -84,20 +36,20 @@ $this->setFrameMode(true);
 			<div class="filters_block__filter width-block">
 				<div class="filters_block__filter__title">Материал</div>
 				<div class="filters_block__filter__item-list">
-					<ul>						
-						<?foreach($arResult["ITEMS"]["OFFER_PROPERTY_123"]['LIST'] as $key => $arItem):?>
-							<li><input name="arrFilter_op[MATERIAL][]" id="filter_id-<?=$key?>" type="checkbox" value="<?=$key?>"><label for="filter_id-<?=$key?>"> <?=$arItem?> </label></li>
-						<?endforeach;?>
-					</ul>
+					<ul>
+						<?foreach($arResult["ITEMS"]["OFFER_PROPERTY_122"]['LIST'] as $key => $arItem):?>
+							<li><input name="arrFilter_op[MATERIAL][]" id="length_filter_id-<?=$key?>" type="checkbox" value="<?=$key?>" <? if(in_array($key, $_GET['arrFilter_op']['MATERIAL'])) echo 'checked="checked"'; ?> ><label for="length_filter_id-<?=$key?>"> <?=$arItem?> </label></li>
+						<?endforeach;?>						
+					</ul>						
 				</div>
 			</div>
 			<div class="filters_block__filter">
 				<div class="filters_block__filter__title">Длина, см (по окружности)</div>
 				<div class="filters_block__filter__item-list">
-					<ul>
-						<?foreach($arResult["ITEMS"]["OFFER_PROPERTY_122"]['LIST'] as $key => $arItem):?>
-							<li><input name="arrFilter_op[LENGTH][]" id="length_filter_id-<?=$key?>" type="checkbox" value="<?=$key?>"><label for="length_filter_id-<?=$key?>"> <?=$arItem?> </label></li>
-						<?endforeach;?>						
+					<ul>						
+						<?foreach($arResult["ITEMS"]["OFFER_PROPERTY_123"]['LIST'] as $key => $arItem):?>
+							<li><input name="arrFilter_op[LENGTH][]" id="filter_id-<?=$key?>" type="checkbox" value="<?=$key?>" <? if(in_array($key, $_GET['arrFilter_op']['LENGTH'])) echo 'checked="checked"'; ?> ><label for="filter_id-<?=$key?>"> <?=$arItem?> </label></li>
+						<?endforeach;?>
 					</ul>
 				</div>
 			</div>
