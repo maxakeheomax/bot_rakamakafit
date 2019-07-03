@@ -20,15 +20,71 @@ global $arParams;
     $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH."/libs/slick-1.8.1/slick/slick-theme.css", true);
     $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH."/libs/slick-1.8.1/slick/slick.css", true);
     $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH."/libs/all.css", true);
+    $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH."/libs/ion.rangeSlider-master/css/ion.rangeSlider.min.css", true);
     //////////////////// CUSTOM JS
     $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH."/libs/jquery.min.js");
     $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH."/libs/owl.carousel2/dist/owl.carousel.min.js");
     $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH."/libs/slick-1.8.1/slick/slick.min.js");
+    $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH."/libs/ion.rangeSlider-master/js/ion.rangeSlider.min.js");
 
     ?>
     <title><?$APPLICATION->ShowTitle()?></title>
 </head>
 <body class="bx-background-image bx-theme-<?=$theme?>" <?=$APPLICATION->ShowProperty("backgroundImage")?>>
+	<!-- popUp-gift-block -->
+	<div class="popUp popUp-gift hidden-block">
+		<div class="blur-block"></div>	
+		<div class="wrapper-block">
+
+			<div class="popUp-gift__form-block">
+				<div class="close-button"></div>
+				<div class="promo-form-block__title">Не уходи без подарка!</div>
+				<div class="popUp-gift__form-block_desc">Я хочу подарить тебе книжку с рецептами очень вкусных десертов, которые совершенно не повредят твоей фигуре!</div>
+				<form class="" action="#">
+					<div class="">
+						<label name="mail">
+							<input class="promo-form-block__form__input" type="email" required pattern="\S+@[a-z]+.[a-z]+" placeholder='Email'>
+						</label>
+						<button class="promo-form-block__form__submit" type="submit">получить</button>
+					</div>
+					<div class="promo-form-block__form__input-checkbox-wrapper">			
+						<input  class="promo-form-block__form__checbox"  type="checkbox" name="" id="promo-checkbox">
+						<label for="promo-checkbox"></label>
+						<p class="promo-form-block__form__checbox-desc">Я согласен с обработкой персональных данных</p>
+					</div>
+				</form>
+			</div>
+
+
+
+		</div>
+	</div>
+
+
+	<script>
+		// $(document).ready(function(){
+		// 	 function ShowPopUp(delay_time){setInterval(function(){
+		// 		if($('.popUp').css('display') == 'block'){
+		// 			return false
+		// 		}else{						
+		// 			$('body').css('overflow-y','hidden');
+		// 			$('.page_content, .page_wrapper').css('filter', 'blur(10px)');
+		// 			$('.popUp').fadeIn();
+		// 		}
+		// 	}, delay_time);
+		// 	}
+
+        //     // ShowPopUp(15000);
+
+		// 	$('.close-button').click(function(){
+		// 		$('body').css('overflow-y','inherit');
+		// 		$('.page_content, .page_wrapper').css('filter', 'none')
+		// 		$('.popUp').fadeOut();
+		// 	});
+		// });
+
+	</script>
+	<!-- end of popUp-gift-block -->
 <div id="panel"><?$APPLICATION->ShowPanel();?></div>
 <?$APPLICATION->IncludeComponent("bitrix:eshop.banner", "", array());?>
 <div class="bx-wrapper" id="bx_eshop_wrap">
@@ -54,17 +110,17 @@ global $arParams;
                             )
                         );?>
                     </div>
-                    <div class="header__nav-bar__login-button">
-                        <span class="header__nav-bar__login-button__text">
-                        
-                        <? if($USER->IsAuthorized()): ?>
-                            <a href="/personal/"> Личный кабинет </a>
-                        <? else:?>
-                            <a href="/login/?login=yes&backurl=<?= $APPLICATION->GetCurUri() ?>"> Вход </a>
-                        <?endif;?>
-                       
-                        </span>
-                    </div>
+                     <? if($USER->IsAuthorized()): ?>
+                        <div class="header__nav-bar__login-button">
+                            <span class="header__nav-bar__login-button__text">
+                                <a href="/personal/"> Личный кабинет </a>
+                            </span>
+                        </div>
+                    <? else:?>
+                        <a href="#"><div class="header__nav-bar__login-button">
+                            <span class="header__nav-bar__login-button__text">Войти</span>
+                        </div></a>                           
+                    <?endif;?>
                 </nav>	
                 <nav class="header__inner-nav-bar">
                     <div class="header__inner-nav-bar-block">                        

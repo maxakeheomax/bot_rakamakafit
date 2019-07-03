@@ -2,9 +2,9 @@
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Каталог");
 ?><?$APPLICATION->IncludeComponent(
-	"bitrix:catalog", 
-	"catalog_test", 
-	array(
+	"bitrix:catalog",
+	"catalog_test",
+	Array(
 		"ACTION_VARIABLE" => "action",
 		"ADD_ELEMENT_CHAIN" => "N",
 		"ADD_PROPERTIES_TO_BASKET" => "Y",
@@ -25,17 +25,12 @@ $APPLICATION->SetTitle("Каталог");
 		"COMPATIBLE_MODE" => "Y",
 		"CONVERT_CURRENCY" => "N",
 		"DETAIL_ADD_DETAIL_TO_SLIDER" => "N",
-		"DETAIL_ADD_TO_BASKET_ACTION" => array(
-			0 => "BUY",
-		),
+		"DETAIL_ADD_TO_BASKET_ACTION" => array(0=>"BUY",),
 		"DETAIL_BACKGROUND_IMAGE" => "-",
 		"DETAIL_BRAND_USE" => "N",
 		"DETAIL_BROWSER_TITLE" => "-",
 		"DETAIL_CHECK_SECTION_ID_VARIABLE" => "N",
-		"DETAIL_DETAIL_PICTURE_MODE" => array(
-			0 => "POPUP",
-			1 => "MAGNIFIER",
-		),
+		"DETAIL_DETAIL_PICTURE_MODE" => array(0=>"POPUP",1=>"MAGNIFIER",),
 		"DETAIL_DISPLAY_NAME" => "Y",
 		"DETAIL_DISPLAY_PREVIEW_TEXT_MODE" => "E",
 		"DETAIL_IMAGE_RESOLUTION" => "16by9",
@@ -112,8 +107,7 @@ $APPLICATION->SetTitle("Каталог");
 		"PAGER_TITLE" => "Товары",
 		"PAGE_ELEMENT_COUNT" => "30",
 		"PARTIAL_PRODUCT_PROPERTIES" => "N",
-		"PRICE_CODE" => array(
-		),
+		"PRICE_CODE" => array("BASE"),
 		"PRICE_VAT_INCLUDE" => "Y",
 		"PRICE_VAT_SHOW_VALUE" => "N",
 		"PRODUCT_ID_VARIABLE" => "id",
@@ -132,7 +126,9 @@ $APPLICATION->SetTitle("Каталог");
 		"SECTION_COUNT_ELEMENTS" => "Y",
 		"SECTION_ID_VARIABLE" => "SECTION_ID",
 		"SECTION_TOP_DEPTH" => "2",
+		"SEF_FOLDER" => "/catalog_test/",
 		"SEF_MODE" => "Y",
+		"SEF_URL_TEMPLATES" => Array("compare"=>"compare.php?action=#ACTION_CODE#","element"=>"#SECTION_CODE#/#ELEMENT_ID#/","section"=>"#SECTION_CODE#/","sections"=>"","smart_filter"=>"#SECTION_CODE#/filter/#SMART_FILTER_PATH#/apply/"),
 		"SET_LAST_MODIFIED" => "N",
 		"SET_STATUS_404" => "N",
 		"SET_TITLE" => "Y",
@@ -174,20 +170,6 @@ $APPLICATION->SetTitle("Каталог");
 		"USE_REVIEW" => "N",
 		"USE_SALE_BESTSELLERS" => "Y",
 		"USE_STORE" => "N",
-		"COMPONENT_TEMPLATE" => "catalog_test",
-		"SEF_FOLDER" => "/catalog_test/",
-		"SEF_URL_TEMPLATES" => array(
-			"sections" => "",
-			"section" => "#SECTION_ID#/",
-			"element" => "#SECTION_ID#/#ELEMENT_ID#/",
-			"compare" => "compare.php?action=#ACTION_CODE#",
-			"smart_filter" => "#SECTION_ID#/filter/#SMART_FILTER_PATH#/apply/",
-		),
-		"VARIABLE_ALIASES" => array(
-			"compare" => array(
-				"ACTION_CODE" => "action",
-			),
-		)
-	),
-	false
-);?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+		"VARIABLE_ALIASES" => array("compare"=>array("ACTION_CODE"=>"action",),)
+	)
+);?><br><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
