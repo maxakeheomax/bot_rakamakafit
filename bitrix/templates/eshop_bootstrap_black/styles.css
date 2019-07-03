@@ -1460,6 +1460,11 @@ h2{
 	justify-content: space-between;
 	margin-top: 30px;
 }
+.pop-products-block__items::after{
+	content: '';
+	display: flex;
+	flex: auto;
+}
 .pop-products-block__item {
 	display: flex;
 	align-content: space-around;
@@ -1478,6 +1483,8 @@ h2{
 }
 .pop-products-block__item img{
 	width: auto;
+	max-width: 152px;
+    max-height: 200px;
 	display: block;
 	margin: 0 auto;
 	position: absolute;
@@ -4902,7 +4909,7 @@ height: 25px;
 	line-height: 1.75;
 	letter-spacing: normal;
 	color: #ffffff;
-	margin-bottom: 38px;
+	/* margin-bottom: 38px; */
 }
 
 /*end of footer */
