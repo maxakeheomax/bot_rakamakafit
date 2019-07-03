@@ -1460,6 +1460,11 @@ h2{
 	justify-content: space-between;
 	margin-top: 30px;
 }
+.pop-products-block__items::after{
+	content: '';
+	display: flex;
+	flex: auto;
+}
 .pop-products-block__item {
 	display: flex;
 	align-content: space-around;

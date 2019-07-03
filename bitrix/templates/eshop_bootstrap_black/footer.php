@@ -161,7 +161,7 @@
 						$('.valueFrom').val($('.irs-from').text());
 			});
 			$('.irs-handle.to').mouseup(function() {
-							$('.valueTo').val($('.irs-to').text());
+						$('.valueTo').val($('.irs-to').text());
 			});
 
 			$('.owl-carousel.up-slider').owlCarousel({
