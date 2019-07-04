@@ -111,11 +111,9 @@ global $arParams;
                         );?>
                     </div>
                      <? if($USER->IsAuthorized()): ?>
-                        <div class="header__nav-bar__login-button">
-                            <span class="header__nav-bar__login-button__text">
-                                <a href="/personal/"> Личный кабинет </a>
-                            </span>
-                        </div>
+                     <a href="/personal/"><div class="header__nav-bar__login-button">
+                            <span class="header__nav-bar__login-button__text">Личный кабинет</span>
+                        </div> </a>
                     <? else:?>
                         <a href="#"><div class="header__nav-bar__login-button">
                             <span class="header__nav-bar__login-button__text">Войти</span>

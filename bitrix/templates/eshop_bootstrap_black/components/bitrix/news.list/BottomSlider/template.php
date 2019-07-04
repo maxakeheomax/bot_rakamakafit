@@ -35,18 +35,22 @@ $items = $arResult['ITEMS'];
                 </div>			
             </div>
         </div>
-        <a href="" id=""><img class="bottom-slider-block____slider-header__right-block_img" src="<?= SITE_TEMPLATE_PATH ?>/assets/bottom-slider-inst.svg" alt=""></a>
+        <a href="" id=""><img class="bottom-slider-block____slider-header__right-block_img" src="<?= SITE_TEMPLATE_PATH ?>/assets/bottom-hashtag.svg" alt=""></a>
     </div>
     <div class="bottom-slider-block__slider-footer"></div>
     <div class="bottom-slider-block__slider-wrapper">
         <div class="slick-slider">
             <? foreach($items as $item): ?>
-                <div><img src="<?= $item['PREVIEW_PICTURE']['SRC']?>" alt=""></div>
+            <div style="background: url(<?= $item['PREVIEW_PICTURE']['SRC']?>); background-size: 50%;background-position: right;background-repeat: no-repeat;"></div>
+            <div style="background: url(<?= $item['PREVIEW_PICTURE']['SRC']?>); background-size: 50%;background-position: right;background-repeat: no-repeat;"></div>
+            <div style="background: url(<?= $item['PREVIEW_PICTURE']['SRC']?>); background-size: 50%;background-position: right;background-repeat: no-repeat;"></div>
+            <div style="background: url(<?= $item['PREVIEW_PICTURE']['SRC']?>); background-size: 50%;background-position: right;background-repeat: no-repeat;"></div>
+                <div style="background: url(<?= $item['PREVIEW_PICTURE']['SRC']?>); background-size: 50%;background-position: right;background-repeat: no-repeat;"></div>
             <? endforeach;?>
         </div>
-        <div class="bottom-slider-nav-buttons"></div>
+        <div class="bottom-slider-nav-buttons">
+           
+        </div>
     </div>
 </div>
-
-
 
