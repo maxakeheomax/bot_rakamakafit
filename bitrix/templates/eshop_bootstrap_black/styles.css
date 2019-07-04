@@ -1484,6 +1484,8 @@ h2{
 	position: relative;
 }
 .pop-products-block__item img{
+	max-width: 170px;
+	max-height: 170px;
 	width: auto;
 	display: block;
 	margin: 0 auto;

@@ -41,10 +41,6 @@ $items = $arResult['ITEMS'];
     <div class="bottom-slider-block__slider-wrapper">
         <div class="slick-slider">
             <? foreach($items as $item): ?>
-            <div style="background: url(<?= $item['PREVIEW_PICTURE']['SRC']?>); background-size: 50%;background-position: right;background-repeat: no-repeat;"></div>
-            <div style="background: url(<?= $item['PREVIEW_PICTURE']['SRC']?>); background-size: 50%;background-position: right;background-repeat: no-repeat;"></div>
-            <div style="background: url(<?= $item['PREVIEW_PICTURE']['SRC']?>); background-size: 50%;background-position: right;background-repeat: no-repeat;"></div>
-            <div style="background: url(<?= $item['PREVIEW_PICTURE']['SRC']?>); background-size: 50%;background-position: right;background-repeat: no-repeat;"></div>
                 <div style="background: url(<?= $item['PREVIEW_PICTURE']['SRC']?>); background-size: 50%;background-position: right;background-repeat: no-repeat;"></div>
             <? endforeach;?>
         </div>
