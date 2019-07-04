@@ -158,10 +158,10 @@
 				skin: 'round'
 			});
 			$('.irs-handle.from').mouseup(function() {
-						$('.valueFrom').val($('.irs-from').text());
+						$('#filter_price .valueFrom').val($('.irs-from').text());
 			});
 			$('.irs-handle.to').mouseup(function() {
-						$('.valueTo').val($('.irs-to').text());
+						$('#filter_price .valueTo').val($('.irs-to').text());
 			});
 
 			$('.owl-carousel.up-slider').owlCarousel({
