@@ -33,3 +33,18 @@ foreach ($arResult["ITEMS"] as $count=>$arItem) {
 }
 $arResult["SECTIONS"] = $arSection;
 
+foreach ($arResult["PROPERTIES"] as $pid => &$arProp)
+{
+   // Не выводим для просмотра свойства с сортировкой мнеьше 0 (они будут у нас служебными)
+   if ($arProp["SORT"] < 0)
+      continue;
+
+   if((is_array($arProp["VALUE"]) && count($arProp["VALUE"])>0) ||
+   (!is_array($arProp["VALUE"]) && strlen($arProp["VALUE"])>0))
+   {
+      $arResult["DISPLAY_PROPERTIES"][$pid] = CIBlockFormatProperties::GetDisplayValue($arResult, $arProp);
+   }
+}
+
+
+?>

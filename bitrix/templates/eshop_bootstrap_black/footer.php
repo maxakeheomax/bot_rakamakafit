@@ -148,7 +148,31 @@
 		
 		$(document).ready(function(){
 
+			$(".js-range-slider").ionRangeSlider({
+				type: "double",
+				min: 0,
+				max: 10000,
+				from: 0,
+				to: 10000,
+				grid: false,
+				skin: 'round'
+			});
+			$('.irs-handle.from').mouseup(function() {
+						$('#filter_price .valueFrom').val($('.irs-from').text());
+			});
+			$('.irs-handle.to').mouseup(function() {
+						$('#filter_price .valueTo').val($('.irs-to').text());
+			});
 
+			$('.owl-carousel.up-slider').owlCarousel({
+				items:1,
+				lazyLoad:true,
+				loop:true,
+				margin:10,
+				dots: false,
+				nav:true,
+				navText: [`<img src="<?= SITE_TEMPLATE_PATH ?>/assets/nav-arrow-left.svg">`,`<img src="<?= SITE_TEMPLATE_PATH ?>/assets/nav-arrow-right.svg">`]
+			});
 			$('.owl-carousel.up-slider').owlCarousel({
 				items:1,
 				lazyLoad:true,
@@ -169,8 +193,10 @@
 				smartSpeed: 800,
 				navText: [`<img src="<?= SITE_TEMPLATE_PATH ?>/assets/nav-arrow-left.svg">`,`<img src="<?= SITE_TEMPLATE_PATH ?>/assets/nav-arrow-right.svg">`]
 			});
+
+
 			$('.slick-slider').slick({
-				slidesToShow:4,
+				slidesToShow:3,
 				slidesToScroll: 1,
 				arrows: true,
 				appendArrows: $('.bottom-slider-nav-buttons'),
@@ -178,31 +204,21 @@
 				nextArrow: `<img src="<?= SITE_TEMPLATE_PATH ?>/assets/arrow-white-right.svg">`,
 				swipe:true,
 				draggable: true,
-				speed: 1000,
+				speed: 400,
 				variableWidth: true,
 				easing: 'ease-in-out',
 				cssEase: 'ease-in-out',
-				// autoplay: true,
-				infinite: true
+				autoplay: true
 			});
-
+			
 			$(window).scroll(function() {
 				if($(window).scrollTop() > 200) {
-					$('.aside-block__shedule *').fadeOut();
-					$('.aside-block__shedule').css({background:'transparent'});
+					$('.aside-block').fadeOut();
 				}
 				else{
-					$('.aside-block__shedule *').fadeIn();
-					$('.aside-block__shedule').css({background:'#f7f7fb'});	
-				};
-
-				if($(window).scrollTop() >= $('.in-the-know-form-block').offset().top) {
-					$('.aside-block__icons *').fadeOut();
+					$('.aside-block').fadeIn();
 				}
-				else {
-					$('.aside-block__icons *').fadeIn();
-				}
-			});
+			});				
 
 			($('.pass').next()).click(function(){
 				($(this).prev()).toggleClass('pass-visible');
