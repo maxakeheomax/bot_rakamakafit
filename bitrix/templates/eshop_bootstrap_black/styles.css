@@ -3640,6 +3640,11 @@ h2{
 	margin-bottom: 20px;
 	margin-top: 0;
 }
+.catalog_block .pop-products-block__items::after {
+	content: '';
+	display: flex;
+	flex: auto;
+}
 .filters_block__filter .irs-min,
 .filters_block__filter .irs-max,
 .filters_block__filter .irs-from,

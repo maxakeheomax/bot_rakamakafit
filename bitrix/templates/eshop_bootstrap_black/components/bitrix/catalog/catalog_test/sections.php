@@ -80,28 +80,6 @@ $this->setFrameMode(true);
 
 
 	<? 
-	// $APPLICATION->IncludeComponent(
-	// 	"bitrix:catalog.smart.filter",
-	// 	".default",
-	// 	Array(
-	// 		"PRICE_CODE" => $arParams["PRICE_CODE"],
-	// 		"IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
-	// 		"IBLOCK_ID" => $arParams["IBLOCK_ID"],
-	// 		"SECTION_ID" => $arCurSection['ID'],
-	// 		"FILTER_NAME" => 'searchFilter',
-	// 		"CACHE_TYPE" => $arParams["CACHE_TYPE"],
-	// 		"CACHE_TIME" => $arParams["CACHE_TIME"],
-	// 		"CACHE_GROUPS" => $arParams["CACHE_GROUPS"],
-	// 		"SAVE_IN_SESSION" => "N",
-	// 		"XML_EXPORT" => "Y",
-	// 		"SECTION_TITLE" => "NAME",
-	// 		"SECTION_DESCRIPTION" => "DESCRIPTION",
-	// 		'HIDE_NOT_AVAILABLE' => $arParams["HIDE_NOT_AVAILABLE"],
-	// 		"TEMPLATE_THEME" => 'red'
-	// 	),
-	// 	$component,
-	// 	array('HIDE_ICONS' => 'Y')
-	// ); 
 
 	$APPLICATION->IncludeComponent(
 		"bitrix:catalog.filter",

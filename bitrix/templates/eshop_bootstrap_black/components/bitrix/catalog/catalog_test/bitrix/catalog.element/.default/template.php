@@ -1,57 +1,89 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $this->setFrameMode(true);
+
 ?>
+<!-- <pre> 
+	<? //print_r($arResult) ?> 
+</pre> -->
 
 
-<!-- Картинка детальная -->
-<img src="<?=$arResult["DETAIL_PICTURE"]["SRC"]?>" alt="<?=$arResult["NAME"]?>" title="<?=$arResult["NAME"]?>" />
-				<pre></pre>
-
-<!-- Доп картинки -->
-				<?
-                $LINE_ELEMENT_COUNT = 1;
-                if (count($arResult["MORE_PHOTO"]) > 0):?>
+<!-- product block -->
+<div class="product-block">
+	<div class=" product-block__product-slider">
+		<div class="slider-nav-block">
+			<img src="<?=$arResult["DETAIL_PICTURE"]["SRC"]?>" alt="<?=$arResult["NAME"]?>" width='93'>
+				<?if (count($arResult["MORE_PHOTO"]) > 0):?>
                     <? foreach ($arResult["MORE_PHOTO"] as $PHOTO): ?>
-                        <a href="<?= $PHOTO["SRC"] ?>" title="<?= $arResult["NAME"] ?>" data-fancybox="group" data-caption="<?= $arResult['NAME']?>">
-                            <?
-                            $renderImage = CFile::ResizeImageGet($PHOTO, Array("width" => 400, "height" => 400), BX_RESIZE_IMAGE_EXACT, false);
-                            ?>
-                            <img class="image_sec" border="0" src="<?= $renderImage["src"] ?>"
-                                 alt="<?= $arResult["NAME"] ?>"/>
-                        </a>
-                    <? endforeach ?>
-                <? endif ?>
+						<?$renderImage = CFile::ResizeImageGet($PHOTO, Array("width" => 93, "height" => 93), BX_RESIZE_IMAGE_EXACT, false);?>
+						<img  src="<?= $renderImage["src"] ?>"
+								alt="<?= $arResult["NAME"] ?>"/>
+					<? endforeach; ?>
+				<?endif;?>
+		</div>
+		<div class="slider-product-view">
+			<img src="<?=$arResult["DETAIL_PICTURE"]["SRC"]?>" alt="<?=$arResult["NAME"]?>" width='93'>
+			<?if (count($arResult["MORE_PHOTO"]) > 0):?>
+				<? foreach ($arResult["MORE_PHOTO"] as $PHOTO): ?>
+					<?$renderImage = CFile::ResizeImageGet($PHOTO, Array("width" => 93, "height" => 93), BX_RESIZE_IMAGE_EXACT, false);?>
+					<img  src="<?= $renderImage["src"] ?>"
+							alt="<?= $arResult["NAME"] ?>"/>
+				<? endforeach; ?>
+			<?endif;?>
+		</div>
+	</div>
+
+	<div class="product-block__description">
+		<div class="desc-block">
+			<div class="product-block__description__title"><?=$arResult["NAME"]?></div>
+			<div class="product-block__description__desc"><?= $arResult['DETAIL_TEXT'] ?></div>
+			<div class="product-block__description-item-more">
+				<a href="<?= $arResult['PROPERTIES']['YOUTUBE_LINK']['VALUE'] ?>">
+					<span class="product-block__description-more__text">
+						<img src="<?= SITE_TEMPLATE_PATH ?>/assets/ytb-color.svg" alt="">Смотреть видео тренировок
+					</span>
+				</a>
+			</div>
+		</div>
+
+		<div class="button-block">
+			<div class="product-block__description__prices">
+				<span class="price">1690 Р</span>
+				<span class="old-price">2380 Р</span>
+			</div>
+			<div class="product-block__description__buttons">
+				<a href="#"><div class="product-block__description__buy-in-click"><span class="product-block__description__buy-in-click__text">купить в 1 клик</span></div></a>
+				<a href="#"><div class="product-block__description__add-to-cart"><span class="product-block__description__add-to-cart__text">добавить в корзину</span></div></a>
+			</div>
+			<p class="product-block__description__credit_link"><a class="how-start-block__help-link" href="#">Купить в рассрочку</a></p>
+		</div>
+	</div>
+	<script>
+		$('.slider-nav-block').slick({
+			slidesToShow: 3,
+			slidesToScroll: 1,
+			focusOnSelect: true,
+			asNavFor: '.slider-product-view'
+		});
+
+		$('.slider-product-view').slick({
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			fade: true,
+			arrows: false
+		});
+	</script>
+</div>
+<!-- end of product block -->
 
 
 
 <!-- Свойства -->
-				<?foreach($arResult["DISPLAY_PROPERTIES"] as $pid=>$arProperty):?>
-					<?=$arProperty["NAME"]?>: <?
-					if(is_array($arProperty["DISPLAY_VALUE"])):
-						echo implode("&nbsp;/&nbsp;", $arProperty["DISPLAY_VALUE"]);
-					elseif($pid=="MANUAL"):
-						?><a href="<?=$arProperty["VALUE"]?>"><?=GetMessage("CATALOG_DOWNLOAD")?></a><?
-					else:
-						echo $arProperty["DISPLAY_VALUE"];?>
-					<?endif?>
-				<?endforeach?>
-
-
-
-
-
-			
-
 	<?if(is_array($arResult["OFFERS"]) && !empty($arResult["OFFERS"])):?>
 	<!-- Если есть преддожения -->
 		<?foreach($arResult["OFFERS"] as $arOffer):?>
 			<!-- Свойства -->
 			<?foreach($arOffer["DISPLAY_PROPERTIES"] as $pid=>$arProperty):?>
-				<small><?=$arProperty["NAME"]?>:&nbsp;<?
-					if(is_array($arProperty["DISPLAY_VALUE"]))
-						echo implode("&nbsp;/&nbsp;", $arProperty["DISPLAY_VALUE"]);
-					else
-						echo $arProperty["DISPLAY_VALUE"];?></small><br />
+				
 			<?endforeach?>
 			<!-- Цены -->
 			<?foreach($arOffer["PRICES"] as $code=>$arPrice):?>

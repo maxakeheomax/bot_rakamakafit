@@ -1,6 +1,15 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $this->setFrameMode(true);
 ?>
+<?$APPLICATION->IncludeComponent(
+	"bitrix:breadcrumb",
+	"",
+	Array(
+		"PATH" => "",
+		"SITE_ID" => SITE_ID,
+		"START_FROM" => 0
+	)
+);?>
 <?$ElementID=$APPLICATION->IncludeComponent(
 	"bitrix:catalog.element",
 	"",

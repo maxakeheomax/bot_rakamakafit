@@ -20,7 +20,8 @@ $this->setFrameMode(true);
 			endif;
 		endforeach;
 		// var_dump($arResult["ITEMS"]);
-		// var_dump($_GET);
+		// die;
+		var_dump($_GET);
 
 		?>
 		<div class="filters_block-title">Фильтры по параметрам</div>
