@@ -55,3 +55,72 @@ $this->setFrameMode(true);
 	),
 	$component
 );?>
+
+<script>
+	$('.special-offer.owl-carousel.middle-slider').owlCarousel({
+		items:1,
+		lazyLoad:true,
+		loop:true,
+		smartSpeed: 800,
+		margin:10,
+		dots: false,
+		nav:true,
+		navText: [`<img src="<?= SITE_TEMPLATE_PATH ?>/assets/nav-arrow-left.svg">`,`<img src="<?= SITE_TEMPLATE_PATH ?>/assets/nav-arrow-right.svg">`]
+	});
+	$('.feedback.owl-carousel.middle-slider').owlCarousel({
+		items:1,
+		lazyLoad:true,
+		loop:true,
+		smartSpeed: 800,
+		margin:10,
+		dots: false,
+		nav:true,
+		center:true,
+		navText: [`<img src="<?= SITE_TEMPLATE_PATH ?>/assets/nav-arrow-left.svg">`,`<img src="<?= SITE_TEMPLATE_PATH ?>/assets/nav-arrow-right.svg">`]
+	});
+	$('.mixit.owl-carousel.middle-slider').owlCarousel({
+		items:1,
+		lazyLoad:true,
+		loop:true,
+		smartSpeed: 800,
+		margin:10,
+		dots: true,
+		nav:true,
+		navText: [`<img src="<?= SITE_TEMPLATE_PATH ?>/assets/nav-arrow-left.svg">`,`<img src="<?= SITE_TEMPLATE_PATH ?>/assets/nav-arrow-right.svg">`]
+	});
+		function toggleTabs(clickBlock, toggleBlock) {
+				$(clickBlock).click(function(e){
+					let a
+					let b = $(this).attr('id');
+					e.preventDefault();
+
+					$(clickBlock).removeClass('active');
+					$(this).addClass('active');
+
+					$(toggleBlock).each(function(){
+						a = $(this).attr('id');
+						if(b == a) {
+							$(toggleBlock).addClass('hidden-block');
+							$(this).removeClass('hidden-block');
+						}										
+					});
+				});
+			}
+	toggleTabs('.exercises-promo-block__right-side__tab', '.img-block_img-link');
+
+</script>
+<script>
+	$('.slider-nav-block').slick({
+		slidesToShow: 3,
+		slidesToScroll: 1,
+		focusOnSelect: true,
+		asNavFor: '.slider-product-view'
+	});
+
+	$('.slider-product-view').slick({
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		fade: true,
+		arrows: false
+	});
+</script>
