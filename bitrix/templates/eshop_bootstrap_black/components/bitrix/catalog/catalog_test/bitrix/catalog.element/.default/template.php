@@ -90,6 +90,17 @@ $this->setFrameMode(true);
 				<?endif?>
 				<? break; ?>
 			<?endforeach;?>
+
+			<script>
+				$(document).ready(function(){
+					$('#BUY').click(function(){
+						$('input[name="<?echo $arParams["ACTION_VARIABLE"]."BUY"?>"]').click();
+					});
+					$('#ADD2BASKET').click(function(){
+						$('input[name="<?echo $arParams["ACTION_VARIABLE"]."ADD2BASKET"?>"]').click();
+					});
+				});
+			</script>
 		<?else:?>
 		<!-- Если нет преддожений -->
 
