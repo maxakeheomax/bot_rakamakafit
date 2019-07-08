@@ -21,7 +21,7 @@ $this->setFrameMode(true);
 		endforeach;
 		// var_dump($arResult["ITEMS"]);
 		// die;
-		var_dump($_GET);
+		// var_dump($_GET);
 
 		?>
 		<div class="filters_block-title">Фильтры по параметрам</div>
@@ -65,7 +65,7 @@ $this->setFrameMode(true);
 
 
 
-		<input name="set_filter" class="promo-form-block__form__submit" type="submit" val="показать">
+		<input name="set_filter" class="promo-form-block__form__submit" type="submit" value="показать">
 		<input type="hidden" name="set_filter" value="Y" />
 		<div class="reset-filters">
 		<a href="<?= $APPLICATION->GetCurPage(false) ?>"><span>Сбросить фильтры</span></a>

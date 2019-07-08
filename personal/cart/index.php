@@ -1,7 +1,7 @@
 <?
 define("HIDE_SIDEBAR", true);
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-$APPLICATION->SetTitle("Êîğçèíà");
+$APPLICATION->SetTitle("ĞšĞ¾Ñ€Ğ·Ğ¸Ğ½Ğ°");
 ?><?$APPLICATION->IncludeComponent("bitrix:sale.basket.basket", "", array(
 	"COUNT_DISCOUNT_4_ALL_QUANTITY" => "N",
 	"COLUMNS_LIST" => array(

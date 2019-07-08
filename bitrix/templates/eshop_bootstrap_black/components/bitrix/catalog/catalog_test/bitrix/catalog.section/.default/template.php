@@ -16,17 +16,17 @@ $this->setFrameMode(true);
 		<div class="promo-train-block__slider-item__slider-content-tabs">
 		<? $index = 0;
 		foreach($arResult["ITEMS"] as $cell=>$arElement):?>
-			<a class="promo-train-block__slider-item__slider-content-tab <?  if($index == 0) echo 'active' ?>" id="<?= $index ?>" href="#">	<p class="promo-train-block__slider-item__slider-content__promo-title "><?=$arElement["NAME"]?></p> </a>						
+			<a class="promo-train-block__slider-item__slider-content-tab <?  if($index == 0) echo 'active' ?>" id="<?= $arElement['ID'] ?>" href="#">	<p class="promo-train-block__slider-item__slider-content__promo-title "><?=$arElement["NAME"]?></p> </a>						
 			<? $index++ ?>
 		<? endforeach; ?>									
 		</div>
 		<? $index = 0;
-		foreach($arResult["ITEMS"] as $cell=>$arElement):?>
-		<?
-		$this->AddEditAction($arElement['ID'], $arElement['EDIT_LINK'], CIBlock::GetArrayByID($arParams["IBLOCK_ID"], "ELEMENT_EDIT"));
-		$this->AddDeleteAction($arElement['ID'], $arElement['DELETE_LINK'], CIBlock::GetArrayByID($arParams["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BCS_ELEMENT_DELETE_CONFIRM')));
-		?>
-		<div class="promo-train-block__slider-item__slider-content-tab__content" id="<?= $index ?>">
+		foreach($arResult["ITEMS"] as $cell=>$arElement):?>		
+		<div class="promo-train-block__slider-item__slider-content-tab__content <?= $index==0 ? '' : 'hidden-block' ?>" id="<?= $arElement['ID'] ?>">
+			<?
+			$this->AddEditAction($arElement['ID'], $arElement['EDIT_LINK'], CIBlock::GetArrayByID($arParams["IBLOCK_ID"], "ELEMENT_EDIT"));
+			$this->AddDeleteAction($arElement['ID'], $arElement['DELETE_LINK'], CIBlock::GetArrayByID($arParams["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BCS_ELEMENT_DELETE_CONFIRM')));
+			?>
 			<p class="promo-train-block__slider-item__slider-content__slogan"><?=$arElement["PROPERTIES"]["SLOGAN"]['VALUE']['TEXT']?></p>
 			<p class="promo-train-block__slider-item__slider-content__dicription"><?=$arElement["PREVIEW_TEXT"]?></p>
 			<div class="promo-train-block__slider__content_bottom">
@@ -46,6 +46,31 @@ $this->setFrameMode(true);
 	</div>
 </div>
 						
+<script>
+	$(document).ready(function(){
+		function toggleTabs(clickBlock, toggleBlock) {
+			$(clickBlock).click(function(e){
+				let a
+				let b = $(this).attr('id');
+				e.preventDefault();
+
+				$(clickBlock).removeClass('active');
+				$(this).addClass('active');
+
+				$(toggleBlock).each(function(){
+					a = $(this).attr('id');
+					if(b == a) {
+						$(toggleBlock).addClass('hidden-block');
+						$(this).removeClass('hidden-block');
+					}										
+				});
+			});
+		}
+		toggleTabs('.exercises-promo-block__right-side__tab', '.img-block_img-link');
+		toggleTabs('.promo-train-block__slider-item__slider-content-tab','.promo-train-block__slider-item__slider-content-tab__content');
+	});
+</script>
+
 <?if($arParams["DISPLAY_BOTTOM_PAGER"]):?>
 	<?=$arResult["NAV_STRING"]?>
 <?endif;?>
