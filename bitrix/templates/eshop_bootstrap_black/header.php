@@ -15,6 +15,7 @@ global $arParams;
     
     <?
     //////////////////// CUSTOM CSS
+    $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH."/libs/bootstrap-4.3.1-dist/css/bootstrap-grid.min.css", true);
     $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH."/libs/owl.carousel2/dist/assets/owl.carousel.min.css", true);
     $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH."/libs/owl.carousel2/dist/assets/owl.theme.default.min.css", true);
     $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH."/libs/slick-1.8.1/slick/slick-theme.css", true);

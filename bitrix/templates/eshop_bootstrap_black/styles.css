@@ -2584,7 +2584,7 @@ h2{
 	background-color: #f7f7fb;
 }
 .exercises-promo-block__left-side {
-	padding: 89px 0 0 160px;
+	padding: 89px 0 0 160px !important;
 
 }
 .exercises-promo-block__left-side__title {

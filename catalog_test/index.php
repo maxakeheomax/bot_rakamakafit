@@ -36,6 +36,7 @@ $APPLICATION->SetTitle("Каталог");
 		"DETAIL_IMAGE_RESOLUTION" => "16by9",
 		"DETAIL_META_DESCRIPTION" => "-",
 		"DETAIL_META_KEYWORDS" => "-",
+		"DETAIL_OFFERS_FIELD_CODE" => array("",""),
 		"DETAIL_PRODUCT_INFO_BLOCK_ORDER" => "sku,props",
 		"DETAIL_PRODUCT_PAY_BLOCK_ORDER" => "rating,price,priceRanges,quantityLimit,quantity,buttons",
 		"DETAIL_SET_CANONICAL_URL" => "N",
@@ -73,7 +74,7 @@ $APPLICATION->SetTitle("Каталог");
 		"GIFTS_SHOW_OLD_PRICE" => "Y",
 		"HIDE_NOT_AVAILABLE" => "N",
 		"HIDE_NOT_AVAILABLE_OFFERS" => "N",
-		"IBLOCK_ID" => "2",
+		"IBLOCK_ID" => "15",
 		"IBLOCK_TYPE" => "catalog",
 		"INCLUDE_SUBSECTIONS" => "Y",
 		"INSTANT_RELOAD" => "N",
@@ -86,6 +87,8 @@ $APPLICATION->SetTitle("Каталог");
 		"LIST_BROWSER_TITLE" => "-",
 		"LIST_META_DESCRIPTION" => "-",
 		"LIST_META_KEYWORDS" => "-",
+		"LIST_OFFERS_FIELD_CODE" => array("",""),
+		"LIST_OFFERS_LIMIT" => "5",
 		"LOAD_ON_SCROLL" => "N",
 		"MESSAGE_404" => "",
 		"MESS_BTN_ADD_TO_BASKET" => "В корзину",
@@ -98,6 +101,10 @@ $APPLICATION->SetTitle("Каталог");
 		"MESS_NOT_AVAILABLE" => "Нет в наличии",
 		"MESS_PRICE_RANGES_TITLE" => "Цены",
 		"MESS_PROPERTIES_TAB" => "Характеристики",
+		"OFFERS_SORT_FIELD" => "sort",
+		"OFFERS_SORT_FIELD2" => "id",
+		"OFFERS_SORT_ORDER" => "asc",
+		"OFFERS_SORT_ORDER2" => "desc",
 		"PAGER_BASE_LINK_ENABLE" => "N",
 		"PAGER_DESC_NUMBERING" => "N",
 		"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
@@ -150,6 +157,8 @@ $APPLICATION->SetTitle("Каталог");
 		"TOP_ELEMENT_SORT_ORDER" => "asc",
 		"TOP_ELEMENT_SORT_ORDER2" => "desc",
 		"TOP_LINE_ELEMENT_COUNT" => "3",
+		"TOP_OFFERS_FIELD_CODE" => array("",""),
+		"TOP_OFFERS_LIMIT" => "5",
 		"USER_CONSENT" => "N",
 		"USER_CONSENT_ID" => "0",
 		"USER_CONSENT_IS_CHECKED" => "Y",
@@ -172,5 +181,4 @@ $APPLICATION->SetTitle("Каталог");
 		"USE_STORE" => "N",
 		"VARIABLE_ALIASES" => array("compare"=>array("ACTION_CODE"=>"action",),)
 	)
-);?>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+);?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
