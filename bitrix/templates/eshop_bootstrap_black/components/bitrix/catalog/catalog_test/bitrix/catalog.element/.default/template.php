@@ -12,23 +12,19 @@ $this->setFrameMode(true);
 <!-- product block -->
 <div class="product-block">
 	<div class=" product-block__product-slider">
-		<div class="slider-nav-block">
-			<img src="<?=$arResult["DETAIL_PICTURE"]["SRC"]?>" alt="<?=$arResult["NAME"]?>" width='93'>
+		<div class="slider-nav-block">			
 				<?if (count($arResult["MORE_PHOTO"]) > 0):?>
                     <? foreach ($arResult["MORE_PHOTO"] as $PHOTO): ?>
 						<?$renderImage = CFile::ResizeImageGet($PHOTO, Array("width" => 93, "height" => 93), BX_RESIZE_IMAGE_EXACT, false);?>
-						<img  src="<?= $renderImage["src"] ?>"
-								alt="<?= $arResult["NAME"] ?>"/>
+						<img  src="<?= $renderImage["src"] ?>" alt="<?= $arResult["NAME"] ?>"/>
 					<? endforeach; ?>
 				<?endif;?>
 		</div>
-		<div class="slider-product-view">
-			<img src="<?=$arResult["DETAIL_PICTURE"]["SRC"]?>" alt="<?=$arResult["NAME"]?>" width='93'>
+		<div class="slider-product-view">			
 			<?if (count($arResult["MORE_PHOTO"]) > 0):?>
 				<? foreach ($arResult["MORE_PHOTO"] as $PHOTO): ?>
 					<?$renderImage = CFile::ResizeImageGet($PHOTO, Array("width" => 93, "height" => 93), BX_RESIZE_IMAGE_EXACT, false);?>
-					<img  src="<?= $renderImage["src"] ?>"
-							alt="<?= $arResult["NAME"] ?>"/>
+					<img  src="<?= $renderImage["src"] ?>" alt="<?= $arResult["NAME"] ?>"/>
 				<? endforeach; ?>
 			<?endif;?>
 		</div>

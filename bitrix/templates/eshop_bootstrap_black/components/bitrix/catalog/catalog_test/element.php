@@ -108,19 +108,17 @@ $this->setFrameMode(true);
 			}
 	toggleTabs('.exercises-promo-block__right-side__tab', '.img-block_img-link');
 
-</script>
-<script>
-	$('.slider-nav-block').slick({
-		slidesToShow: 3,
-		slidesToScroll: 1,
-		focusOnSelect: true,
-		asNavFor: '.slider-product-view'
-	});
+	// $('.slider-nav-block').slick({
+	// 	slidesToShow: 3,
+	// 	slidesToScroll: 1,
+	// 	focusOnSelect: true,
+	// 	asNavFor: '.slider-product-view'
+	// });
 
-	$('.slider-product-view').slick({
-		slidesToShow: 1,
-		slidesToScroll: 1,
-		fade: true,
-		arrows: false
-	});
+	// $('.slider-product-view').slick({
+	// 	slidesToShow: 1,
+	// 	slidesToScroll: 1,
+	// 	fade: true,
+	// 	arrows: false
+	// });
 </script>
