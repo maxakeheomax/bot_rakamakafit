@@ -20,7 +20,7 @@ $APPLICATION->SetTitle("Программа тренировок");
 				</div>
 			</div>
 		</div>
-		<div class="trainings img-wrapper" style="background: url(assets/maraphon.jpg);background-size: cover">
+		<div class="trainings img-wrapper" style="background: url(<?= SITE_TEMPLATE_PATH ?>/assets/maraphon.jpg);background-size: cover">
 		
 		</div>
 	</div>
@@ -33,7 +33,7 @@ $APPLICATION->SetTitle("Программа тренировок");
 	</div>
 	<div class="special-offer-block__items">
 		<div class="special-offer-block__item">
-			<a href="#"><img src="assets/offer-1.jpg" alt="">
+			<a href="#"><img src="<?= SITE_TEMPLATE_PATH ?>/assets/offer-1.jpg" alt="">
 				<div class="special-offer-block__item__title"><p>Персональная 5-недельная программа тренировок и питания RAKAMAKAFIT ONLINE</p></div></a>
 			<div class="special-offer-block__item__prices">
 				<div class="special-offer-block__item__price">5980 ₽</div>
@@ -42,7 +42,7 @@ $APPLICATION->SetTitle("Программа тренировок");
 			</div>
 		</div>
 		<div class="special-offer-block__item">
-		<a href="#">	<img src="assets/offer-2.jpg" alt="">
+		<a href="#">	<img src="<?= SITE_TEMPLATE_PATH ?>/assets/offer-2.jpg" alt="">
 			<div class="special-offer-block__item__title"><p>Набор эспандеров + персональная 5-недельная программа тренировок и питания RAKAMAKAFIT ONLINE</p></div></a>
 			<div class="special-offer-block__item__prices">
 				<div class="special-offer-block__item__price">7980 ₽</div>
@@ -51,7 +51,7 @@ $APPLICATION->SetTitle("Программа тренировок");
 			</div>
 		</div>
 		<div class="special-offer-block__item">
-			<a href="#"><img src="assets/offer-3.jpg" alt="">
+			<a href="#"><img src="<?= SITE_TEMPLATE_PATH ?>/assets/offer-3.jpg" alt="">
 				<div class="special-offer-block__item__title"><p>Набор эспандеры + ленты + гриф + персональная 5-недельная программа тренировок и питания RAKAMAKAFIT ONLINE</p></div></a>
 
 			<div class="special-offer-block__item__prices">
@@ -130,7 +130,7 @@ $APPLICATION->SetTitle("Программа тренировок");
 	<div class="hello-block__content">
 		<div class="hello-block__content__hello">
 			<div class="hello-block__content__hello__img">
-				<img src="assets/hello-img.jpg" alt="">
+				<img src="<?= SITE_TEMPLATE_PATH ?>/assets/hello-img.jpg" alt="">
 			</div>
 			
 			<div class="hello-block__content__hello__desc">
@@ -144,7 +144,7 @@ $APPLICATION->SetTitle("Программа тренировок");
 					<p>В программу тренировок и питания RAKAMAKAFIT ONLINE я вложила всю свою душу и знания! Буду рада видеть тебя в своей команде спортивных и жизнерадостных!</p>
 					<div class="hello-block__content__hello__text__link-wrapper">
 						<a class="hello-block__content__hello__text__link" href="#" class="link">Читай мой блог в <span class="underline-block">инстаграмме</span></a>
-						<img src="assets/hello-block-inst.svg" alt="">
+						<img src="<?= SITE_TEMPLATE_PATH ?>/assets/hello-block-inst.svg" alt="">
 					</div>
 				</div>
 			</div>
@@ -156,7 +156,7 @@ $APPLICATION->SetTitle("Программа тренировок");
 <div class="faq-block">
 	<div class="faq-block__left-block">
 		<div class="faq-block__left-block__title">F.A.Q</div>
-		<div class="faq-block__left-block__arrow"><img src="assets/faq-arrow.svg" alt=""></div>
+		<div class="faq-block__left-block__arrow"><img src="<?= SITE_TEMPLATE_PATH ?>/assets/faq-arrow.svg" alt=""></div>
 	</div>
 	<div class="faq-block__right-block">
 		<a href="#"><div class="faq-block__right-block__desc">Кликни, чтобы узнать ответы на часто задаваемые вопросы</div></a>
@@ -169,7 +169,7 @@ $APPLICATION->SetTitle("Программа тренировок");
 		<div class="bottom-slider-block__slider-header_top-content">
 			<div class="bottom-slider-block__slider-header__left-block">
 				<p class="bottom-slider-block__slider-header__left-block__slogan">стань частью <span class="promo-train-block__title_underline-block-up">@rakamaka.fit</span></p>
-			<a href="#">	<img class="bottom-slider-block__slider-header__left-block__logo" src="assets/bottom-slider-inst.svg" alt=""></a>
+			<a href="#">	<img class="bottom-slider-block__slider-header__left-block__logo" src="<?= SITE_TEMPLATE_PATH ?>/assets/bottom-slider-inst.svg" alt=""></a>
 			</div>
 			<div class="bottom-slider-block__slider-header__right-block">
 				<div class="bottom-slider-block__slogan-button-wrapper">
@@ -178,21 +178,21 @@ $APPLICATION->SetTitle("Программа тренировок");
 				</div>			
 			</div>
 		</div>
-		<img class="bottom-slider-block____slider-header__right-block_img" src="assets/before-after.svg" alt="">
+		<img class="bottom-slider-block____slider-header__right-block_img" src="<?= SITE_TEMPLATE_PATH ?>/assets/before-after.svg" alt="">
 	</div>
 	<div class="bottom-slider-block__slider-footer"></div>
 	<div class="bottom-slider-block__slider-wrapper">
 <div class="slick-slider">
-				<div style="background: url(assets/bottom-slider-img-1.jpg); background-size: 50%;background-position: right;background-repeat: no-repeat;"></div>
-				<div style="background: url(assets/bottom-slider-img-1.jpg); background-size: 50%;background-position: right;background-repeat: no-repeat;"></div>
-				<div style="background: url(assets/bottom-slider-img-2.jpg); background-size: 50%;background-position: right;background-repeat: no-repeat;"></div>
-				<div style="background: url(assets/bottom-slider-img-1.jpg); background-size: 50%;background-position: right;background-repeat: no-repeat;"></div>
-				<div style="background: url(assets/bottom-slider-img-2.jpg); background-size: 50%;background-position: right;background-repeat: no-repeat;"></div>
-				<div style="background: url(assets/bottom-slider-img-1.jpg); background-size: 50%;background-position: right;background-repeat: no-repeat;"></div>
-				<div style="background: url(assets/bottom-slider-img-2.jpg); background-size: 50%;background-position: right;background-repeat: no-repeat;"></div>
-				<div style="background: url(assets/bottom-slider-img-2.jpg); background-size: 50%;background-position: right;background-repeat: no-repeat;"></div>
-				<div style="background: url(assets/bottom-slider-img-1.jpg); background-size: 50%;background-position: right;background-repeat: no-repeat;"></div>
-				<div style="background: url(assets/bottom-slider-img-2.jpg); background-size: 50%;background-position: right;background-repeat: no-repeat;"></div>
+				<div style="background: url(<?= SITE_TEMPLATE_PATH ?>/assets/bottom-slider-img-1.jpg); background-size: 50%;background-position: right;background-repeat: no-repeat;"></div>
+				<div style="background: url(<?= SITE_TEMPLATE_PATH ?>/assets/bottom-slider-img-1.jpg); background-size: 50%;background-position: right;background-repeat: no-repeat;"></div>
+				<div style="background: url(<?= SITE_TEMPLATE_PATH ?>/assets/bottom-slider-img-2.jpg); background-size: 50%;background-position: right;background-repeat: no-repeat;"></div>
+				<div style="background: url(<?= SITE_TEMPLATE_PATH ?>/assets/bottom-slider-img-1.jpg); background-size: 50%;background-position: right;background-repeat: no-repeat;"></div>
+				<div style="background: url(<?= SITE_TEMPLATE_PATH ?>/assets/bottom-slider-img-2.jpg); background-size: 50%;background-position: right;background-repeat: no-repeat;"></div>
+				<div style="background: url(<?= SITE_TEMPLATE_PATH ?>/assets/bottom-slider-img-1.jpg); background-size: 50%;background-position: right;background-repeat: no-repeat;"></div>
+				<div style="background: url(<?= SITE_TEMPLATE_PATH ?>/assets/bottom-slider-img-2.jpg); background-size: 50%;background-position: right;background-repeat: no-repeat;"></div>
+				<div style="background: url(<?= SITE_TEMPLATE_PATH ?>/assets/bottom-slider-img-2.jpg); background-size: 50%;background-position: right;background-repeat: no-repeat;"></div>
+				<div style="background: url(<?= SITE_TEMPLATE_PATH ?>/assets/bottom-slider-img-1.jpg); background-size: 50%;background-position: right;background-repeat: no-repeat;"></div>
+				<div style="background: url(<?= SITE_TEMPLATE_PATH ?>/assets/bottom-slider-img-2.jpg); background-size: 50%;background-position: right;background-repeat: no-repeat;"></div>
 			</div>
 		<div class="bottom-slider-nav-buttons"></div>
 	</div>
