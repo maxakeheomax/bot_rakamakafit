@@ -96,6 +96,7 @@ if(!preg_match('|\/trainings\/exercises\/\w+|', $APPLICATION->GetCurUri()) ):
 	<div class="exercise-demos-list-block">
 	<? foreach($arResult["ITEMS"] as $exercise): ?>
 	<? //echo '<pre>'; var_dump($exercise); echo '</pre>'; ?>
+	
 		<?
 			$this->AddEditAction($exercise['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($exercise["IBLOCK_ID"], "ELEMENT_EDIT"));
 			$this->AddDeleteAction($exercise['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($exercise["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
@@ -117,7 +118,6 @@ if(!preg_match('|\/trainings\/exercises\/\w+|', $APPLICATION->GetCurUri()) ):
 	<? endforeach;?>
 	</div>
 	
-
 
 <? endif; ?>
 
