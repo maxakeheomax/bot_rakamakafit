@@ -37,8 +37,19 @@ $this->setFrameMode(true);
 				<div class="block-separation">	</div>						
 			</div>
 			<!-- end of block-separation -->
-
 		</div>
+		<!-- end article title block -->
+
+		<!-- article-main-block -->
+		<div class="article-main-block">
+			<?= $arResult['DETAIL_TEXT'] ?>
+		</div>
+		<!-- end of article-main-block -->
+
+
+		<? CMain::IncludeFile(SITE_DIR.'include/share.php'); ?>
+		
+
 </div>
 
 	<div class="article-right-column">
@@ -71,3 +82,4 @@ $this->setFrameMode(true);
 		<!-- end of same articles block  -->
 	</div>
 </div>
+<? CMain::IncludeFile(SITE_DIR.'include/subscribe_form_yelow.php'); ?>
