@@ -1,6 +1,5 @@
 <? require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-$APPLICATION->SetTitle("RAKAMAKAFIT"); ?>
-<?$APPLICATION->IncludeComponent(
+$APPLICATION->SetTitle("RAKAMAKAFIT"); ?><?$APPLICATION->IncludeComponent(
 	"bitrix:news.list",
 	"UpSlider",
 	Array(
@@ -98,7 +97,7 @@ $APPLICATION->SetTitle("RAKAMAKAFIT"); ?>
 		"PARENT_SECTION" => "",
 		"PARENT_SECTION_CODE" => "",
 		"PREVIEW_TRUNCATE_LEN" => "",
-		"PROPERTY_CODE" => array("",""),
+		"PROPERTY_CODE" => array("TEXT2","TEXT1","[PICTURE] Картинка",""),
 		"SET_BROWSER_TITLE" => "N",
 		"SET_LAST_MODIFIED" => "N",
 		"SET_META_DESCRIPTION" => "Y",
@@ -502,6 +501,4 @@ $APPLICATION->SetTitle("RAKAMAKAFIT"); ?>
 		"SORT_ORDER1" => "DESC",
 		"STRICT_SECTION_CHECK" => "N"
 	)
-);?>
-
-<? require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php"); ?>
+);?><? require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php"); ?>

@@ -75,8 +75,9 @@
 					<label ></label>
 					<input name="password" id="pass" class="auth-reg__form__input pass" type="password"  placeholder='Пароль*'>
 					<label for="pass" ></label>
+					<p id="login_error_text_section" style="color: red; display:none;" >Не правильный логин или пароль</p>
 
-					<div class="promo-form-block__form__input-checkbox-wrapper">			
+					<div class="promo-form-block__form__input-checkbox-wrapper">									
 						<input  class="promo-form-block__form__checbox"  type="checkbox" name="remember" id="auth-checkbox" >
 						<label for="auth-checkbox"></label>
 						<p class="promo-form-block__form__checbox-desc ">Запомнить меня</a></p>
@@ -265,7 +266,7 @@
 
 
 
-			$('.header__nav-bar__login-button').click(function(){
+			$('.header__nav-bar__login-button:not(.no_js)').click(function(){
 				$('body').css('overflow-y','hidden');
 				$('.page_content').css('filter', 'blur(10px)');
 				$('.auth-container').fadeIn().css('display','flex');
@@ -311,6 +312,8 @@
 							$('.greetings-block').removeClass('hidden-block');
 
 							$('#login_username').text(data['name']);
+						}else{
+							$("#login_error_text_section").show('slow'); setTimeout(function() { $("#login_error_text_section").hide('slow'); }, 2000);
 						}
                     },
                     error:  function(data){

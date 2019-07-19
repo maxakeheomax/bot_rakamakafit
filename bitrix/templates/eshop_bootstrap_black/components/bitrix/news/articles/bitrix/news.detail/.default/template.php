@@ -27,6 +27,17 @@ $this->setFrameMode(true);
 				<? endforeach;?>
 			</div>
 
+			<!-- article title block -->
+			<div class="article-title-block">
+				<div class="article-title-block__title"><?= $arResult['NAME'] ?></div>
+				<div class="article-title-block__slogan">
+					<?= $arResult['PROPERTIES']['TEXT_INTRO']['~VALUE']['TEXT'] ?>
+				</div>
+				<!-- block-separation -->
+				<div class="block-separation">	</div>						
+			</div>
+			<!-- end of block-separation -->
+
 		</div>
 </div>
 
@@ -46,20 +57,16 @@ $this->setFrameMode(true);
 
 		<div class="same-articles-block">	
 			<div class="same-articles-block__title">Похожие статьи</div>
-			<a href="#">
-				<div class="article special-offer-block__item">
-					<img src="assets/offer-3.jpg" alt="">
-					<div class="special-offer-block__item__title">Новогодний набор с лентами</div>
-					<div class="special-offer-block__item__desc">Таким образом рамки и место обучения кадров позволяет оценить значение дальнейших направлений развития.</div>
-				</div>
-			</a>
-			<a href="#">
-				<div class="article special-offer-block__item">
-					<img src="assets/offer-3.jpg" alt="">
-					<div class="special-offer-block__item__title">Новогодний набор с лентами</div>
-					<div class="special-offer-block__item__desc">Таким образом рамки и место обучения кадров позволяет оценить значение дальнейших направлений развития.</div>
-				</div>
-			</a>
+			<? foreach ($arResult["SIMILAR"]  as $key => $element):?>
+			<? //echo '<pre>'; var_dump($element);?> 
+				<a href="/trainings/articles/<?= $element['CODE'] ?>">
+					<div class="article special-offer-block__item">
+						<img src="<?= CFile::GetPath($element['PREVIEW_PICTURE']) ?>" alt="">
+						<div class="special-offer-block__item__title"><?= $element['NAME'] ?></div>
+						<div class="special-offer-block__item__desc"><?= $element['PREVIEW_TEXT'] ?></div>
+					</div>
+				</a>
+			<? endforeach; ?>
 		</div> 	
 		<!-- end of same articles block  -->
 	</div>

@@ -23,6 +23,16 @@ for($index = 0; $index < $itemSize; $index++)
 
 	if($arResult[$index]["LINK"] <> "" && $index != $itemSize-1)
 	{
+		if ($index === 0){
+			$strReturn .= '
+			<div class="breadcrumbs__separator">  </div>
+			<div class="breadcrumbs__item">
+				<a href="'.$arResult[$index]["LINK"].'" title="'.$title.'" itemprop="url">'.$title.'</a>
+			</div>';
+			
+			continue;
+		}
+		
 		$strReturn .= '
 		<div class="breadcrumbs__separator"> / </div>
 		<div class="breadcrumbs__item">

@@ -20,5 +20,22 @@ $arFilter = Array("IBLOCK_ID"=>'11', "ACTIVE"=>"Y");
 	}
 
 $arResult["SECTIONS"] = $sections;
+
+$arFilter = Array("IBLOCK_ID"=>'11', "ACTIVE"=>"Y", "!ID" => $arResult['ID']);
+
+$dbSection = CIBlockElement::GetList(Array("SORT"=>"ASC"), $arFilter, false);
+$elements = [];
+
+while ($dbelement = $dbSection->Fetch()) {	
+	$elements[] = $dbelement;
+}
+$selected_elements_keys = array_rand($elements, 2);
+$selected_elements = [
+	$elements[$selected_elements_keys[0]],
+	$elements[$selected_elements_keys[1]],
+];
+
+$arResult["SIMILAR"] = $selected_elements;
+
 // echo '<pre>';
-// var_dump ($arResult["SECTIONS"]);
+// var_dump ($selected_elements);
