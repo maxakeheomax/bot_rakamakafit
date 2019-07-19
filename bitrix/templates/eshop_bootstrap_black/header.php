@@ -22,7 +22,10 @@ global $arParams;
     $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH."/libs/slick-1.8.1/slick/slick.css", true);
     $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH."/libs/all.css", true);
     $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH."/libs/ion.rangeSlider-master/css/ion.rangeSlider.min.css", true);
-    //////////////////// CUSTOM JS
+?>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+<?  //////////////////// CUSTOM JS
     $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH."/libs/jquery.min.js");
     $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH."/libs/owl.carousel2/dist/owl.carousel.min.js");
     $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH."/libs/slick-1.8.1/slick/slick.min.js");
