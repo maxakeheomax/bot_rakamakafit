@@ -2,7 +2,7 @@
 $aMenuLinks = Array(
 	Array(
 		"Оборудование", 
-		"equipment/", 
+		"catalog/", 
 		Array(), 
 		Array(), 
 		"" 

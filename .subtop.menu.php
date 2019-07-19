@@ -1,46 +1,17 @@
 <?
-$aMenuLinks = Array(
-	Array(
-		"Фитнес ленты", 
-		"news/", 
-		Array(), 
-		Array(), 
-		"" 
-	),
-	Array(
-		"Эспандеры", 
-		"about/howto/", 
-		Array(), 
-		Array(), 
-		"" 
-	),
-	Array(
-		"Фитбол", 
-		"about/delivery/", 
-		Array(), 
-		Array(), 
-		"" 
-	),
-	Array(
-		"Наборы ", 
-		"about/", 
-		Array(), 
-		Array(), 
-		"" 
-	),
-	Array(
-		"Питание", 
-		"about/guaranty/", 
-		Array(), 
-		Array(), 
-		"" 
-	),
-	Array(
-		"Дневник тренировок", 
-		"about/contacts/", 
-		Array(), 
-		Array(), 
-		"" 
-	)
-);
+CModule::IncludeModule("iblock");
+$sections_db = \CIBlockSection::GetList([], ['IBLOCK_ID' => '15']);
+$aMenuLinks = [];
+// echo '<pre>'; var_dump($sections_db->Fetch(),$sections_db->Fetch(),$sections_db->Fetch(),$sections_db->Fetch(),$sections_db->Fetch(),$sections_db->Fetch(),$sections_db->Fetch(),$sections_db->Fetch(),$sections_db->Fetch(),$sections_db->Fetch(),$sections_db->Fetch(),$sections_db->Fetch(),$sections_db->Fetch(),$sections_db->Fetch(),$sections_db->Fetch(),$sections_db->Fetch(),$sections_db->Fetch(),$sections_db->Fetch(),$sections_db->Fetch()); die;
+while($section = $sections_db->Fetch()){
+	if($section['DEPTH_LEVEL'] === "1")
+	$aMenuLinks[] = [
+		$section['NAME'], 
+		$section['CODE'], 
+		[],
+		[],
+		''
+	];
+}
+
 ?>
