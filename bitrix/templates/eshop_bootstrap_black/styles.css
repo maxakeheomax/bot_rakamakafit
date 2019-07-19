@@ -5096,7 +5096,10 @@ h2{
 	font-stretch: normal;
 	line-height: normal;
 	letter-spacing: normal;
-	color: #e31377;
+	color: #e31377 !important;
+}
+.order_manage_buttons .repeat_button a{
+	color: #e31377 !important;
 }
 .order_manage_buttons .repeat_button i {
 	font-size: 13px;
