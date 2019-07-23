@@ -1,48 +1,78 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-$APPLICATION->SetTitle("О магазине");
+$APPLICATION->SetTitle("Рћ РєРѕРјРїРЅР°РёРё");
 ?>
-<div class="row">
-	<div class="col-xs-12">
-		<p>Мы рады приветствовать вас на сайте нашей компании.</p>
-
-		<p>Наша компания была основана в 1993 году, а наш интернет-магазин стал одним из первых магазинов, осуществляющих on-line продажу одежды в регионе. Компания специализируется на оптовой и розничной продаже одежды как для дома, так и для офиса.</p>
-
-		<p>На данный момент мы представляем собой крупную компанию, владеющую интернет&ndash;магазином и имеющую в своей сети единый call-центр, который регулирует всю деятельность магазина, отдел продаж, службу доставки, широкий штат квалифицированных сборщиков, собственный склад c постоянным наличием необходимого запаса товаров.</p>
-
-		<p>За это время у нас сложились партнерские отношения с ведущими производителями, позволяющие предлагать высококачественную продукцию по конкурентоспособным ценам.</p>
-
-		<p>Мы можем гордиться тем, что у нас один из самых широких ассортиментов одежды в городе и области. </p>
-
-		<h2>Наши возможности</h2>
-		<div class="row">
-			<div class="col-xs-4">
-				<ul class="bxe-list bxe-lis-blue">
-					<li><i class="fa fa-check"></i> <span style="font-size:13px;">Быстрая доставка</span></li>
-					<li><i class="fa fa-check"></i> <span style="font-size:13px;">Низкие цены</span></li>
-					<li><i class="fa fa-check"></i> <span style="font-size:13px;">Широкий ассортимент</span></li>
-					<li><i class="fa fa-check"></i> <span style="font-size:13px;">Бонусы и подарки</span></li>
-				</ul>
-			</div>
-			<div class="col-xs-4">
-				<ul class="bxe-list bxe-lis-blue">
-					<li><i class="fa fa-check"></i> <span style="font-size:13px;">Отличное обслуживаение</span></li>
-					<li><i class="fa fa-check"></i> <span style="font-size:13px;">Профессиональный менеджеры</span></li>
-					<li><i class="fa fa-check"></i> <span style="font-size:13px;">Гарантия на все товары</span></li>
-					<li><i class="fa fa-check"></i> <span style="font-size:13px;">Надежные поставщики</span></li>
-				</ul>
-			</div>
-			<div class="col-xs-4">
-				<ul class="bxe-list bxe-lis-blue">
-					<li><i class="fa fa-check"></i> <span style="font-size:13px;">Сезонные скидки</span></li>
-					<li><i class="fa fa-check"></i> <span style="font-size:13px;">Программа лояльности</span></li>
-					<li><i class="fa fa-check"></i> <span style="font-size:13px;">Карты постоянных клиентов</span></li>
-				</ul>
+		<!-- 	breadcrumbs block -->
+		<div class="breadcrumbs">
+			<div class="breadcrumbs-content">
+				<div class="breadcrumbs__item">Р“Р»Р°РІРЅР°СЏ </div>
+				<div class="breadcrumbs__separator"> / </div>	
+				<div class="breadcrumbs__item">РџРѕР»РµР·РЅР°СЏ РёРЅС„РѕСЂРјР°С†РёСЏ </div>
+				<div class="breadcrumbs__separator"> / </div>	
+				<div class="breadcrumbs__item active">РљР°Рє РѕС‚Р»РёС‡РёС‚СЊ РїРѕРґРґРµР»РєСѓ </div>
 			</div>
 		</div>
-		<br/>
-		<p>Мы всегда рады общению с нашими клиентами. Если у вас есть какие-либо пожелания, предложения, замечания, касающиеся работы нашего Интернет-магазина - пишите нам, и мы с благодарностью примем ваше мнение во внимание:</p>
-		<p><b>Электронная почта</b>: <a href="mailto:sale@bot.rakamakafit.ru">sale@bot.rakamakafit.ru</a></p>
+		<!-- 	 end of breadcrumbs block -->
+
+		<!-- banner-block -->
+		<div class="banner-block" style="background:url(<?= SITE_TEMPLATE_PATH ?>/assets/fake_page.jpg); background-size:cover">
+			<h1>Р§РµРј RAKAMAKAFIT <br>РѕС‚Р»РёС‡Р°РµС‚СЃСЏ РѕС‚ РєРѕРЅРєСѓСЂРµРЅС‚РѕРІ</h1>
+		</div>
+		<!-- end of banner block -->
+
+<!--  text-block -->
+		<div class="center-block"  id="text-block">
+			<h2>РќР°С‚СѓСЂР°Р»СЊРЅС‹Рµ РјР°С‚РµСЂРёР°Р»С‹</h2>
+			<span>Р­СЃРїР°РЅРґРµСЂС‹ Рё Р»РµРЅС‚С‹ RAKAMAKAFIT РёР·РіРѕС‚РѕРІР»РµРЅС‹ РёР· 100% РЅР°С‚СѓСЂР°Р»СЊРЅРѕРіРѕ Р»Р°С‚РµРєСЃР°. РћРЅ Р±РµР·РІСЂРµРґРµРЅ РґР»СЏ Р°Р»Р»РµСЂРіРёРєРѕРІ, РґРµС‚РёС€РµРє Рё Р¶РёРІРѕС‚РЅС‹С…. РЇ СЃР°РјР° - РјР°РјР°, Рё РґР»СЏ РјРµРЅСЏ РѕС‡РµРЅСЊ РІР°Р¶РЅРѕ, С‡С‚РѕР±С‹ РІСЃРµ РѕР±РѕСЂСѓРґРѕРІР°РЅРёРµ Р±С‹Р»Рѕ Р±РµР·РѕРїР°СЃРЅС‹Рј РґР»СЏ РјРѕРµРіРѕ СЂРµР±РµРЅРєР°.</span>
+			<div class="img-container" style="background:url(<?= SITE_TEMPLATE_PATH ?>/assets/fake-slider.jpg);background-size: cover;"></div>
+			<h2>РќР°С‚СѓСЂР°Р»СЊРЅС‹Рµ РјР°С‚РµСЂРёР°Р»С‹</h2>
+			<span>Р­СЃРїР°РЅРґРµСЂС‹ Рё Р»РµРЅС‚С‹ RAKAMAKAFIT РёР·РіРѕС‚РѕРІР»РµРЅС‹ РёР· 100% РЅР°С‚СѓСЂР°Р»СЊРЅРѕРіРѕ Р»Р°С‚РµРєСЃР°. РћРЅ Р±РµР·РІСЂРµРґРµРЅ РґР»СЏ Р°Р»Р»РµСЂРіРёРєРѕРІ, РґРµС‚РёС€РµРє Рё Р¶РёРІРѕС‚РЅС‹С…. РЇ СЃР°РјР° - РјР°РјР°, Рё РґР»СЏ РјРµРЅСЏ РѕС‡РµРЅСЊ РІР°Р¶РЅРѕ, С‡С‚РѕР±С‹ РІСЃРµ РѕР±РѕСЂСѓРґРѕРІР°РЅРёРµ Р±С‹Р»Рѕ Р±РµР·РѕРїР°СЃРЅС‹Рј РґР»СЏ РјРѕРµРіРѕ СЂРµР±РµРЅРєР°.</span>
+			<div class="img-container" style="background:url(<?= SITE_TEMPLATE_PATH ?>/assets/fake-slider.jpg);background-size: cover;"></div>
+			
+		
+			<!-- fake-detection-form -->
+<div class="fake-detection-form">
+	<h2>Р’РЅРёРјР°РЅРёРµ, РѕСЃС‚РµСЂРµРіР°Р№С‚РµСЃСЊ РїРѕРґРґРµР»РѕРє! </h2>
+	<span>Р’ РїРѕСЃР»РµРґРЅРµРµ РІСЂРµРјСЏ СѓС‡Р°СЃС‚РёР»РёСЃСЊ СЃР»СѓС‡Р°Рё РїСЂРѕРґР°Р¶Рё В«РЅР°С€РёС…В» С„РёС‚РЅРµСЃ Р»РµРЅС‚ РґСЂСѓРіРёРјРё РєРѕРјРїР°РЅРёСЏРјРё. Р•СЃР»Рё РІС‹ СЃС‚РѕР»РєРЅСѓР»РёСЃСЊ СЃ С„Р°РєС‚РѕРј РјРѕС€РµРЅРЅРёС‡РµСЃС‚РІР° РёР»Рё Сѓ РІР°СЃ РµСЃС‚СЊ Р·Р°РјРµС‡Р°РЅРёСЏ Рє РєР°С‡РµСЃС‚РІСѓ РїСЂРѕРґСѓРєС†РёРё, РїРѕР¶Р°Р»СѓР№СЃС‚Р°, РѕС‚РїСЂР°РІСЊС‚Рµ РЅР°Рј СЃРІРѕР№ Р·Р°РїСЂРѕСЃ.</span>
+<form action="#">
+	<div class="fake-detection-form-block__form__input-wrapper">
+						<label name="mail">
+							<input class="promo-form-block__form__input" type="email" pattern="\S+@[a-z]+.[a-z]+" placeholder='Email'>
+						</label>
+						<label name= fake-detection-form-textarea">
+							<textarea class="promo-form-block__form__input" name="fake-detection-form-textarea" id="" cols="30" rows="10" placeholder="Р’РІРµРґРёС‚Рµ С‚РµРєСЃС‚"></textarea>
+						</label>
+						
+					</div>
+										<div class="promo-form-block__form__input-checkbox-wrapper">			
+						<input  class="promo-form-block__form__checbox"  type="checkbox" name="" id="promo-checkbox">
+						<label for="promo-checkbox"></label>
+						<p class="promo-form-block__form__checbox-desc">РЇ СЃРѕРіР»Р°СЃРµРЅ СЃ РѕР±СЂР°Р±РѕС‚РєРѕР№ РїРµСЂСЃРѕРЅР°Р»СЊРЅС‹С… РґР°РЅРЅС‹С…</p>
+						
+					</div>
+					<button class="promo-form-block__form__submit" type="submit">РѕС‚РїСЂР°РІРёС‚СЊ</button>
+</form>
+</div>
+
+
+<!-- end of fake-detection-form -->
+	<!-- end of  text-block -->
+</div>
+<!-- CEO-text-block -->
+<div class="big-block ceo-text-block">
+<div class="ceo-text-block__content">
+	<div class="ceo-text-block__title">#RAKAMAKAFIT РѕС‚РІРµС‡Р°РµС‚ Р·Р° РєР°С‡РµСЃС‚РІРѕ</div>
+	<div class="ceo-text-block__text">
+	<ol>
+			<li>РџСЂРѕРІРµСЂСЊС‚Рµ, С‡С‚Рѕ РІС‹ СЃРґРµР»Р°Р»Рё Р·Р°РєР°Р· РЅР° РЅР°С€РµРј СЃР°Р№С‚Рµ rakamakafit.ru. РќРѕРјРµСЂ Р·Р°РєР°Р·Р° РїРµСЂРІРёС‡РЅРѕ РїСЂРёСЃРІР°РёРІР°РµС‚СЃСЏ РІ С„РѕСЂРјР°С‚Рµ id0000 (РіРґРµ РІРјРµСЃС‚Рѕ 0000 РІР°С€ РЅРѕРјРµСЂ)</li>
+			<li>РџРѕСЃР»Рµ С‚РѕРіРѕ, РєР°Рє РІС‹ РЅР°Р¶Р°Р»Рё РєРЅРѕРїРєСѓ &quot;РћС‚РїСЂР°РІРёС‚СЊ Р·Р°РєР°Р·&quot;, РјС‹ РѕС‚РїСЂР°РІР»СЏРµРј РІР°Рј РїРёСЃСЊРјРѕ-РїРѕРґС‚РІРµСЂР¶РґРµРЅРёРµ РїСЂРёРЅСЏС‚РѕРіРѕ Р·Р°РєР°Р·Р° РЅР° СѓРєР°Р·Р°РЅРЅС‹Р№ e-mail СЃ РЅР°С€РµРіРѕ РѕС„РёС†РёР°Р»СЊРЅРѕРіРѕ Р°РґСЂРµСЃР° hello@rakamakafit.ru (Р° С‚Р°РєР¶Рµ kupi@rakamakafit.ru)</li>
+			<li>РџРѕСЃР»Рµ С‚РѕРіРѕ, РєР°Рє Р·Р°РєР°Р· РѕР±СЂР°Р±РѕС‚Р°РЅ РјРµРЅРµРґР¶РµСЂРѕРј, РІС‹ РїРѕР»СѓС‡РёС‚Рµ РЅР° СЃРІРѕР№ С‚РµР»РµС„РѕРЅ СЃРјСЃ СѓРІРµРґРѕРјР»РµРЅРёРµ Рѕ СЃС‚Р°С‚СѓСЃРµ РІР°С€РµРіРѕ Р·Р°РєР°Р·Р° СЃРѕ СЃСЃС‹Р»РєРѕР№ РЅР° РµРіРѕ РѕС‚СЃР»РµР¶РёРІР°РЅРёРµ. Р’РЅРёРјР°РЅРёРµ! РњС‹ СЂР°Р±РѕС‚Р°РµРј СЃ РєСѓСЂСЊРµСЂСЃРєРѕР№ СЃР»СѓР¶Р±РѕР№ Ddelivery, Р°РґСЂРµСЃ РѕС‚СЃР»РµР¶РёРІР°РЅРёСЏ РІСЃРµС… Р·Р°РєР°Р·РѕРІ - ddelivery.ru РёР»Рё dd247.ru (Рё РЅРёРєР°РєРѕР№ РґСЂСѓРіРѕР№!)</li>
+			<li>Р’С‹ РІСЃРµРіРґР° РјРѕР¶РµС‚Рµ РїРѕР·РІРѕРЅРёС‚СЊ РЅР°Рј РїРѕ С‚РµР»РµС„РѕРЅСѓ 8 (495) 787-40-58 Рё СѓР·РЅР°С‚СЊ Рѕ СЃС‚Р°С‚СѓСЃРµ РІР°С€РµРіРѕ РѕС‚РїСЂР°РІР»РµРЅРёСЏ РѕРЅР»Р°Р№РЅ.</li>
+			<li>Р’СЃСЏ РЅР°С€Р° РїСЂРѕРґСѓРєС†РёСЏ Р±СЂРµРЅРґРёСЂРѕРІР°РЅР° Р»РѕРіРѕС‚РёРїРѕРј #RAKAMAKAFIT Рё РїРѕСЃС‚Р°РІР»СЏРµС‚СЃСЏ РІ С„РёСЂРјРµРЅРЅС‹С… СЃСѓРјРѕС‡РєР°С…!</li>
+		</ol>
 	</div>
 </div>
+</div>
+<!-- end of CEO-text-block -->
+<? CMain::IncludeFile( SITE_DIR.'/include/subscribe_form_yelow.php'); ?>
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

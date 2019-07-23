@@ -30,7 +30,7 @@ $aMenuLinks = Array(
 	),
 	Array(
 		"Полезная информация", 
-		"information/", 
+		"public-offer/", 
 		Array(), 
 		Array(), 
 		"" 
