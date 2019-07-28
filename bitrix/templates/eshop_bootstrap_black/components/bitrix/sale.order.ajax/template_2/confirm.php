@@ -17,21 +17,25 @@ if ($arParams["SET_TITLE"] == "Y")
 <? if (!empty($arResult["ORDER"])): ?>
 
     <?
-    /*$db_props = CSaleOrderPropsValue::GetOrderProps($arResult['ORDER_ID']);
-    while ($arProps = $db_props->Fetch())
-    {
-        debug($arProps);
-    }*/
-
+    $db_props = CSaleOrderPropsValue::GetOrderProps($arResult['ORDER_ID']);
     $rsUser = CUser::GetByID($USER->GetID());
     $arUser = $rsUser->Fetch();
+    while ($arProps = $db_props->Fetch())
+    {
+        if($arProps['ORDER_PROPS_ID'] == 7 && !empty($arProps['VALUE'])){
+            $adres = $arProps['VALUE'];
+        } elseif($arProps['ORDER_PROPS_ID'] == 7 && empty($arProps['VALUE'])) {
+            $adres = $arUser['PERSONAL_STREET'];
+        }
+    }
+    
 
     ?>
     <div class="thanks-for-order-block">
         <div class="thumbs_up" style="font-size: 85px;background:url(/upload/thumbs-up-sign.png) no-repeat; background-size: contain;"></div>
         <div class="up-hello-block__left-side__title">Спасибо, что выбрали RAKAMAKAFIT!</div>
         <p class="desc">Ваш заказ подтвержден, и мы сообщим вам, когда он будет отправлен.
-            Он будет отправлен по адресу: <?=$arUser['PERSONAL_STREET']?>
+            Он будет отправлен по адресу: <?=$adres?>
         </p>
     </div>
 

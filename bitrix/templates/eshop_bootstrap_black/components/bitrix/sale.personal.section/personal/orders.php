@@ -118,7 +118,6 @@ else
 		</div>
 	</div>
 	<!-- 	end of breadcrumbs block -->
-
 	<!-- personal-cabinet block -->
 	<div class="personal-cabinet-block">
 		<div class="personal-cabinet-block__title-block">
@@ -129,13 +128,18 @@ else
 				<div class="personal-cabinet-block__title">Привет, <?=$arUser['NAME']?>!</div>
 				<ul class="personal-cabinet__navbar">
 					<?foreach ($availablePages as $item=>$blockElement):?>
+                        <?if($APPLICATION->GetCurPageParam() == '/personal/orders/?filter_history=Y'){
+                            $name = 'История заказов';
+                        } else{
+                            $name = 'Текущие заказы';
+                        }?>
 						<li>
-							<a <?=($item == 0)? 'class="personal-cabinet__navbar_link__active"' : '' ?> href="<?=$blockElement['path']?>"><?=$blockElement['name']?></a>
+							<a <?=($blockElement['name'] == $name)? 'class="personal-cabinet__navbar_link__active"' : '' ?> href="<?=$blockElement['path']?>"><?=$blockElement['name']?></a>
 						</li>
 					<?endforeach;?>
 				</ul>
 			</div>
-
+            <div>
 			<?$APPLICATION->IncludeComponent(
 				"bitrix:sale.personal.order.list",
 				"",
@@ -164,6 +168,7 @@ else
 				),
 				$component
 			);?>
+            </div>
 		</div>
 	</div>
 

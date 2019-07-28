@@ -5,6 +5,7 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 use Bitrix\Main,
 	Bitrix\Main\Localization\Loc,
 	Bitrix\Main\Page\Asset;
+CModule::IncludeModule("catalog");
 
 Asset::getInstance()->addJs("/bitrix/components/bitrix/sale.order.payment.change/templates/.default/script.js");
 Asset::getInstance()->addCss("/bitrix/components/bitrix/sale.order.payment.change/templates/.default/style.css");
@@ -51,7 +52,22 @@ else
 			else
 			{
 				?>
-				<h3><?= Loc::getMessage('SPOL_TPL_EMPTY_HISTORY_ORDER_LIST')?></h3>
+                <div class="personal-cabinet-block__content__page">
+
+
+                    <div class="personal-cabinet-block__content__page-item">
+                        <div class="personal-cabinet-block__title">У вас пока нет заказов</div>
+                        <div class="user_info">
+                            <div class="card_item">
+                                <p class="user_adress">Начните с каталога — может, найдётся что-то вам по вкусу :)</p>
+                                <button class="to_catalog personal-cabinet-block__form__submit" type="submit">Перейти в каталог</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
 				<?
 			}
 		}
@@ -81,12 +97,54 @@ else
                 $rsUser = CUser::GetByID($USER->GetID());
                 $arUser = $rsUser->Fetch();
             ?>
+
             <div class="orders personal-cabinet-block__content__page">
                 <?
                 $rsUser = CUser::GetByID($USER->GetID());
                 $arUser = $rsUser->Fetch();
                 ?>
+                
+                <?//debug($arResult['ORDERS'])?>
                 <?foreach ($arResult['ORDERS'] as $arOrder):?>
+
+                    <?
+
+                    $res = CSaleBasket::GetList(array(), array("ORDER_ID" => $arOrder['ORDER']['ID'])); // ID заказа
+                    while ($arItem = $res->Fetch()) {
+                        $mxResult = CCatalogSku::GetProductInfo($arItem['PRODUCT_ID']);
+                        if(!empty($mxResult)){
+                            $id = $mxResult['ID'];
+                        } else {
+                            $id = $arItem['PRODUCT_ID'];
+                        }
+                        $arSelect = Array("PREVIEW_PICTURE", "DETAIL_PICTURE", "ID");
+                        $arFilter = Array("IBLOCK_ID"=>15); // Здесь надо поставить ваш ID инфоблока.
+                        $res = CIBlockElement::GetList(Array("ID"=>"ASC"), $arFilter, false, false, $arSelect);
+                        while($ob = $res->Fetch())
+                        {
+                            if($ob['ID'] == $id){
+                                if(!empty($ob['PREVIEW_PICTURE'])){
+                                    $picture = CFile::GetPath(debug($ob['PREVIEW_PICTURE']));
+                                } else{
+                                    $picture = CFile::GetPath($ob['DETAIL_PICTURE']);
+                                }
+                            }
+                        }
+                    }
+
+
+                    $db_props = CSaleOrderPropsValue::GetOrderProps($arOrder['ORDER']['ID']);
+                    $rsUser = CUser::GetByID($USER->GetID());
+                    $arUser = $rsUser->Fetch();
+                    while ($arProps = $db_props->Fetch())
+                    {
+                        if($arProps['ORDER_PROPS_ID'] == 7 && !empty($arProps['VALUE'])){
+                            $adres = $arProps['VALUE'];
+                        } elseif($arProps['ORDER_PROPS_ID'] == 7 && empty($arProps['VALUE'])) {
+                            $adres = $arUser['PERSONAL_STREET'];
+                        }
+                    }
+                    ?>
                     <div class="personal-cabinet-block__content__page-item">
                         <div class="order_title-block flex-line">
                             <div class="personal-cabinet-block__title">Заказ № <?=$arOrder['ORDER']['ACCOUNT_NUMBER']?></div>
@@ -95,10 +153,10 @@ else
                         <?foreach ($arOrder['BASKET_ITEMS'] as $arItem):?>
                             <div class="cart-block__cart-items-list__item d-table">
                                 <div class="item__image d-table__cell">
-                                    <img src="assets/cart-items-list-img.jpg" alt="">
+                                    <img src="<?=$picture?>" alt="">
                                 </div>
                                 <div class="cart-block__item__info d-table__cell">
-                                    <a href="	#"><?=$arItem['NAMR']?></a>
+                                    <a href="	#"><?=$arItem['NAME']?></a>
                                     <div class="cart-block__item__meta">	160 гр.</div>
                                 </div>
 
@@ -133,7 +191,7 @@ else
                             </div>
                             <div class="order_param">
                                 <div class="order__param__name">Адрес доставки</div>
-                                <p class="order__param__value"><?=$arUser['PERSONAL_STREET']?></p>
+                                <p class="order__param__value"><?=$adres?></p>
                             </div>
                         </div>
                         <div class="order_manage_buttons flex-line">
@@ -142,12 +200,13 @@ else
                                 <a class="sale-order-list-repeat-link" href="<?=htmlspecialcharsbx($arOrder["ORDER"]["URL_TO_COPY"])?>"><?=Loc::getMessage('SPOL_TPL_REPEAT_ORDER')?></a>
 
                             </div>
-                            <div class="cancel_button">Скрыть</div>
+                            <div class="cancel_button"><a href="<?=$arOrder['ORDER']['URL_TO_CANCEL']?>">Скрыть</a></div>
                         </div>
                     </div>
                 <?endforeach;?>
 
             </div>
+            
 			<?
 		}
 	}
@@ -171,6 +230,46 @@ else
             $arUser = $rsUser->Fetch();
             ?>
             <?foreach ($arResult['ORDERS'] as $arOrder):?>
+            <?
+                $res = CSaleBasket::GetList(array(), array("ORDER_ID" => $arOrder['ORDER']['ID'])); // ID заказа
+                while ($arItem = $res->Fetch()) {
+                    $mxResult = CCatalogSku::GetProductInfo($arItem['PRODUCT_ID']);
+                    if(!empty($mxResult)){
+                        $id = $mxResult['ID'];
+                    } else {
+                        $id = $arItem['PRODUCT_ID'];
+                    }
+
+                    $arSelect = Array("PREVIEW_PICTURE", "DETAIL_PICTURE", "ID");
+                    $arFilter = Array("IBLOCK_ID"=>15); // Здесь надо поставить ваш ID инфоблока.
+                    $res = CIBlockElement::GetList(Array("ID"=>"ASC"), $arFilter, false, false, $arSelect);
+                    while($ob = $res->Fetch())
+                    {
+                        if($ob['ID'] == $id){
+                            if(!empty($ob['PREVIEW_PICTURE'])){
+                                $picture = CFile::GetPath(debug($ob['PREVIEW_PICTURE']));
+                            } else{
+                                $picture = CFile::GetPath($ob['DETAIL_PICTURE']);
+                            }
+                        }
+                    }
+                }
+
+                $db_props = CSaleOrderPropsValue::GetOrderProps($arOrder['ORDER']['ID']);
+                $rsUser = CUser::GetByID($USER->GetID());
+                $arUser = $rsUser->Fetch();
+                while ($arProps = $db_props->Fetch())
+                {
+                    if($arProps['ORDER_PROPS_ID'] == 7 && !empty($arProps['VALUE'])){
+                        $adres = $arProps['VALUE'];
+                    } elseif($arProps['ORDER_PROPS_ID'] == 7 && empty($arProps['VALUE'])) {
+                        $adres = $arUser['PERSONAL_STREET'];
+                    }
+                }
+            ?>
+
+
+
                 <div class="personal-cabinet-block__content__page-item">
                 <div class="order_title-block flex-line">
                     <div class="personal-cabinet-block__title">Заказ № <?=$arOrder['ORDER']['ACCOUNT_NUMBER']?></div>
@@ -179,10 +278,10 @@ else
                 <?foreach ($arOrder['BASKET_ITEMS'] as $arItem):?>
                     <div class="cart-block__cart-items-list__item d-table">
                         <div class="item__image d-table__cell">
-                            <img src="assets/cart-items-list-img.jpg" alt="">
+                            <img src="<?=$picture?>" alt="">
                         </div>
                         <div class="cart-block__item__info d-table__cell">
-                            <a href="	#"><?=$arItem['NAMR']?></a>
+                            <a href="	#"><?=$arItem['NAME']?></a>
                             <div class="cart-block__item__meta">	160 гр.</div>
                         </div>
 
@@ -217,7 +316,7 @@ else
                     </div>
                     <div class="order_param">
                         <div class="order__param__name">Адрес доставки</div>
-                        <p class="order__param__value"><?=$arUser['PERSONAL_STREET']?></p>
+                        <p class="order__param__value"><?=$adres?></p>
                     </div>
                 </div>
                 <div class="order_manage_buttons flex-line">
@@ -226,7 +325,7 @@ else
                         <a class="sale-order-list-repeat-link" href="<?=htmlspecialcharsbx($arOrder["ORDER"]["URL_TO_COPY"])?>"><?=Loc::getMessage('SPOL_TPL_REPEAT_ORDER')?></a>
 
                     </div>
-                    <div class="cancel_button">Скрыть</div>
+                    <div class="cancel_button"><a href="<?=$arOrder['ORDER']['URL_TO_CANCEL']?>">Скрыть</a></div>
                 </div>
             </div>
             <?endforeach;?>

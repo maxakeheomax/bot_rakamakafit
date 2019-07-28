@@ -7,7 +7,7 @@ use Bitrix\Main\Localization\Loc;
  */
 ?>
 <script id="basket-total-template" type="text/html">
-	<div class="basket-checkout-container" data-entity="basket-checkout-aligner">
+	<div class="cart-block__cart-review__price_block" data-entity="basket-checkout-aligner">
 		<?
 		if ($arParams['HIDE_COUPON'] !== 'Y')
 		{
@@ -28,9 +28,9 @@ use Bitrix\Main\Localization\Loc;
 			<?
 		}
 		?>
-		<div class="basket-checkout-section">
-			<div class="basket-checkout-section-inner">
-				<div class="basket-checkout-block basket-checkout-block-total">
+
+
+				<!--div class="basket-checkout-block basket-checkout-block-total">
 					<div class="basket-checkout-block-total-inner">
 						<div class="basket-checkout-block-total-title"><?=Loc::getMessage('SBB_TOTAL')?>:</div>
 						<div class="basket-checkout-block-total-description">
@@ -43,7 +43,7 @@ use Bitrix\Main\Localization\Loc;
 							{{/SHOW_VAT}}
 						</div>
 					</div>
-				</div>
+				</div-->
 
 				<div class="basket-checkout-block basket-checkout-block-total-price">
 					<div class="basket-checkout-block-total-price-inner">
@@ -53,9 +53,13 @@ use Bitrix\Main\Localization\Loc;
 							</div>
 						{{/DISCOUNT_PRICE_FORMATED}}
 
-						<div class="basket-coupon-block-total-price-current" data-entity="basket-total-price">
-							{{{PRICE_FORMATED}}}
-						</div>
+
+                        <div class="cart-block__cart-review__total-price-block">
+                            <p class="cart-block__cart-review__price_name">Итого к оплате</p>
+                            <div class="total-price"><span>{{{PRICE_FORMATED}}}</span>Р</div>
+                        </div>
+
+
 
 						{{#DISCOUNT_PRICE_FORMATED}}
 							<div class="basket-coupon-block-total-price-difference">
@@ -67,13 +71,13 @@ use Bitrix\Main\Localization\Loc;
 				</div>
 
 				<div class="basket-checkout-block basket-checkout-block-btn">
-					<button class="btn btn-lg btn-default basket-btn-checkout{{#DISABLE_CHECKOUT}} disabled{{/DISABLE_CHECKOUT}}"
+					<button class="cart-block__cart-review__button"
 						data-entity="basket-checkout-button">
 						<?=Loc::getMessage('SBB_ORDER')?>
 					</button>
 				</div>
-			</div>
-		</div>
+
+
 
 		<?
 		if ($arParams['HIDE_COUPON'] !== 'Y')

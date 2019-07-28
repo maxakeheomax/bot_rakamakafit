@@ -7,7 +7,7 @@ while($section = $sections_db->Fetch()){
 	if($section['DEPTH_LEVEL'] === "1")
 	$aMenuLinks[] = [
 		$section['NAME'], 
-		$section['CODE'], 
+		'catalog/'.$section['CODE'].'/', 
 		[],
 		[],
 		''

@@ -5,6 +5,7 @@
 if ($arResult['DATA_SAVED'] == 'Y')
 	echo ShowNote(GetMessage('PROFILE_DATA_SAVED'));
 ?>
+her
 <div class="bx_profile bx_<?=$arResult["THEME"]?>">
 	<form method="post" name="form1" action="<?=$arResult["FORM_TARGET"]?>?" enctype="multipart/form-data">
 		<?=$arResult["BX_SESSION_CHECK"]?>

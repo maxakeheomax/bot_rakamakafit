@@ -2,6 +2,7 @@
 
 use Bitrix\Main;
 use Bitrix\Main\Localization\Loc;
+
 \Bitrix\Main\UI\Extension::load("ui.fonts.ruble");
 
 /**
@@ -16,7 +17,9 @@ use Bitrix\Main\Localization\Loc;
  */
 
 $documentRoot = Main\Application::getDocumentRoot();
+?>
 
+<?
 if (empty($arParams['TEMPLATE_THEME']))
 {
 	$arParams['TEMPLATE_THEME'] = Main\ModuleManager::isModuleInstalled('bitrix.eshop') ? 'site' : 'blue';
@@ -70,6 +73,8 @@ $arParams['BRAND_PROPERTY'] = isset($arParams['BRAND_PROPERTY']) ? trim($arParam
 
 if ($arParams['USE_GIFTS'] === 'Y')
 {
+	$arParams['GIFTS_BLOCK_TITLE'] = isset($arParams['GIFTS_BLOCK_TITLE']) ? trim((string)$arParams['GIFTS_BLOCK_TITLE']) : Loc::getMessage('SBB_GIFTS_BLOCK_TITLE');
+
 	CBitrixComponent::includeComponentClass('bitrix:sale.products.gift.basket');
 
 	$giftParameters = array(
@@ -156,12 +161,24 @@ if (empty($arResult['ERROR_MESSAGE']))
 {
 	if ($arParams['USE_GIFTS'] === 'Y' && $arParams['GIFTS_PLACE'] === 'TOP')
 	{
-		$APPLICATION->IncludeComponent(
-			'bitrix:sale.products.gift.basket',
-			'.default',
-			$giftParameters,
-			$component
-		);
+		?>
+		<div data-entity="parent-container">
+			<div class="catalog-block-header"
+					data-entity="header"
+					data-showed="false"
+					style="display: none; opacity: 0;">
+				<?=$arParams['GIFTS_BLOCK_TITLE']?>
+			</div>
+			<?
+			$APPLICATION->IncludeComponent(
+				'bitrix:sale.products.gift.basket',
+				'.default',
+				$giftParameters,
+				$component
+			);
+			?>
+		</div>
+		<?
 	}
 
 	if ($arResult['BASKET_ITEM_MAX_COUNT_EXCEEDED'])
@@ -181,9 +198,7 @@ if (empty($arResult['ERROR_MESSAGE']))
 		)
 		{
 			?>
-			<div class="row">
-				<div class="col-xs-12" data-entity="basket-total-block"></div>
-			</div>
+
 			<?
 		}
 		?>
@@ -202,33 +217,10 @@ if (empty($arResult['ERROR_MESSAGE']))
 
 		<div class="row">
 			<div class="col-xs-12">
-				<div class="basket-items-list-wrapper basket-items-list-wrapper-height-fixed basket-items-list-wrapper-light<?=$displayModeClass?>"
-					id="basket-items-list-wrapper">
-					<div class="basket-items-list-header" data-entity="basket-items-list-header">
-						<div class="basket-items-search-field" data-entity="basket-filter">
-							<div class="form has-feedback">
-								<input type="text" class="form-control"
-									placeholder="<?=Loc::getMessage('SBB_BASKET_FILTER')?>"
-									data-entity="basket-filter-input">
-								<span class="form-control-feedback basket-clear" data-entity="basket-filter-clear-btn"></span>
-							</div>
-						</div>
-						<div class="basket-items-list-header-filter">
-							<a href="javascript:void(0)" class="basket-items-list-header-filter-item active"
-								data-entity="basket-items-count" data-filter="all" style="display: none;"></a>
-							<a href="javascript:void(0)" class="basket-items-list-header-filter-item"
-								data-entity="basket-items-count" data-filter="similar" style="display: none;"></a>
-							<a href="javascript:void(0)" class="basket-items-list-header-filter-item"
-								data-entity="basket-items-count" data-filter="warning" style="display: none;"></a>
-							<a href="javascript:void(0)" class="basket-items-list-header-filter-item"
-								data-entity="basket-items-count" data-filter="delayed" style="display: none;"></a>
-							<a href="javascript:void(0)" class="basket-items-list-header-filter-item"
-								data-entity="basket-items-count" data-filter="not-available" style="display: none;"></a>
-						</div>
-					</div>
-					<div class="basket-items-list-container" id="basket-items-list-container">
+				<div class="cart-block" id="basket-items-list-wrapper">
+                    <div class="cart-block__cart-items-list" id="basket-items-list-container">
 						<div class="basket-items-list-overlay" id="basket-items-list-overlay" style="display: none;"></div>
-						<div class="basket-items-list" id="basket-item-list">
+						<div class="basket-items-list" id="her basket-item-list">
 							<div class="basket-search-not-found" id="basket-item-list-empty-result" style="display: none;">
 								<div class="basket-search-not-found-icon"></div>
 								<div class="basket-search-not-found-text">
@@ -238,7 +230,22 @@ if (empty($arResult['ERROR_MESSAGE']))
 							<table class="basket-items-list-table" id="basket-item-table"></table>
 						</div>
 					</div>
-				</div>
+                    <div class="cart-block__cart-review" data-entity="basket-items-list-header">
+                        <div class="cart-block__cart-review__cart-items-counter-block">
+                            <a href="javascript:void(0)" class="basket-items-list-header-filter-item active"
+                               data-entity="basket-items-count" data-filter="all" style="display: none;"></a>
+                            <a href="javascript:void(0)" class="basket-items-list-header-filter-item"
+                               data-entity="basket-items-count" data-filter="similar" style="display: none;"></a>
+                            <a href="javascript:void(0)" class="basket-items-list-header-filter-item"
+                               data-entity="basket-items-count" data-filter="warning" style="display: none;"></a>
+                            <a href="javascript:void(0)" class="basket-items-list-header-filter-item"
+                               data-entity="basket-items-count" data-filter="delayed" style="display: none;"></a>
+                            <a href="javascript:void(0)" class="basket-items-list-header-filter-item"
+                               data-entity="basket-items-count" data-filter="not-available" style="display: none;"></a>
+                        </div>
+                        <div data-entity="basket-total-block"></div>
+                    </div>
+                </div>
 			</div>
 		</div>
 		<?
@@ -248,9 +255,7 @@ if (empty($arResult['ERROR_MESSAGE']))
 		)
 		{
 			?>
-			<div class="row">
-				<div class="col-xs-12" data-entity="basket-total-block"></div>
-			</div>
+
 			<?
 		}
 		?>
@@ -286,12 +291,29 @@ if (empty($arResult['ERROR_MESSAGE']))
 	<?
 	if ($arParams['USE_GIFTS'] === 'Y' && $arParams['GIFTS_PLACE'] === 'BOTTOM')
 	{
-		$APPLICATION->IncludeComponent(
-			'bitrix:sale.products.gift.basket',
-			'.default',
-			$giftParameters,
-			$component
-		);
+		?>
+		<div data-entity="parent-container">
+			<div class="catalog-block-header"
+					data-entity="header"
+					data-showed="false"
+					style="display: none; opacity: 0;">
+				<?=$arParams['GIFTS_BLOCK_TITLE']?>
+			</div>
+            <?/*
+	            *
+	            * Тут находится шаблон с "Выбирете подарок"
+	            *
+	        */?>
+			<?/*
+			$APPLICATION->IncludeComponent(
+				'bitrix:sale.products.gift.basket',
+				'.default',
+				$giftParameters,
+				$component
+			);
+			*/?>
+		</div>
+		<?
 	}
 }
 elseif ($arResult['EMPTY_BASKET'])

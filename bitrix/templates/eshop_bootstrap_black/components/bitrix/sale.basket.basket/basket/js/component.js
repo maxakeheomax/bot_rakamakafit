@@ -2423,7 +2423,7 @@
 
 			return {
 				'name': this.items[itemId].NAME || '',
-				'id': this.items[itemId].ID || '',
+				'id': this.items[itemId].PRODUCT_ID || '',
 				'price': this.items[itemId].PRICE || 0,
 				'brand': brand,
 				'variant': variants.join('/'),
