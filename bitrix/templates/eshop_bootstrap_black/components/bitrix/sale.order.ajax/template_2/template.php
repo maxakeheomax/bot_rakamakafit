@@ -295,10 +295,6 @@ $this->addExternalJs($templateFolder.'/script.js');
 	<NOSCRIPT>
 		<div style="color:red"><?=Loc::getMessage('SOA_NO_JS')?></div>
 	</NOSCRIPT>
-
-	<pre>
-		<? //var_dump($arResult)?>
-	</pre>
 <?
 
 if (strlen($request->get('ORDER_ID')) > 0)
@@ -325,7 +321,7 @@ else
 	);?>
 
 
-	<form style="display:none1" action="<?=POST_FORM_ACTION_URI?>" method="POST" name="ORDER_FORM" id="bx-soa-order-form" enctype="multipart/form-data">
+	<form style="display:none" action="<?=POST_FORM_ACTION_URI?>" method="POST" name="ORDER_FORM1" id="bx-soa-order-form" enctype="multipart/form-data">
 		<?
 		echo bitrix_sessid_post();
 
@@ -521,8 +517,16 @@ else
 	</form>
 	
 	<?//////////////////////////////////////////////////////////////////////////////////////?>
+
+<form action="<?=POST_FORM_ACTION_URI?>" method="POST" name="ORDER_FORM" id="bx-soa-order-form" enctype="multipart/form-data">
+	<input type="hidden" name="<?=$arParams['ACTION_VARIABLE']?>" value="saveOrderAjax">
+	<input type="hidden" name="location_type" value="code">
+	<input type="hidden" name="BUYER_STORE" id="BUYER_STORE" value="<?=$arResult['BUYER_STORE']?>">
+	<input type="hidden" name="save" id="" value="yes">
+	<input type="hidden" name="sessid" id="" value="<?= trim(bitrix_sessid_get(''), '=') ?>">
+	
 	<!-- cart block -->
-	<div style="display:none" class="cart-block">	
+	<div style="display" class="cart-block">	
 		<div class="cart-block__title-block">
 			<div class="up-hello-block__left-side__title">Оформление заказа</div>
 		</div>
@@ -545,14 +549,14 @@ else
 
 						<div class="form-fields">
 							<div class="text-input full-width">
-								<input class="text-input__input" type="text" name="" id="FIO" placeholder=''><label class="text-input__label" for="FIO">Фамилия Имя Отчество</label>
+								<input class="text-input__input" type="text" name="ORDER_PROP_1" id="FIO" placeholder=''><label class="text-input__label" for="FIO">Фамилия Имя Отчество</label>
 							</div>
 							<div class="input-wrapper">
 								<div class="text-input">
-									<input class="text-input__input" type="email" name="" id="email" pattern="\S+@[a-z]+.[a-z]+"><label class="text-input__label" for="email">Email</label>
+									<input class="text-input__input" type="email" name="ORDER_PROP_2" id="email" pattern="\S+@[a-z]+.[a-z]+"><label class="text-input__label" for="email">Email</label>
 								</div>
 								<div class="text-input">
-									<input class="text-input__input" type="text" name="" id="phone"  ><label class="text-input__label" for="phone">Телефон</label>
+									<input class="text-input__input" type="text" name="ORDER_PROP_3" id="phone"  ><label class="text-input__label" for="phone">Телефон</label>
 								</div>								
 							</div>
 						</div>
@@ -568,30 +572,30 @@ else
 								<div class="cart-block__cart-order-reg-item__title-block__title">Способ получения</div>
 							</div>
 						</div>
-
+						<input type="hidden" name="DELIVERY_ID">
 						<div  class="full-width-block-list">
-							<div id="pickup" class="full-width-block-list-item"> 
+							<div id="pickup" class="full-width-block-list-item delivery-select" data-value="3"> 
 								<div class="left-side">
 									<p class="item-title">Самовывоз</p>
 									<p class="item-desc">Бесплатно</p>
 								</div>
 								<div class="right-side"><p class="item-option" id="popUp_call">Выбрать<br>  адрес получения</p></div> 
 							</div>
-							<div class="full-width-block-list-item">
+							<div class="full-width-block-list-item delivery-select" data-value="2">
 								<div class="left-side">
 									<p class="item-title">Курьерская доставка</p>
 									<p class="item-desc">От 1500 Р</p>
 								</div>
 								<div class="right-side"></div> 
 							</div>
-							<div class="full-width-block-list-item">
+							<div class="full-width-block-list-item delivery-select" data-value="20">
 								<div class="left-side">
 									<p class="item-title">Транспортная компания</p>
 									<p class="item-desc">От 350 Р</p>
 								</div>
 								<div class="right-side"></div> 
 							</div>
-							<div class="full-width-block-list-item">
+							<div class="full-width-block-list-item delivery-select" data-value="18">
 								<div class="left-side">
 									<p class="item-title">Почта России</p>
 									<p class="item-desc">В зависимости от адреса</p>
@@ -599,7 +603,14 @@ else
 								<div class="right-side"></div> 
 							</div>
 							
-
+							<script>
+								$('.delivery-select').click(function(){
+									$('input[id="ID_DELIVERY_ID_'+val+'"]').closest('div').click();
+									prices();
+									var val = $(this).data('value');
+									$('input[name="DELIVERY_ID"]').val(val);
+								});
+							</script>
 						</div> 
 					</div>							
 				</div>
@@ -652,7 +663,7 @@ else
 						</div>
 
 						<div class="text-input quarter">
-							<input class="text-input__input" type="text" name="" id="post_index"  placeholder=""><label class="text-input__label" for="post_index">Индекс</label>
+							<input class="text-input__input" type="text" name="ORDER_PROP_4" id="post_index"  placeholder=""><label class="text-input__label" for="post_index">Индекс</label>
 						</div>
 
 					</div>
@@ -686,7 +697,7 @@ else
 			</div>							
 		</div>
 
-		<div class="cart-block__cart-items-list__item-wrapper list__item-wrapper-product-reg ">
+		<div id="items-list" class="cart-block__cart-items-list__item-wrapper list__item-wrapper-product-reg ">
 			<div class="cart-block__cart-order-reg-item">	
 				<div class="cart-block__cart-order-reg-item__title-block">
 					<div class="number_title-block">
@@ -696,54 +707,7 @@ else
 				</div>
 
 				<div class="full-width-block-list">
-					<div class="cart-block__cart-items-list__item d-table">	
-						<div class="item__image d-table__cell">						
-							<img src="assets/cart-items-list-img.jpg" alt="">					
-						</div>	
-						<div class="cart-block__item__info d-table__cell">	
-							<a href="	#">Набор латексных фитнес лент</a>
-							<div class="cart-block__item__meta">	160 гр.</div>
-						</div>
-
-						<div class="cart-block__item__price d-table__cell">	
-							<p class='actual-price price'><span>1690</span> Р</p>
-							<p class="old-price price"><span>2210 Р</span> </p>
-							<p class="discount-price price">Скидка <span>520 Р</span></p>
-						</div>
-					</div>
-					<div class="cart-block__cart-items-list__item d-table">	
-						<div class="item__image d-table__cell">						
-							<img src="assets/cart-items-list-img.jpg" alt="">					
-						</div>	
-						<div class="cart-block__item__info d-table__cell">	
-							<a href="	#">Набор латексных фитнес лент</a>
-							<div class="cart-block__item__meta">	160 гр.</div>
-						</div>
-
-						<div class="cart-block__item__price d-table__cell">	
-							<p class='actual-price price'><span>1690</span> Р</p>
-							<p class="old-price price"><span>2210 Р</span> </p>
-							<p class="discount-price price">Скидка <span>520 Р</span></p>
-						</div>
-					</div>
-					<div class="cart-block__cart-items-list__item d-table">	
-						<div class="item__image d-table__cell">						
-							<img src="assets/cart-items-list-img.jpg" alt="">					
-						</div>	
-						<div class="cart-block__item__info d-table__cell">	
-							<a href="	#">Набор латексных фитнес лент</a>
-							<div class="cart-block__item__meta">	160 гр.</div>
-						</div>
-
-						<div class="cart-block__item__price d-table__cell">	
-							<p class='actual-price price'><span>1690</span> Р</p>
-							<p class="old-price price"><span>2210 Р</span> </p>
-							<p class="discount-price price">Скидка <span>520 Р</span></p>
-						</div>
-					</div>
-
-
-					
+															
 				</div> 
 			</div>							
 		</div>
@@ -756,9 +720,10 @@ else
 						<div class="cart-block__cart-order-reg-item__title-block__title">Способ оплаты</div>
 					</div>
 				</div>
-
+				
+				<input type="hidden" name="PAY_SYSTEM_ID">
 				<div class="full-width-block-list">
-					<div class="full-width-block-list-item"> 
+					<div class="full-width-block-list-item payment-select" data-value="3"> 
 						<div class="left-side">
 							<p class="item-title">Картой</p>
 						</div>
@@ -767,7 +732,7 @@ else
 						</div> 
 					</div>
 
-					<div class="full-width-block-list-item">
+					<div class="full-width-block-list-item payment-select" data-value="4">
 						<div class="left-side">
 							<p class="item-title">Платежной системой</p>
 						</div>
@@ -778,7 +743,7 @@ else
 						</div> 
 					</div>
 
-					<div class="full-width-block-list-item">
+					<div class="full-width-block-list-item payment-select" data-value="1">
 						<div class="left-side">
 							<p class="item-title">Наличными при получениями</p>
 						</div>
@@ -786,9 +751,12 @@ else
 							<div class="icon_block" style="background: url('assets/cash_icon.svg')no-repeat center"></div>
 						</div> 
 					</div>
-
-
-
+					<script>
+						$('.payment-select').click(function(){
+							var val = $(this).data('value');
+							$('input[name="PAY_SYSTEM_ID"]').val(val);
+						});
+					</script>
 				</div> 
 			</div>							
 		</div>
@@ -796,30 +764,32 @@ else
 	</div>
 	<aside class="cart-block__cart-review">
 		<div class="cart-block__cart-review__cart-items-counter-block">	
-			<p>	В корзине <span class="items-counter">3</span> товара</p>
+			<p>	В корзине <span class="items-counter"  id="cart_items_count">3</span> товара</p>
 		</div>
 		<div class="cart-block__cart-review__price_block">	
 			<div class="cart-block__cart-review__product-price">
 				<p class="cart-block__cart-review__price_name">Стоимость товаров</p>
-				<div class="price b-font"><span>22 800</span>Р</div>
+				<div class="price b-font"><span id="cart_items_total">22 800</span>Р</div>
 			</div>
 			<div class="cart-block__cart-review__discount-block">
 				<p class="cart-block__cart-review__price_name">Скидка</p>
-				<div class="discount-price b-font"><span>520</span>Р</div>
+				<div class="discount-price b-font"><span  id="cart_discount">520</span>Р</div>
 			</div>
 			<div class="cart-block__cart-review__total-price-block">	
 				<p class="cart-block__cart-review__price_name">Итого к оплате</p>
-				<div class="total-price"><span>22 280</span>Р</div>
+				<div class="total-price"><span id="cart_total">22 280</span>Р</div>
 			</div>
 		</div>
-
-		<button class="cart-block__cart-review__button" disabled="disabled">оформить заказ</button>
+		<script>
+		</script>
+		<button id='button_form_submit' type="submit" class="cart-block__cart-review__button" disabled="disabled">оформить заказ</button>
 		<p class="product-block__description__credit_link"><a class="how-start-block__help-link" href="#">Купить в рассрочку</a></p>
 		<p class="cart-block__cart-review__info-text">	Нажимая на кнопку, вы подтверждаете своё совершеннолетие, соглашаетесь на обработку персональных данных в соответствии с Условиями, а также с Условиями продажи.</p>
 	</aside>
+	
 </div>
 	</div>
-
+					</form>
 
 <script>
 	$(document).ready(function(){
@@ -1130,7 +1100,87 @@ else
 					setTimeout(function(){bx_counter_waiter(++i)}, 100);
 			})();
 		</script>
+		
+
 		<?
 	}
 }
 ?>
+
+<script>
+	var price = 0;
+	var price_total = 0;
+	function prices() {
+		this.price = 0; price_total = 0;
+		console.log('asd')
+		
+		$('.bx-soa-cart-total div').each(function(index, element){
+			if($(element).find('span').length > 1){
+				switch ( $($(element).find('span')[0]).text() ) {
+					case "Товаров на:":
+						price=$($(element).find('span')[1]).text()
+						if($(element).find('span')[2]){
+							var price_dicount=$($(element).find('span')[2]).text();
+							price = price.substring(0, (price.length - price_dicount.length)  );
+							this.price = price.substring(0, price.length-5);
+						}
+						$('#cart_items_total').text(this.price);
+						break;
+					case "Итого:":
+						price_total = $($(element).find('span')[1]).text()
+						price_total = price_total.substring(0, price_total.length-5);
+						$('#cart_total').text(price_total);
+						var dicount = parseFloat($('#cart_total').text().replace(/\s/g, '') ) - parseFloat($('#cart_items_total').text().replace(/\s/g, '') );
+						$('#cart_discount').text(dicount);
+						break;
+											
+				}
+			}
+		});								
+	}
+	prices();
+
+	var cart_items_count= $('#bx-soa-basket .bx-soa-section-content .bx-soa-item-table>div').length;
+	$('#items-counter').text(cart_items_count);
+	var items = $('#items-list .cart-block__cart-order-reg-item');
+	$('#bx-soa-basket .bx-soa-section-content .bx-soa-item-table>div').each(function (index, element) {
+		var image_url = $(element).find('.bx-soa-item-imgcontainer').css('background-image');				
+		var title = $($(element).find('.bx-soa-item-title a')[0]).text();
+		var title_link = $($(element).find('.bx-soa-item-title a')[0]).attr('href');
+		var price = $($(element).find('.bx-price.all')[0]).text();
+		price = price.substring(0, price.length-5);
+		var discount = $($(element).find('.bx-price-old')[0]).text();
+		discount = discount.substring(0, discount.length-5);
+		var discount_value = parseFloat(parseFloat(price.replace(/\s/g, '') ) - parseFloat(discount.replace(/\s/g, '') )).toFixed(0);
+
+		console.log(image_url.substring(4, image_url.length-2) );
+
+		items.append(
+			'<div class="cart-block__cart-items-list__item d-table">	'
+			+'	<div class="item__image d-table__cell">						'
+			+'		<img src="'+ image_url.substring(5, image_url.length-2) +'" alt="">					'
+			+'	</div>	'
+			+'	<div class="cart-block__item__info d-table__cell">	'
+			+'		<a href="'+title_link+'">'+title+'</a>'
+			+'		<div class="cart-block__item__meta">	160 гр.</div>'
+			+'	</div>'
+
+			+'	<div class="cart-block__item__price d-table__cell">	'
+			+'		<p class="actual-price price"><span>'+price+'</span> Р</p>'
+			+'		<p class="old-price price"><span>'+ (discount ? discount+' Р' : '') +' </span> </p>'
+			+'		<p class="discount-price price">' + (!isNaN(discount_value) ? 'Скидка' : '') +'<span>'+ (!isNaN(discount_value) ? (discount_value * (-1) )+' P' : '') +'</span></p>'
+			+'	</div>'
+			+'</div>'
+		);
+	});
+	$('#button_form_submit').click(function(e){
+		e.preventDefault();
+		$('form[name="ORDER_FORM"]').ajaxSubmit({
+			url: '/personal/order/make/',
+			success: function(data){
+				window.location.replace(data.order.REDIRECT_URL);
+			}
+		});
+	});
+</script>
+<script src="http://malsup.github.com/jquery.form.js"></script> 
