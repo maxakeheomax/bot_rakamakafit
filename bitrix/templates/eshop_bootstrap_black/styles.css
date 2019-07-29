@@ -4047,6 +4047,7 @@ h2{
 	justify-content: space-between;
 	align-items:baseline;
 	margin-bottom:21px;
+	margin-left: 0 !important;
 }
 .cart-block__title-block__clear-button {
 	font-size: 12px;
@@ -4076,8 +4077,9 @@ h2{
 	margin-bottom:24px;
 }
 .cart-block__cart-items-list__item-wrapper.list__item-wrapper-product-reg {
-	width:696px;
+	width:742px;
 	padding:40px;
+
 }
 
 .cart-block__cart-items-list__item{

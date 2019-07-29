@@ -295,6 +295,10 @@ $this->addExternalJs($templateFolder.'/script.js');
 	<NOSCRIPT>
 		<div style="color:red"><?=Loc::getMessage('SOA_NO_JS')?></div>
 	</NOSCRIPT>
+
+	<pre>
+		<? //var_dump($arResult)?>
+	</pre>
 <?
 
 if (strlen($request->get('ORDER_ID')) > 0)
@@ -309,7 +313,7 @@ else
 {
 	$hideDelivery = empty($arResult['DELIVERY']);
 	?>
-
+<div class="page_content bg-lightgray">
 	<?$APPLICATION->IncludeComponent(
 		"bitrix:breadcrumb",
 		"",
@@ -320,209 +324,621 @@ else
 		)
 	);?>
 
-	<div class="cart-block">	
+
+	<form style="display:none1" action="<?=POST_FORM_ACTION_URI?>" method="POST" name="ORDER_FORM" id="bx-soa-order-form" enctype="multipart/form-data">
+		<?
+		echo bitrix_sessid_post();
+
+		if (strlen($arResult['PREPAY_ADIT_FIELDS']) > 0)
+		{
+			echo $arResult['PREPAY_ADIT_FIELDS'];
+		}
+		?>
+		<input type="hidden" name="<?=$arParams['ACTION_VARIABLE']?>" value="saveOrderAjax">
+		<input type="hidden" name="location_type" value="code">
+		<input type="hidden" name="BUYER_STORE" id="BUYER_STORE" value="<?=$arResult['BUYER_STORE']?>">
+		<div id="bx-soa-order" class="row bx-<?=$arParams['TEMPLATE_THEME']?>" style="opacity: 0">
+			<!--	MAIN BLOCK	-->
+			<div class="col-sm-9 bx-soa">
+				<div id="bx-soa-main-notifications">
+					<div class="alert alert-danger" style="display:none"></div>
+					<div data-type="informer" style="display:none"></div>
+				</div>
+				<!--	AUTH BLOCK	-->
+				<div id="bx-soa-auth" class="bx-soa-section bx-soa-auth" style="display:none">
+					<div class="bx-soa-section-title-container">
+						<h2 class="bx-soa-section-title col-sm-9">
+							<span class="bx-soa-section-title-count"></span><?=$arParams['MESS_AUTH_BLOCK_NAME']?>
+						</h2>
+					</div>
+					<div class="bx-soa-section-content container-fluid"></div>
+				</div>
+
+				<!--	DUPLICATE MOBILE ORDER SAVE BLOCK	-->
+				<div id="bx-soa-total-mobile" style="margin-bottom: 6px;"></div>
+
+				<!--	REGION BLOCK	-->
+				<div id="bx-soa-region" data-visited="false" class="bx-soa-section bx-active">
+					<div class="bx-soa-section-title-container">
+						<h2 class="bx-soa-section-title col-sm-9">
+							<span class="bx-soa-section-title-count"></span><?=$arParams['MESS_REGION_BLOCK_NAME']?>
+						</h2>
+						<div class="col-xs-12 col-sm-3 text-right"><a href="" class="bx-soa-editstep"><?=$arParams['MESS_EDIT']?></a></div>
+					</div>
+					<div class="bx-soa-section-content container-fluid"></div>
+				</div>
+
+				<? if ($arParams['BASKET_POSITION'] === 'before'): ?>
+					<!--	BASKET ITEMS BLOCK	-->
+					<div id="bx-soa-basket" data-visited="false" class="bx-soa-section bx-active">
+						<div class="bx-soa-section-title-container">
+							<h2 class="bx-soa-section-title col-sm-9">
+								<span class="bx-soa-section-title-count"></span><?=$arParams['MESS_BASKET_BLOCK_NAME']?>
+							</h2>
+							<div class="col-xs-12 col-sm-3 text-right"><a href="javascript:void(0)" class="bx-soa-editstep"><?=$arParams['MESS_EDIT']?></a></div>
+						</div>
+						<div class="bx-soa-section-content container-fluid"></div>
+					</div>
+				<? endif ?>
+
+				
+
+				<? if ($arParams['DELIVERY_TO_PAYSYSTEM'] === 'p2d'): ?>
+					<!--	PAY SYSTEMS BLOCK	-->
+					<div id="bx-soa-paysystem" data-visited="false" class="bx-soa-section bx-active">
+						<div class="bx-soa-section-title-container">
+							<h2 class="bx-soa-section-title col-sm-9">
+								<span class="bx-soa-section-title-count"></span><?=$arParams['MESS_PAYMENT_BLOCK_NAME']?>
+							</h2>
+							<div class="col-xs-12 col-sm-3 text-right"><a href="" class="bx-soa-editstep"><?=$arParams['MESS_EDIT']?></a></div>
+						</div>
+						<div class="bx-soa-section-content container-fluid"></div>
+					</div>
+					<!--	DELIVERY BLOCK	-->
+					<div id="bx-soa-delivery" data-visited="false" class="bx-soa-section bx-active" <?=($hideDelivery ? 'style="display:none"' : '')?>>
+						<div class="bx-soa-section-title-container">
+							<h2 class="bx-soa-section-title col-sm-9">
+								<span class="bx-soa-section-title-count"></span><?=$arParams['MESS_DELIVERY_BLOCK_NAME']?>
+							</h2>
+							<div class="col-xs-12 col-sm-3 text-right"><a href="" class="bx-soa-editstep"><?=$arParams['MESS_EDIT']?></a></div>
+						</div>
+						<div class="bx-soa-section-content container-fluid"></div>
+					</div>
+					<!--	PICKUP BLOCK	-->
+					<div id="bx-soa-pickup" data-visited="false" class="bx-soa-section" style="display:none">
+						<div class="bx-soa-section-title-container">
+							<h2 class="bx-soa-section-title col-sm-9">
+								<span class="bx-soa-section-title-count"></span>
+							</h2>
+							<div class="col-xs-12 col-sm-3 text-right"><a href="" class="bx-soa-editstep"><?=$arParams['MESS_EDIT']?></a></div>
+						</div>
+						<div class="bx-soa-section-content container-fluid"></div>
+					</div>
+				<? else: ?>
+					<!--	DELIVERY BLOCK	-->
+					<div id="bx-soa-delivery" data-visited="false" class="bx-soa-section bx-active" <?=($hideDelivery ? 'style="display:none"' : '')?>>
+						<div class="bx-soa-section-title-container">
+							<h2 class="bx-soa-section-title col-sm-9">
+								<span class="bx-soa-section-title-count"></span><?=$arParams['MESS_DELIVERY_BLOCK_NAME']?>
+							</h2>
+							<div class="col-xs-12 col-sm-3 text-right"><a href="" class="bx-soa-editstep"><?=$arParams['MESS_EDIT']?></a></div>
+						</div>
+						<div class="bx-soa-section-content container-fluid"></div>
+					</div>
+					<!--	PICKUP BLOCK	-->
+					<div id="bx-soa-pickup" data-visited="false" class="bx-soa-section" style="display:none">
+						<div class="bx-soa-section-title-container">
+							<h2 class="bx-soa-section-title col-sm-9">
+								<span class="bx-soa-section-title-count"></span>
+							</h2>
+							<div class="col-xs-12 col-sm-3 text-right"><a href="" class="bx-soa-editstep"><?=$arParams['MESS_EDIT']?></a></div>
+						</div>
+						<div class="bx-soa-section-content container-fluid"></div>
+					</div>
+					<!--	PAY SYSTEMS BLOCK	-->
+					<div id="bx-soa-paysystem" data-visited="false" class="bx-soa-section bx-active">
+						<div class="bx-soa-section-title-container">
+							<h2 class="bx-soa-section-title col-sm-9">
+								<span class="bx-soa-section-title-count"></span><?=$arParams['MESS_PAYMENT_BLOCK_NAME']?>
+							</h2>
+							<div class="col-xs-12 col-sm-3 text-right"><a href="" class="bx-soa-editstep"><?=$arParams['MESS_EDIT']?></a></div>
+						</div>
+						<div class="bx-soa-section-content container-fluid"></div>
+					</div>
+				<? endif ?>
+				<!--	BUYER PROPS BLOCK	-->
+				<div id="bx-soa-properties" data-visited="false" class="bx-soa-section bx-active">
+					<div class="bx-soa-section-title-container">
+						<h2 class="bx-soa-section-title col-sm-9">
+							<span class="bx-soa-section-title-count"></span><?=$arParams['MESS_BUYER_BLOCK_NAME']?>
+						</h2>
+						<div class="col-xs-12 col-sm-3 text-right"><a href="" class="bx-soa-editstep"><?=$arParams['MESS_EDIT']?></a></div>
+					</div>
+					<div class="bx-soa-section-content container-fluid"></div>
+				</div>
+
+				<? if ($arParams['BASKET_POSITION'] === 'after'): ?>
+					<!--	BASKET ITEMS BLOCK	-->
+					<div id="bx-soa-basket" data-visited="false" class="bx-soa-section bx-active">
+						<div class="bx-soa-section-title-container">
+							<h2 class="bx-soa-section-title col-sm-9">
+								<span class="bx-soa-section-title-count"></span><?=$arParams['MESS_BASKET_BLOCK_NAME']?>
+							</h2>
+							<div class="col-xs-12 col-sm-3 text-right"><a href="javascript:void(0)" class="bx-soa-editstep"><?=$arParams['MESS_EDIT']?></a></div>
+						</div>
+						<div class="bx-soa-section-content container-fluid"></div>
+					</div>
+				<? endif ?>
+
+				<!--	ORDER SAVE BLOCK	-->
+				<div id="bx-soa-orderSave">
+					<div class="checkbox">
+						<?
+						if ($arParams['USER_CONSENT'] === 'Y')
+						{
+							$APPLICATION->IncludeComponent(
+								'bitrix:main.userconsent.request',
+								'',
+								array(
+									'ID' => $arParams['USER_CONSENT_ID'],
+									'IS_CHECKED' => $arParams['USER_CONSENT_IS_CHECKED'],
+									'IS_LOADED' => $arParams['USER_CONSENT_IS_LOADED'],
+									'AUTO_SAVE' => 'N',
+									'SUBMIT_EVENT_NAME' => 'bx-soa-order-save',
+									'REPLACE' => array(
+										'button_caption' => isset($arParams['~MESS_ORDER']) ? $arParams['~MESS_ORDER'] : $arParams['MESS_ORDER'],
+										'fields' => $arResult['USER_CONSENT_PROPERTY_DATA']
+									)
+								)
+							);
+						}
+						?>
+					</div>
+					<a href="javascript:void(0)" style="margin: 10px 0" class="pull-right btn btn-default btn-lg hidden-xs" data-save-button="true">
+						<?=$arParams['MESS_ORDER']?>
+					</a>
+				</div>
+
+				<div style="display: none;">
+					<div id='bx-soa-basket-hidden' class="bx-soa-section"></div>
+					<div id='bx-soa-region-hidden' class="bx-soa-section"></div>
+					<div id='bx-soa-paysystem-hidden' class="bx-soa-section"></div>
+					<div id='bx-soa-delivery-hidden' class="bx-soa-section"></div>
+					<div id='bx-soa-pickup-hidden' class="bx-soa-section"></div>
+					<div id="bx-soa-properties-hidden" class="bx-soa-section"></div>
+					<div id="bx-soa-auth-hidden" class="bx-soa-section">
+						<div class="bx-soa-section-content container-fluid reg"></div>
+					</div>
+				</div>
+			</div>
+
+			<!--	SIDEBAR BLOCK	-->
+			<div id="bx-soa-total" class="col-sm-3 bx-soa-sidebar">
+				<div class="bx-soa-cart-total-ghost"></div>
+				<div class="bx-soa-cart-total"></div>
+			</div>
+		</div>
+	</form>
+	
+	<?//////////////////////////////////////////////////////////////////////////////////////?>
+	<!-- cart block -->
+	<div style="display:none" class="cart-block">	
 		<div class="cart-block__title-block">
 			<div class="up-hello-block__left-side__title">Оформление заказа</div>
 		</div>
 		<div class="cart-block__content">
 			<div class="cart-block__cart-order-reg-list">
-				<form action="<?=POST_FORM_ACTION_URI?>" method="POST" name="ORDER_FORM" id="bx-soa-order-form" enctype="multipart/form-data">
-					<?
-					echo bitrix_sessid_post();
-
-					if (strlen($arResult['PREPAY_ADIT_FIELDS']) > 0)
-					{
-						echo $arResult['PREPAY_ADIT_FIELDS'];
-					}
-					?>
-					<input type="hidden" name="<?=$arParams['ACTION_VARIABLE']?>" value="saveOrderAjax">
-					<input type="hidden" name="location_type" value="code">
-					<input type="hidden" name="BUYER_STORE" id="BUYER_STORE" value="<?=$arResult['BUYER_STORE']?>">
-					<div id="bx-soa-order" class="row bx-<?=$arParams['TEMPLATE_THEME']?>" style="opacity: 0">
-						<!--	MAIN BLOCK	-->
-						<div class="col-sm-9 bx-soa">
-							<div id="bx-soa-main-notifications">
-								<div class="alert alert-danger" style="display:none"></div>
-								<div data-type="informer" style="display:none"></div>
+				<div class="cart-block__cart-items-list__item-wrapper list__item-wrapper-product-reg">
+					<div class="cart-block__cart-order-reg-item">	
+						<div class="cart-block__cart-order-reg-item__title-block">
+							<div class="number_title-block">
+								<div class="cart-block__cart-order-reg-item__title-block__block-number"><p>1</p></div>
+								<div class="cart-block__cart-order-reg-item__title-block__title">Контактные данные</div>
 							</div>
-							<!--	AUTH BLOCK	-->
-							<div id="bx-soa-auth" class="bx-soa-section bx-soa-auth" style="display:none">
-								<div class="bx-soa-section-title-container">
-									<h2 class="bx-soa-section-title col-sm-9">
-										<span class="bx-soa-section-title-count"></span><?=$arParams['MESS_AUTH_BLOCK_NAME']?>
-									</h2>
-								</div>
-								<div class="bx-soa-section-content container-fluid"></div>
+							<div class="cart-block__cart-order-reg-item__input-checkbox-wrapper">			
+								<input  class="cart-block__cart-order-reg-item__checbox"  type="checkbox" name="" id="cart-block__cart-order-reg-item-checkbox">
+								<label for="cart-block__cart-order-reg-item-checkbox">
+								<p class="cart-block__cart-order-reg-item__checbox-desc">Заказать как юрлицо</p>
+								</label>
 							</div>
+						</div>
 
-							<!--	DUPLICATE MOBILE ORDER SAVE BLOCK	-->
-							<div id="bx-soa-total-mobile" style="margin-bottom: 6px;"></div>
-
-							<!--	REGION BLOCK	-->
-							<div id="bx-soa-region" data-visited="false" class="bx-soa-section bx-active">
-								<div class="bx-soa-section-title-container">
-									<h2 class="bx-soa-section-title col-sm-9">
-										<span class="bx-soa-section-title-count"></span><?=$arParams['MESS_REGION_BLOCK_NAME']?>
-									</h2>
-									<div class="col-xs-12 col-sm-3 text-right"><a href="" class="bx-soa-editstep"><?=$arParams['MESS_EDIT']?></a></div>
-								</div>
-								<div class="bx-soa-section-content container-fluid"></div>
+						<div class="form-fields">
+							<div class="text-input full-width">
+								<input class="text-input__input" type="text" name="" id="FIO" placeholder=''><label class="text-input__label" for="FIO">Фамилия Имя Отчество</label>
 							</div>
-
-							<? if ($arParams['BASKET_POSITION'] === 'before'): ?>
-								<!--	BASKET ITEMS BLOCK	-->
-								<div id="bx-soa-basket" data-visited="false" class="bx-soa-section bx-active">
-									<div class="bx-soa-section-title-container">
-										<h2 class="bx-soa-section-title col-sm-9">
-											<span class="bx-soa-section-title-count"></span><?=$arParams['MESS_BASKET_BLOCK_NAME']?>
-										</h2>
-										<div class="col-xs-12 col-sm-3 text-right"><a href="javascript:void(0)" class="bx-soa-editstep"><?=$arParams['MESS_EDIT']?></a></div>
-									</div>
-									<div class="bx-soa-section-content container-fluid"></div>
+							<div class="input-wrapper">
+								<div class="text-input">
+									<input class="text-input__input" type="email" name="" id="email" pattern="\S+@[a-z]+.[a-z]+"><label class="text-input__label" for="email">Email</label>
 								</div>
-							<? endif ?>
+								<div class="text-input">
+									<input class="text-input__input" type="text" name="" id="phone"  ><label class="text-input__label" for="phone">Телефон</label>
+								</div>								
+							</div>
+						</div>
 
+					</div>							
+				</div>
+				
+				<div class="cart-block__cart-items-list__item-wrapper list__item-wrapper-product-reg ">
+					<div class="cart-block__cart-order-reg-item">	
+						<div class="cart-block__cart-order-reg-item__title-block">
+							<div class="number_title-block">
+								<div class="cart-block__cart-order-reg-item__title-block__block-number"><p>2</p></div>
+								<div class="cart-block__cart-order-reg-item__title-block__title">Способ получения</div>
+							</div>
+						</div>
+
+						<div  class="full-width-block-list">
+							<div id="pickup" class="full-width-block-list-item"> 
+								<div class="left-side">
+									<p class="item-title">Самовывоз</p>
+									<p class="item-desc">Бесплатно</p>
+								</div>
+								<div class="right-side"><p class="item-option" id="popUp_call">Выбрать<br>  адрес получения</p></div> 
+							</div>
+							<div class="full-width-block-list-item">
+								<div class="left-side">
+									<p class="item-title">Курьерская доставка</p>
+									<p class="item-desc">От 1500 Р</p>
+								</div>
+								<div class="right-side"></div> 
+							</div>
+							<div class="full-width-block-list-item">
+								<div class="left-side">
+									<p class="item-title">Транспортная компания</p>
+									<p class="item-desc">От 350 Р</p>
+								</div>
+								<div class="right-side"></div> 
+							</div>
+							<div class="full-width-block-list-item">
+								<div class="left-side">
+									<p class="item-title">Почта России</p>
+									<p class="item-desc">В зависимости от адреса</p>
+								</div>
+								<div class="right-side"></div> 
+							</div>
 							
 
-							<? if ($arParams['DELIVERY_TO_PAYSYSTEM'] === 'p2d'): ?>
-								<!--	PAY SYSTEMS BLOCK	-->
-								<div id="bx-soa-paysystem" data-visited="false" class="bx-soa-section bx-active">
-									<div class="bx-soa-section-title-container">
-										<h2 class="bx-soa-section-title col-sm-9">
-											<span class="bx-soa-section-title-count"></span><?=$arParams['MESS_PAYMENT_BLOCK_NAME']?>
-										</h2>
-										<div class="col-xs-12 col-sm-3 text-right"><a href="" class="bx-soa-editstep"><?=$arParams['MESS_EDIT']?></a></div>
-									</div>
-									<div class="bx-soa-section-content container-fluid"></div>
-								</div>
-								<!--	DELIVERY BLOCK	-->
-								<div id="bx-soa-delivery" data-visited="false" class="bx-soa-section bx-active" <?=($hideDelivery ? 'style="display:none"' : '')?>>
-									<div class="bx-soa-section-title-container">
-										<h2 class="bx-soa-section-title col-sm-9">
-											<span class="bx-soa-section-title-count"></span><?=$arParams['MESS_DELIVERY_BLOCK_NAME']?>
-										</h2>
-										<div class="col-xs-12 col-sm-3 text-right"><a href="" class="bx-soa-editstep"><?=$arParams['MESS_EDIT']?></a></div>
-									</div>
-									<div class="bx-soa-section-content container-fluid"></div>
-								</div>
-								<!--	PICKUP BLOCK	-->
-								<div id="bx-soa-pickup" data-visited="false" class="bx-soa-section" style="display:none">
-									<div class="bx-soa-section-title-container">
-										<h2 class="bx-soa-section-title col-sm-9">
-											<span class="bx-soa-section-title-count"></span>
-										</h2>
-										<div class="col-xs-12 col-sm-3 text-right"><a href="" class="bx-soa-editstep"><?=$arParams['MESS_EDIT']?></a></div>
-									</div>
-									<div class="bx-soa-section-content container-fluid"></div>
-								</div>
-							<? else: ?>
-								<!--	DELIVERY BLOCK	-->
-								<div id="bx-soa-delivery" data-visited="false" class="bx-soa-section bx-active" <?=($hideDelivery ? 'style="display:none"' : '')?>>
-									<div class="bx-soa-section-title-container">
-										<h2 class="bx-soa-section-title col-sm-9">
-											<span class="bx-soa-section-title-count"></span><?=$arParams['MESS_DELIVERY_BLOCK_NAME']?>
-										</h2>
-										<div class="col-xs-12 col-sm-3 text-right"><a href="" class="bx-soa-editstep"><?=$arParams['MESS_EDIT']?></a></div>
-									</div>
-									<div class="bx-soa-section-content container-fluid"></div>
-								</div>
-								<!--	PICKUP BLOCK	-->
-								<div id="bx-soa-pickup" data-visited="false" class="bx-soa-section" style="display:none">
-									<div class="bx-soa-section-title-container">
-										<h2 class="bx-soa-section-title col-sm-9">
-											<span class="bx-soa-section-title-count"></span>
-										</h2>
-										<div class="col-xs-12 col-sm-3 text-right"><a href="" class="bx-soa-editstep"><?=$arParams['MESS_EDIT']?></a></div>
-									</div>
-									<div class="bx-soa-section-content container-fluid"></div>
-								</div>
-								<!--	PAY SYSTEMS BLOCK	-->
-								<div id="bx-soa-paysystem" data-visited="false" class="bx-soa-section bx-active">
-									<div class="bx-soa-section-title-container">
-										<h2 class="bx-soa-section-title col-sm-9">
-											<span class="bx-soa-section-title-count"></span><?=$arParams['MESS_PAYMENT_BLOCK_NAME']?>
-										</h2>
-										<div class="col-xs-12 col-sm-3 text-right"><a href="" class="bx-soa-editstep"><?=$arParams['MESS_EDIT']?></a></div>
-									</div>
-									<div class="bx-soa-section-content container-fluid"></div>
-								</div>
-							<? endif ?>
-							<!--	BUYER PROPS BLOCK	-->
-							<div id="bx-soa-properties" data-visited="false" class="bx-soa-section bx-active">
-								<div class="bx-soa-section-title-container">
-									<h2 class="bx-soa-section-title col-sm-9">
-										<span class="bx-soa-section-title-count"></span><?=$arParams['MESS_BUYER_BLOCK_NAME']?>
-									</h2>
-									<div class="col-xs-12 col-sm-3 text-right"><a href="" class="bx-soa-editstep"><?=$arParams['MESS_EDIT']?></a></div>
-								</div>
-								<div class="bx-soa-section-content container-fluid"></div>
-							</div>
+						</div> 
+					</div>							
+				</div>
+				
 
-							<? if ($arParams['BASKET_POSITION'] === 'after'): ?>
-								<!--	BASKET ITEMS BLOCK	-->
-								<div id="bx-soa-basket" data-visited="false" class="bx-soa-section bx-active">
-									<div class="bx-soa-section-title-container">
-										<h2 class="bx-soa-section-title col-sm-9">
-											<span class="bx-soa-section-title-count"></span><?=$arParams['MESS_BASKET_BLOCK_NAME']?>
-										</h2>
-										<div class="col-xs-12 col-sm-3 text-right"><a href="javascript:void(0)" class="bx-soa-editstep"><?=$arParams['MESS_EDIT']?></a></div>
-									</div>
-									<div class="bx-soa-section-content container-fluid"></div>
-								</div>
-							<? endif ?>
-
-							<!--	ORDER SAVE BLOCK	-->
-							<div id="bx-soa-orderSave">
-								<div class="checkbox">
-									<?
-									if ($arParams['USER_CONSENT'] === 'Y')
-									{
-										$APPLICATION->IncludeComponent(
-											'bitrix:main.userconsent.request',
-											'',
-											array(
-												'ID' => $arParams['USER_CONSENT_ID'],
-												'IS_CHECKED' => $arParams['USER_CONSENT_IS_CHECKED'],
-												'IS_LOADED' => $arParams['USER_CONSENT_IS_LOADED'],
-												'AUTO_SAVE' => 'N',
-												'SUBMIT_EVENT_NAME' => 'bx-soa-order-save',
-												'REPLACE' => array(
-													'button_caption' => isset($arParams['~MESS_ORDER']) ? $arParams['~MESS_ORDER'] : $arParams['MESS_ORDER'],
-													'fields' => $arResult['USER_CONSENT_PROPERTY_DATA']
-												)
-											)
-										);
-									}
-									?>
-								</div>
-								<a href="javascript:void(0)" style="margin: 10px 0" class="pull-right btn btn-default btn-lg hidden-xs" data-save-button="true">
-									<?=$arParams['MESS_ORDER']?>
-								</a>
+				<div id="adress_fields" class="cart-block__cart-items-list__item-wrapper list__item-wrapper-product-reg">
+					<div class="cart-block__cart-order-reg-item">	
+						<div class="cart-block__cart-order-reg-item__title-block">
+							<div class="number_title-block">
+								<div class="cart-block__cart-order-reg-item__title-block__block-number"><p>3</p></div>
+								<div class="cart-block__cart-order-reg-item__title-block__title">Адрес получения</div>
 							</div>
-
-							<div style="display: none;">
-								<div id='bx-soa-basket-hidden' class="bx-soa-section"></div>
-								<div id='bx-soa-region-hidden' class="bx-soa-section"></div>
-								<div id='bx-soa-paysystem-hidden' class="bx-soa-section"></div>
-								<div id='bx-soa-delivery-hidden' class="bx-soa-section"></div>
-								<div id='bx-soa-pickup-hidden' class="bx-soa-section"></div>
-								<div id="bx-soa-properties-hidden" class="bx-soa-section"></div>
-								<div id="bx-soa-auth-hidden" class="bx-soa-section">
-									<div class="bx-soa-section-content container-fluid reg"></div>
-								</div>
+						</div>								
+						<div class="form-fields delivery-fields-block">
+							<div class="input-wrapper">
+								<div class="text-input">
+									<label class="cart-block__cart-order-reg-item__input">
+										<select placeholder='Страна'>
+										<option value="0">Страна</option>
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+									</select>
+								</label>
 							</div>
+							<div class="text-input">
+								<label class="cart-block__cart-order-reg-item__input">
+									<select placeholder='Город'>
+									<option value="0">Город</option>
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+								</select>
+							</label>
 						</div>
 
-						<!--	SIDEBAR BLOCK	-->
-						<div id="bx-soa-total" class="col-sm-3 bx-soa-sidebar">
-							<div class="bx-soa-cart-total-ghost"></div>
-							<div class="bx-soa-cart-total"></div>
+					</div>
+					
+					<div class="input-wrapper">
+						<div class="text-input quarter">
+							<input class="text-input__input" type="text" name="street" id="street"  placeholder=''><label class="text-input__label" for="street">Улица</label>
+						</div>
+
+						<div class="text-input quarter">
+							<input class="text-input__input" type="text" name="" id="building"  placeholder=""><label class="text-input__label" for="building">Дом</label>
+						</div>
+
+						<div class="text-input quarter">
+							<input class="text-input__input" type="text" name="" id="room"  placeholder=''><label class="text-input__label" for="room">Квартира/офис</label>
+						</div>
+
+						<div class="text-input quarter">
+							<input class="text-input__input" type="text" name="" id="post_index"  placeholder=""><label class="text-input__label" for="post_index">Индекс</label>
+						</div>
+
+					</div>
+				</div>
+
+				<div class="form-fields pickup-fields-block hidden-block">
+					<div class="input-wrapper">
+						<div class="text-input">
+							<input class="text-input__input" type="text" name="" id="country"><label class="text-input__label" for="country">Страна</label>
+						</div>
+						<div class="text-input">
+							<input class="text-input__input" type="text" name="" id="city"  ><label class="text-input__label" for="city">Город</label>
+						</div>
+
+					</div>
+					<div class="input-wrapper">
+						<div class="text-input quarter">
+							<input class="text-input__input" type="text" name="" id="street"  placeholder=''><label class="text-input__label" for="street">Улица</label>
+						</div>
+
+						<div class="text-input quarter">
+							<input class="text-input__input" type="text" name="" id="building"  placeholder=""><label class="text-input__label" for="building">Дом</label>
+						</div>
+
+						<div class="text-input quarter">
+							<input class="text-input__input" type="text" name="" id="room"  placeholder=''><label class="text-input__label" for="room">Квартира/офис</label>
+						</div>
+
+					</div>
+				</div>
+			</div>							
+		</div>
+
+		<div class="cart-block__cart-items-list__item-wrapper list__item-wrapper-product-reg ">
+			<div class="cart-block__cart-order-reg-item">	
+				<div class="cart-block__cart-order-reg-item__title-block">
+					<div class="number_title-block">
+						<div class="cart-block__cart-order-reg-item__title-block__block-number"><p>4</p></div>
+						<div class="cart-block__cart-order-reg-item__title-block__title">Товары в заказе</div>
+					</div>
+				</div>
+
+				<div class="full-width-block-list">
+					<div class="cart-block__cart-items-list__item d-table">	
+						<div class="item__image d-table__cell">						
+							<img src="assets/cart-items-list-img.jpg" alt="">					
+						</div>	
+						<div class="cart-block__item__info d-table__cell">	
+							<a href="	#">Набор латексных фитнес лент</a>
+							<div class="cart-block__item__meta">	160 гр.</div>
+						</div>
+
+						<div class="cart-block__item__price d-table__cell">	
+							<p class='actual-price price'><span>1690</span> Р</p>
+							<p class="old-price price"><span>2210 Р</span> </p>
+							<p class="discount-price price">Скидка <span>520 Р</span></p>
 						</div>
 					</div>
-				</form>
+					<div class="cart-block__cart-items-list__item d-table">	
+						<div class="item__image d-table__cell">						
+							<img src="assets/cart-items-list-img.jpg" alt="">					
+						</div>	
+						<div class="cart-block__item__info d-table__cell">	
+							<a href="	#">Набор латексных фитнес лент</a>
+							<div class="cart-block__item__meta">	160 гр.</div>
+						</div>
+
+						<div class="cart-block__item__price d-table__cell">	
+							<p class='actual-price price'><span>1690</span> Р</p>
+							<p class="old-price price"><span>2210 Р</span> </p>
+							<p class="discount-price price">Скидка <span>520 Р</span></p>
+						</div>
+					</div>
+					<div class="cart-block__cart-items-list__item d-table">	
+						<div class="item__image d-table__cell">						
+							<img src="assets/cart-items-list-img.jpg" alt="">					
+						</div>	
+						<div class="cart-block__item__info d-table__cell">	
+							<a href="	#">Набор латексных фитнес лент</a>
+							<div class="cart-block__item__meta">	160 гр.</div>
+						</div>
+
+						<div class="cart-block__item__price d-table__cell">	
+							<p class='actual-price price'><span>1690</span> Р</p>
+							<p class="old-price price"><span>2210 Р</span> </p>
+							<p class="discount-price price">Скидка <span>520 Р</span></p>
+						</div>
+					</div>
+
+
+					
+				</div> 
+			</div>							
+		</div>
+
+		<div class="cart-block__cart-items-list__item-wrapper list__item-wrapper-product-reg ">
+			<div class="cart-block__cart-order-reg-item">	
+				<div class="cart-block__cart-order-reg-item__title-block">
+					<div class="number_title-block">
+						<div class="cart-block__cart-order-reg-item__title-block__block-number"><p>5</p></div>
+						<div class="cart-block__cart-order-reg-item__title-block__title">Способ оплаты</div>
+					</div>
+				</div>
+
+				<div class="full-width-block-list">
+					<div class="full-width-block-list-item"> 
+						<div class="left-side">
+							<p class="item-title">Картой</p>
+						</div>
+						<div class="right-side">
+							<div class="icon_block" style="background: url('assets/cash_icon.svg') no-repeat center"></div>
+						</div> 
+					</div>
+
+					<div class="full-width-block-list-item">
+						<div class="left-side">
+							<p class="item-title">Платежной системой</p>
+						</div>
+						<div class="right-side">
+							<div class="icon_block" style="background: url('assets/cash_icon.svg')no-repeat center"></div>
+							<div class="icon_block" style="background: url('assets/cash_icon.svg')no-repeat center"></div>
+							<div class="icon_block" style="background: url('assets/cash_icon.svg')no-repeat center"></div>
+						</div> 
+					</div>
+
+					<div class="full-width-block-list-item">
+						<div class="left-side">
+							<p class="item-title">Наличными при получениями</p>
+						</div>
+						<div class="right-side">
+							<div class="icon_block" style="background: url('assets/cash_icon.svg')no-repeat center"></div>
+						</div> 
+					</div>
+
+
+
+				</div> 
+			</div>							
+		</div>
+
+	</div>
+	<aside class="cart-block__cart-review">
+		<div class="cart-block__cart-review__cart-items-counter-block">	
+			<p>	В корзине <span class="items-counter">3</span> товара</p>
+		</div>
+		<div class="cart-block__cart-review__price_block">	
+			<div class="cart-block__cart-review__product-price">
+				<p class="cart-block__cart-review__price_name">Стоимость товаров</p>
+				<div class="price b-font"><span>22 800</span>Р</div>
+			</div>
+			<div class="cart-block__cart-review__discount-block">
+				<p class="cart-block__cart-review__price_name">Скидка</p>
+				<div class="discount-price b-font"><span>520</span>Р</div>
+			</div>
+			<div class="cart-block__cart-review__total-price-block">	
+				<p class="cart-block__cart-review__price_name">Итого к оплате</p>
+				<div class="total-price"><span>22 280</span>Р</div>
 			</div>
 		</div>
+
+		<button class="cart-block__cart-review__button" disabled="disabled">оформить заказ</button>
+		<p class="product-block__description__credit_link"><a class="how-start-block__help-link" href="#">Купить в рассрочку</a></p>
+		<p class="cart-block__cart-review__info-text">	Нажимая на кнопку, вы подтверждаете своё совершеннолетие, соглашаетесь на обработку персональных данных в соответствии с Условиями, а также с Условиями продажи.</p>
+	</aside>
+</div>
 	</div>
+
+
+<script>
+	$(document).ready(function(){
+
+		$('.text-input__input').val('');
+
+		$('.text-input__input').each(function(){
+			if($(this).val() !== ""){
+				$(this).closest('.text-input').addClass('focused');
+			}
+			$(this).focus(function(){
+				$(this).closest('.text-input').addClass('focused');
+			});
+			$(this).blur(function() {
+				if($(this).val() == ""){
+					$(this).closest('.text-input').removeClass('focused');
+				}
+				else{
+					return false
+				}
+			});
+		});
+
+		const form = $('.form-fields'); 
+		form.not($('.pickup-fields-block')).find('.text-input__input').addClass('empty_field');
+
+		function checkInput(){
+			if($('#pickup').is('.active')) {
+				form.not($('.delivery-fields-block')).find('.text-input__input').each(function(){
+
+					if($(this).val() != ''){       
+						$(this).removeClass('empty_field');
+					}else {
+						$(this).addClass('empty_field');
+					}
+				});
+			} else {
+				form.not($('.pickup-fields-block')).find('.text-input__input').each(function(){
+
+					if($(this).val() != ''){       
+						$(this).removeClass('empty_field');
+					}else {
+						$(this).addClass('empty_field');
+					}
+				});
+
+			}
+		}
+
+		setInterval(function(){
+			checkInput();
+			const sizeEmpty = form.find('.empty_field').length;
+
+			if(sizeEmpty > 0 ){
+
+				$('.cart-block__cart-review__button').attr('disabled','disabled');
+
+			} else {
+				$('.cart-block__cart-review__button').removeAttr('disabled');
+			}
+
+		},500);
+
+
+
+
+
+
+
+		$('.full-width-block-list-item').each(function(){
+			$(this).click(function(){
+				if($(this).hasClass('active')) {
+					return false;
+				}
+
+				$('.full-width-block-list-item').removeClass('active');
+				$(this).addClass('active');
+				if($(this).is('#pickup')) {				
+					$('.delivery-fields-block, .pickup-fields-block').toggleClass('hidden-block');
+					$('.pickup-fields-block').find('.text-input__input').addClass('empty_field');
+					$('.delivery-fields-block').find('.text-input__input').removeClass('empty_field');
+				}
+				else{
+					$('.pickup-fields-block').addClass('hidden-block');
+						$('.delivery-fields-block').removeClass('hidden-block');
+					$('.pickup-fields-block').find('.text-input__input').removeClass('empty_field');
+					$('.delivery-fields-block').find('.text-input__input').addClass('empty_field');
+				}
+
+					
+			})
+
+		})
+
+
+		$('.cart-block__cart-review').hcSticky({
+			top: 200,
+			followScroll: false
+		});
+
+		$('#popUp_call').click(function(){
+			$('body').css('overflow-y','hidden');
+			$('.page_content').css('filter', 'blur(10px)');
+			$('.popUp').fadeIn();
+		});
+
+		$('.close-button').click(function(){
+			$('body').css('overflow-y','inherit');
+				$('.page_content').css('filter', 'none')
+				$('.popUp').fadeOut();
+		})
+
+		
+
+
+
+	});
+</script>
+<?/////////////////////////////////////////////////////////////////////////?>
 								
 
 	<div id="bx-soa-saved-files" style="display:none"></div>
