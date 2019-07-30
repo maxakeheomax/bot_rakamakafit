@@ -41,7 +41,7 @@ body {
 	transition: .3s;
 }
 a {
-	text-decoration: none;
+	text-decoration: none !important;
 	color: #000;
 }
 .underline-block {
@@ -4877,7 +4877,8 @@ h2{
 .personal-cabinet-block__navbar-block{
 	width: 100%;
 	max-width: 361px;
-	height: 259px;
+	min-height: 259px;
+	max-height: 361px;
 	background-color: #ffffff;
 	padding: 40px 0 0 40px;
 }
@@ -5288,3 +5289,19 @@ h2{
 }
 
 /*end of footer */
+.owl-theme .owl-nav [class*=owl-]:hover{
+	background: none !important;
+}
+
+div#basket-items-list-wrapper { 
+	padding-top: 0!important; 
+	display: flex; 
+	justify-content: space-between; 
+}
+	 
+
+	 
+div#basket-items-list-container { 
+	width: 100%; 
+}
+	
