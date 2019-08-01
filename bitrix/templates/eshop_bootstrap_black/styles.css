@@ -4077,7 +4077,7 @@ h2{
 	margin-bottom:24px;
 }
 .cart-block__cart-items-list__item-wrapper.list__item-wrapper-product-reg {
-	width:742px;
+	width:698px;
 	padding:40px;
 
 }
@@ -4932,6 +4932,7 @@ h2{
 	display: flex;
 	justify-content: space-between;
 	margin-bottom:16px;
+	width: 696px;
 }
 .personal-cabinet-block__form__input-wrapper .full-width {
 	width: 662px;
