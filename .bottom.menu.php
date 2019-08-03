@@ -2,7 +2,7 @@
 $aMenuLinks = Array(
 	Array(
 		"Фитнес ленты", 
-		"news/", 
+		"catalo/", 
 		Array(), 
 		Array(), 
 		"" 

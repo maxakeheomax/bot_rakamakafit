@@ -2216,6 +2216,7 @@ h2{
 .bottom-slider-block {
 	position:relative;
 	margin-bottom:-2px;
+	overflow: hidden;
 }
 .bottom-slider-block__slider-header {
 	height: 430px;
@@ -5290,7 +5291,7 @@ h2{
 }
 
 /*end of footer */
-.owl-theme .owl-nav [class*=owl-]:hover{
+.up-block .owl-theme .owl-nav [class*=owl-]:hover{
 	background: none !important;
 }
 
