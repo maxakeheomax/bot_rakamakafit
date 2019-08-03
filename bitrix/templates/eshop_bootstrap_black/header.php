@@ -101,7 +101,7 @@ global $arParams;
                 <nav class="header__nav-bar">
                     <div class="header__nav-bar__logo">
                         <a href="/">
-                            <img src="<?= SITE_TEMPLATE_PATH ?>/assets/logo.png" alt="logo" class="header__nav-bar__logo-img">
+                            <img src="<?= SITE_TEMPLATE_PATH ?>/assets/logo-svg.svg" alt="logo" class="header__nav-bar__logo-img">
                         </a>
                     </div>
                     <div class="header__nav-bar-block">
