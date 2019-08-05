@@ -27,7 +27,7 @@ $items = $arResult['ITEMS'];
         <div class="owl-carousel__slider-item"
              style="background: url('<?= CFile::GetPath($item['PROPERTIES']['PICTURE']['VALUE']); ?>');background-size: 100% 100%; ">
             <div class="owl-carousel__slider-item__slider-content">
-                <p class="owl-carousel__slider-item__slider-content__promo-title"><?= $item['NAME']?></p>
+                <p class="promo-train-block__slider-item__slider-content__promo-title"><?= $item['NAME']?></p>
                 <p class="owl-carousel__slider-item__slider-content__slogan"><?= $item['PROPERTIES']['TEXT1']['VALUE']['TEXT']?></p>
                 <p class="owl-carousel__slider-item__slider-content__dicription"><?= $item['PROPERTIES']['TEXT2']['VALUE']['TEXT']?></p>
                 <div class="owl-carousel__slider__content_bottom">

@@ -1892,7 +1892,7 @@ h2{
 	line-height: normal;
 	letter-spacing: 3px;
 	color: #000000;
-	margin-left: 10px;
+	/* margin-left: 10px; */
 }
 .blue-bg .promo-train-block__slider-item__slider-content__slogan,
 .left-side .promo-train-block__slider-item__slider-content__slogan
@@ -1928,7 +1928,7 @@ h2{
 	line-height: 1.25;
 	letter-spacing: normal;
 	color: #000000;
-	margin-left: 10px;
+	/* margin-left: 10px; */
 	margin-top: 34px;
 	margin-bottom: 23px;
 }

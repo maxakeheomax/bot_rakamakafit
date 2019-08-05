@@ -31,7 +31,7 @@ $items = $arResult['ITEMS'];
             <div class="bottom-slider-block__slider-header__right-block">
                 <div class="bottom-slider-block__slogan-button-wrapper">
                     <p class="bottom-slider-block__slider-header__right-block__slogan"><?= $iblock['DESCRIPTION'] ?></p>
-                    <a href="#"><button class="bottom-slider-block____slider-header__right-block__slogan-button">смотреть</button></a>
+                    <!-- <a href="#"><button class="bottom-slider-block____slider-header__right-block__slogan-button">смотреть</button></a> -->
                 </div>			
             </div>
         </div>

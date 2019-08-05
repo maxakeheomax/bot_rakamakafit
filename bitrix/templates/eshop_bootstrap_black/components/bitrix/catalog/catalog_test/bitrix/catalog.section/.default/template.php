@@ -1,57 +1,60 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 $this->setFrameMode(true);
 ?>
-<? //echo '<pre>'; var_dump( $arResult["ITEMS_SECTION"]); echo '</pre>'; ?>
-<?if($arParams["DISPLAY_TOP_PAGER"]):?>
-	<?=$arResult["NAV_STRING"]?>
-<?endif;?>
+<? //echo '<pre>'; var_dump( $arResult["ITEMS_SECTION"]); echo '</pre>'; 
+?>
+<? if ($arParams["DISPLAY_TOP_PAGER"]) : ?>
+	<?= $arResult["NAV_STRING"] ?>
+<? endif; ?>
 
 
-<div class="tapes promo-train-block__slider-item" >
+<div class="tapes promo-train-block__slider-item">
 	<div class="promo-train-block__slider-item__slider-content">
-		
-		
-		
-		
+
+
+
+
 		<div class="promo-train-block__slider-item__slider-content-tabs">
-		<? $index = 0;
-		foreach($arResult["ITEMS"] as $cell=>$arElement):?>
-			<a class="promo-train-block__slider-item__slider-content-tab <?  if($index == 0) echo 'active' ?>" id="<?= $arElement['ID'] ?>" href="#">	<p class="promo-train-block__slider-item__slider-content__promo-title "><?=$arElement["NAME"]?></p> </a>						
-			<? $index++ ?>
-		<? endforeach; ?>									
+			<? $index = 0;
+			foreach ($arResult["ITEMS"] as $cell => $arElement) : ?>
+				<a class="promo-train-block__slider-item__slider-content-tab <? if ($index == 0) echo 'active' ?>" id="<?= $arElement['ID'] ?>" href="#">
+					<p class="promo-train-block__slider-item__slider-content__promo-title "><?= $arElement["NAME"] ?></p>
+				</a>
+				<? $index++ ?>
+			<? endforeach; ?>
 		</div>
 		<? $index = 0;
-		foreach($arResult["ITEMS"] as $cell=>$arElement):?>		
-		<div class="promo-train-block__slider-item__slider-content-tab__content <?= $index==0 ? '' : 'hidden-block' ?>" id="<?= $arElement['ID'] ?>">
-			<?
-			$this->AddEditAction($arElement['ID'], $arElement['EDIT_LINK'], CIBlock::GetArrayByID($arParams["IBLOCK_ID"], "ELEMENT_EDIT"));
-			$this->AddDeleteAction($arElement['ID'], $arElement['DELETE_LINK'], CIBlock::GetArrayByID($arParams["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BCS_ELEMENT_DELETE_CONFIRM')));
-			?>
-			<p class="promo-train-block__slider-item__slider-content__slogan"><?=$arElement["PROPERTIES"]["SLOGAN"]['VALUE']['TEXT']?></p>
-			<p class="promo-train-block__slider-item__slider-content__dicription"><?=$arElement["PREVIEW_TEXT"]?></p>
-			<div class="promo-train-block__slider__content_bottom">
-				<div class="promo-train-block__slider-item-button">
-					<span class="promo-train-block__slider-item-button__text">Купить</span>
+		foreach ($arResult["ITEMS"] as $cell => $arElement) : ?>
+			<div class="promo-train-block__slider-item__slider-content-tab__content <?= $index == 0 ? '' : 'hidden-block' ?>" id="<?= $arElement['ID'] ?>">
+				<?
+				$this->AddEditAction($arElement['ID'], $arElement['EDIT_LINK'], CIBlock::GetArrayByID($arParams["IBLOCK_ID"], "ELEMENT_EDIT"));
+				$this->AddDeleteAction($arElement['ID'], $arElement['DELETE_LINK'], CIBlock::GetArrayByID($arParams["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BCS_ELEMENT_DELETE_CONFIRM')));
+				?>
+				<p class="promo-train-block__slider-item__slider-content__slogan"><?= $arElement["PROPERTIES"]["SLOGAN"]['VALUE']['TEXT'] ?></p>
+				<p class="promo-train-block__slider-item__slider-content__dicription"><?= $arElement["PREVIEW_TEXT"] ?></p>
+				<div class="promo-train-block__slider__content_bottom">
+					<div class="promo-train-block__slider-item-button">
+						<span class="promo-train-block__slider-item-button__text">Купить</span>
+					</div>
+					<? if ($arElement["PROPERTIES"]["YUOTUBELINK"]['VALUE']) : ?>
+						<div class="promo-train-block__slider-item-more">
+							<a href="<?= $arElement["PROPERTIES"]["YUOTUBELINK"]['VALUE'] ?>">
+								<span class="promo-train-block__slider-item-more__text"><img src="<?= SITE_TEMPLATE_PATH ?>/assets/ytb-color.svg" alt="">Смотреть видео тренировок</span>
+							</a>
+						</div>
+					<? endif ?>
 				</div>
-				<? if ($arElement["PROPERTIES"]["YUOTUBELINK"]['VALUE']) : ?>
-				<div class="promo-train-block__slider-item-more">
-					<a href="<?=$arElement["PROPERTIES"]["YUOTUBELINK"]['VALUE']?>">
-						<span class="promo-train-block__slider-item-more__text"><img src="<?= SITE_TEMPLATE_PATH ?>/assets/ytb-color.svg" alt="">Смотреть видео тренировок</span>
-					</a>
-				</div>
-				<? endif ?>
 			</div>
-		</div>
-		<? $index++ ?>
+			<? $index++ ?>
 		<? endforeach; ?>
 
 	</div>
 </div>
-						
+
 <script>
-	$(document).ready(function(){
+	$(document).ready(function() {
 		function toggleTabs(clickBlock, toggleBlock) {
-			$(clickBlock).click(function(e){
+			$(clickBlock).click(function(e) {
 				let a
 				let b = $(this).attr('id');
 				e.preventDefault();
@@ -59,29 +62,29 @@ $this->setFrameMode(true);
 				$(clickBlock).removeClass('active');
 				$(this).addClass('active');
 
-				$(toggleBlock).each(function(){
+				$(toggleBlock).each(function() {
 					a = $(this).attr('id');
-					if(b == a) {
+					if (b == a) {
 						$(toggleBlock).addClass('hidden-block');
 						$(this).removeClass('hidden-block');
-					}										
+					}
 				});
 			});
 		}
 		toggleTabs('.exercises-promo-block__right-side__tab', '.img-block_img-link');
-		toggleTabs('.promo-train-block__slider-item__slider-content-tab','.promo-train-block__slider-item__slider-content-tab__content');
+		toggleTabs('.promo-train-block__slider-item__slider-content-tab', '.promo-train-block__slider-item__slider-content-tab__content');
 	});
 </script>
 
-<?if($arParams["DISPLAY_BOTTOM_PAGER"]):?>
-	<?=$arResult["NAV_STRING"]?>
-<?endif;?>
+<? if ($arParams["DISPLAY_BOTTOM_PAGER"]) : ?>
+	<?= $arResult["NAV_STRING"] ?>
+<? endif; ?>
 
 
-<?$APPLICATION->IncludeComponent(
+<? $APPLICATION->IncludeComponent(
 	"bitrix:news.list",
 	"catalog_SpecialOffer",
-	Array(
+	array(
 		"ACTIVE_DATE_FORMAT" => "d.m.Y",
 		"ADD_SECTIONS_CHAIN" => "N",
 		"AJAX_MODE" => "N",
@@ -101,7 +104,7 @@ $this->setFrameMode(true);
 		"DISPLAY_PICTURE" => "Y",
 		"DISPLAY_PREVIEW_TEXT" => "Y",
 		"DISPLAY_TOP_PAGER" => "N",
-		"FIELD_CODE" => array("",""),
+		"FIELD_CODE" => array("", ""),
 		"FILTER_NAME" => "",
 		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
 		"IBLOCK_ID" => "17",
@@ -120,7 +123,7 @@ $this->setFrameMode(true);
 		"PARENT_SECTION" => "",
 		"PARENT_SECTION_CODE" => "",
 		"PREVIEW_TRUNCATE_LEN" => "",
-		"PROPERTY_CODE" => array("",""),
+		"PROPERTY_CODE" => array("", ""),
 		"SET_BROWSER_TITLE" => "Y",
 		"SET_LAST_MODIFIED" => "N",
 		"SET_META_DESCRIPTION" => "Y",
@@ -134,12 +137,12 @@ $this->setFrameMode(true);
 		"SORT_ORDER2" => "ASC",
 		"STRICT_SECTION_CHECK" => "N"
 	)
-);?>
+); ?>
 
-<?$APPLICATION->IncludeComponent(
+<? $APPLICATION->IncludeComponent(
 	"bitrix:news.list",
 	"special_offer_bundle",
-	Array(
+	array(
 		"ACTIVE_DATE_FORMAT" => "d.m.Y",
 		"ADD_SECTIONS_CHAIN" => "N",
 		"AJAX_MODE" => "N",
@@ -192,19 +195,19 @@ $this->setFrameMode(true);
 		"SORT_ORDER2" => "ASC",
 		"STRICT_SECTION_CHECK" => "N"
 	)
-);?>
+); ?>
 
 
 <?
-$target_section = CIBlockSection::GetList([], ['IBLOCK_TYPE'=> 'trainings', "IBLOCK_ID" => $iblock_id, "CODE" => $arParams["SECTION_CODE"]]);
+$target_section = CIBlockSection::GetList([], ['IBLOCK_TYPE' => 'trainings', "IBLOCK_ID" => $iblock_id, "CODE" => $arParams["SECTION_CODE"]]);
 
 // echo '<pre>'; var_dump($target_section->Fetch()); echo '</pre>';
-$iblock_id = CIBlock::GetList(array(),array("CODE"=>"exercises","TYPE"=>"trainings"))->Fetch()['ID'];
-if($target_section->Fetch())
+$iblock_id = CIBlock::GetList(array(), array("CODE" => "exercises", "TYPE" => "trainings"))->Fetch()['ID'];
+if ($target_section->Fetch())
 	$APPLICATION->IncludeComponent(
 		"bitrix:catalog.section.list",
 		"catalog_section_exercises",
-		Array(
+		array(
 			"IBLOCK_TYPE" => "trainings",
 			"IBLOCK_ID" => $iblock_id,
 			// "SECTION_ID" => $arParams["SECTION_ID"],
@@ -214,7 +217,7 @@ if($target_section->Fetch())
 			"CACHE_TIME" => $arParams["CACHE_TIME"],
 			"CACHE_GROUPS" => $arParams["CACHE_GROUPS"],
 
-			"SECTION_URL" => $arResult["FOLDER"].$arResult["URL_TEMPLATES"]["section"],
+			"SECTION_URL" => $arResult["FOLDER"] . $arResult["URL_TEMPLATES"]["section"],
 		),
 		$component
 	);
@@ -223,17 +226,17 @@ if($target_section->Fetch())
 
 
 
-<? $APPLICATION->IncludeFile(SITE_DIR.'include/subscribe_form_blue.php') ?> 
+<? $APPLICATION->IncludeFile(SITE_DIR . 'include/subscribe_form_blue.php') ?>
 
 
 
 
 <?
-$iblock_id = CIBlock::GetList(array(),array("CODE"=>"instagram","TYPE"=>"banner"))->Fetch()['ID'];
+$iblock_id = CIBlock::GetList(array(), array("CODE" => "instagram", "TYPE" => "banner"))->Fetch()['ID'];
 $APPLICATION->IncludeComponent(
 	"bitrix:news.list",
 	"BottomSlider",
-	Array(
+	array(
 		"ACTIVE_DATE_FORMAT" => "d.m.Y",
 		"ADD_SECTIONS_CHAIN" => "N",
 		"AJAX_MODE" => "N",
@@ -284,4 +287,4 @@ $APPLICATION->IncludeComponent(
 		"SORT_ORDER1" => "DESC",
 		"STRICT_SECTION_CHECK" => "N"
 	)
-);?>
+); ?>

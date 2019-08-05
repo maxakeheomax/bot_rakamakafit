@@ -396,6 +396,7 @@ $APPLICATION->SetTitle("Тренировки");
 );?>
 
 <?
+CModule::IncludeModule("iblock");
 $iblock_id = CIBlock::GetList(array(),array("CODE"=>"instagram","TYPE"=>"banner"))->Fetch()['ID'];
 $APPLICATION->IncludeComponent(
 	"bitrix:news.list",
