@@ -737,9 +737,9 @@ else
 							<p class="item-title">Платежной системой</p>
 						</div>
 						<div class="right-side">
-							<div class="icon_block" style="background: url('assets/cash_icon.svg')no-repeat center"></div>
-							<div class="icon_block" style="background: url('assets/cash_icon.svg')no-repeat center"></div>
-							<div class="icon_block" style="background: url('assets/cash_icon.svg')no-repeat center"></div>
+							<div class="icon_block" style="background: url('<?= SITE_TEMPLATE_PATH ?>/assets/cash_icon.svg')no-repeat center"></div>
+							<div class="icon_block" style="background: url('<?= SITE_TEMPLATE_PATH ?>/assets/cash_icon.svg')no-repeat center"></div>
+							<div class="icon_block" style="background: url('<?= SITE_TEMPLATE_PATH ?>/assets/cash_icon.svg')no-repeat center"></div>
 						</div> 
 					</div>
 
