@@ -47,10 +47,12 @@ global $arParams;
 				<div class="close-button"></div>
 				<div class="promo-form-block__title">Не уходи без подарка!</div>
 				<div class="popUp-gift__form-block_desc">Я хочу подарить тебе книжку с рецептами очень вкусных десертов, которые совершенно не повредят твоей фигуре!</div>
-				<form class="" action="#">
+				<form class="" action="/forms_ajax.php" method="post">
+                    <input type="hidden" name="action" value="popup">
+                    <input type="hidden" name="url" value="<?=$APPLICATION->GetCurPage();?>">
 					<div class="">
-						<label name="mail">
-							<input class="promo-form-block__form__input" type="email" required pattern="\S+@[a-z]+.[a-z]+" placeholder='Email'>
+						<label >
+							<input name="email" class="promo-form-block__form__input" type="email" required pattern="\S+@[a-z]+.[a-z]+" placeholder='Email'>
 						</label>
 						<button class="promo-form-block__form__submit" type="submit">получить</button>
 					</div>

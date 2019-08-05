@@ -16,10 +16,12 @@ $this->setFrameMode(true);
 
 <div class="promo-form-block">
     <div class="promo-form-block__title">Получи ТОП-5 упражнений для прокачки ягодиц <span class="promo-form-block__title_underline-block">прямо сейчас</span></div>
-    <form class="promo-form-block__form" action="#">
+    <form class="promo-form-block__form" action="/forms_ajax.php" method="post">
+        <input type="hidden" name="action" value="exercises">
+        <input type="hidden" name="url" value="<?=$APPLICATION->GetCurPage();?>">
         <div class="promo-form-block__form__input-wrapper">
-            <label name="mail">
-                <input class="promo-form-block__form__input" type="email" required pattern="\S+@[a-z]+.[a-z]+" placeholder='Email'>
+            <label >
+                <input name="email" class="promo-form-block__form__input" type="email" required pattern="\S+@[a-z]+.[a-z]+" placeholder='Email'>
             </label>
             <button class="promo-form-block__form__submit" type="submit">получить</button>
         </div>
