@@ -39,9 +39,9 @@ $APPLICATION->SetTitle("Оплата");
         <!-- feedback-logos-block -->
         <div class="feedback-logos-block">
             <ul>
-                <a href="#"><li style="background: url(<?= SITE_TEMPLATE_PATH ?>/assets/viber.png);background-size: cover;"></li></a>
-                <a href="#"><li style="background: url(<?= SITE_TEMPLATE_PATH ?>/assets/whatsApp.png);background-size: cover;"></li></a>
-                <a href="#"><li style="background: url(<?= SITE_TEMPLATE_PATH ?>/assets/tlgrm.png);background-size: cover;"></li></a>
+                <!-- <a target="_blank" href="viber://chat?number=%2B79638656567"><li style="background: url(<?= SITE_TEMPLATE_PATH ?>/assets/viber.png);background-size: cover;"></li></a> -->
+                <a target="_blank" href="https://api.whatsapp.com/send?phone=79263040760&text=&source=&data="><li style="background: url(<?= SITE_TEMPLATE_PATH ?>/assets/whatsApp.png);background-size: cover;"></li></a>
+                <a target="_blank" href="https://t.me/rakamakafit_help_bot"><li style="background: url(<?= SITE_TEMPLATE_PATH ?>/assets/tlgrm.png);background-size: cover;"></li></a>
             </ul>
         </div>
         <!-- end of feedback-logos-block -->

@@ -19,7 +19,7 @@ $items = $arResult['ITEMS'];
 <div class="special-offer-block">
     <div class="special-offer-block__title">
         <p class="special-offer-block__title__name">спецпредложения</p>
-        <div class="special-offer-block__title__link-to-all">все</div>
+        <div ><a href="/catalog" class="pop-products-block__title__link-to-all">все</a></div>
     </div>
     <div class="special-offer-block__items">
         <div class="special-offer-block__item">

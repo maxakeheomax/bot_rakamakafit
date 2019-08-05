@@ -744,7 +744,7 @@ h2{
 .img-wrapper {
 	width: 50%;
 	min-width: 710px;
-	background-image: url('/bitrix/templates/eshop_bootstrap_black/assets/img-3775.jpg');
+	/* background-image: url('/bitrix/templates/eshop_bootstrap_black/assets/img-3775.jpg'); */
 	background-size: cover;
 }
 .trainings.img-wrapper {

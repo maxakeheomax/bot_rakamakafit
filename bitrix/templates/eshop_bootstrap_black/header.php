@@ -156,8 +156,8 @@ global $arParams;
                     <img src="<?= SITE_TEMPLATE_PATH ?>/assets/calendar.svg" alt="calendar" class="aside-block__shedule-logo">
                 </div>
                 <div class="aside-block__icons">
-                    <a href="#" class="aside-block__icons_link"><img src="<?= SITE_TEMPLATE_PATH ?>/assets/vk.svg" alt="" class="aside-block__icons-item"></a>
-                    <a href="#" class="aside-block__icons_link"><img src="<?= SITE_TEMPLATE_PATH ?>/assets/ytb.svg" alt="" class="aside-block__icons-item"></a>
-                    <a href="#" class="aside-block__icons_link"><img src="<?= SITE_TEMPLATE_PATH ?>/assets/inst.svg" alt="" class="aside-block__icons-item"></a>
+                    <a target="_blank" href="https://vk.com/rakamakafit" class="aside-block__icons_link"><img src="<?= SITE_TEMPLATE_PATH ?>/assets/vk.svg" alt="" class="aside-block__icons-item"></a>
+                    <a target="_blank" href="https://www.youtube.com/channel/UCVZQTeZTLrz166tbN0bEGkg?sub_confirmation=1" class="aside-block__icons_link"><img src="<?= SITE_TEMPLATE_PATH ?>/assets/ytb.svg" alt="" class="aside-block__icons-item"></a>
+                    <a target="_blank" href="https://www.instagram.com/rakamaka.fit/" class="aside-block__icons_link"><img src="<?= SITE_TEMPLATE_PATH ?>/assets/inst.svg" alt="" class="aside-block__icons-item"></a>
                 </div>
             </div>

@@ -19,7 +19,7 @@ $items = $arResult['ITEMS'];
 <div class="pop-products-block">
     <div class="pop-products-block__title">
         <p class="pop-products-block__title__name">Популярные товары</p>
-        <div class="pop-products-block__title__link-to-all">все</div>
+        <div ><a href="/catalog" class="pop-products-block__title__link-to-all">все</a></div>
     </div>
     <div class="pop-products-block__items">
         <!-- cycle start -->

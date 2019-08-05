@@ -20,16 +20,16 @@
 				</div>
 				<div class="footer__footer-credits">
 					<div class="footer__footer-credits__icons">
-						<a href="#"><img src="<?= SITE_TEMPLATE_PATH ?>/assets/footer-inst.svg" alt=""></a>
-						<a href="https://www.youtube.com/channel/UCVZQTeZTLrz166tbN0bEGkg?sub_confirmation=1"><img src="<?= SITE_TEMPLATE_PATH ?>/assets/footer-ytb.svg" alt=""></a>
-						<a href="https://vk.com/rakamakafit"><img src="<?= SITE_TEMPLATE_PATH ?>/assets/footer-vk.svg" alt=""></a>
+						<a target="_blank" href="https://vk.com/rakamakafit"><img src="<?= SITE_TEMPLATE_PATH ?>/assets/footer-inst.svg" alt=""></a>
+						<a target="_blank" href="https://www.youtube.com/channel/UCVZQTeZTLrz166tbN0bEGkg?sub_confirmation=1"><img src="<?= SITE_TEMPLATE_PATH ?>/assets/footer-ytb.svg" alt=""></a>
+						<a target="_blank" href="https://www.instagram.com/rakamaka.fit/"><img src="<?= SITE_TEMPLATE_PATH ?>/assets/footer-vk.svg" alt=""></a>
 					</div>
 					<div class="footer__footer-credits__official-info">
 						<ul>
-							<li><a href="#">Доставка и оплата</a></li>
-							<li><a href="#">Полезная информация</a></li>
-							<li><a href="#">О компании</a></li>
-							<li><a href="#">Контакты</a></li>
+							<li><a href="/delivery/">Доставка и оплата</a></li>
+							<li><a href="/about/">Полезная информация</a></li>
+							<li><a href="/public-offer/">О компании</a></li>
+							<li><a href="/contacts/">Контакты</a></li>
 						</ul>
 					</div>
 					<div class="footer__footer-credits__phones">
