@@ -395,12 +395,14 @@ $APPLICATION->SetTitle("Тренировки");
 	)
 );?>
 
-<?$APPLICATION->IncludeComponent(
+<?
+$iblock_id = CIBlock::GetList(array(),array("CODE"=>"instagram","TYPE"=>"banner"))->Fetch()['ID'];
+$APPLICATION->IncludeComponent(
 	"bitrix:news.list",
 	"BottomSlider",
 	Array(
 		"ACTIVE_DATE_FORMAT" => "d.m.Y",
-		"ADD_SECTIONS_CHAIN" => "Y",
+		"ADD_SECTIONS_CHAIN" => "N",
 		"AJAX_MODE" => "N",
 		"AJAX_OPTION_ADDITIONAL" => "",
 		"AJAX_OPTION_HISTORY" => "N",
@@ -421,7 +423,7 @@ $APPLICATION->SetTitle("Тренировки");
 		"FIELD_CODE" => array("", ""),
 		"FILTER_NAME" => "",
 		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
-		"IBLOCK_ID" => "5",
+		"IBLOCK_ID" => $iblock_id,
 		"IBLOCK_TYPE" => "banner",
 		"INCLUDE_IBLOCK_INTO_CHAIN" => "N",
 		"INCLUDE_SUBSECTIONS" => "Y",

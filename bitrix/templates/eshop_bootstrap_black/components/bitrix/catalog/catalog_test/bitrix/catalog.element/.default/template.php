@@ -23,7 +23,7 @@ $this->setFrameMode(true);
 		<div class="slider-product-view">			
 			<?if (count($arResult["MORE_PHOTO"]) > 0):?>
 				<? foreach ($arResult["MORE_PHOTO"] as $PHOTO): ?>
-					<?$renderImage = CFile::ResizeImageGet($PHOTO, Array("width" => 93, "height" => 93), BX_RESIZE_IMAGE_EXACT, false);?>
+					<?$renderImage = CFile::ResizeImageGet($PHOTO, Array("width" => 500, "height" => 500), BX_RESIZE_IMAGE_EXACT, false);?>
 					<img  src="<?= $renderImage["src"] ?>" alt="<?= $arResult["NAME"] ?>"/>
 				<? endforeach; ?>
 			<?endif;?>
@@ -35,11 +35,13 @@ $this->setFrameMode(true);
 			<div class="product-block__description__title"><?=$arResult["NAME"]?></div>
 			<div class="product-block__description__desc"><?= $arResult['DETAIL_TEXT'] ?></div>
 			<div class="product-block__description-item-more">
+				<? if ($arResult['PROPERTIES']['YOUTUBE_LINK']['VALUE'] ) : ?>
 				<a href="<?= $arResult['PROPERTIES']['YOUTUBE_LINK']['VALUE'] ?>">
 					<span class="product-block__description-more__text">
 						<img src="<?= SITE_TEMPLATE_PATH ?>/assets/ytb-color.svg" alt="">Смотреть видео тренировок
 					</span>
 				</a>
+				<? endif ?>
 			</div>
 		</div>
 
@@ -195,7 +197,7 @@ $this->setFrameMode(true);
 		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
 		"IBLOCK_ID" => "17",
 		"IBLOCK_TYPE" => "banner",
-		"INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
+		"INCLUDE_IBLOCK_INTO_CHAIN" => "N",
 		"INCLUDE_SUBSECTIONS" => "Y",
 		"MESSAGE_404" => "",
 		"NEWS_COUNT" => "20",
@@ -396,7 +398,7 @@ $APPLICATION->IncludeComponent(
 		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
 		"IBLOCK_ID" => "13",
 		"IBLOCK_TYPE" => "trainings",
-		"INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
+		"INCLUDE_IBLOCK_INTO_CHAIN" => "N",
 		"INCLUDE_SUBSECTIONS" => "Y",
 		"MESSAGE_404" => "",
 		"NEWS_COUNT" => "20",

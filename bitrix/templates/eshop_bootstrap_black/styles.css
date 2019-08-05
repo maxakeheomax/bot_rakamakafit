@@ -1197,6 +1197,10 @@ h2{
 	z-index: 21;
 	top: 8px;
 }
+.special-offer-block__item img {
+	max-width: 325px;
+	max-height: 325px;
+}
 .special-offer--block__item-cart{
 	border-radius: 32px;
 	width: 126px;
@@ -1475,6 +1479,7 @@ h2{
 	background-color: #fff;
 	position: relative;
 	margin-bottom: 30px;
+	margin-right: 6px;
 }
 .pop-products-block__item__img-block {
 	width: 170px;
@@ -3338,6 +3343,7 @@ h2{
 .feedback-block {
 	width: 100%;
 	max-width: 766px;
+	line-height: 1.63em;
 }
 .article-title-block__title {
 	font-family: 'FranklinGothicDemi',sans-serif;
@@ -3351,14 +3357,17 @@ h2{
 	margin: 41px 0;
 }
 .article-title-block__slogan p {
-	font-family: Roboto;
-	font-size: 16px;
+	font-family: 'FranklinGothicDemi',sans-serif;
+	font-size: 42px;
 	font-weight: normal;
 	font-style: normal;
 	font-stretch: normal;
-	line-height: 1.63;
+	line-height: 1.14;
 	letter-spacing: normal;
 	color: #000000;
+	margin: 30px 0;;
+	text-align: center;
+	
 }
 /*end of article title block*/
 /*block-separation*/
@@ -3367,7 +3376,7 @@ h2{
 	width: 120px;
 	height: 16px;
 	background-color: #e7ff6a;
-	margin: 80px auto 30px;
+	margin: 30px auto 30px;
 }
 /*end of block-separation*/
 /* article-main-block*/

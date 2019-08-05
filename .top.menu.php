@@ -37,7 +37,7 @@ $aMenuLinks = Array(
 	),
 	Array(
 		"О компании", 
-		"/", 
+		"public-offer/", 
 		Array(), 
 		Array(), 
 		"" 

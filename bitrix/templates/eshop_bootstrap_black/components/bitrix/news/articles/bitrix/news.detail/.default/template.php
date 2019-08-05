@@ -22,23 +22,29 @@ $this->setFrameMode(true);
 		<!-- main sider -->
 			<div class="article-slider owl-carousel middle-slider owl-theme">
 				<? foreach($arResult['PROPERTIES']['PICTURES']['VALUE'] as $image_id): ?>
-					<div class="owl-carousel__slider-item" style="background: url('<?= CFile::GetPath( $image_id )?>');background-size: 100% 100%; ">
+					<div class="owl-carousel__slider-item" style="background: url('<?= CFile::GetPath( $image_id )?>') center center no-repeat;background-size: cover; ">
 					</div>
 				<? endforeach;?>
 			</div>
 
 			<!-- article title block -->
 			<div class="article-title-block">
-				<div class="article-title-block__title"><?= $arResult['NAME'] ?></div>
-				<div class="article-title-block__slogan">
-					<?= $arResult['PROPERTIES']['TEXT_INTRO']['~VALUE']['TEXT'] ?>
-				</div>
-				<!-- block-separation -->
-				<div class="block-separation">	</div>						
+				<div class="article-title-block__title"><?= $arResult['NAME'] ?></div>				
 			</div>
 			<!-- end of block-separation -->
 		</div>
+
+		<div class="article-main-block">
+			<?= $arResult['PREVIEW_TEXT'] ?>
+		</div>
 		<!-- end article title block -->
+		<? if ($arResult['PROPERTIES']['TEXT_INTRO']['~VALUE']['TEXT'] ) : ?>
+		<div class="article-title-block__slogan">
+			<p><?= $arResult['PROPERTIES']['TEXT_INTRO']['~VALUE']['TEXT'] ?></p>
+		</div>
+		<!-- block-separation -->
+		<div class="block-separation">	</div>	
+		<? endif ?>
 
 		<!-- article-main-block -->
 		<div class="article-main-block">
@@ -72,7 +78,7 @@ $this->setFrameMode(true);
 			<? //echo '<pre>'; var_dump($element);?> 
 				<a href="/trainings/articles/<?= $element['CODE'] ?>">
 					<div class="article special-offer-block__item">
-						<img src="<?= CFile::GetPath($element['PREVIEW_PICTURE']) ?>" alt="">
+						<img src="<?= CFile::GetPath($element['PREVIEW_PICTURE']) ?>" alt="" >
 						<div class="special-offer-block__item__title"><?= $element['NAME'] ?></div>
 						<div class="special-offer-block__item__desc"><?= $element['PREVIEW_TEXT'] ?></div>
 					</div>

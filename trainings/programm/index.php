@@ -166,12 +166,15 @@ $APPLICATION->SetTitle("Программа тренировок");
 
 
 
-<?$APPLICATION->IncludeComponent(
+<?
+CModule::IncludeModule("iblock");
+$iblock_id = CIBlock::GetList(array(),array("CODE"=>"instagram","TYPE"=>"banner"))->Fetch()['ID'];
+$APPLICATION->IncludeComponent(
 	"bitrix:news.list",
 	"BottomSlider",
 	Array(
 		"ACTIVE_DATE_FORMAT" => "d.m.Y",
-		"ADD_SECTIONS_CHAIN" => "Y",
+		"ADD_SECTIONS_CHAIN" => "N",
 		"AJAX_MODE" => "N",
 		"AJAX_OPTION_ADDITIONAL" => "",
 		"AJAX_OPTION_HISTORY" => "N",
@@ -189,10 +192,10 @@ $APPLICATION->SetTitle("Программа тренировок");
 		"DISPLAY_PICTURE" => "Y",
 		"DISPLAY_PREVIEW_TEXT" => "Y",
 		"DISPLAY_TOP_PAGER" => "N",
-		"FIELD_CODE" => array("",""),
+		"FIELD_CODE" => array("", ""),
 		"FILTER_NAME" => "",
 		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
-		"IBLOCK_ID" => "5",
+		"IBLOCK_ID" => $iblock_id,
 		"IBLOCK_TYPE" => "banner",
 		"INCLUDE_IBLOCK_INTO_CHAIN" => "N",
 		"INCLUDE_SUBSECTIONS" => "Y",
@@ -208,8 +211,8 @@ $APPLICATION->SetTitle("Программа тренировок");
 		"PARENT_SECTION" => "",
 		"PARENT_SECTION_CODE" => "",
 		"PREVIEW_TRUNCATE_LEN" => "",
-		"PROPERTY_CODE" => array("",""),
-		"SET_BROWSER_TITLE" => "N",
+		"PROPERTY_CODE" => array("", ""),
+		"SET_BROWSER_TITLE" => "Y",
 		"SET_LAST_MODIFIED" => "N",
 		"SET_META_DESCRIPTION" => "Y",
 		"SET_META_KEYWORDS" => "Y",

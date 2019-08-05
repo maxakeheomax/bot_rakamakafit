@@ -2,49 +2,49 @@
 $aMenuLinks = Array(
 	Array(
 		"Фитнес ленты", 
-		"catalo/", 
+		"catalog/fitnes_lenty/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
 		"Эспандеры", 
-		"about/howto/", 
+		"catalog/espandery/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
 		"Фитбол", 
-		"about/delivery/", 
+		"catalog/fitbol/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
 		"Наборы ", 
-		"about/", 
+		"catalog/nabory/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
 		"Питание", 
-		"about/guaranty/", 
+		"catalog/pitanie/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
 		"Дневник тренировок", 
-		"about/contacts/", 
+		"catalog/drugoe/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
 		"Программа тренировок", 
-		"about/trainingprograms/", 
+		"trainings/programm/", 
 		Array(), 
 		Array(), 
 		"" 

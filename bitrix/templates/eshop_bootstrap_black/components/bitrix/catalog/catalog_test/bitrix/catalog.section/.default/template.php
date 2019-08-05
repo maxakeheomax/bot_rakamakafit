@@ -33,11 +33,13 @@ $this->setFrameMode(true);
 				<div class="promo-train-block__slider-item-button">
 					<span class="promo-train-block__slider-item-button__text">Купить</span>
 				</div>
+				<? if ($arElement["PROPERTIES"]["YUOTUBELINK"]['VALUE']) : ?>
 				<div class="promo-train-block__slider-item-more">
 					<a href="<?=$arElement["PROPERTIES"]["YUOTUBELINK"]['VALUE']?>">
-						<span class="promo-train-block__slider-item-more__text"><img src="assets/ytb-color.svg" alt="">Смотреть видео тренировок</span>
+						<span class="promo-train-block__slider-item-more__text"><img src="<?= SITE_TEMPLATE_PATH ?>/assets/ytb-color.svg" alt="">Смотреть видео тренировок</span>
 					</a>
 				</div>
+				<? endif ?>
 			</div>
 		</div>
 		<? $index++ ?>
