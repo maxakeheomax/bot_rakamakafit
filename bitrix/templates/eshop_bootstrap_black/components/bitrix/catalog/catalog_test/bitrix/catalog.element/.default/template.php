@@ -42,7 +42,7 @@ $this->setFrameMode(true);
 				</a>
 				<? endif ?>
 			</div>
-		</div>
+		<!-- </div> -->
 
 		<div class="button-block">
 
