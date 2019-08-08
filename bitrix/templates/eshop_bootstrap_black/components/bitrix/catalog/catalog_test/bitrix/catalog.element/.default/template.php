@@ -7,8 +7,6 @@ $this->setFrameMode(true);
 	// var_dump($arResult);
 	// print_r(CCatalogDiscount::GetByID(2)) ?> 
 </pre>
-
-
 <!-- product block -->
 <div class="product-block">
 	<div class=" product-block__product-slider">
@@ -132,8 +130,11 @@ $this->setFrameMode(true);
 		<?endif?>
 
 		</div>
+            <?if($arResult['PROPERTIES']['TITLE']['CHEK']['VALUE_ENUM'] == 'YES'):?>
 			<p class="product-block__description__credit_link"><a class="how-start-block__help-link" href="#">Купить в рассрочку</a></p>
-		</div>
+            <?endif;?>
+        </div>
+
 	</div>
 </div>
 </div>
@@ -437,56 +438,3 @@ $APPLICATION->IncludeComponent(
 
 <? CMain::IncludeFile('/include/subscribe_form_blue.php'); ?>
 
-
-<script>
-	$('.special-offer.owl-carousel.middle-slider').owlCarousel({
-		items:1,
-		lazyLoad:true,
-		loop:true,
-		smartSpeed: 800,
-		margin:10,
-		dots: false,
-		nav:true,
-		navText: [`<img src"=<?= SITE_TEMPLATE_PATH ?>/assets/nav-arrow-left.svg">`,`<img src"=<?= SITE_TEMPLATE_PATH ?>/assets/nav-arrow-right.svg">`]
-	});
-	$('.feedback.owl-carousel.middle-slider').owlCarousel({
-		items:1,
-		lazyLoad:true,
-		loop:true,
-		smartSpeed: 800,
-		margin:10,
-		dots: false,
-		nav:true,
-		center:true,
-		navText: [`<img src"=<?= SITE_TEMPLATE_PATH ?>/assets/nav-arrow-left.svg">`,`<img src"=<?= SITE_TEMPLATE_PATH ?>/assets/nav-arrow-right.svg">`]
-	});
-	$('.mixit.owl-carousel.middle-slider').owlCarousel({
-		items:1,
-		lazyLoad:true,
-		loop:true,
-		smartSpeed: 800,
-		margin:10,
-		dots: true,
-		nav:true,
-		navText: [`<img src"=<?= SITE_TEMPLATE_PATH ?>/assets/nav-arrow-left.svg">`,`<img src"=<?= SITE_TEMPLATE_PATH ?>/assets/nav-arrow-right.svg">`]
-	});
-		function toggleTabs(clickBlock, toggleBlock) {
-				$(clickBlock).click(function(e){
-					let a
-					let b = $(this).attr('id');
-					e.preventDefault();
-
-					$(clickBlock).removeClass('active');
-					$(this).addClass('active');
-
-					$(toggleBlock).each(function(){
-						a = $(this).attr('id');
-						if(b == a) {
-							$(toggleBlock).addClass('hidden-block');
-							$(this).removeClass('hidden-block');
-						}										
-					});
-				});
-			}
-	toggleTabs('.exercises-promo-block__right-side__tab', '.img-block_img-link');
-</script>

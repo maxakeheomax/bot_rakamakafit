@@ -4,6 +4,7 @@ CJSCore::Init(array("fx"));
 $curPage = $APPLICATION->GetCurPage(true);
 $theme = COption::GetOptionString("main", "wizard_eshop_bootstrap_theme_id", "blue", SITE_ID);
 global $arParams;
+if (!CModule::IncludeModule("sale")) return;
 ?>
 <!DOCTYPE html>
 <html xml:lang="<?=LANGUAGE_ID?>" lang="<?=LANGUAGE_ID?>">
@@ -142,10 +143,24 @@ global $arParams;
                             )
                         );?>
                     </div>
+
+                    <?
+                    $cntBasketItems = CSaleBasket::GetList(
+                        array(),
+                        array(
+                            "FUSER_ID" => CSaleBasket::GetBasketUserID(),
+                            "LID" => SITE_ID,
+                            "ORDER_ID" => "NULL"
+                        ),
+                        array()
+                    );
+                   
+                    ?>
+
                     <div class="header__nav-bar__cart-block">
                         <a href="/personal/cart/" class="header__nav-bar__cart-block-link">	
                             <img src="<?= SITE_TEMPLATE_PATH ?>/assets/cart.svg" alt="" class="header__nav-bar__cart-block__cart-icon">
-                            <span class="header__nav-bar__cart-block__cart-text">Корзина</span>
+                            <span class="header__nav-bar__cart-block__cart-text">Корзина <?=$cntBasketItems > 0? "(".$cntBasketItems.")" : ''?></span>
                             <span class="header__nav-bar__cart-block__items-counter"><?= $arResult['NUM_PRODUCTS'] > 0 ? $arResult['NUM_PRODUCTS'] : "" ?></span>
                         </a>
                     </div>                        
