@@ -135,7 +135,7 @@ if ($arParams['USE_GIFTS'] === 'Y')
 
 \CJSCore::Init(array('fx', 'popup', 'ajax'));
 
-$this->addExternalCss('/bitrix/css/main/bootstrap.css');
+// $this->addExternalCss('/bitrix/css/main/bootstrap.css');
 $this->addExternalCss($templateFolder.'/themes/'.$arParams['TEMPLATE_THEME'].'/style.css');
 
 $this->addExternalJs($templateFolder.'/js/mustache.js');
@@ -227,7 +227,12 @@ if (empty($arResult['ERROR_MESSAGE']))
 									<?=Loc::getMessage('SBB_FILTER_EMPTY_RESULT')?>
 								</div>
 							</div>
+							<div class="cart-block__cart-items-list">
 							<table class="basket-items-list-table" id="basket-item-table"></table>
+
+
+							</div>
+							
 						</div>
 					</div>
                     <div class="cart-block__cart-review" data-entity="basket-items-list-header">

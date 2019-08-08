@@ -28,7 +28,7 @@ use Bitrix\Main\Localization\Loc;
 			<?
 		}
 		?>
-
+				
 
 				<!--div class="basket-checkout-block basket-checkout-block-total">
 					<div class="basket-checkout-block-total-inner">
@@ -55,8 +55,8 @@ use Bitrix\Main\Localization\Loc;
 
 
                         <div class="cart-block__cart-review__total-price-block">
-                            <p class="cart-block__cart-review__price_name">Итого к оплате</p>
-                            <div class="total-price"><span>{{{PRICE_FORMATED}}}</span>Р</div>
+                            <p class="cart-block__cart-review__price_name">Итого к оплате </p>
+                            <div class="total-price"><span> &nbsp; {{{PRICE_FORMATED}}}</span></div>
                         </div>
 
 
