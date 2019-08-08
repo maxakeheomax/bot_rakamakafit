@@ -29,7 +29,6 @@ $this->setFrameMode(true);
 			<?endif;?>
 		</div>
 	</div>
-
 	<div class="product-block__description">
 		<div class="desc-block">
 			<div class="product-block__description__title"><?=$arResult["NAME"]?></div>
@@ -436,3 +435,57 @@ $APPLICATION->IncludeComponent(
 
 
 <? CMain::IncludeFile('/include/subscribe_form_blue.php'); ?>
+
+
+<script>
+	$('.special-offer.owl-carousel.middle-slider').owlCarousel({
+		items:1,
+		lazyLoad:true,
+		loop:true,
+		smartSpeed: 800,
+		margin:10,
+		dots: false,
+		nav:true,
+		navText: [`<img src="assets/nav-arrow-left.svg">`,`<img src="assets/nav-arrow-right.svg">`]
+	});
+	$('.feedback.owl-carousel.middle-slider').owlCarousel({
+		items:1,
+		lazyLoad:true,
+		loop:true,
+		smartSpeed: 800,
+		margin:10,
+		dots: false,
+		nav:true,
+		center:true,
+		navText: [`<img src="assets/nav-arrow-left.svg">`,`<img src="assets/nav-arrow-right.svg">`]
+	});
+	$('.mixit.owl-carousel.middle-slider').owlCarousel({
+		items:1,
+		lazyLoad:true,
+		loop:true,
+		smartSpeed: 800,
+		margin:10,
+		dots: true,
+		nav:true,
+		navText: [`<img src="assets/nav-arrow-left.svg">`,`<img src="assets/nav-arrow-right.svg">`]
+	});
+		function toggleTabs(clickBlock, toggleBlock) {
+				$(clickBlock).click(function(e){
+					let a
+					let b = $(this).attr('id');
+					e.preventDefault();
+
+					$(clickBlock).removeClass('active');
+					$(this).addClass('active');
+
+					$(toggleBlock).each(function(){
+						a = $(this).attr('id');
+						if(b == a) {
+							$(toggleBlock).addClass('hidden-block');
+							$(this).removeClass('hidden-block');
+						}										
+					});
+				});
+			}
+	toggleTabs('.exercises-promo-block__right-side__tab', '.img-block_img-link');
+</script>

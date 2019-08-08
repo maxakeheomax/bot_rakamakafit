@@ -28,7 +28,7 @@
 						<ul>
 							<li><a href="/delivery/">Доставка и оплата</a></li>
 							<li><a href="/about/">Полезная информация</a></li>
-							<li><a href="/public-offer/">О компании</a></li>
+							<li><a href="/about/">О компании</a></li>
 							<li><a href="/contacts/">Контакты</a></li>
 						</ul>
 					</div>
