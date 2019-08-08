@@ -143,7 +143,7 @@ $this->setFrameMode(true);
 <!-- Product description block -->
 <div class="product-description-block">
 	<div class="product-description-block__title">Описание и характеристики</div>
-	<div class="product-description-block__decription"><?=$arResult["DETAIL_TEXT"]?></div>
+	<div class="product-description-block__decription"><?=$arResult["PREVIEW_TEXT"]?></div>
 </div>
 <!-- end of Product description block -->
 
