@@ -42,7 +42,7 @@ $this->setFrameMode(true);
 				</a>
 				<? endif ?>
 			</div>
-		<!-- </div> -->
+		
 
 		<div class="button-block">
 
@@ -135,6 +135,7 @@ $this->setFrameMode(true);
 			<p class="product-block__description__credit_link"><a class="how-start-block__help-link" href="#">Купить в рассрочку</a></p>
 		</div>
 	</div>
+</div>
 </div>
 
 
@@ -446,7 +447,7 @@ $APPLICATION->IncludeComponent(
 		margin:10,
 		dots: false,
 		nav:true,
-		navText: [`<img src="assets/nav-arrow-left.svg">`,`<img src="assets/nav-arrow-right.svg">`]
+		navText: [`<img src"=<?= SITE_TEMPLATE_PATH ?>/assets/nav-arrow-left.svg">`,`<img src"=<?= SITE_TEMPLATE_PATH ?>/assets/nav-arrow-right.svg">`]
 	});
 	$('.feedback.owl-carousel.middle-slider').owlCarousel({
 		items:1,
@@ -457,7 +458,7 @@ $APPLICATION->IncludeComponent(
 		dots: false,
 		nav:true,
 		center:true,
-		navText: [`<img src="assets/nav-arrow-left.svg">`,`<img src="assets/nav-arrow-right.svg">`]
+		navText: [`<img src"=<?= SITE_TEMPLATE_PATH ?>/assets/nav-arrow-left.svg">`,`<img src"=<?= SITE_TEMPLATE_PATH ?>/assets/nav-arrow-right.svg">`]
 	});
 	$('.mixit.owl-carousel.middle-slider').owlCarousel({
 		items:1,
@@ -467,7 +468,7 @@ $APPLICATION->IncludeComponent(
 		margin:10,
 		dots: true,
 		nav:true,
-		navText: [`<img src="assets/nav-arrow-left.svg">`,`<img src="assets/nav-arrow-right.svg">`]
+		navText: [`<img src"=<?= SITE_TEMPLATE_PATH ?>/assets/nav-arrow-left.svg">`,`<img src"=<?= SITE_TEMPLATE_PATH ?>/assets/nav-arrow-right.svg">`]
 	});
 		function toggleTabs(clickBlock, toggleBlock) {
 				$(clickBlock).click(function(e){
