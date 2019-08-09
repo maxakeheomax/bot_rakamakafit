@@ -4,14 +4,6 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Корзина");
 ?>
 
-<div class="cart-block">	
-	<div class="cart-block__title-block">
-		<div class="up-hello-block__left-side__title">Корзина</div>
-		<div class="cart-block__title-block__clear-button">
-			<!--p>очистить <i class="fa fa-times" aria-hidden="true"></i></p-->
-		</div>
-	</div>
-	<div class="cart-block__content">
 <?$APPLICATION->IncludeComponent(
 	"bitrix:sale.basket.basket", 
 	"basket", 
@@ -102,6 +94,4 @@ $APPLICATION->SetTitle("Корзина");
 	),
 	false
 );?>
-	</div>
-</div>
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
