@@ -4,7 +4,7 @@ $this->setFrameMode(true);
 
 
 
-
+her
 <div class="container-fluid exercises-promo-block">
 	<div class="row xercises-promo-block_row">
 		<div class="col-md-6 exercises-promo-block__left-side">

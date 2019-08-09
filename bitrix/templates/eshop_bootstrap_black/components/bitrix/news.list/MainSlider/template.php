@@ -18,12 +18,20 @@ $this->setFrameMode(true);
 $iblock = GetIBlock($arResult['ITEMS'][0]['IBLOCK_ID']);
 $items = $arResult['ITEMS'];
 
-
 ?>
+
 
 <div class="owl-carousel middle-slider owl-theme">
     <? foreach ($items as $item): ?>
-    <? ?>
+        <?foreach ($item['DISPLAY_PROPERTIES']['TOVAR']['LINK_ELEMENT_VALUE'] as $arTovar):?>
+            <?
+            $arTorPreds = CCatalogSKU::getOffersList($arTovar['ID'], 0, array('ACTIVE' => 'Y'), array('NAME'), array("CODE"=>array('HEIGHT', 'WIDTH')));
+            foreach ($arTorPreds as $arTorPred){
+                $url = '/catalog/?action=ADD2BASKET&amp;id='.array_keys($arTorPred)[0];
+
+            }
+            ?>
+        <?endforeach;?>
         <div class="owl-carousel__slider-item"
              style="background: url('<?= CFile::GetPath($item['PROPERTIES']['PICTURE']['VALUE']); ?>');background-size: 100% 100%; ">
             <div class="owl-carousel__slider-item__slider-content">
@@ -32,7 +40,7 @@ $items = $arResult['ITEMS'];
                 <p class="owl-carousel__slider-item__slider-content__dicription"><?= $item['PROPERTIES']['TEXT2']['VALUE']['TEXT']?></p>
                 <div class="owl-carousel__slider__content_bottom">
                     <div class="owl-carousel__slider-item-button">
-                        <span class="owl-carousel__main-slider-item-button__text">Купить</span>
+                        <a href="<?=$url?>" class="owl-carousel__main-slider-item-button__text">Купить</a>
                     </div>
                     <div class="owl-carousel__slider-item-more">
                         <span class="owl-carousel__slider-item-more__text">Подробнее</span>
