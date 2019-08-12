@@ -72,7 +72,7 @@ use Bitrix\Main\Localization\Loc;
 					</div>
 
 					<div class="basket-checkout-block basket-checkout-block-btn">
-						<button class="cart-block__cart-review__button"
+						<button class="cart-block__cart-review__button_old"
 							data-entity="basket-checkout-button">
 							<?=Loc::getMessage('SBB_ORDER')?>
 						</button>

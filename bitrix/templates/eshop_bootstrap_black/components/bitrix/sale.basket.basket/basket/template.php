@@ -215,7 +215,7 @@ if (empty($arResult['ERROR_MESSAGE']))
 			</div>
 		</div>
 <!-- style="display: none;" -->
-		<div class="row"  >
+		<div class="row"  style="display: none;">
 			<div class="col-xs-12">
 				<div class="cart-block" id="basket-items-list-wrapper">
                     <div class="cart-block__cart-items-list1 js_item_list" id="basket-items-list-container">
@@ -235,7 +235,7 @@ if (empty($arResult['ERROR_MESSAGE']))
 							
 						</div>
 					</div>
-                    <div class="cart-block__cart-review" data-entity="basket-items-list-header">
+                    <div class="cart-block__cart-review_old" data-entity="basket-items-list-header">
                         <div class="cart-block__cart-review__cart-items-counter-block">
                             <a href="javascript:void(0)" class="basket-items-list-header-filter-item active"
                                data-entity="basket-items-count" data-filter="all" style="display: none;"></a>
@@ -440,16 +440,20 @@ else
 </div>
 
 <script>
+	$('.cart-block__cart-items-list .cart-block__cart-items-list__item-wrapper').remove();
 	$('.js_item_list table tr').each(function (id, element) {
 		var image = $(element).find('.basket-item-block-image img').attr('src');
 		var link = $(element).find('.basket-item-block-image a').attr('href');
 		var title = $(element).find('.basket-item-info-name-link span').text();
-		var actual_price = $(element).find('.basket-item-price-current').text().substring(5);
+		var actual_price = $($(element).find('.basket-item-price-current')[1]).text();
+		actual_price = actual_price.substring(0, actual_price.indexOf('руб'));
 		var old_price = $(element).find('.basket-item-price-old').text().substring(5);
-		var old_price = old_price.substring(5);
+		old_price = old_price.substring(0, old_price.indexOf('руб'));
 		var discount = $(element).find('.basket-item-block-image a').text();
+		var count = $(element).find('.basket-item-amount-filed').data('value');
+		var id = $(element).data('id');
 		$('.cart-block__cart-items-list').append(
-			'<div class="cart-block__cart-items-list__item-wrapper">'
+			'<div class="cart-block__cart-items-list__item-wrapper" id="'+ id +' ">'
 			+'	<div class="cart-block__cart-items-list__item d-table">	'
 			+'		<div class="item__image d-table__cell">	<a href="'+link+'"> '		
 			+'			<img src="'+image+'" alt=""> </a>'					
@@ -461,14 +465,14 @@ else
 			+'		<div class="cart-block__item__quantity d-table__cell">'
 			+'			<div class="number">'
 			+'				<span class="minus">-</span>'
-			+'				<input type="text" value="1" size="5">'
+			+'				<input type="text" value="'+count+'" size="5">'
 			+'				<span class="plus">+</span>'
 			+'			</div>	'
 			+'		</div>'
 			+'		<div class="cart-block__item__price d-table__cell">	'
 			+'			<p class="actual-price price"><span>'+actual_price+'</span> Р</p>'
-			+'			<p class="old-price price"><span>'+old_price+'</span> Р</p>'
-			+'			<p class="discount-price price">Скидка <span>'+discount+' Р</span></p>'
+			+'			<p class="old-price price"><span>'+old_price+'</span> '+ (old_price.trim() ? 'Р' : '') +'</p>'
+			+'			<p class="discount-price price">'+ (discount.trim() ? 'Скидка' : '') +' <span>'+discount+' '+ (discount.trim() ? 'Р' : '') +'</span></p>'
 			+'		</div>'
 			+'		<div class="cart-block__item__btns d-table__cell">	'
 			+'			<a href="	">'
@@ -479,4 +483,42 @@ else
 			+'</div>'
 		);
 	});
+
+	var block_cart_old = $('.cart-block__cart-review_old');
+	var total = $(block_cart_old).find('.total-price').text();
+	total = total.substring(0, total.indexOf('руб'));
+	var total_old = $(block_cart_old).find('.basket-coupon-block-total-price-old').text();
+	total_old = total_old.substring(0, total_old.indexOf('руб'));
+	var discount = $(block_cart_old).find('.basket-coupon-block-total-price-difference span').text();
+	discount = discount.substring(0, discount.indexOf('руб'));
+
+	var block_cart_old = $('.cart-block__cart-review');
+	$(block_cart_old).find('.price span').text(total_old.trim() ? total_old : total);
+	$(block_cart_old).find('.discount-price span').text(discount.trim() ? discount : '0');	
+	$(block_cart_old).find('.total-price').text(total);
+
+	$('.cart-block__cart-review__button').click(function () {
+		$('.cart-block__cart-review__button_old').click();
+	})	
+	$(document).ready(function() {
+		$('.minus').click(function (ev) {
+			//basket-item-amount-btn-minus basket-items-list-item-container
+			element = ev.currentTarget;
+			id = $($(element).closest('.cart-block__cart-items-list__item-wrapper')).attr('id');
+			old_emenet = $('.basket-items-list-item-container').find('[data-id="' + id + '"]');
+			var $input = $(this).parent().find('input');
+			var count = parseInt($input.val()) - 1;
+			count = count < 1 ? 1 : count;
+			$input.val(count);
+			$input.change();
+			return false;
+		});
+		$('.plus').click(function () {
+			var $input = $(this).parent().find('input');
+			$input.val(parseInt($input.val()) + 1);
+			$input.change();
+			return false;
+		});
+	});
+
 </script>
