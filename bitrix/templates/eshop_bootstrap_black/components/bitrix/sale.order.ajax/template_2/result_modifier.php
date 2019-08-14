@@ -8,3 +8,6 @@
 
 $component = $this->__component;
 $component::scaleImages($arResult['JS_DATA'], $arParams['SERVICES_IMAGES_SCALING']);
+// echo '<pre>';
+// var_dump($arResult);
+// echo '</pre>';
