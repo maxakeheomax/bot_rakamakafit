@@ -25,10 +25,10 @@ $items = $arResult['ITEMS'];
     <? foreach ($items as $item): ?>
         <?foreach ($item['DISPLAY_PROPERTIES']['TOVAR']['LINK_ELEMENT_VALUE'] as $arTovar):?>
             <?
+            $url_page = $arTovar['DETAIL_PAGE_URL'];
             $arTorPreds = CCatalogSKU::getOffersList($arTovar['ID'], 0, array('ACTIVE' => 'Y'), array('NAME'), array("CODE"=>array('HEIGHT', 'WIDTH')));
             foreach ($arTorPreds as $arTorPred){
                 $url = '/catalog/?action=ADD2BASKET&amp;id='.array_keys($arTorPred)[0];
-
             }
             ?>
         <?endforeach;?>
@@ -43,7 +43,7 @@ $items = $arResult['ITEMS'];
                         <a href="<?=$url?>" class="owl-carousel__main-slider-item-button__text">Купить</a>
                     </div>
                     <div class="owl-carousel__slider-item-more">
-                        <span class="owl-carousel__slider-item-more__text">Подробнее</span>
+                        <a href="<?=$url_page?>" class="owl-carousel__slider-item-more__text">Подробнее</a>
                     </div>
                 </div>
             </div>

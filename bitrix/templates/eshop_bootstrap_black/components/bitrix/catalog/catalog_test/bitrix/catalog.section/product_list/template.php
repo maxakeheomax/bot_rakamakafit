@@ -25,7 +25,13 @@ $this->setFrameMode(true);
 	<div class="pop-products-block__items">
 		<? //echo '<pre>' . var_export( CPrice::GetBasePrice($arResult["ITEMS"][0]['ID']), true) . '</pre>'; ?>
 		<?foreach($arResult["ITEMS"] as $key => $arElement):?>
-
+            <?
+                $arTorPreds = CCatalogSKU::getOffersList($arElement['ID'], 0, array('ACTIVE' => 'Y'), array('NAME'), array("CODE"=>array('HEIGHT', 'WIDTH')));
+                foreach ($arTorPreds as $arTorPred){
+                    $url = '/catalog/?action=ADD2BASKET&amp;id='.array_keys($arTorPred)[0];
+                }
+                $url;
+            ?>
 		<?
 		$this->AddEditAction($arElement['ID'], $arElement['EDIT_LINK'], CIBlock::GetArrayByID($arParams["IBLOCK_ID"], "ELEMENT_EDIT"));
 		$this->AddDeleteAction($arElement['ID'], $arElement['DELETE_LINK'], CIBlock::GetArrayByID($arParams["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BCS_ELEMENT_DELETE_CONFIRM')));
@@ -45,7 +51,7 @@ $this->setFrameMode(true);
 			<div class="pop-products-block__item__prices">
 				<div class="pop-products-block__item__price"><?= CPrice::GetBasePrice($arElement['ID'])['PRICE']?></div>
 				<div class="pop-products-block__item__old-price"><?=$arElement["DISCOUNT"]?></div>
-				<a href="<?=$arElement['~ADD_URL']?>"><div class="pop-products-block__item-cart"></div></a>
+				<a href="<?=$url?>"><div class="pop-products-block__item-cart"></div></a>
 			</div>
 		</div>
 		<?endforeach;?>

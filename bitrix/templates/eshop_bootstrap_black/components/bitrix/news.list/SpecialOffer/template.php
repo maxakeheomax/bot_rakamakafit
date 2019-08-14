@@ -22,32 +22,30 @@ $items = $arResult['ITEMS'];
         <div ><a href="/catalog" class="pop-products-block__title__link-to-all">все</a></div>
     </div>
     <div class="special-offer-block__items">
-        <div class="special-offer-block__item">
-            <img src="<?= SITE_TEMPLATE_PATH ?>/assets/offer-3.jpg" alt="">
-            <div class="special-offer-block__item__title">Новогодний набор с лентами</div>
-            <div class="special-offer-block__item__desc">Таким образом рамки и место обучения кадров позволяет оценить значение дальнейших направлений развития.</div>
-            <div class="special-offer-block__item__prices">
-                <div class="special-offer-block__item__price">5980 ₽</div>
-                <div class="special-offer-block__item__old-price">7980 ₽</div>
+        <?foreach ($items as $arItem):?>
+            <?
+            $description = substr($arItem['DETAIL_TEXT'], 0, 150).'...';
+            $arTorPreds = CCatalogSKU::getOffersList($arItem['ID'], 0, array('ACTIVE' => 'Y'), array('NAME'), array("CODE"=>array('HEIGHT', 'WIDTH')));
+            foreach ($arTorPreds as $arTorPred){
+
+                $ar_res = CPrice::GetBasePrice(array_keys($arTorPred)[0]);
+                //$url = '/catalog/?action=ADD2BASKET&amp;id='.array_keys($arTorPred)[0];
+            }
+            ?>
+
+            <div class="special-offer-block__item">
+                <a href="<?=$arItem['DETAIL_PAGE_URL']?>">
+                    <img src="<?= SITE_TEMPLATE_PATH ?>/assets/offer-3.jpg" alt="">
+                    <div class="special-offer-block__item__title"><?=$arItem['NAME']?></div>
+                    <div class="special-offer-block__item__desc"><?=$description?></div>
+                    <div class="special-offer-block__item__prices">
+                        <div class="special-offer-block__item__price"><?=$ar_res['PRICE']?>₽</div>
+                        <!--div class="special-offer-block__item__old-price">7980 ₽</div-->
+                    </div>
+                </a>
             </div>
-        </div>
-        <div class="special-offer-block__item">
-            <img src="<?= SITE_TEMPLATE_PATH ?>/assets/offer-2.jpg" alt="">
-            <div class="special-offer-block__item__title">Новогодний набор с эспандерами и лентами</div>
-            <div class="special-offer-block__item__desc">Комплексный анализ ситуации разнородно синхронизирует эмпирический контент</div>
-            <div class="special-offer-block__item__prices">
-                <div class="special-offer-block__item__price">7980 ₽</div>
-                <div class="special-offer-block__item__old-price"></div>
-            </div>
-        </div>
-        <div class="special-offer-block__item">
-            <img src="<?= SITE_TEMPLATE_PATH ?>/assets/offer-1.jpg" alt="">
-            <div class="special-offer-block__item__title">Новогодний набор с эспандерами, лентами и грифом</div>
-            <div class="special-offer-block__item__desc">Взаимодействие корпорации и клиента спонтанно нейтрализует нишевый проект</div>
-            <div class="special-offer-block__item__prices">
-                <div class="special-offer-block__item__price">5980 ₽</div>
-                <div class="special-offer-block__item__old-price"></div>
-            </div>
-        </div>
+
+        <?endforeach;?>
+
     </div>
 </div>

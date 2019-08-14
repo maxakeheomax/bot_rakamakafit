@@ -14,6 +14,8 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 $this->setFrameMode(true);
 $iblock = GetIBlock($arResult['ITEMS'][0]['IBLOCK_ID']);
 $items = $arResult['ITEMS'];
+
+//debug($items);
 ?>
 
 <div class="pop-products-block">
@@ -22,63 +24,33 @@ $items = $arResult['ITEMS'];
         <!-- <div ><a href="/catalog" class="pop-products-block__title__link-to-all">все</a></div> -->
     </div>
     <div class="pop-products-block__items">
+        <?foreach ($items as $arItem):?>
+            <?
+            $arTorPreds = CCatalogSKU::getOffersList($arItem['ID'], 0, array('ACTIVE' => 'Y'), array('NAME'), array("CODE"=>array('HEIGHT', 'WIDTH')));
+            foreach ($arTorPreds as $arTorPred){
+
+                $ar_res = CPrice::GetBasePrice(array_keys($arTorPred)[0]);
+                $arTorPreds = CCatalogSKU::getOffersList($arItem['ID'], 0, array('ACTIVE' => 'Y'), array('NAME'), array("CODE"=>array('HEIGHT', 'WIDTH')));
+                foreach ($arTorPreds as $arTorPred){
+                    $url = '/catalog/?action=ADD2BASKET&amp;id='.array_keys($arTorPred)[0];
+                }
+            }
+            ?>
         <!-- cycle start -->
         <div class="pop-products-block__item">
             <div class="pop-products-block__item__img-block">
-                <img src="<?= SITE_TEMPLATE_PATH ?>/assets/ipad-03.jpg" alt="">
+                <img src="<?=$arItem['PREVIEW_PICTURE']['SRC']?>" alt="">
             </div>
-            <div class="pop-products-block__item__title"><span class="title-span">Программа тренировок Rakamakafit Online</span></div>
+            <div class="pop-products-block__item__title"><span class="title-span"><?=$arItem['NAME']?></span></div>
             <div class="pop-products-block__item__prices">
-                <div class="pop-products-block__item__price">5980 ₽</div>
-                <div class="pop-products-block__item__old-price">7980 ₽</div>
-                <div class="pop-products-block__item-cart"></div>
+                <div class="pop-products-block__item__price"><?=$ar_res['PRICE']?>₽</div>
+                <!--div class="pop-products-block__item__old-price">7980 ₽</div-->
+                <a href="<?=$url?>"><div class="pop-products-block__item-cart"></div></a>
             </div>
         </div>
         <!-- cycle end -->
+        <?endforeach;?>
 
-        <div class="pop-products-block__item">
-            <div class="pop-products-block__item__img-block">
-                <img src="<?= SITE_TEMPLATE_PATH ?>/assets/fitball-01.jpg" alt="">
-            </div>
-            <div class="pop-products-block__item__title"><span class="title-span">Фитбол Rakamakafit</span></div>
-            <div class="pop-products-block__item__prices">
-                <div class="pop-products-block__item__price">1370 ₽</div>
-                <div class="pop-products-block__item__old-price"></div>
-                <div class="pop-products-block__item-cart"></div>
-            </div>
-        </div>
-        <div class="pop-products-block__item">
-            <div class="pop-products-block__item__img-block">
-                <img src="<?= SITE_TEMPLATE_PATH ?>/assets/lenti-tubus.jpg" alt="">
-            </div>
-            <div class="pop-products-block__item__title"><span class="title-span">5 фитнес лент в удобной упаковке</span></div>
-            <div class="pop-products-block__item__prices">
-                <div class="pop-products-block__item__price">5980 ₽</div>
-                <div class="pop-products-block__item__old-price"></div>
-                <div class="pop-products-block__item-cart"></div>
-            </div>
-        </div>
-        <div class="pop-products-block__item">
-            <div class="pop-products-block__item__img-block">
-                <img src="<?= SITE_TEMPLATE_PATH ?>/assets/diary.jpg" alt="">
-            </div>
-            <div class="pop-products-block__item__title"><span class="title-span">Дневник питания</span></div>
-            <div class="pop-products-block__item__prices">
-                <div class="pop-products-block__item__price">680 ₽</div>
-                <div class="pop-products-block__item__old-price"></div>
-                <div class="pop-products-block__item-cart"></div>
-            </div>
-        </div>
-        <div class="pop-products-block__item">
-            <div class="pop-products-block__item__img-block">
-                <img src="<?= SITE_TEMPLATE_PATH ?>/assets/grif-01.jpg" alt="">
-            </div>
-            <div class="pop-products-block__item__title"><span class="title-span">Фитнес гриф Rakamakafit</span></div>
-            <div class="pop-products-block__item__prices">
-                <div class="pop-products-block__item__price">7980 ₽</div>
-                <div class="pop-products-block__item__old-price"></div>
-                <div class="pop-products-block__item-cart"></div>
-            </div>
-        </div>
+
     </div>
 </div>
