@@ -1467,7 +1467,7 @@ h2{
 .pop-products-block__items {
 	display:  flex;
 	flex-flow: row wrap;
-	justify-content: space-between;
+	justify-content: flex-start;
 	margin-top: 30px;
 }
 .pop-products-block__item {
@@ -1478,8 +1478,7 @@ h2{
 	height: 324px;
 	background-color: #fff;
 	position: relative;
-	margin-bottom: 30px;
-	margin-right: 6px;
+	margin: 0 6px 30px;
 }
 .pop-products-block__item__img-block {
 	width: 170px;
