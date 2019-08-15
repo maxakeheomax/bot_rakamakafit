@@ -35,14 +35,14 @@
 					<div class="footer__footer-credits__phones">
 						<ul>
 							<li>
-								<nobr><a href="tel:88003331363">8 (800) 333 13 63</a></nobr>
+								<nobr><a href="tel:+74957874058">+7 (495) 787 40 58</a></nobr>
 							</li>
-							<li>
+							<!-- <li>
 								<nobr><a href="tel:88001234573?">8 (800) 123 45 73</a></nobr>
 							</li>
 							<li>
 								<nobr><a href="tel:88003331363">8 (800) 333 13 63</a></nobr>
-							</li>
+							</li> -->
 						</ul>
 					</div>
 					<div class="footer__footer-credits__requisites">
@@ -195,6 +195,17 @@
 				navText: [`<img src="<?= SITE_TEMPLATE_PATH ?>/assets/nav-arrow-left.svg">`,`<img src="<?= SITE_TEMPLATE_PATH ?>/assets/nav-arrow-right.svg">`]
 			});
 
+            $('.owl-carousel.middle-slider').owlCarousel({
+                items:1,
+                lazyLoad:true,
+                loop:true,
+                margin:10,
+                dots: true,
+                nav:true,
+                smartSpeed: 800,
+                navText: [`<img src="<?= SITE_TEMPLATE_PATH ?>/assets/nav-arrow-left.svg">`,`<img src="<?= SITE_TEMPLATE_PATH ?>/assets/nav-arrow-right.svg">`]
+            });
+
 
 			$('.slick-slider').slick({
 				slidesToShow:3,
@@ -341,12 +352,8 @@
 
 							$('#login_username').text(data['name']);
 						}
-                    },
-                    error:  function(xhr, str){
-                        console.log(data);
                     }
                 });
-                return false;
 			});
 			
 			$('#after_login_submit').click(function(){

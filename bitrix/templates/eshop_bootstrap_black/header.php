@@ -13,7 +13,7 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php');
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width">
-    <link rel="shortcut icon" type="image/x-icon" href="<?=htmlspecialcharsbx(SITE_DIR)?>favicon.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="<?=htmlspecialcharsbx(SITE_DIR)?>favicon.ico?20" />
     <?$APPLICATION->ShowHead();?>
     
     <?
@@ -168,7 +168,6 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php');
                     </div>                        
                 </nav>
             </header>
-  
             <div class="aside-block" style="display: none; zaebala: yes;">
                 <div class="aside-block__shedule">
                     <p class="aside-block__shedule-text">График работы</p>
