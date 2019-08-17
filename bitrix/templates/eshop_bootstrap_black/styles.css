@@ -2574,7 +2574,7 @@ h2{
 /*end of FAQ block*/
 /*exercises-promo-block*/
 .exercises-promo-block_row {
-	margin: 0;
+	display: flex;
 }
 .exercises-promo-block * {
 	box-sizing: border-box;
@@ -3190,7 +3190,7 @@ h2{
 	margin: 0 65px 0 44px;
 }
 .product-block__product-slider {
-	display: flex;
+	/* display: flex; */
 }
 .product-block__description {
 	width: 50%;

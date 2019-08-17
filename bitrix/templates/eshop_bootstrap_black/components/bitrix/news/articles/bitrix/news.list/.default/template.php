@@ -88,7 +88,8 @@ $this->setFrameMode(true);
 					<?endif;?>
 				<?endif;?>
 				<?if($arParams["DISPLAY_PREVIEW_TEXT"]!="N" && $arItem["PREVIEW_TEXT"]):?>
-					<div class="special-offer-block__item__desc"><?echo $arItem["PREVIEW_TEXT"];?></div>
+					<div class="special-offer-block__item__desc"><?=TruncateText(strip_tags($arItem["PREVIEW_TEXT"], ""),150)?></div>
+					<!-- <div class="special-offer-block__item__desc"><?echo $arItem["PREVIEW_TEXT"];?></div> -->
 				<?endif;?>
 			</div>
 		<?endforeach;?>

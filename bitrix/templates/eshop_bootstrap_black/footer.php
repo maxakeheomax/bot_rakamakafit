@@ -148,23 +148,6 @@
 	<script>
 		
 		$(document).ready(function(){
-
-			$(".js-range-slider").ionRangeSlider({
-				type: "double",
-				min: 0,
-				max: 10000,
-				from: 0,
-				to: 10000,
-				grid: false,
-				skin: 'round'
-			});
-			$('.irs-handle.from').mouseup(function() {
-						$('#filter_price .valueFrom').val($('.irs-from').text());
-			});
-			$('.irs-handle.to').mouseup(function() {
-						$('#filter_price .valueTo').val($('.irs-to').text());
-			});
-
 			$('.owl-carousel.up-slider').owlCarousel({
 				items:1,
 				lazyLoad:true,

@@ -47,7 +47,7 @@ $this->setFrameMode(true);
 					<img src="<?=$image?>" alt="<?=$arElement["NAME"]?>">
 				</div>
 			</a>
-			<div class="pop-products-block__item__title"><span class="title-span"><a href="<?=$arElement["DETAIL_PAGE_URL"]?>" title="<?=$arElement["NAME"]?>"><?=$arElement["NAME"]?></a></span></div>
+			<div class="pop-products-block__item__title"><span class="title-span"><a href="<?=$arElement["DETAIL_PAGE_URL"]?>" title="<?=$arElement["NAME"]?>"><?=TruncateText($arElement["NAME"],70)?></a></span></div>
 			<div class="pop-products-block__item__prices">
 				<div class="pop-products-block__item__price"><?= CPrice::GetBasePrice($arElement['ID'])['PRICE']?></div>
 				<div class="pop-products-block__item__old-price"><?=$arElement["DISCOUNT"]?></div>

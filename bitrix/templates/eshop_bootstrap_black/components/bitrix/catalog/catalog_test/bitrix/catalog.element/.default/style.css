@@ -2897,7 +2897,7 @@ h2{
 /*end of FAQ block*/
 /*exercises-promo-block*/
 .exercises-promo-block_row {
-    margin: 0;
+    display: flex;
 }
 .exercises-promo-block * {
     box-sizing: border-box;
@@ -3512,7 +3512,7 @@ h2{
     margin: 0 65px 0 44px;
 }
 .product-block__product-slider {
-    display: flex;
+    /* display: flex; */
 }
 .product-block__description {
     width: 50%;
@@ -3524,10 +3524,13 @@ h2{
     max-width: 842px;
 }
 .slider-nav-block {
-    max-width: 123px;
+    width: 123px;
+    height: 644px !important;
+    position: absolute !important;
 }
 .slider-product-view {
     max-width: 664px;
+    margin-left: 123px;
 }
 .product-block__description__title {
     font-size: 28px;
@@ -5607,10 +5610,12 @@ h2{
     line-height: 1.75;
     letter-spacing: normal;
     color: #ffffff;
-    margin-bottom: 38px;
 }
 /*end of footer */
 .mobile,
 .tablet {
     display: none;
+}
+.slick-list {
+    overflow-y: scroll !important;
 }
