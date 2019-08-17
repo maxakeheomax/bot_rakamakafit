@@ -45,3 +45,9 @@
 .img-wrapper img {
 	width: 100%;
 }
+
+.promo-train-block__slider-item {
+    height: 520px;
+    background: url(/bitrix/templates/eshop_bootstrap_black/assets/ipad-02.jpg) no-repeat!important;
+    background-color: #ffd2d7;
+}

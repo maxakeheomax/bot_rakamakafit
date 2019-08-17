@@ -25,8 +25,8 @@ $items = $arResult['ITEMS'];
     <div class="bottom-slider-block__slider-header">
         <div class="bottom-slider-block__slider-header_top-content">
             <div class="bottom-slider-block__slider-header__left-block">
-                <p class="bottom-slider-block__slider-header__left-block__slogan">стань частью <span class="bottom-slider-block__slider-header__left-block__slogan__underline-block-up">@rakamaka.fit</span></p>
-                <img class="bottom-slider-block__slider-header__left-block__logo" src="<?= SITE_TEMPLATE_PATH ?>/assets/bottom-slider-inst.svg" alt="">
+                <p class="bottom-slider-block__slider-header__left-block__slogan">стань частью <a target="_blank" href="http://www.instagram.com/rakamaka.fit" class="bottom-slider-block__slider-header__left-block__slogan__underline-block-up">@rakamaka.fit</a></p>
+                <a target="_blank" href="http://www.instagram.com/rakamaka.fit"><img class="bottom-slider-block__slider-header__left-block__logo" src="<?= SITE_TEMPLATE_PATH ?>/assets/bottom-slider-inst.svg" alt=""></a>
             </div>
             <div class="bottom-slider-block__slider-header__right-block">
                 <div class="bottom-slider-block__slogan-button-wrapper">

@@ -16,14 +16,14 @@ $iblock = GetIBlock($arResult['ITEMS'][0]['IBLOCK_ID']);
 $items = $arResult['ITEMS'];
 ?>
 
-<div class="promo-train-block__slider-item" >
+<div class="owl-carousel middle-slider owl-theme promo-train-block__slider-item" >
     <? foreach ($items as $item): ?>
         <?foreach ($item['DISPLAY_PROPERTIES']['PRODUCT']['LINK_ELEMENT_VALUE'] as $arTovar):?>
         <?
         $url_page = $arTovar['DETAIL_PAGE_URL'];
         $arTorPreds = CCatalogSKU::getOffersList($arTovar['ID'], 0, array('ACTIVE' => 'Y'), array('NAME'), array("CODE"=>array('HEIGHT', 'WIDTH')));
         foreach ($arTorPreds as $arTorPred){
-            $url = '/catalog/?action=ADD2BASKET&amp;id='.array_keys($arTorPred)[0];
+            $url = '/personal/cart/?action=ADD2BASKET&amp;id='.array_keys($arTorPred)[0];
         }
         ?>
         <?endforeach;?>

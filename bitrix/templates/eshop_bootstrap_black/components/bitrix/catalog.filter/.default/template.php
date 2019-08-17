@@ -11,6 +11,37 @@
 /** @var string $componentPath */
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
+
+// MIN PRICE
+$dbElements = CIBlockElement::GetList(array('CATALOG_PRICE_1'=>'ASC'),
+        array(
+            'IBLOCK_TYPE' => $arParams['IBLOCK_TYPE'],
+            'IBLOCK_ID' => 16
+        )
+        ,false
+        ,array('nTopCount'=>1)
+        ,array('ID', 'IBLOCK_ID', 'IBLOCK_TYPE', 'CATALOG_PRICE_1')
+    );
+if($arrElement = $dbElements->Fetch()){
+    $min = (int)$arrElement['CATALOG_PRICE_1'];
+}
+unset($dbElements, $arrElement);
+// MAX PRICE
+$dbElements = CIBlockElement::GetList(array('CATALOG_PRICE_1'=>'DESC'),
+        array(
+            'IBLOCK_TYPE' => $arParams['IBLOCK_TYPE'],
+            'IBLOCK_ID' => 16
+        )
+        ,false
+        ,array('nTopCount'=>1)
+        ,array('ID', 'IBLOCK_ID', 'IBLOCK_TYPE', 'CATALOG_PRICE_1')
+    );
+if($arrElement = $dbElements->Fetch()){
+    $max = (int)$arrElement['CATALOG_PRICE_1'];
+}
+
+
+
 ?>
 <div class="filters_block">
 	<form name="<?echo $arResult["FILTER_NAME"]."_form"?>" action="<?echo $arResult["FORM_ACTION"]?>" method="get">
@@ -28,9 +59,9 @@ $this->setFrameMode(true);
 		<div class="filters__blok__items">
 			<div class="filters_block__filter" id="filter_price">
 				<div class="filters_block__filter__title">Цена</div>
-				<div class="filters_block__filter__item-list inline">					
-					<input class="valueFrom" type="text" name="arrFilter_cf[1][LEFT]" id="" value="<?= $arResult["ITEMS"]['PRICE_BASE']['INPUT_VALUES'][0] ?>">
-					<input class="valueTo" type="text" name="arrFilter_cf[1][RIGHT]" id="" value="<?= $arResult["ITEMS"]['PRICE_BASE']['INPUT_VALUES'][1] ?>">
+				<div class="filters_block__filter__item-list inline">			
+					<input class="valueFrom" type="text" name="arrFilter_cf[1][LEFT]" id="" value="<?=(($arResult["ITEMS"]['PRICE_BASE']['INPUT_VALUES'][0]) ? $arResult["ITEMS"]['PRICE_BASE']['INPUT_VALUES'][0]:$min) ?>">
+					<input class="valueTo" type="text" name="arrFilter_cf[1][RIGHT]" id="" value="<?=(($arResult["ITEMS"]['PRICE_BASE']['INPUT_VALUES'][1]) ? $arResult["ITEMS"]['PRICE_BASE']['INPUT_VALUES'][1]:$max) ?>">
 				</div>
 				<input type="text" class="js-range-slider" name="" value="" />
 			</div>
@@ -67,9 +98,26 @@ $this->setFrameMode(true);
 
 		<input name="set_filter" class="promo-form-block__form__submit" type="submit" value="показать">
 		<input type="hidden" name="set_filter" value="Y" />
+		<? if(!empty($GLOBALS['arrFilter']['OFFERS'])):?>
 		<div class="reset-filters">
-		<a href="<?= $APPLICATION->GetCurPage(false) ?>"><span>Сбросить фильтры</span></a>
+			<a href="<?= $APPLICATION->GetCurPage(false) ?>"><span>Сбросить фильтры</span></a>
 		</div>
+		<? endif?>
 		</table>
 	</form>
 </div>
+<script>
+	$(".js-range-slider").ionRangeSlider({
+		type: "double",
+		min: <?=$min?>,
+		max: <?=$max?>,
+		from: '<?=(($arResult["ITEMS"]['PRICE_BASE']['INPUT_VALUES'][0]) ? str_replace(" ",'',$arResult["ITEMS"]['PRICE_BASE']['INPUT_VALUES'][0]):$min) ?>',
+		to: '<?=(($arResult["ITEMS"]['PRICE_BASE']['INPUT_VALUES'][1]) ? str_replace(" ",'',$arResult["ITEMS"]['PRICE_BASE']['INPUT_VALUES'][1]):$max) ?>',
+		grid: false,
+		skin: 'round',
+		onChange: function (data) {
+			$('#filter_price .valueFrom').val(data.from_pretty);
+			$('#filter_price .valueTo').val(data.to_pretty);
+        }
+	});
+</script>

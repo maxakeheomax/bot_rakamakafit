@@ -323,7 +323,7 @@ else
                         <a class="sale-order-list-repeat-link" href="<?=htmlspecialcharsbx($arOrder["ORDER"]["URL_TO_COPY"])?>"><?=Loc::getMessage('SPOL_TPL_REPEAT_ORDER')?></a>
 
                     </div>
-                    <div class="cancel_button"><a href="<?=$arOrder['ORDER']['URL_TO_CANCEL']?>">Скрыть</a></div>
+                    <div class="cancel_button">Скрыть</div>
                 </div>
             </div>
             <?endforeach;?>

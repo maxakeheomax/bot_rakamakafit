@@ -19,7 +19,7 @@ $items = $arResult['ITEMS'];
 <div class="special-offer-block">
     <div class="special-offer-block__title">
         <p class="special-offer-block__title__name">спецпредложения</p>
-        <div ><a href="/catalog" class="pop-products-block__title__link-to-all">все</a></div>
+        <!-- <div ><a href="/catalog" class="pop-products-block__title__link-to-all">все</a></div> -->
     </div>
     <div class="special-offer-block__items">
         <?foreach ($items as $arItem):?>
@@ -32,12 +32,11 @@ $items = $arResult['ITEMS'];
                 //$url = '/catalog/?action=ADD2BASKET&amp;id='.array_keys($arTorPred)[0];
             }
             ?>
-
             <div class="special-offer-block__item">
                 <a href="<?=$arItem['DETAIL_PAGE_URL']?>">
-                    <img src="<?= SITE_TEMPLATE_PATH ?>/assets/offer-3.jpg" alt="">
+                    <img src="<?=CFile::GetPath($arItem['PREVIEW_PICTURE']['ID'])?>" alt="">
                     <div class="special-offer-block__item__title"><?=$arItem['NAME']?></div>
-                    <div class="special-offer-block__item__desc"><?=$description?></div>
+                    <div class="special-offer-block__item__desc"><?=strip_tags($description, "")?></div>
                     <div class="special-offer-block__item__prices">
                         <div class="special-offer-block__item__price"><?=$ar_res['PRICE']?>₽</div>
                         <!--div class="special-offer-block__item__old-price">7980 ₽</div-->

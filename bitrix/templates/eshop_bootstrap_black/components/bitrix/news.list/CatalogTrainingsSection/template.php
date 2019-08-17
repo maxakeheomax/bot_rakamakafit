@@ -33,7 +33,7 @@ $sections = [];
 <!-- exercises-promo-block -->
 <div class="exercises-promo-block">
 	<div class="exercises-promo-block__up-container"></div>
-	<div class="row exercises-promo-block_row">
+	<div class=" exercises-promo-block_row">
 		<div class="col-md-6 exercises-promo-block__left-side">
 			<div class="exercises-promo-block__left-side__title">Упражнения с фитнес лентами</div>
 			<div class="exercises-promo-block__left-side__desc">Мы собрали для тебя примеры самых убойных упражений с фитнес лентами на любую группу мышц</div>
