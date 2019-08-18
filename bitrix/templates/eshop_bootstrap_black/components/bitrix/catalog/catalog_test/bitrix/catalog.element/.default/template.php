@@ -370,6 +370,7 @@ $this->setFrameMode(true);
 
 
 <?
+$GLOBALS['arPropFilter'] = ['SECTION_ID'	=> $arResult['PROPERTIES']['EXERCISES']['VALUE']];
 if($arResult['ORIGINAL_PARAMETERS']['SECTION_CODE'])
 $APPLICATION->IncludeComponent(
 	"bitrix:news.list",
@@ -395,7 +396,7 @@ $APPLICATION->IncludeComponent(
 		"DISPLAY_PREVIEW_TEXT" => "Y",
 		"DISPLAY_TOP_PAGER" => "N",
 		"FIELD_CODE" => array("",""),
-		"FILTER_NAME" => "",
+		"FILTER_NAME" => "arPropFilter",
 		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
 		"IBLOCK_ID" => "13",
 		"IBLOCK_TYPE" => "trainings",
@@ -415,12 +416,12 @@ $APPLICATION->IncludeComponent(
 		"SECTION_CODE" => $arResult['ORIGINAL_PARAMETERS']['SECTION_CODE'],
 		"PREVIEW_TRUNCATE_LEN" => "",
 		"PROPERTY_CODE" => array("",""),
-		"SET_BROWSER_TITLE" => "Y",
+		"SET_BROWSER_TITLE" => "N",
 		"SET_LAST_MODIFIED" => "N",
 		"SET_META_DESCRIPTION" => "Y",
 		"SET_META_KEYWORDS" => "Y",
 		"SET_STATUS_404" => "N",
-		"SET_TITLE" => "Y",
+		"SET_TITLE" => "N",
 		"SHOW_404" => "N",
 		"SORT_BY1" => "ACTIVE_FROM",
 		"SORT_BY2" => "SORT",

@@ -17,15 +17,12 @@ $this->setFrameMode(true);
 
 $iblock = GetIBlock($arResult['ITEMS'][0]['IBLOCK_ID']);
 $items = $arResult['ITEMS'];
-$sections = [];
+// $sections = [];
 ?>
 <pre>
-
 	<?
-	$section_query = CIBlockSection::GetList(array("SORT" => "ASC"), ["IBLOCK_ID" => $arResult['ID'], 'IBLOCK_TYPE' => 'trainings', 'SECTION_ID' => $arResult['SECTION']['PATH'][0]['ID']]);
-	while ($section = $section_query->GetNext()) {
-		$sections[] = $section;
-	}
+	$section_query = CIBlockSection::GetList(array("SORT" => "ASC"), ["IBLOCK_ID" => $arResult['ID'], 'IBLOCK_TYPE' => 'trainings', 'ID' => $GLOBALS['arPropFilter']['SECTION_ID']]);
+	$section = $section_query->GetNext();
 	// var_dump( $arResult['SECTION']['PATH'] );
 
 	?>
@@ -45,17 +42,19 @@ $sections = [];
 		</div>
 		<div class="col-md-6 exercises-promo-block__right-side">
 			<div class="img-block">
-				<? foreach ($sections as $id => $section) : ?>
-					<div class="img-block_img-link hidden-block" id="<?= $section['ID'] ?>">
-						<a href="/trainings/exercises/<?= $section['CODE'] ?>"> <img class="img-block__eye-button" src="<?= SITE_TEMPLATE_PATH ?>/assets/eye-button.svg" alt=""></a>
-						<img class="img-block__exercise-pic" src="<?= CFile::GetPath($section['PICTURE']); ?>" alt="">
+				<? foreach ($items as $id => $item) : ?>
+					<div class="img-block_img-link hidden-block" id="<?= $item['ID'] ?>">
+						<a href="/trainings/exercises/<?=$section['CODE']?><?= $item['CODE'] ?>"> 
+							<img class="img-block__eye-button" src="<?= SITE_TEMPLATE_PATH ?>/assets/eye-button.svg" alt="">
+						</a>
+						<img class="img-block__exercise-pic" src="<?=$item['PREVIEW_PICTURE']['SRC']?>" alt="">
 					</div>
 				<? endforeach; ?>
 				<div class="exercises-promo-block__right-side__tabs">
 					<ul>
-						<? foreach ($sections as $id => $section) : ?>
-							<a class="exercises-promo-block__right-side__tab" id="backbone" href="/trainings/exercises/<?= $section['CODE'] ?>">
-								<li><?= $section['NAME'] ?></li>
+						<? foreach ($items as $id => $item) : ?>
+							<a class="exercises-promo-block__right-side__tab" id="backbone" href="/trainings/exercises/<?=$section['CODE']?>/<?= $item['CODE'] ?>">
+								<li><?= $item['NAME'] ?></li>
 							</a>
 						<? endforeach; ?>
 					</ul>

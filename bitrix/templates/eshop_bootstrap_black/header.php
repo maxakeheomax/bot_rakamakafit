@@ -168,7 +168,7 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php');
                     </div>                        
                 </nav>
             </header>
-            <div class="aside-block" style="display: none; zaebala: yes;">
+            <div class="aside-block" >
                 <div class="aside-block__shedule">
                     <p class="aside-block__shedule-text">График работы</p>
                     <img src="<?= SITE_TEMPLATE_PATH ?>/assets/calendar.svg" alt="calendar" class="aside-block__shedule-logo">

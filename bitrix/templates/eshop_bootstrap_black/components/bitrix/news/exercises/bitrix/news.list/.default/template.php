@@ -16,21 +16,12 @@ $this->setFrameMode(true);
 <?
 if(!preg_match('|\/trainings\/exercises\/\w+|', $APPLICATION->GetCurUri()) ):
 	$arFilter = Array("IBLOCK_ID"=>'13', "ACTIVE"=>"Y");
-
 	$dbSection = CIBlockSection::GetList(Array(), $arFilter, false);
 
 	$sections = [];
 	while ($arSection = $dbSection->Fetch()) {
 		if(!$arSection["IBLOCK_SECTION_ID"]){
-			$sections[$arSection["ID"]] = array(
-				"NAME" => "{$arSection["NAME"]}", 
-				"CODE" => $arSection["CODE"]
-			);
-		}else{
-			$sections[$arSection["IBLOCK_SECTION_ID"]]['sub'][] = array(
-				"NAME" => "{$arSection["NAME"]}", 
-				"CODE" => $arSection["CODE"]
-			);
+			$sections[$arSection["ID"]] = $arSection;
 		}
 	}
 ?>
@@ -52,10 +43,13 @@ if(!preg_match('|\/trainings\/exercises\/\w+|', $APPLICATION->GetCurUri()) ):
 			<? foreach ($sections as $section):?>
 			<div class="col-md-6 exercises-list-block__item">
 				<div class="exercises-list-block__item-title"><span> <?= $section['NAME']?> </span></div>
+				<? $elements = CIBlockElement::GetList([],
+					["IBLOCK_SECTION_ID"=>$section['ID']]
+				);?>
 				<ul class="exercises-list-block__exercises-list">
-					<? foreach ($section['sub'] as $sub_section):?>
-						<li><a href="<?= $section['CODE'].'/'.$sub_section['CODE'] ?>"><span> <?= $sub_section['NAME'] ?> </span></a></li>
-					<? endforeach; ?>
+					<? while ($element = $elements->Fetch()):?>
+						<li><a href="/trainings/<?=$section['IBLOCK_CODE']?>/<?= $section['CODE'].'/'.$element['CODE'] ?>"><span> <?= $element['NAME'] ?> </span></a></li>
+					<? endwhile; ?>
 				</ul>
 			</div>
 			<? endforeach; ?>

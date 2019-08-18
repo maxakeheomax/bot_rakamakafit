@@ -344,5 +344,28 @@
 			});
 		});
 	</script>
+	<script>
+		if ($(window).width() > 760)
+		{  var _rcct = 'aaf3f48276ea64a96e855ea733e64771461593cdac4993242473b4d25169bf10';
+		!function (t) {
+			var a = t.getElementsByTagName("head")[0];
+			var c = t.createElement("script");
+			c.type = "text/javascript";
+			c.src = "//c.retailcrm.tech/widget/loader.js";
+			a.appendChild(c);
+		} (document);
+		}
+		else 
+		{
+		var _rcct = '4fd25c0a4fe850b494e63d4099e4084b6e0916082c2056d26b3a290d9764e966';
+		!function (t) {
+			var a = t.getElementsByTagName("head")[0];
+			var c = t.createElement("script");
+			c.type = "text/javascript";
+			c.src = "//c.retailcrm.tech/widget/loader.js";
+			a.appendChild(c);
+		} (document);
+		}
+	</script>
 </body>
 </html>
