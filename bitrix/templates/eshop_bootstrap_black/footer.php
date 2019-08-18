@@ -37,10 +37,10 @@
 							<li>
 								<nobr><a href="tel:+74957874058">+7 (495) 787 40 58</a></nobr>
 							</li>
-							<!-- <li>
-								<nobr><a href="tel:88001234573?">8 (800) 123 45 73</a></nobr>
-							</li>
 							<li>
+								<nobr><a href="mailto:hello@rakamakafit.ru">hello@rakamakafit.ru</a></nobr>
+							</li>
+							<!--<li>
 								<nobr><a href="tel:88003331363">8 (800) 333 13 63</a></nobr>
 							</li> -->
 						</ul>
@@ -366,6 +366,39 @@
 			a.appendChild(c);
 		} (document);
 		}
+	</script>
+	<script>
+		$(document).ready(function() {
+			var popupTimer, TIME_OUT = 60 * 1000; //one minute
+			// function that displays the popup
+			function displayPopup() {
+				if($('.popUp').css('display') == 'block'){
+					return false
+				}else{						
+					$('body').css('overflow-y','hidden');
+					$('.page_content, .page_wrapper').css('filter', 'blur(10px)');
+					$('.popUp').fadeIn();
+				}
+			}
+			popupTimer = setTimeout(displayPopup, TIME_OUT);
+			$(document).on('click change keypress', function() {
+				clearTimeout(popupTimer);
+				popupTimer = setTimeout(displayPopup, TIME_OUT);
+			});
+			// $(document).ready(function(){
+				// 	function ShowPopUp(delay_time){setInterval(function(){
+					
+					// 	}, delay_time);
+					// }
+					
+					// ShowPopUp(15000);
+					
+			$('.close-button').click(function(){
+				$('body').css('overflow-y','inherit');
+				$('.page_content, .page_wrapper').css('filter', 'none')
+				$('.popUp').fadeOut();
+			});
+		})
 	</script>
 </body>
 </html>

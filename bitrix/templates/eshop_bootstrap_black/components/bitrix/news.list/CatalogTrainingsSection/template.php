@@ -45,7 +45,7 @@ $items = $arResult['ITEMS'];
 				<? $i = 0;?>
 				<? foreach ($items as $id => $item) : ?>
 					<div class="img-block_img-link <?=($i)?'hidden-block':''?>" id="<?= $item['CODE'] ?>">
-						<a href="/trainings/exercises/<?=$section['CODE']?>/<?= $item['CODE'] ?>"> 
+						<a href="/trainings/exercises/<?=$section['CODE']?>#<?= $item['CODE'] ?>"> 
 							<img class="img-block__eye-button" src="<?= SITE_TEMPLATE_PATH ?>/assets/eye-button.svg" alt="">
 						</a>
 						<img class="img-block__exercise-pic" src="<?=$item['PREVIEW_PICTURE']['SRC']?>" alt="">

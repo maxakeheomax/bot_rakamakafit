@@ -5,12 +5,14 @@ abstract class controller
 {
 
     const URL = "https://rakamakafit.retailcrm.ru/api/v5/";
-    const TOKEN = "fsnVTfnsYuPNXK6vHnxoJRXRgCTAIDem";
+    const TOKEN = "AGfyMWqN7QRdjd3MI1z8CxgIPNsi8eSs";
 
     public static function request($method, $url, $data = []) {
         $data['apiKey'] = self::TOKEN;
-
+       
         $jsonData = http_build_query($data);
+        if ($method == 'GET')
+            $url .= '?'.$jsonData;
         $curl = curl_init();
         curl_setopt_array($curl, array(
         CURLOPT_URL => self::URL.$url,
