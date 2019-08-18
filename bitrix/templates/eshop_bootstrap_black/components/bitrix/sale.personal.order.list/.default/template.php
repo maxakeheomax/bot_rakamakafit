@@ -169,7 +169,7 @@ else
 
                         <hr>
 
-                        <div class="order_info">
+                        <div class="order_info" style="display:none">
                             <div class="flex-line">
                                 <div class="order_param">
                                     <div class="order__param__name">Статус</div>
@@ -199,7 +199,7 @@ else
                                 <a class="sale-order-list-repeat-link" href="<?=htmlspecialcharsbx($arOrder["ORDER"]["URL_TO_COPY"])?>"><?=Loc::getMessage('SPOL_TPL_REPEAT_ORDER')?></a>
 
                             </div>
-                            <div class="cancel_button"><a href="<?=$arOrder['ORDER']['URL_TO_CANCEL']?>">Скрыть</a></div>
+                            <div class="cancel_button">Показать</div>
                         </div>
                     </div>
                 <?endforeach;?>
@@ -293,7 +293,7 @@ else
 
                 <hr>
 
-                <div class="order_info">
+                <div class="order_info" style="display: none">
                     <div class="flex-line">
                         <div class="order_param">
                             <div class="order__param__name">Статус</div>
@@ -318,12 +318,10 @@ else
                     </div>
                 </div>
                 <div class="order_manage_buttons flex-line">
-                    <div class="repeat_button"> <span><i class="fas fa-redo-alt"></i>
-								</span>
+                    <div class="repeat_button"> <span><i class="fas fa-redo-alt"></i></span>
                         <a class="sale-order-list-repeat-link" href="<?=htmlspecialcharsbx($arOrder["ORDER"]["URL_TO_COPY"])?>"><?=Loc::getMessage('SPOL_TPL_REPEAT_ORDER')?></a>
-
                     </div>
-                    <div class="cancel_button">Скрыть</div>
+                    <div class="cancel_button">Показать</div>
                 </div>
             </div>
             <?endforeach;?>
