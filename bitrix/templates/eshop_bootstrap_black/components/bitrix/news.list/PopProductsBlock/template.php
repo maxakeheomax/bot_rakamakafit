@@ -17,7 +17,6 @@ $items = $arResult['ITEMS'];
 
 //debug($items);
 ?>
-
 <div class="pop-products-block">
     <div class="pop-products-block__title">
         <p class="pop-products-block__title__name">Популярные товары</p>
@@ -25,7 +24,8 @@ $items = $arResult['ITEMS'];
     </div>
     <div class="pop-products-block__items">
         <?foreach ($items as $arItem):?>
-            <?dump($arItem['PROPERTIES']['POPULAR']['VALUE'])?>
+            <? if ($arItem['PROPERTIES']['POPULAR']['VALUE'] == '')
+                continue;?>
             <?
             $arTorPreds = CCatalogSKU::getOffersList($arItem['ID'], 0, array('ACTIVE' => 'Y'), array('NAME'), array("CODE"=>array('HEIGHT', 'WIDTH')));
             foreach ($arTorPreds as $arTorPred){

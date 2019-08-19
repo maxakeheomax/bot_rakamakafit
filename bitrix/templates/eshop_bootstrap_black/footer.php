@@ -368,6 +368,8 @@
 		}
 	</script>
 	<script>
+		<? global $USER;
+		if (!$USER->IsAdmin()) : ?>
 		$(document).ready(function() {
 			var popupTimer, TIME_OUT = 60 * 1000; //one minute
 			// function that displays the popup
@@ -399,6 +401,7 @@
 				$('.popUp').fadeOut();
 			});
 		})
+		<? endif ?>
 	</script>
 </body>
 </html>
