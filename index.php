@@ -224,9 +224,9 @@ $APPLICATION->SetTitle("RAKAMAKAFIT"); ?><?$APPLICATION->IncludeComponent(
 		"STRICT_SECTION_CHECK" => "N"
 	)
 );?> <?$APPLICATION->IncludeComponent(
-	"bitrix:news.list",
-	"PopProductsBlock",
-	Array(
+	"bitrix:news.list", 
+	"PopProductsBlock", 
+	array(
 		"ACTIVE_DATE_FORMAT" => "d.m.Y",
 		"ADD_SECTIONS_CHAIN" => "Y",
 		"AJAX_MODE" => "N",
@@ -246,15 +246,18 @@ $APPLICATION->SetTitle("RAKAMAKAFIT"); ?><?$APPLICATION->IncludeComponent(
 		"DISPLAY_PICTURE" => "Y",
 		"DISPLAY_PREVIEW_TEXT" => "Y",
 		"DISPLAY_TOP_PAGER" => "N",
-		"FIELD_CODE" => array("",""),
+		"FIELD_CODE" => array(
+			0 => "",
+			1 => "",
+		),
 		"FILTER_NAME" => "",
 		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
-		"IBLOCK_ID" => "5",
-		"IBLOCK_TYPE" => "banner",
+		"IBLOCK_ID" => "15",
+		"IBLOCK_TYPE" => "catalog",
 		"INCLUDE_IBLOCK_INTO_CHAIN" => "N",
 		"INCLUDE_SUBSECTIONS" => "Y",
 		"MESSAGE_404" => "",
-		"NEWS_COUNT" => "20",
+		"NEWS_COUNT" => "2000",
 		"PAGER_BASE_LINK_ENABLE" => "N",
 		"PAGER_DESC_NUMBERING" => "N",
 		"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
@@ -265,7 +268,10 @@ $APPLICATION->SetTitle("RAKAMAKAFIT"); ?><?$APPLICATION->IncludeComponent(
 		"PARENT_SECTION" => "",
 		"PARENT_SECTION_CODE" => "",
 		"PREVIEW_TRUNCATE_LEN" => "",
-		"PROPERTY_CODE" => array("",""),
+		"PROPERTY_CODE" => array(
+			0 => "POPULAR",
+			1 => "",
+		),
 		"SET_BROWSER_TITLE" => "N",
 		"SET_LAST_MODIFIED" => "N",
 		"SET_META_DESCRIPTION" => "Y",
@@ -277,8 +283,10 @@ $APPLICATION->SetTitle("RAKAMAKAFIT"); ?><?$APPLICATION->IncludeComponent(
 		"SORT_BY2" => "SORT",
 		"SORT_ORDER1" => "DESC",
 		"SORT_ORDER2" => "ASC",
-		"STRICT_SECTION_CHECK" => "N"
-	)
+		"STRICT_SECTION_CHECK" => "N",
+		"COMPONENT_TEMPLATE" => "PopProductsBlock"
+	),
+	false
 );?> <?$APPLICATION->IncludeComponent(
 	"bitrix:news.list",
 	"AdvantagesBlock",
@@ -361,7 +369,7 @@ $APPLICATION->SetTitle("RAKAMAKAFIT"); ?><?$APPLICATION->IncludeComponent(
 		"FIELD_CODE" => array("",""),
 		"FILTER_NAME" => "",
 		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
-		"IBLOCK_ID" => "5",
+		"IBLOCK_ID" => "8",
 		"IBLOCK_TYPE" => "banner",
 		"INCLUDE_IBLOCK_INTO_CHAIN" => "N",
 		"INCLUDE_SUBSECTIONS" => "Y",

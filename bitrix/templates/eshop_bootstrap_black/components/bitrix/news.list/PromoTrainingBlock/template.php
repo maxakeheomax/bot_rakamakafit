@@ -16,7 +16,7 @@ $iblock = GetIBlock($arResult['ITEMS'][0]['IBLOCK_ID']);
 $items = $arResult['ITEMS'];
 ?>
 
-<div class="owl-carousel middle-slider owl-theme promo-train-block__slider-item" >
+<div class="promo-train-block__slider-item" >
     <? foreach ($items as $item): ?>
         <?foreach ($item['DISPLAY_PROPERTIES']['PRODUCT']['LINK_ELEMENT_VALUE'] as $arTovar):?>
         <?

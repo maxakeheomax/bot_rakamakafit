@@ -1790,6 +1790,7 @@ h2{
 .promo-train-block__slider-item {
 	height: 520px;
 	background: url('/bitrix/templates/eshop_bootstrap_black/assets/ipad-02.jpg') no-repeat;
+	background-size: contain;
 	background-color: #ffd2d7;
 }
 .personal-programm.promo-train-block__slider-item{
