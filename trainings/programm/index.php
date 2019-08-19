@@ -12,7 +12,7 @@ $APPLICATION->SetTitle("Программа тренировок");
 						<p class="owl-carousel__up-slider-item__slider-content__promo-title">Красивое тело за пять недель - это реально!</p> 
 						<p class="owl-carousel__up-slider-item__slider-content__slogan">Кардинальное преображение ждет тебя в персональной программе тренировок и питания  от Насти RAKAMAKAFIT </p>
 						<div class="trainings_owl-carousel__up-slider__content_bottom">
-							<a href="#"><div class="owl-carousel__slider-item-button">
+							<a href="#complects"><div class="owl-carousel__slider-item-button">
 									<span class="owl-carousel__slider-item-button__text">Получить</span>
 								</div></a>
 						</div>
@@ -26,7 +26,7 @@ $APPLICATION->SetTitle("Программа тренировок");
 	</div>
 <!-- end of up slider -->
 <!-- special offer -->
-<div class="training special-offer-block">
+<div class="training special-offer-block" id="complects">
 	<div class="special-offer-block__title">
 		<p class="special-offer-block__title__name">Наборы с программой тренировок</p>
 		<div class="special-offer-block__title__link-to-all">все</div>
@@ -71,7 +71,7 @@ $APPLICATION->SetTitle("Программа тренировок");
 		<p class="promo-train-block__slider-item__slider-content__dicription">После заполнения анкеты, мы формируем для тебя индивидуальный курс тренировок и питания.</p>
 		<p class="promo-train-block__slider-item__slider-content__dicription">Тебя ждет 4 тренировки в неделю, программа питания на каждый день, мотивационные лекции и статьи, удобное отслеживание результатов.</p>
 		<div class="promo-train-block__slider__content_bottom">
-			<a href="#"><div class="promo-train-block__slider-item-button">
+			<a href="#complects"><div class="promo-train-block__slider-item-button">
 					<span class="promo-train-block__slider-item-button__text">Купить</span>
 				</div></a>
 			<div class="promo-train-block__slider-item-more">
@@ -118,7 +118,7 @@ $APPLICATION->SetTitle("Программа тренировок");
 		<p class="promo-train-block__slider-item__slider-content__slogan"><span class="promo-train-block__title_underline-block-up">5 недель доступа</span><br/> к программе тренировок</p>
 		<p class="promo-train-block__slider-item__slider-content__dicription">После заполнения анкеты, тебе откроется доступ в личный кабинет с курсом еженедельных тренировок, индивидуальный план питания, мотивационные лекции и статьи, удобное отслеживание результатов. </p>
 		<div class="promo-train-block__slider__content_bottom">
-			<a href="#"><div class="promo-train-block__slider-item-button">
+			<a href="#complects"><div class="promo-train-block__slider-item-button">
 					<span class="promo-train-block__slider-item-button__text">Купить</span>
 				</div></a>
 		</div>
@@ -143,8 +143,10 @@ $APPLICATION->SetTitle("Программа тренировок");
 					<p>Спустя некоторое время я начала вести свой блог в Instagram, в котором рассказывала, как прийти в форму не выходя из дома, провела более 6 бесплатных марафонов трансформации тела, выпустила свое фирменное оборудование – яркие фитнес ленты и эспандеры RAKAMAKAFIT. Меня мотивирует любовь к своему делу и ваши потрясающие результаты!</p>
 					<p>В программу тренировок и питания RAKAMAKAFIT ONLINE я вложила всю свою душу и знания! Буду рада видеть тебя в своей команде спортивных и жизнерадостных!</p>
 					<div class="hello-block__content__hello__text__link-wrapper">
-						<a class="hello-block__content__hello__text__link" href="#" class="link">Читай мой блог в <span class="underline-block">инстаграмме</span></a>
-						<img src="<?= SITE_TEMPLATE_PATH ?>/assets/hello-block-inst.svg" alt="">
+						<a target="_blank" class="hello-block__content__hello__text__link" href="http://www.instagram.com/rakamakafit" class="link">Читай мой блог в <span class="underline-block">инстаграмме</span></a>
+						<a target="_blank" href="http://www.instagram.com/rakamakafit">
+							<img src="<?= SITE_TEMPLATE_PATH ?>/assets/hello-block-inst.svg" alt="">
+						</a>
 					</div>
 				</div>
 			</div>
@@ -226,6 +228,26 @@ $APPLICATION->IncludeComponent(
 );?>
 
 
+<script>
+	$('a[href*="#"]').not('[href="#"]').not('[href="#0"]').click(function(event) {
+
+if (
+	location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
+	&& location.hostname == this.hostname
+   ) {
+
+  var target = $(this.hash);
+  target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+
+  if (target.length) {
+	event.preventDefault();
+	$('html, body').animate({
+	  scrollTop: target.offset().top
+	}, 1000);
+  }
+}
+});
+</script>
 
 
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

@@ -1355,6 +1355,7 @@ h2{
 	line-height: 1.75;
 	letter-spacing: normal;
 	color: #111111;
+	margin: 1em 0;
 }
 .auth-block .promo-form-block__form__checbox-desc {
 	width: auto;
@@ -3010,12 +3011,20 @@ h2{
 }
 /*end of exercises-tabs-block*/
 /*exercise-demos-list-block */
-.exercise-demos-list-block  {
+.exercise-demos-list-blocks  {
+	width: 100%;
+	max-width:1120px;
+	margin:0 auto 37px;
+	display: flex;
+	flex-direction: column;
+}
+.exercise-demos-list-block {
 	width: 100%;
 	max-width:1120px;
 	margin:0 auto 37px;
 	display: flex;
 }
+
 .exercise-demos-list-block__right-side{
 	margin-left: 76px;
 }
@@ -5313,4 +5322,7 @@ div#basket-items-list-wrapper {
 div#basket-items-list-container { 
 	width: 100%; 
 }
-	
+.exercise-demos-list-block__left-side__img-block img, .exercise-demos-list-block__left-side__img-block, .exercise-demos-list-block__left-side{
+	max-width: 270px;
+	max-height: 270px;
+}
