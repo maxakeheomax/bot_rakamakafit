@@ -124,8 +124,6 @@ $this->setFrameMode(true);
 			$arParams["ELEMENT_SORT_FIELD2"] = "SHOW_COUNTER";
 		}
 		
-		// $GLOBALS['arrFilter'] = array('ACTIVE' => 'N');
-		
 		$APPLICATION->IncludeComponent(
 			"bitrix:catalog.section",
 			"product_list",
