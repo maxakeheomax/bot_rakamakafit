@@ -25,16 +25,16 @@ $items = $arResult['ITEMS'];
 		<p class="special-offer-block__title__name">Вместе дешевле</p>
 	</div>
 	<div class="container-fluid special-offer-block__items">
-		<div class="row special-offer-block__items__row">
+		<div class="special-offer-block__items__row">
 			<? foreach($items as $item): ?>
-				<div class="col-md-4 special-offer-block__item">
+				<div class="special-offer-block__item">
                     <?
                     $this->AddEditAction($item['ID'], $item['EDIT_LINK'], CIBlock::GetArrayByID($arParams["IBLOCK_ID"], "ELEMENT_EDIT"));
                     $this->AddDeleteAction($item['ID'], $item['DELETE_LINK'], CIBlock::GetArrayByID($arParams["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BCS_ELEMENT_DELETE_CONFIRM')));
                     ?>
 					<img src="<?= $item['PREVIEW_PICTURE']['SRC'] ?>" alt="">
 					<div class="special-offer-block__item__title"><?= $item['NAME'] ?></div>
-					<div class="special-offer-block__item__desc"><?= $item['PREVIEW_TEXT'] ?></div>
+					<!-- <div class="special-offer-block__item__desc"><?= $item['PREVIEW_TEXT'] ?></div> -->
 					<div class="special-offer-block__item__prices">
 						<div class="special-offer-block__item__price"><?= $item['PROPERTIES']['PRICE']['VALUE'] ?> ₽</div>
 						<div class="special-offer-block__item__old-price"><?= $item['PROPERTIES']['OLD_PRICE']['VALUE'] ?> ₽</div>

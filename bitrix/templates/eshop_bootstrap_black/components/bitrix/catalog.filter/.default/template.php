@@ -75,7 +75,47 @@ if($arrElement = $dbElements->Fetch()){
 					</ul>						
 				</div>
 			</div>
+			<div class="filters_block__filter width-block">
+				<div class="filters_block__filter__title">Акционный товар</div>
+				<div class="filters_block__filter__item-list">
+					<ul>
+						<?foreach($arResult["ITEMS"]["OFFER_PROPERTY_145"]['LIST'] as $key => $arItem):?>
+							<li><input name="arrFilter_op[PROPERTY_AKCII][]" id="AKCII_filter_id-<?=$key?>" type="checkbox" value="<?=$key?>" <? if(in_array($key, $_GET['arrFilter_op']['AKCII'])) echo 'checked="checked"'; ?> ><label for="AKCII_filter_id-<?=$key?>"> <?=$arItem?> </label></li>
+						<?endforeach;?>						
+					</ul>						
+				</div>
+			</div>
 			<div class="filters_block__filter">
+				<div class="filters_block__filter__title">Уровень:</div>
+				<div class="filters_block__filter__item-list">
+					<ul>						
+						<?foreach($arResult["ITEMS"]["OFFER_PROPERTY_146"]['LIST'] as $key => $arItem):?>
+							<li><input name="arrFilter_op[LEVEL][]" id="LEVEL_filter_id-<?=$key?>" type="checkbox" value="<?=$key?>" <? if(in_array($key, $_GET['arrFilter_op']['LEVEL'])) echo 'checked="checked"'; ?> ><label for="LEVEL_filter_id-<?=$key?>"> <?=$arItem?> </label></li>
+						<?endforeach;?>
+					</ul>
+				</div>
+			</div>
+			<div class="filters_block__filter">
+				<div class="filters_block__filter__title">Наборы:</div>
+				<div class="filters_block__filter__item-list">
+					<ul>						
+						<?foreach($arResult["ITEMS"]["OFFER_PROPERTY_147"]['LIST'] as $key => $arItem):?>
+							<li><input name="arrFilter_op[NABOR][]" id="NABOR_filter_id-<?=$key?>" type="checkbox" value="<?=$key?>" <? if(in_array($key, $_GET['arrFilter_op']['NABOR'])) echo 'checked="checked"'; ?> ><label for="NABOR_filter_id-<?=$key?>"> <?=$arItem?> </label></li>
+						<?endforeach;?>
+					</ul>
+				</div>
+			</div>
+			<div class="filters_block__filter">
+				<div class="filters_block__filter__title">В составе:</div>
+				<div class="filters_block__filter__item-list">
+					<ul>						
+						<?foreach($arResult["ITEMS"]["OFFER_PROPERTY_148"]['LIST'] as $key => $arItem):?>
+							<li><input name="arrFilter_op[INCLUDE][]" id="INCLUDE_filter_id-<?=$key?>" type="checkbox" value="<?=$key?>" <? if(in_array($key, $_GET['arrFilter_op']['INCLUDE'])) echo 'checked="checked"'; ?> ><label for="INCLUDE_filter_id-<?=$key?>"> <?=$arItem?> </label></li>
+						<?endforeach;?>
+					</ul>
+				</div>
+			</div>
+			<!-- <div class="filters_block__filter">
 				<div class="filters_block__filter__title">Длина, см (по окружности)</div>
 				<div class="filters_block__filter__item-list">
 					<ul>						
@@ -84,14 +124,14 @@ if($arrElement = $dbElements->Fetch()){
 						<?endforeach;?>
 					</ul>
 				</div>
-			</div>
-			<div class="filters_block__filter">
+			</div> -->
+			<!-- <div class="filters_block__filter">
 				<div class="filters_block__filter__title">Вес</div>
 				<div class="filters_block__filter__item-list inline">					
 					<input class="valueFrom" type="text" name="arrFilter_op[WEIGHT][LEFT]" id="" value="<?= $_GET['arrFilter_op']['WEIGHT']['LEFT'] ?>">
 					<input class="valueTo" type="text" name="arrFilter_op[WEIGHT][RIGHT]" id="" value="<?= $_GET['arrFilter_op']['WEIGHT']['RIGHT'] ?>">
 				</div>				
-			</div>
+			</div> -->
 		</div>
 
 

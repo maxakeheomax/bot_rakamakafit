@@ -29,21 +29,21 @@ $this->setFrameMode(true);
 				?>
 
                 <?
-                    $arTorPreds = CCatalogSKU::getOffersList($arElement['ID'], 0, array('ACTIVE' => 'Y'), array('NAME'), array("CODE"=>array('HEIGHT', 'WIDTH')));
-                    foreach ($arTorPreds as $arTorPred){
-                        $url = '/catalog/?action=ADD2BASKET&amp;id='.array_keys($arTorPred)[0];
-                    }
+                    // $arTorPreds = CCatalogSKU::getOffersList($arElement['ID'], 0, array('ACTIVE' => 'Y'), array('NAME'), array("CODE"=>array('HEIGHT', 'WIDTH')));
+                    // foreach ($arTorPreds as $arTorPred){
+                        // $url = '/personal/cart/?action=ADD2BASKET&amp;id='.array_keys($arTorPred)[0];
+                    // }
                 ?>
 
 				<p class="promo-train-block__slider-item__slider-content__slogan"><?= $arElement["PROPERTIES"]["SLOGAN"]['VALUE']['TEXT'] ?></p>
 				<p class="promo-train-block__slider-item__slider-content__dicription"><?= $arElement["DETAIL_TEXT"] ?></p>
 				<div class="promo-train-block__slider__content_bottom">
 					<div class="promo-train-block__slider-item-button">
-						<a href="<?=$url?>" class="promo-train-block__slider-item-button__text">Купить</a>
+						<a href="/catalog/<?=$arParams["SECTION_CODE"]?>/" class="promo-train-block__slider-item-button__text">Купить</a>
 					</div>
-					<? if ($arElement["PROPERTIES"]["YUOTUBELINK"]['VALUE']) : ?>
+					<? if ($arElement["PROPERTIES"]["YOUTUBE_LINK"]['VALUE']) : ?>
 						<div class="promo-train-block__slider-item-more">
-							<a href="<?= $arElement["PROPERTIES"]["YUOTUBELINK"]['VALUE'] ?>">
+							<a target="_blank" href="<?= $arElement["PROPERTIES"]["YOUTUBE_LINK"]['VALUE'] ?>">
 								<span class="promo-train-block__slider-item-more__text"><img src="<?= SITE_TEMPLATE_PATH ?>/assets/ytb-color.svg" alt="">Смотреть видео тренировок</span>
 							</a>
 						</div>

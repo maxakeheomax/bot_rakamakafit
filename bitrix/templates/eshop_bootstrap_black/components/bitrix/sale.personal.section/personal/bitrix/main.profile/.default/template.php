@@ -38,7 +38,7 @@ use Bitrix\Main\Localization\Loc;
                             <input class="personal-cabinet-block__form__input" type="email" name="EMAIL" id="main-profile-email" value="<?=$arResult["arUser"]["EMAIL"]?>" required pattern="\S+@[a-z]+.[a-z]+" placeholder='Email'>
                         </label>
                         <label class="half_width "  name="phone">
-                            <input class="personal-cabinet-block__form__input " type="text" required   placeholder='Телефон не раб'>
+                            <input class="personal-cabinet-block__form__input " type="text" required value="<?=$arResult["arUser"]["PERSONAL_PHONE"]?>" placeholder='Телефон'>
                         </label>
                     </div>
 
@@ -85,6 +85,7 @@ use Bitrix\Main\Localization\Loc;
         <?
             $rsUser = CUser::GetByID($USER->GetID());
             $arUser = $rsUser->Fetch();
+            if ($arUser['PERSONAL_STREET']) : 
         ?>
         <div class="personal-cabinet-block__content__page-item">
             <div class="personal-cabinet-block__title">Адреса доставки</div>
@@ -97,8 +98,9 @@ use Bitrix\Main\Localization\Loc;
                 <div class="remove-item"></div>
             </div>
         </div>
+        <? endif ?>
 
-        <div class="personal-cabinet-block__content__page-item">
+        <!-- <div class="personal-cabinet-block__content__page-item">
             <div class="personal-cabinet-block__title">Карты</div>
             <div class="user_info">
                 <div class="card_item">
@@ -109,8 +111,8 @@ use Bitrix\Main\Localization\Loc;
                 </div>
                 <div class="remove-item"></div>
             </div>
-            <!-- <button class="personal-cabinet-block__form__submit" type="submit">Добавить карту</button> -->
-        </div>
+            <button class="personal-cabinet-block__form__submit" type="submit">Добавить карту</button>
+        </div> -->
         
     </div>
 	<div class="clearfix"></div>
