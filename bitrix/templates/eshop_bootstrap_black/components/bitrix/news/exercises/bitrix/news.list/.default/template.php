@@ -72,13 +72,14 @@ if(!preg_match('|\/trainings\/exercises\/\w+|', $APPLICATION->GetCurUri()) ):
 		<div class="personal-offer-block__row">
 			<div class="personal-offer-block__left-side">
 				<div class="personal-offer-block__left-side__slogan">Мы подберем для тебя программу тренировок на все группы мышц</div>
-				<a href="#">	<div class="personal-offer-block__left-side__button">
+				<a href="/trainings/programm/">	<div class="personal-offer-block__left-side__button">
 					<span class="personal-offer-block__left-side__button__text">Купить</span>
 				</div></a>
 			</div>
-			<div class="personal-offer-block__right-side">
-				<div class="personal-offer-block__right-side__slogan">Прочные и широкие фитнес ленты</div>
-				<a href="#"><div class="personal-offer-block__right-side__button">
+			<div class="personal-offer-block__right-side" style="background:url(<?=CFile::GetPath($arResult['section']['PICTURE']);?>)">
+				<div class="personal-offer-block__right-side__slogan"><?= $arResult['section']['DESCRIPTION']?></div>
+				<? $prod = CIBlockElement::GetByID($arResult['section']['UF_PRODUCT'])->GetNext();?>
+				<a href="<?=$prod['DETAIL_PAGE_URL']?>"><div class="personal-offer-block__right-side__button">
 					<span class="personal-offer-block__right-side__button__text">подробнее</span>
 				</div></a>
 			</div>
