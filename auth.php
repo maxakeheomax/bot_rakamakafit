@@ -14,7 +14,7 @@ $user_data = Bitrix\Main\UserTable::getList([
         'NAME'
     ],
     'filter' => [
-        'EMAIL' => $_POST['mail']
+        'LOGIN' => $_POST['mail']
     ]
 ])->fetch();
 $user_login = $user_data['LOGIN'];
