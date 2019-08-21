@@ -867,7 +867,7 @@ h2{
 /*aside block */
 .aside-block {
     position: fixed;
-    left: -138px;
+    left: -60px;
     top: 405px;
     display: flex;
     justify-content: space-between;

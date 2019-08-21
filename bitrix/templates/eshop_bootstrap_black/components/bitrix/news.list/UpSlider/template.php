@@ -48,7 +48,9 @@ $items = $arResult['ITEMS'];
 			<? endforeach; ?>			
 		</div>
 	</div>
-	<div class="img-wrapper">
-		<img src="<?=CFile::GetPath($iblock["PICTURE"]);?>" alt="">
+	<div class="owl-carousel up-slider-pics owl-theme">
+	<? foreach ($items as $item): ?>
+		<div class="img-wrapper" style="background: url(<?=$item['PREVIEW_PICTURE']['SRC']?>) no-repeat center; background-size: cover;"></div>
+	<?endforeach;?>
 	</div>
 </div>

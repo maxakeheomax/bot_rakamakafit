@@ -25,7 +25,7 @@ $APPLICATION->SetTitle("RAKAMAKAFIT"); ?><?$APPLICATION->IncludeComponent(
 		"FIELD_CODE" => array("",""),
 		"FILTER_NAME" => "",
 		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
-		"IBLOCK_ID" => "5",
+		"IBLOCK_ID" => "4",
 		"IBLOCK_TYPE" => "banner",
 		"INCLUDE_IBLOCK_INTO_CHAIN" => "N",
 		"INCLUDE_SUBSECTIONS" => "Y",

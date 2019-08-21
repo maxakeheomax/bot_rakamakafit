@@ -2,11 +2,11 @@
 $this->setFrameMode(true);
 
 ?>
-<pre> 
+<!-- <pre>  -->
 	<? 
 	// var_dump($arResult);
 	// print_r(CCatalogDiscount::GetByID(2)) ?> 
-</pre>
+<!-- </pre> -->
 <!-- product block -->
 <div class="product-block">
 	<div class=" product-block__product-slider">
