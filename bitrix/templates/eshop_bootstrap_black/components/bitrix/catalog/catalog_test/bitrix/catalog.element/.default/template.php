@@ -21,7 +21,7 @@ $this->setFrameMode(true);
 		<div class="slider-product-view">			
 			<?if (count($arResult["MORE_PHOTO"]) > 0):?>
 				<? foreach ($arResult["MORE_PHOTO"] as $PHOTO): ?>
-					<?$renderImage = CFile::ResizeImageGet($PHOTO, Array("width" => 500, "height" => 500), BX_RESIZE_IMAGE_EXACT, false);?>
+					<?$renderImage = CFile::ResizeImageGet($PHOTO, Array("width" => 600, "height" => 600), BX_RESIZE_IMAGE_EXACT, false);?>
 					<img  src="<?= $renderImage["src"] ?>" alt="<?= $arResult["NAME"] ?>"/>
 				<? endforeach; ?>
 			<?endif;?>

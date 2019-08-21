@@ -20,7 +20,6 @@ $items = $arResult['ITEMS'];
 
 ?>
 
-
 <div class="owl-carousel middle-slider owl-theme">
     <? foreach ($items as $item): ?>
         <?foreach ($item['DISPLAY_PROPERTIES']['TOVAR']['LINK_ELEMENT_VALUE'] as $arTovar):?>
@@ -33,7 +32,7 @@ $items = $arResult['ITEMS'];
             ?>
         <?endforeach;?>
         <div class="owl-carousel__slider-item"
-             style="background: url('<?= CFile::GetPath($item['PROPERTIES']['PICTURE']['VALUE']); ?>');background-size: 100% 100%; ">
+             style="background: url('<?= CFile::GetPath($item['PROPERTIES']['PICTURE']['VALUE']); ?>');background-size: cover; ">
             <div class="owl-carousel__slider-item__slider-content">
                 <p class="promo-train-block__slider-item__slider-content__promo-title"><?= $item['NAME']?></p>
                 <p class="owl-carousel__slider-item__slider-content__slogan"><?= $item['PROPERTIES']['TEXT1']['VALUE']['TEXT']?></p>

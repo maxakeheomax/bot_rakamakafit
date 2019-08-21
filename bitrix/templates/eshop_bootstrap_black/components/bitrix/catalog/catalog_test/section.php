@@ -29,7 +29,7 @@ $this->setFrameMode(true);
 	$component
 );?>
 	
-
+	<? $GLOBALS['topFilter'] = array("PROPERTY_ACTIV_T_VALUE" => "Да");?>
 	<div class="catalog_block">
 		<?$APPLICATION->IncludeComponent(
 			"bitrix:catalog.section",
@@ -48,7 +48,7 @@ $this->setFrameMode(true);
 				"ACTION_VARIABLE" => $arParams["ACTION_VARIABLE"],
 				"PRODUCT_ID_VARIABLE" => $arParams["PRODUCT_ID_VARIABLE"],
 				"SECTION_ID_VARIABLE" => $arParams["SECTION_ID_VARIABLE"],
-				"FILTER_NAME" => $arParams["FILTER_NAME"],
+				"FILTER_NAME" => 'topFilter',
 				"DISPLAY_PANEL" => $arParams["DISPLAY_PANEL"],
 				"CACHE_TYPE" => $arParams["CACHE_TYPE"],
 				"CACHE_TIME" => $arParams["CACHE_TIME"],
@@ -80,7 +80,6 @@ $this->setFrameMode(true);
 				"OFFERS_SORT_FIELD" => $arParams["OFFERS_SORT_FIELD"],
 				"OFFERS_SORT_ORDER" => $arParams["OFFERS_SORT_ORDER"],
 				"OFFERS_LIMIT" => $arParams["LIST_OFFERS_LIMIT"],
-
 				"SECTION_ID" => $arResult["VARIABLES"]["SECTION_ID"],
 				"SECTION_CODE" => $arResult["VARIABLES"]["SECTION_CODE"],
 				"SECTION_URL" => $arResult["FOLDER"].$arResult["URL_TEMPLATES"]["section"],

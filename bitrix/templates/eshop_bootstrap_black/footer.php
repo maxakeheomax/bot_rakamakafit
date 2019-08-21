@@ -1,6 +1,6 @@
 <? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
 
-<footer class="footer">
+<footer class="footer footer-desktop">
 	<div class="footer__footer-wrapper">
 		<div class="footer__line"></div>
 		<div class="footer__nav">
@@ -18,7 +18,7 @@
 				)
 			); ?>
 		</div>
-		<div class="footer__footer-credits">
+		<div class="footer footer-desktop footer__footer-credits">
 			<div class="footer__footer-credits__icons">
 				<a target="_blank" href="https://vk.com/rakamakafit"><img src="<?= SITE_TEMPLATE_PATH ?>/assets/footer-inst.svg" alt=""></a>
 				<a target="_blank" href="https://www.youtube.com/channel/UCVZQTeZTLrz166tbN0bEGkg?sub_confirmation=1"><img src="<?= SITE_TEMPLATE_PATH ?>/assets/footer-ytb.svg" alt=""></a>
@@ -54,6 +54,64 @@
 		</div>
 		<div class="footer__brand">
 			© 2019. RAKAMAKAFIT
+		</div>
+	</div>
+</footer>
+<footer class="footer footer-tablet">
+	<div class="footer__line"></div>
+	<div class="footer__footer-wrapper">
+		
+		<div class="footer__nav">
+			<div class="footer__nav__logo">
+				<img src="<?= SITE_TEMPLATE_PATH ?>/assets/logo-svg.svg" alt="">
+			</div>
+			<div class="footer__footer-credits__icons">
+				<a href="https://vk.com/rakamakafit"><img src="<?= SITE_TEMPLATE_PATH ?>/assets/vk-color-tablet.svg" alt=""></a>
+				<a href="https://www.youtube.com/channel/UCVZQTeZTLrz166tbN0bEGkg?sub_confirmation=1"><img src="<?= SITE_TEMPLATE_PATH ?>/assets/ytb-color-tablet.svg" alt=""></a>
+				<a href="https://www.instagram.com/rakamaka.fit/"><img src="<?= SITE_TEMPLATE_PATH ?>/assets/inst-color-tablet.svg" alt=""></a>
+			</div>
+		</div>
+		<div class="footer__nav-bar-block">
+		<? $APPLICATION->IncludeComponent(
+				"bitrix:menu",
+				"bottom_menu",
+				array(
+					"ROOT_MENU_TYPE" => "bottom",
+					//"CHILD_MENU_TYPE" => "left",
+					"MAX_LEVEL" => "3",
+					"USE_EXT" => "Y"
+				)
+			); ?>
+		</div>
+		<div class="footer__footer-credits">
+			<div class="footer__footer-credits__official-info">			
+				<ul>
+					<li><a href="#">Доставка </a></li>
+					<li><a href="#">Oплата</a></li>
+					<li><a href="#">Полезная информация</a></li>
+					<li><a href="#">О компании</a></li>
+					<li><a href="#">Контакты</a></li>
+				</ul>
+			</div>
+			<div class="footer__footer-credits__phones">
+				<ul>
+				<li>
+						<nobr><a href="tel:+74957874058">+7 (495) 787 40 58</a></nobr>
+					</li>
+					<li>
+						<nobr><a href="mailto:hello@rakamakafit.ru">hello@rakamakafit.ru</a></nobr>
+					</li>
+				</ul>
+			</div>
+			<div class="footer__footer-credits__requisites">
+				ИП Чирченко А.И. 119261,<br>
+				Москва, Ленинский проспект 85 <br>	
+				ИНН 770970317833<br>
+				ОГРНИП 316774600448261	
+				<div class="footer__brand">
+					© 2019. RAKAMAKAFIT
+				</div>	
+			</div>
 		</div>
 	</div>
 </footer>
@@ -153,7 +211,17 @@
 
 <script>
 	$(document).ready(function() {
-
+		$('.owl-carousel.slider-tablet').owlCarousel({
+                items:3,
+                lazyLoad:true,
+                loop:true,
+                margin:5,
+                dots: false,
+                smartSpeed: 800,
+                nav:false,
+                stagePadding: 36,
+                mergeFit: true
+        });
 		$pic = $('.owl-carousel.up-slider-pics');
 		$text = $('.owl-carousel.up-slider');
 		$pic.owlCarousel({
@@ -175,7 +243,15 @@
 			margin: 10,
 			dots: false,
 			nav: true,
-			navText: [`<img src="<?= SITE_TEMPLATE_PATH ?>/assets/nav-arrow-left.svg">`, `<img src="<?= SITE_TEMPLATE_PATH ?>/assets/nav-arrow-right.svg">`]
+			navText: [`<img src="<?= SITE_TEMPLATE_PATH ?>/assets/nav-arrow-left.svg">`, `<img src="<?= SITE_TEMPLATE_PATH ?>/assets/nav-arrow-right.svg">`],
+			responsive: {
+				1360:{
+					nav:true
+				},
+				320: {
+					nav:false
+				}
+			}
 		});
 
 		$text.on('change.owl.carousel', function(event) {
@@ -207,7 +283,15 @@
 			dots: true,
 			nav: true,
 			smartSpeed: 800,
-			navText: [`<img src="<?= SITE_TEMPLATE_PATH ?>/assets/nav-arrow-left.svg">`, `<img src="<?= SITE_TEMPLATE_PATH ?>/assets/nav-arrow-right.svg">`]
+			navText: [`<img src="<?= SITE_TEMPLATE_PATH ?>/assets/nav-arrow-left.svg">`, `<img src="<?= SITE_TEMPLATE_PATH ?>/assets/nav-arrow-right.svg">`],
+			responsive: {
+				1360:{
+					nav:true
+				},
+				320: {
+					nav:false
+				}
+			}
 		});
 
 
@@ -224,7 +308,15 @@
 			variableWidth: true,
 			easing: 'ease-in-out',
 			cssEase: 'ease-in-out',
-			autoplay: true
+			autoplay: true,
+			responsive: {
+                1360:{
+                    nav:true
+                },
+                320: {
+                    nav:false
+                }
+            }
 		});
 
 		$(window).scroll(function() {
@@ -449,6 +541,32 @@
 
 	<? endif ?>
 </script>
+<script>
+        $(document).ready(function() {
+            $('.article-slider.owl-carousel.middle-slider').owlCarousel({
+                items: 1,
+                lazyLoad: true,
+                loop: true,
+                margin: 10,
+                smartSpeed: 800,
+                navText: [`<img src="<?= SITE_TEMPLATE_PATH ?>/assets/nav-arrow-left.svg">`, `<img src="<?= SITE_TEMPLATE_PATH ?>/assets/nav-arrow-right.svg">`],
+                responsive: {
+                    1360: {
+
+                        nav: true,
+                        dots: true,
+                        center: true
+                    },
+                    320: {
+
+                        nav: false,
+                        dots: false,
+                        center: true
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

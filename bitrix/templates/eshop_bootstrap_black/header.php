@@ -12,7 +12,8 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php');
 <html xml:lang="<?=LANGUAGE_ID?>" lang="<?=LANGUAGE_ID?>">
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width"> -->
     <link rel="shortcut icon" type="image/x-icon" href="<?=htmlspecialcharsbx(SITE_DIR)?>favicon.ico?20" />
     <?$APPLICATION->ShowHead();?>
     
@@ -20,13 +21,15 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php');
     //////////////////// CUSTOM CSS
     //  var_dump( !$APPLICATION->GetCurUri("", false)=="/personal/order/make/" );
     
-    $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH."/libs/bootstrap-4.3.1-dist/css/bootstrap-grid.min.css", true);
+    
     $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH."/libs/owl.carousel2/dist/assets/owl.carousel.min.css", true);
     $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH."/libs/owl.carousel2/dist/assets/owl.theme.default.min.css", true);
     $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH."/libs/slick-1.8.1/slick/slick-theme.css", true);
     $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH."/libs/slick-1.8.1/slick/slick.css", true);
     $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH."/libs/all.css", true);
     $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH."/libs/ion.rangeSlider-master/css/ion.rangeSlider.min.css", true);
+    $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH."/mobile.css", true);
+    // $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH."/libs/bootstrap-4.3.1-dist/css/bootstrap-grid.min.css", true);
 ?>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
@@ -168,6 +171,22 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php');
                     </div>                        
                 </nav>
             </header>
+
+            <header class="header-mobile">
+                <div class="header__nav-bar__logo" id="popUp_call">
+                    <a href="/">
+                        <img src="<?= SITE_TEMPLATE_PATH ?>/assets/logo-svg.svg" alt="logo" class="header__nav-bar__logo-img">
+                    </a>
+                </div>
+                <div class="header-right-side">
+                    <div class="burger-menu header-right-side-item button-form-grey">меню <span class="burger-menu-icon"></span></div>
+                    <div class="cart-mobile header-right-side-item button-form-grey">
+                        <img src="<?= SITE_TEMPLATE_PATH ?>/assets/white-cart.svg" alt="">
+                    </div>
+                    <div class="login-block header-right-side-item button-form-grey"><img src="<?= SITE_TEMPLATE_PATH ?>/assets/white-login.svg" alt=""></div>
+                </div>
+            </header>
+
             <div class="aside-block" >
                 <div class="aside-block__shedule">
                     <p class="aside-block__shedule-text">График работы</p>

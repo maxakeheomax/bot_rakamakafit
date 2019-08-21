@@ -17,7 +17,7 @@ $items = $arResult['ITEMS'];
 
 //debug($items);
 ?>
-<div class="pop-products-block">
+<div class="pop-products-block desktop">
     <div class="pop-products-block__title">
         <p class="pop-products-block__title__name">Популярные товары</p>
         <!-- <div ><a href="/catalog" class="pop-products-block__title__link-to-all">все</a></div> -->
@@ -55,3 +55,40 @@ $items = $arResult['ITEMS'];
 
     </div>
 </div>
+
+<!-- pop products-block -->
+<div class="pop-products-block tablet">
+    <div class="pop-products-block__title">
+            <p class="pop-products-block__title__name">Популярные товары</p>
+            <!-- <div class="pop-products-block__title__link-to-all">все</div> -->
+    </div>
+    <div class="pop-products owl-carousel slider-tablet">
+    <?foreach ($items as $arItem):?>
+            <? if ($arItem['PROPERTIES']['POPULAR']['VALUE'] == '')
+                continue;?>
+            <?
+            $arTorPreds = CCatalogSKU::getOffersList($arItem['ID'], 0, array('ACTIVE' => 'Y'), array('NAME'), array("CODE"=>array('HEIGHT', 'WIDTH')));
+            foreach ($arTorPreds as $arTorPred){
+
+                $ar_res = CPrice::GetBasePrice(array_keys($arTorPred)[0]);
+                $arTorPreds = CCatalogSKU::getOffersList($arItem['ID'], 0, array('ACTIVE' => 'Y'), array('NAME'), array("CODE"=>array('HEIGHT', 'WIDTH')));
+                foreach ($arTorPreds as $arTorPred){
+                    $url = '/catalog/?action=ADD2BASKET&amp;id='.array_keys($arTorPred)[0];
+                }
+            }
+            ?>
+            <div class="pop-products-block__item">
+                    <div class="pop-products-block__item__img-block">
+                            <img src="<?=$arItem['PREVIEW_PICTURE']['SRC']?>" alt="">
+                    </div>
+                    <div class="pop-products-block__item__title"><span class="title-span"><?=$arItem['NAME']?></span></div>
+                    <div class="pop-products-block__item__prices">
+                            <div class="pop-products-block__item__price"><?=$ar_res['PRICE']?> ₽</div>
+                            <!-- <div class="pop-products-block__item__old-price">7980 ₽</div> -->
+                            <a href="<?=$url?>"><div class="pop-products-block__item-cart"></div></a>
+                    </div>
+            </div>
+    <?endforeach;?>
+    </div>
+</div>
+<!-- end of thanks for order block -->
