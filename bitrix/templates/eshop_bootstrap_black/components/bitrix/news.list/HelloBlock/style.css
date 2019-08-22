@@ -69,11 +69,6 @@ div.news-list img.preview_picture
 	margin: 0;
 
 }
-.hello-block__content__hello .hello-block__content__hello__img,
-.hello-block__content__hello .hello-block__content__hello__desc
-{
-	width: 50%;
-}
 .hello-block__content__hello .hello-block__content__hello__desc {
 	height: 601px;
 }

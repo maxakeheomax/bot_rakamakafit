@@ -31,7 +31,7 @@ $items = $arResult['ITEMS'];
 <div class="exercises-promo-block">
 	<div class="exercises-promo-block__up-container"></div>
 	<div class=" exercises-promo-block_row">
-		<div class="col-md-6 exercises-promo-block__left-side">
+		<div class="exercises-promo-block__left-side">
 			<div class="exercises-promo-block__left-side__title"><?=$section['NAME']?></div>
 			<div class="exercises-promo-block__left-side__desc">Мы собрали для тебя примеры самых убойных упражений на любую группу мышц</div>
 			<a href="/trainings/exercises/<?=$section['CODE']?>">
@@ -40,7 +40,7 @@ $items = $arResult['ITEMS'];
 				</div>
 			</a>
 		</div>
-		<div class="col-md-6 exercises-promo-block__right-side">
+		<div class="exercises-promo-block__right-side">
 			<div class="img-block">
 				<? $i = 0;?>
 				<? foreach ($items as $id => $item) : ?>

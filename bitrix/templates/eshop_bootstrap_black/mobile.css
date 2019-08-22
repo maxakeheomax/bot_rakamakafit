@@ -51,14 +51,6 @@
                                 .footer__nav-bar-block {
                                     padding-left: 0;
                                 }
-                                .footer__nav-bar__navs-item__link {
-                                    font-size: 12px;
-                                    font-weight: bold;
-                                    font-style: normal;
-                                    font-stretch: normal;
-                                    line-height: 2.67;
-                                    letter-spacing: normal;
-                                }
                                 .footer__nav-bar__navs,
                                 .footer__inner-nav-bar__navs {
                                     width: auto;
@@ -133,7 +125,7 @@
                                 .exercises-tabs-block__tabs__item {
                                     margin: 5px;
                                 }
-                                .exercises-tabs-block__tabs {
+                                .tapes.exercises-tabs-block__tabs {
                                     padding: 0 340px;
                                 }
                                 .exercises-tabs-block__title {
@@ -141,6 +133,7 @@
                                 }
                                 #text-block {
                                     margin: 0 auto;
+                                    padding: 0 16px;
                                 }
                                 .bottom-text-block {
                                     margin: 0 auto 172px;
@@ -183,9 +176,12 @@
                                     right: 12%;
                                 }
                                 .popUp-gift .wrapper-block {
-                                  min-width:auto;
+                                    min-width: auto;
                                     width: 600px;
                                     min-height: 450px;
+                                }
+                                .product-block .slider-product-view {
+                                    max-width: 500px;
                                 }
                             }
                             
@@ -220,7 +216,8 @@
                                     width: 100%;
                                     min-height: 428px;
                                 }
-                                .up-slider-wrapper .owl-stage, .up-slider-wrapper .owl-stage-outer {
+                                .up-slider-wrapper .owl-stage,
+                                .up-slider-wrapper .owl-stage-outer {
                                     height: 100%;
                                 }
                                 .up-slider-pics {
@@ -238,6 +235,7 @@
                                 .owl-carousel__up-slider-item__slider-content__slogan,
                                 .owl-carousel__slider-item__slider-content__dicription,
                                 .promo-train-block__slider-item__slider-content__dicription,
+                                .promo-train-block__slider-item__slider-content__discription,
                                 .owl-carousel__slider-item__slider-content__slogan::after,
                                 .special-offer-block__item__desc,
                                 .special-offer--block__item-cart,
@@ -261,7 +259,7 @@
                                 .promo-train-block__slider-item {
                                     height: 337px;
                                     background-position-x: 38% !important;
-                                    margin: 20px 16px 0;
+                                    margin: 20px 0 0;
                                 }
                                 .mixit .owl-carousel__slider-item {
                                     margin: 23px 16px 99px;
@@ -587,7 +585,7 @@
                                 .before-after .bottom-slider-block__slider-header__left-block__slogan {
                                     margin: 0 0 16px 0;
                                 }
-                                .slider-product-view {
+                                .product-block .slider-product-view {
                                     max-width: 361px;
                                 }
                                 .slider-product-view .slick-slide {
@@ -617,10 +615,6 @@
                                 .product_catalog_block {
                                     margin: 0 auto;
                                 }
-                                .exercises-promo-block_row {
-                                    justify-content: flex-start;
-                                    flex-direction: column;
-                                }
                                 .exercises-promo-block__left-side {
                                     padding: 89px 0 0 16px;
                                     max-width: 300px;
@@ -629,7 +623,7 @@
                                     font-size: 26px;
                                 }
                                 .exercises-promo-block__left-side__desc {
-                                    font-size: 11px;
+                                    font-size: 14px;
                                 }
                                 .exercises-promo-block__left-side__title::after {
                                     display: none;
@@ -756,6 +750,10 @@
                                 .personal-programm.promo-train-block__slider-item {
                                     margin: 39px 16px;
                                 }
+                                .exercises-tabs-block__tabs {
+                                    padding: 0;
+                                    justify-content: center;
+                                }
                             }
                             
                             @media(max-width:768px) {
@@ -871,14 +869,20 @@
                                 .ceo-text-block {
                                     padding: 0 16px;
                                 }
-                                .exercises-tabs-block__tabs {
+                                .tapes.exercises-tabs-block__tabs {
                                     padding: 0 16px;
+                                }
+                                .exercises-tabs-block__tabs {
+                                    padding: 0;
                                 }
                                 .personal-programm .promo-train-block__slider-item__slider-content__slogan {
                                     font-size: 30px;
                                 }
                                 .product-block__description__buttons {
                                     flex-flow: column-reverse;
+                                }
+                                .product-block .product-block__description__buttons {
+                                    flex-flow: row;
                                 }
                                 .discount-timer-slogan {
                                     width: auto;
@@ -895,5 +899,13 @@
                                 }
                                 .discount.product-block .product-block__description__desc {
                                     margin-bottom: 13px;
+                                }
+                                .footer__nav-bar__navs-item__link {
+                                    font-size: 12px;
+                                    font-weight: bold;
+                                    font-style: normal;
+                                    font-stretch: normal;
+                                    line-height: 2.67;
+                                    letter-spacing: normal;
                                 }
                             }

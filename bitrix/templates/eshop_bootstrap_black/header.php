@@ -29,7 +29,7 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php');
     $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH."/libs/all.css", true);
     $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH."/libs/ion.rangeSlider-master/css/ion.rangeSlider.min.css", true);
     $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH."/mobile.css", true);
-    // $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH."/libs/bootstrap-4.3.1-dist/css/bootstrap-grid.min.css", true);
+    $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH."/libs/bootstrap-4.3.1-dist/css/bootstrap-grid.min.css", true);
 ?>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
@@ -39,6 +39,7 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php');
     $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH."/libs/slick-1.8.1/slick/slick.min.js");
     $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH."/libs/hc-sticky-master/src/hc-sticky.js");
     $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH."/libs/ion.rangeSlider-master/js/ion.rangeSlider.min.js");
+    $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH."/libs/bootstrap-4.3.1-dist/js/bootstrap.min.js");
 
     ?>
     <title><?$APPLICATION->ShowTitle()?></title>
@@ -173,7 +174,7 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php');
             </header>
 
             <header class="header-mobile">
-                <div class="header__nav-bar__logo" id="popUp_call">
+                <div class="header__nav-bar__logo">
                     <a href="/">
                         <img src="<?= SITE_TEMPLATE_PATH ?>/assets/logo-svg.svg" alt="logo" class="header__nav-bar__logo-img">
                     </a>
