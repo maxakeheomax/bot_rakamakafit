@@ -97,7 +97,7 @@ $APPLICATION->SetTitle("RAKAMAKAFIT"); ?><?$APPLICATION->IncludeComponent(
 		"PARENT_SECTION" => "",
 		"PARENT_SECTION_CODE" => "",
 		"PREVIEW_TRUNCATE_LEN" => "",
-		"PROPERTY_CODE" => array("TEXT2","TEXT1","[PICTURE] Картинка",""),
+		"PROPERTY_CODE" => array("TEXT2","TEXT1","[PICTURE] Картинка","TOVAR"),
 		"SET_BROWSER_TITLE" => "N",
 		"SET_LAST_MODIFIED" => "N",
 		"SET_META_DESCRIPTION" => "Y",
@@ -111,7 +111,9 @@ $APPLICATION->SetTitle("RAKAMAKAFIT"); ?><?$APPLICATION->IncludeComponent(
 		"SORT_ORDER2" => "ASC",
 		"STRICT_SECTION_CHECK" => "N"
 	)
-);?> <?$APPLICATION->IncludeComponent(
+);?> <?
+$GLOBALS['spesialSort'] = ["PROPERTY_SPECIALOFFER_VALUE" => "да"];
+$APPLICATION->IncludeComponent(
 	"bitrix:news.list", 
 	"SpecialOffer", 
 	array(
@@ -138,7 +140,7 @@ $APPLICATION->SetTitle("RAKAMAKAFIT"); ?><?$APPLICATION->IncludeComponent(
 			0 => "",
 			1 => "",
 		),
-		"FILTER_NAME" => "",
+		"FILTER_NAME" => "spesialSort",
 		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
 		"IBLOCK_ID" => "15",
 		"IBLOCK_TYPE" => "catalog",
