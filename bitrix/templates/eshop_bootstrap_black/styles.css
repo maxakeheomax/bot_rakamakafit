@@ -1261,6 +1261,11 @@ button-form-grey {
     flex-flow: row wrap;
     margin-top: 34px;
 }
+.special-offer-block__items::after {
+    content: '';
+    display: flex;
+    flex: auto;
+}
 
 .bootstrap-box .special-offer-block__items {
     margin: 34px 0 0 0;
@@ -1290,8 +1295,9 @@ button-form-grey {
     flex-flow: column nowrap;
     justify-content: space-between;
     align-items: center;
+    margin-left: 9px;
+    margin-right: 9px;
 }
-
 .bootstrap-box .special-offer-block__item {
     margin-bottom: 106px;
 }
@@ -1416,8 +1422,8 @@ button-form-grey {
 }
 
 .special-offer-block__item img {
-    max-width: 325px;
-    max-height: 325px;
+    max-width: 320px;
+    max-height: 320px;
 }
 
 .special-offer--block__item-cart {
