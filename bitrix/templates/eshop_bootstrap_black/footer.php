@@ -30,6 +30,7 @@
 					<li><a href="/about/">Полезная информация</a></li>
 					<li><a href="/about/">О компании</a></li>
 					<li><a href="/contacts/">Контакты</a></li>
+					<li><a href="/agreement/">Политика конфиденциальности</a></li>
 				</ul>
 			</div>
 			<div class="footer__footer-credits__phones">
@@ -60,7 +61,7 @@
 <footer class="footer footer-tablet">
 	<div class="footer__line"></div>
 	<div class="footer__footer-wrapper">
-		
+
 		<div class="footer__nav">
 			<div class="footer__nav__logo">
 				<img src="<?= SITE_TEMPLATE_PATH ?>/assets/logo-svg.svg" alt="">
@@ -72,7 +73,7 @@
 			</div>
 		</div>
 		<div class="footer__nav-bar-block">
-		<? $APPLICATION->IncludeComponent(
+			<? $APPLICATION->IncludeComponent(
 				"bitrix:menu",
 				"bottom_menu",
 				array(
@@ -84,7 +85,7 @@
 			); ?>
 		</div>
 		<div class="footer__footer-credits">
-			<div class="footer__footer-credits__official-info">			
+			<div class="footer__footer-credits__official-info">
 				<ul>
 					<li><a href="#">Доставка </a></li>
 					<li><a href="#">Oплата</a></li>
@@ -95,7 +96,7 @@
 			</div>
 			<div class="footer__footer-credits__phones">
 				<ul>
-				<li>
+					<li>
 						<nobr><a href="tel:+74957874058">+7 (495) 787 40 58</a></nobr>
 					</li>
 					<li>
@@ -105,12 +106,12 @@
 			</div>
 			<div class="footer__footer-credits__requisites">
 				ИП Чирченко А.И. 119261,<br>
-				Москва, Ленинский проспект 85 <br>	
+				Москва, Ленинский проспект 85 <br>
 				ИНН 770970317833<br>
-				ОГРНИП 316774600448261	
+				ОГРНИП 316774600448261
 				<div class="footer__brand">
 					© 2019. RAKAMAKAFIT
-				</div>	
+				</div>
 			</div>
 		</div>
 	</div>
@@ -212,16 +213,16 @@
 <script>
 	$(document).ready(function() {
 		$('.owl-carousel.slider-tablet').owlCarousel({
-                items:3,
-                lazyLoad:true,
-                loop:true,
-                margin:5,
-                dots: false,
-                smartSpeed: 800,
-                nav:false,
-                stagePadding: 36,
-                mergeFit: true
-        });
+			items: 3,
+			lazyLoad: true,
+			loop: true,
+			margin: 5,
+			dots: false,
+			smartSpeed: 800,
+			nav: false,
+			stagePadding: 36,
+			mergeFit: true
+		});
 		$pic = $('.owl-carousel.up-slider-pics');
 		$text = $('.owl-carousel.up-slider');
 		$pic.owlCarousel({
@@ -245,11 +246,11 @@
 			nav: true,
 			navText: [`<img src="<?= SITE_TEMPLATE_PATH ?>/assets/nav-arrow-left.svg">`, `<img src="<?= SITE_TEMPLATE_PATH ?>/assets/nav-arrow-right.svg">`],
 			responsive: {
-				1360:{
-					nav:true
+				1360: {
+					nav: true
 				},
 				320: {
-					nav:false
+					nav: false
 				}
 			}
 		});
@@ -285,11 +286,11 @@
 			smartSpeed: 800,
 			navText: [`<img src="<?= SITE_TEMPLATE_PATH ?>/assets/nav-arrow-left.svg">`, `<img src="<?= SITE_TEMPLATE_PATH ?>/assets/nav-arrow-right.svg">`],
 			responsive: {
-				1360:{
-					nav:true
+				1360: {
+					nav: true
 				},
 				320: {
-					nav:false
+					nav: false
 				}
 			}
 		});
@@ -310,13 +311,13 @@
 			cssEase: 'ease-in-out',
 			autoplay: true,
 			responsive: {
-                1360:{
-                    nav:true
-                },
-                320: {
-                    nav:false
-                }
-            }
+				1360: {
+					nav: true
+				},
+				320: {
+					nav: false
+				}
+			}
 		});
 
 		$(window).scroll(function() {
@@ -397,6 +398,7 @@
 				$('body').css('overflow-y', 'inherit');
 				$('.page_content').css('filter', 'none')
 				$('.auth-container').fadeOut();
+				$('.popUp').fadeOut();
 				setTimeout(function() {
 					$('.registr-block, .greetings-block').addClass('hidden-block');
 					$('.LogIn-block').removeClass('hidden-block');
@@ -542,31 +544,116 @@
 	<? endif ?>
 </script>
 <script>
-        $(document).ready(function() {
-            $('.article-slider.owl-carousel.middle-slider').owlCarousel({
-                items: 1,
-                lazyLoad: true,
-                loop: true,
-                margin: 10,
-                smartSpeed: 800,
-                navText: [`<img src="<?= SITE_TEMPLATE_PATH ?>/assets/nav-arrow-left.svg">`, `<img src="<?= SITE_TEMPLATE_PATH ?>/assets/nav-arrow-right.svg">`],
-                responsive: {
-                    1360: {
+	$(document).ready(function() {
+		$('.article-slider.owl-carousel.middle-slider').owlCarousel({
+			items: 1,
+			lazyLoad: true,
+			loop: true,
+			margin: 10,
+			smartSpeed: 800,
+			navText: [`<img src="<?= SITE_TEMPLATE_PATH ?>/assets/nav-arrow-left.svg">`, `<img src="<?= SITE_TEMPLATE_PATH ?>/assets/nav-arrow-right.svg">`],
+			responsive: {
+				1360: {
 
-                        nav: true,
-                        dots: true,
-                        center: true
-                    },
-                    320: {
+					nav: true,
+					dots: true,
+					center: true
+				},
+				320: {
 
-                        nav: false,
-                        dots: false,
-                        center: true
-                    }
-                }
-            });
-        });
-    </script>
+					nav: false,
+					dots: false,
+					center: true
+				}
+			}
+		});
+	});
+</script>
+
+<!-- faq_popUp -->
+
+<div class="popUp faq_popUp hidden-block" id="faq">
+	<div class="blur-block"></div>
+	<div class="wrapper-block">
+		<div class="close-button"></div>
+
+		<div class="accordion" id="FAQaccordion">
+			<div class="card">
+				<div class="card-header collapsed" id="headingOne" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+					<h2>
+						Сколько стоит участие в марафоне?
+					</h2>
+					<div class="icon-collapsed"></div>
+
+				</div>
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#FAQaccordion">
+					<div class="card-body">
+						<p>Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Она, послушавшись агенство однажды грамматики. Океана, послушавшись переписывается не страна текст, она ведущими сих скатился буквенных последний
+							великий лучше щеке о приставка свою живет толку текстами ручеек единственное! Залетают предупреждал которой океана путь рот, меня, возвращайся пояс, агенство своих заглавных запятой на берегу но грустный пунктуация! Маленький
+							речью деревни, точках буквенных, вопроса назад правилами, ipsum встретил большой живет всеми составитель использовало. Пояс, переписывается не приставка на берегу своего которое, первую эта океана жизни меня языкового,
+							грустный, прямо рукопись! Страна за ведущими ее жизни, текстами его однажды обеспечивает. Домах эта парадигматическая себя букв.</p>
+					</div>
+				</div>
+			</div>
+			<div class="card">
+				<div class="card-header collapsed" id="headingTwo" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+
+					<h2>
+						Какое оборудование мне понадобится?
+					</h2>
+					<div class="icon-collapsed"></div>
+
+				</div>
+				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#FAQaccordion">
+					<div class="card-body">
+						<p>Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Она, послушавшись агенство однажды грамматики. Океана, послушавшись переписывается не страна текст, она ведущими сих скатился буквенных последний
+							великий лучше щеке о приставка свою живет толку текстами ручеек единственное! Залетают предупреждал которой океана путь рот, меня, возвращайся пояс, агенство своих заглавных запятой на берегу но грустный пунктуация! Маленький
+							речью деревни, точках буквенных, вопроса назад правилами, ipsum встретил большой живет всеми составитель использовало. Пояс, переписывается не приставка на берегу своего которое, первую эта океана жизни меня языкового,
+							грустный, прямо рукопись! Страна за ведущими ее жизни, текстами его однажды обеспечивает. Домах эта парадигматическая себя букв.</p>
+					</div>
+				</div>
+			</div>
+			<div class="card">
+				<div class="card-header collapsed" id="headingThree" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+
+					<h2>
+						Какие противопоказания?
+					</h2>
+					<div class="icon-collapsed"></div>
+				</div>
+				<div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#FAQaccordion">
+					<div class="card-body">
+						<p>Если ты хочешь скинуть лишние килограммы, не только с пользой, но и весело провести время в компании единомышленниц — присоединяйся! Это уже 7-й поток моего бесплатного фитнес марафона!</p>
+
+						<p>На завтра откладывать можно сколько угодно, и оправданий найдется масса, и дел поважнее. Но сейчас у тебя есть реальный шанс: я дам тебе пинок под зад. Ты войдешь в новый ритм под моим руководством: меню, тренировки, мотивация
+							– тебе не нужно думать, просто повторяй за мной и всеми участницами марафона трансформации тела. И все это абсолютно бесплатно.</p>
+					</div>
+				</div>
+			</div>
+			<div class="card">
+				<div class="card-header collapsed" id="headingFour" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+
+					<h2>
+						Сколько будет длиться марафон?
+					</h2>
+					<div class="icon-collapsed"></div>
+
+				</div>
+				<div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#FAQaccordion">
+					<div class="card-body">
+						<p>Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Она, послушавшись агенство однажды грамматики. Океана, послушавшись переписывается не страна текст, она ведущими сих скатился буквенных последний
+							великий лучше щеке о приставка свою живет толку текстами ручеек единственное! Залетают предупреждал которой океана путь рот, меня, возвращайся пояс, агенство своих заглавных запятой на берегу но грустный пунктуация! Маленький
+							речью деревни, точках буквенных, вопроса назад правилами, ipsum встретил большой живет всеми составитель использовало. Пояс, переписывается не приставка на берегу своего которое, первую эта океана жизни меня языкового,
+							грустный, прямо рукопись! Страна за ведущими ее жизни, текстами его однажды обеспечивает. Домах эта парадигматическая себя букв.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- end of faq_popUp -->
+
 </body>
 
 </html>
