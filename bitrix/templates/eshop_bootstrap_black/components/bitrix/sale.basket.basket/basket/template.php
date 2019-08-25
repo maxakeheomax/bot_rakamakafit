@@ -337,7 +337,7 @@ else
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ?>
-
+<? if($arResult['allSum'] != 0): ?>
 <div class="breadcrumbs">
 	<div class="breadcrumbs-content">
 		<div class="breadcrumbs__item">Главная </div>
@@ -350,7 +350,7 @@ else
 	<div class="cart-block__title-block">
 		<div class="up-hello-block__left-side__title">Корзина</div>
 		<div class="cart-block__title-block__clear-button">
-			<p>очистить <i class="fa fa-times" aria-hidden="true"></i></p>
+			<a href="/personal/cart/?BasketDelete=1"><p>очистить <i class="fa fa-times" aria-hidden="true"></i></p></a>
 		</div>
 	</div>
 	<div class="cart-block__content">
@@ -509,7 +509,7 @@ else
 			$(element).find('.actual-price.price span').text(actual_price);
 		});
 	}	
-
+	prices();
 	$('.cart-block__cart-review__button').click(function () {
 		$('.cart-block__cart-review__button_old').click();
 
@@ -559,3 +559,4 @@ else
 	});
 
 </script>
+<? endif; ?>

@@ -28,3 +28,11 @@ if ('' != $arParams['TEMPLATE_THEME'])
 }
 if ('' == $arParams['TEMPLATE_THEME'])
 	$arParams['TEMPLATE_THEME'] = 'blue';
+
+	
+if ($_GET["BasketDelete"] and CModule::IncludeModule("sale"))
+{
+	CSaleBasket::DeleteAll(CSaleBasket::GetBasketUserID());
+	header('Location: /personal/cart/');
+}
+    
