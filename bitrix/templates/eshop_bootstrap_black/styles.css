@@ -1155,11 +1155,11 @@ button-form-grey {
 }
 
 .owl-theme .owl-dots .owl-dot.active span {
-    background-color: #fff;
+    background-color: #fff !important;
 }
 
 .owl-theme .owl-dots .owl-dot span {
-    background-color: rgba(255, 255, 255, .5);
+    background-color: rgba(255, 255, 255, .5) !important;
     width: 8px;
     height: 8px;
 }
@@ -3321,6 +3321,7 @@ button-form-grey {
     color: #000000;
     position: absolute;
     bottom: 108px;
+    width: 100%;;
 }
 
 .personal-offer-block__right-side__button {
@@ -4137,7 +4138,7 @@ button-form-grey {
 }
 
 .product_catalog_block .catalog_block {
-    margin: 0 159px 0 107px;
+    margin: 0 130px 0 107px;
 }
 
 .filters_block__filter__item-list.inline {
@@ -4269,6 +4270,30 @@ button-form-grey {
     padding: 5px;
 }
 
+.catalog__block__tabs a.DESC:after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    background: url('/bitrix/templates/eshop_bootstrap_black/assets/arrow.png');
+    display: inline-block;
+    margin-left: 5px;
+    background-size: contain;
+}
+.catalog__block__tabs a.ASC, .catalog__block__tabs a.DESC {
+    background-color: #e1fa61;
+    color: #000;
+}
+.catalog__block__tabs a.ASC:after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    background: url('/bitrix/templates/eshop_bootstrap_black/assets/arrow.png');
+    display: inline-block;
+    margin-left: 5px;
+    background-size: contain;
+    transform: rotate(180deg);
+}
+
 .catalog__block__tabs a:hover {
     background-color: #e1fa61;
     color: #000;
@@ -4279,7 +4304,7 @@ button-form-grey {
     color: #000;
 }
 
-.catalog_block .pop-products-block__item:not(:last-child) {
+.catalog_block .pop-products-block__item/*:not(:last-child)*/ {
     border: solid 1px #e5e5e5;
 }
 
@@ -4476,6 +4501,18 @@ button-form-grey {
     counter-increment: list2;
     /* Увеличиваем значение счетчика вложенного списка */
     content: counter(list1) "." counter(list2) ". ";
+    /* Выводим число */
+    font-size: 16px!important;
+    font-weight: normal!important;
+}
+
+#public-offer_text-block ol ol ol {
+    counter-reset: list3;
+}
+#public-offer_text-block ol ol ol>li:before {
+    counter-increment: list3;
+    /* Увеличиваем значение счетчика вложенного списка */
+    content: counter(list1) "." counter(list2) "." counter(list3) ". ";
     /* Выводим число */
     font-size: 16px!important;
     font-weight: normal!important;

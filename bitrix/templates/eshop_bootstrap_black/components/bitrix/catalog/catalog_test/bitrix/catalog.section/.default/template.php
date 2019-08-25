@@ -6,6 +6,8 @@ $this->setFrameMode(true);
 <? if ($arParams["DISPLAY_TOP_PAGER"]) : ?>
 	<?= $arResult["NAV_STRING"] ?>
 <? endif; ?>
+<pre>
+<? print_r($arResult);?>
 <div class="tapes promo-train-block__slider-item" style="background: url(<?=$arResult['DETAIL_PICTURE']['SRC']?>) no-repeat; background-size:cover">
 	<div class="promo-train-block__slider-item__slider-content">
 		<div class="promo-train-block__slider-item__slider-content-tabs">
