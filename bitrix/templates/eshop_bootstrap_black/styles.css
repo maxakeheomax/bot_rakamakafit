@@ -868,7 +868,7 @@ button-form-grey {
     letter-spacing: 1px;
     text-align: center;
     color: #000000;
-    margin: 24px 0;
+    padding: 24px 0;
     display: inline-block;
 }
 
@@ -1027,7 +1027,7 @@ button-form-grey {
 
 .owl-carousel__slider-item-button {
     border-radius: 32px;
-    width: 171px;
+    /* width: 171px; */
     height: 64px;
     background-color: #e7ff6a;
     text-align: center;
@@ -1042,7 +1042,7 @@ button-form-grey {
     line-height: normal;
     letter-spacing: 0.9px;
     text-align: center;
-    margin: 24px 0;
+    padding: 24px 50px;
     display: inline-block;
     color: #000000;
 }
@@ -1155,11 +1155,11 @@ button-form-grey {
 }
 
 .owl-theme .owl-dots .owl-dot.active span {
-    background-color: #fff;
+    background-color: #fff !important;
 }
 
 .owl-theme .owl-dots .owl-dot span {
-    background-color: rgba(255, 255, 255, .5);
+    background-color: rgba(255, 255, 255, .5) !important;
     width: 8px;
     height: 8px;
 }
@@ -1261,6 +1261,11 @@ button-form-grey {
     flex-flow: row wrap;
     margin-top: 34px;
 }
+.special-offer-block__items::after {
+    content: '';
+    display: flex;
+    flex: auto;
+}
 
 .bootstrap-box .special-offer-block__items {
     margin: 34px 0 0 0;
@@ -1290,8 +1295,9 @@ button-form-grey {
     flex-flow: column nowrap;
     justify-content: space-between;
     align-items: center;
+    margin-left: 9px;
+    margin-right: 9px;
 }
-
 .bootstrap-box .special-offer-block__item {
     margin-bottom: 106px;
 }
@@ -1416,8 +1422,8 @@ button-form-grey {
 }
 
 .special-offer-block__item img {
-    max-width: 325px;
-    max-height: 325px;
+    max-width: 320px;
+    max-height: 320px;
 }
 
 .special-offer--block__item-cart {
@@ -2338,7 +2344,7 @@ button-form-grey {
 
 .promo-train-block__slider-item-button {
     border-radius: 32px;
-    width: 184px;
+    /* width: 184px; */
     height: 64px;
     background-color: #e7ff6a;
     text-align: center;
@@ -2346,7 +2352,7 @@ button-form-grey {
 
 .personal-programm .promo-train-block__slider-item-button {
     border-radius: 32px;
-    width: 167px;
+    /* width: 167px; */
     height: 64px;
     background-color: #e7ff6a;
     text-align: center;
@@ -2354,7 +2360,7 @@ button-form-grey {
 
 .tapes .promo-train-block__slider-item-button {
     border-radius: 32px;
-    width: 176px;
+    /* width: 176px; */
     height: 64px;
     background-color: #e7ff6a;
     text-align: center;
@@ -2370,7 +2376,7 @@ button-form-grey {
     letter-spacing: 0.9px;
     text-align: center;
     color: #000000;
-    margin: 25px 0;
+    padding: 25px 50px;
     display: inline-block;
 }
 
@@ -3320,6 +3326,7 @@ button-form-grey {
     color: #000000;
     position: absolute;
     bottom: 108px;
+    width: 100%;;
 }
 
 .personal-offer-block__right-side__button {
@@ -4136,7 +4143,7 @@ button-form-grey {
 }
 
 .product_catalog_block .catalog_block {
-    margin: 0 159px 0 107px;
+    margin: 0 130px 0 107px;
 }
 
 .filters_block__filter__item-list.inline {
@@ -4268,6 +4275,30 @@ button-form-grey {
     padding: 5px;
 }
 
+.catalog__block__tabs a.DESC:after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    background: url('/bitrix/templates/eshop_bootstrap_black/assets/arrow.png');
+    display: inline-block;
+    margin-left: 5px;
+    background-size: contain;
+}
+.catalog__block__tabs a.ASC, .catalog__block__tabs a.DESC {
+    background-color: #e1fa61;
+    color: #000;
+}
+.catalog__block__tabs a.ASC:after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    background: url('/bitrix/templates/eshop_bootstrap_black/assets/arrow.png');
+    display: inline-block;
+    margin-left: 5px;
+    background-size: contain;
+    transform: rotate(180deg);
+}
+
 .catalog__block__tabs a:hover {
     background-color: #e1fa61;
     color: #000;
@@ -4278,7 +4309,7 @@ button-form-grey {
     color: #000;
 }
 
-.catalog_block .pop-products-block__item:not(:last-child) {
+.catalog_block .pop-products-block__item/*:not(:last-child)*/ {
     border: solid 1px #e5e5e5;
 }
 
@@ -4475,6 +4506,18 @@ button-form-grey {
     counter-increment: list2;
     /* Увеличиваем значение счетчика вложенного списка */
     content: counter(list1) "." counter(list2) ". ";
+    /* Выводим число */
+    font-size: 16px!important;
+    font-weight: normal!important;
+}
+
+#public-offer_text-block ol ol ol {
+    counter-reset: list3;
+}
+#public-offer_text-block ol ol ol>li:before {
+    counter-increment: list3;
+    /* Увеличиваем значение счетчика вложенного списка */
+    content: counter(list1) "." counter(list2) "." counter(list3) ". ";
     /* Выводим число */
     font-size: 16px!important;
     font-weight: normal!important;

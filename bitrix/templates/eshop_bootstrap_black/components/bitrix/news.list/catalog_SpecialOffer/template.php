@@ -26,10 +26,14 @@ $items = $arResult['ITEMS'];
             $this->AddDeleteAction($item['ID'], $item['DELETE_LINK'], CIBlock::GetArrayByID($arParams["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BCS_ELEMENT_DELETE_CONFIRM')));
             ?>
             <div class="owl-carousel__slider-item__slider-content">
-                <p class="owl-carousel__slider-item__slider-content__promo-title"><?= $item['NAME'] ?>
-                    <span class="promo-form-block__title_underline-block">в подарок</span></p>
+                <p class="owl-carousel__slider-item__slider-content__promo-title">
+                <? $pieces = explode(' ', $item['NAME']);
+                    $last_word = array_pop($pieces);    
+                    $item['NAME'] = implode(' ',$pieces);
+                    echo($item['NAME']);?>
+                    <span class="promo-form-block__title_underline-block"><?=$last_word?></span></p>
 
-                <p class="owl-carousel__slider-item__slider-content__dicription"><?= $item['PREVIEW_TEXT'] ?></p>
+                <p class="owl-carousel__slider-item__slider-content__dicription"><?=strip_tags($item['PREVIEW_TEXT'],"<br><b><i>") ?></p>
             </div>
         </div>
     <? endforeach; ?>

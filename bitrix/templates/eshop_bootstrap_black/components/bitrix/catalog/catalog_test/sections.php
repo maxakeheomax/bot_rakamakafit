@@ -123,6 +123,11 @@ $this->setFrameMode(true);
 		{
 			$arParams["ELEMENT_SORT_FIELD2"] = "SHOW_COUNTER";
 		}
+		if ($_GET['order'] == "ASC") {
+			$arParams['ELEMENT_SORT_ORDER'] = $_GET['order'];
+		} else {
+			$arParams['ELEMENT_SORT_ORDER'] = "DESC";
+		}
 		
 		$APPLICATION->IncludeComponent(
 			"bitrix:catalog.section",

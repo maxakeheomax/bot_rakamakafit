@@ -16,9 +16,14 @@ $this->setFrameMode(true);
 <div class="catalog_block">
 	<div class="catalog__block__tabs">
 		<div class="catalog__block__tabs__title">Сортировать</div>
-		<a href="<?= $APPLICATION->GetCurPageParam("sort=popular",array("sort"), false) ?>">по полуярности</a>
-		<a href="<?= $APPLICATION->GetCurPageParam("sort=price",array("sort"), false) ?>">по цене</a>
-		<a href="<?= $APPLICATION->GetCurPageParam("sort=available",array("sort"), false) ?>">по наличию</a>
+		<? if (isset($_GET['order']) && $_GET['order'] == "DESC") {
+			$order = "ASC";
+		} else {
+			$order = "DESC";
+		}?>
+		<a class="<?=((isset($_GET['sort']) && $_GET['sort'] == 'popular') ? $order : "")?>" href="<?= $APPLICATION->GetCurPageParam("sort=popular&order=".$order,array("sort","order"), false) ?>">по полуярности</a>
+		<a class="<?=((isset($_GET['sort']) && $_GET['sort'] == 'price') ? $order : "")?>" href="<?= $APPLICATION->GetCurPageParam("sort=price&order=".$order,array("sort","order"), false) ?>">по цене</a>
+		<a class="<?=((isset($_GET['sort']) && $_GET['sort'] == 'available') ? $order : "")?>" href="<?= $APPLICATION->GetCurPageParam("sort=available&order=".$order,array("sort","order"), false) ?>">по наличию</a>
 	</div>
 
 

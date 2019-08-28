@@ -896,11 +896,11 @@ else
 			$('.popUp').fadeIn();
 		});
 
-		$('.close-button').click(function(){
-			$('body').css('overflow-y','inherit');
-				$('.page_content').css('filter', 'none')
-				$('.popUp').fadeOut();
-		})
+		// $('.close-button').click(function(){
+		// 	$('body').css('overflow-y','inherit');
+		// 		$('.page_content').css('filter', 'none')
+		// 		$('.popUp').fadeOut();
+		// })
 
 		
 
