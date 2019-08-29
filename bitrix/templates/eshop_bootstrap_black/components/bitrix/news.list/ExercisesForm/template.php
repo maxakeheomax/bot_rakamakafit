@@ -24,8 +24,8 @@ $this->setFrameMode(true);
                         <button class="promo-form-block__form__submit" type="submit">подписаться</button>
                     </div>
                     <div class="promo-form-block__form__input-checkbox-wrapper">
-                        <input class="promo-form-block__form__checbox" type="checkbox" name="" id="promo-checbox">
-                        <label for="promo-checbox"></label>
+                        <input class="promo-form-block__form__checbox" type="checkbox" name="" id="promo-form-block-checkbox">
+                        <label for="promo-form-block-checkbox"></label>
                         <p class="promo-form-block__form__checbox-desc">Я согласен с обработкой персональных данных</p>
                     </div>
                 </form>

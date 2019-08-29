@@ -1,14 +1,13 @@
 $(document).ready(function () {
     $('.slider-nav-block').slick({
-        slidesToShow:6,
-        infinite: false,
-        slidesToScroll:1,
+        slidesToShow: 6,
+        slidesPerRow: 6,
         focusOnSelect: true,
+        asNavFor: '.slider-product-view',
         vertical: true,
         verticalSwiping: true,
-        arrows: true,
-        asNavFor: '.slider-product-view',
-        
+        arrows:true,
+        nextArrow: `<div class="slick-arrow-wrapper"><img src="/bitrix/templates/eshop_bootstrap_black/assets/arrow_down.svg"></div>`
     });
 
     $('.slider-product-view').slick({
@@ -17,4 +16,5 @@ $(document).ready(function () {
         fade: true,
         arrows: false
     });
-})
+
+});

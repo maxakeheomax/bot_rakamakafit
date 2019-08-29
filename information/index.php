@@ -45,8 +45,8 @@ $APPLICATION->SetTitle("О компнаии");
 						
 					</div>
 										<div class="promo-form-block__form__input-checkbox-wrapper">			
-						<input  class="promo-form-block__form__checbox"  type="checkbox" name="" id="promo-checkbox">
-						<label for="promo-checkbox"></label>
+						<input  class="promo-form-block__form__checbox"  type="checkbox" name="" id="fake-detection-form-checkbox">
+						<label for="fake-detection-form-checkbox"></label>
 						<p class="promo-form-block__form__checbox-desc">Я согласен с обработкой персональных данных</p>
 						
 					</div>
