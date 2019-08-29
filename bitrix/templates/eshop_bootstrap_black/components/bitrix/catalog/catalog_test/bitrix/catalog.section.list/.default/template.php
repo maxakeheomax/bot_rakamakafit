@@ -7,7 +7,6 @@ $this->setFrameMode(true);
 if ($arResult['SECTION']["DEPTH_LEVEL"] === 0) :
 	//  echo '<pre>'; var_dump($arResult["SECTIONS"]); echo '</pre>';
 	?>
-
 	<!-- exercises-tabs-block -->
 	<div class="product-catalog exercises-tabs-block">
 		<div class="exercises-tabs-block__title">Категории товаров</div>

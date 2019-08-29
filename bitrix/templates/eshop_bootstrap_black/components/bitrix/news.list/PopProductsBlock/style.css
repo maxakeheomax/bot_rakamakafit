@@ -46,3 +46,35 @@
 	width: 100%;
 }
 
+
+.pop-products-block__item{
+	display: flex;
+	align-content: space-around;
+	flex-flow: column;
+	width: 210px;
+	height: 380px!important;
+	background-color: #fff;
+	position: relative;
+	margin-bottom: 30px;
+	margin-right: 6px;
+}
+
+.pop-products-block__item__title {
+	font-size: 14px;
+	width: 177px;
+	font-weight: normal;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: 1.29;
+	letter-spacing: normal;
+	color: #000000;
+	position: absolute;
+	bottom: 134px!important;;
+	left: 52%;
+	transform: translateX(-50%);
+	height: 36px;
+}
+
+.special-offer-block__item__old-price{
+	margin-left: 15px!important;
+}

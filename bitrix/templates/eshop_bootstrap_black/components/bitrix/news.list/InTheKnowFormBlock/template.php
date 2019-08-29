@@ -19,18 +19,20 @@ $items = $arResult['ITEMS'];
 <div class="in-the-know-form-block">
     <div class="in-the-know-form-block__title">Хочешь быть в курсе</div>
     <div class="in-the-know-form-block__desc">cамых интересный новостей, получать еженедельно вкусные рецепты, советы по питанию и тренировкам от меня лично?</div>
-    <form class="in-the-know-form-block__form" action="#">
+    <form class="in-the-know-form-block__form" action="/forms_ajax.php" method="post">
+        <input type="hidden" name="action" value="news">
+        <input type="hidden" name="url" value="<?=$APPLICATION->GetCurPage();?>">
         <div class="in-the-know-form-block__form__input-wrapper">
-            <label name="name">
-                <input class="in-the-know-form-block__form__input" type="text" required pattern="[A-Za-zА-Яа-яЁё]" placeholder='Имя'>
+            <label>
+                <input name="name" class="in-the-know-form-block__form__input" type="text" required pattern="\W+\S+" placeholder='Имя'>
             </label>
-            <label name="mail">
-                <input class="in-the-know-form-block__form__input" type="email" required pattern="\S+@[a-z]+.[a-z]+" placeholder='Email'>
+            <label>
+                <input name="email" class="in-the-know-form-block__form__input" type="email" required pattern="\S+@[a-z]+.[a-z]+" placeholder='Email'>
             </label>
             <button class="in-the-know-form-block__form__submit" type="submit">подписаться</button>
         </div>
         <div class="in-the-know-form-block__form__input-checkbox-wrapper">
-            <input  class="in-the-know-form-block__form__checkbox"  type="checkbox" name="" id="in-the-know-form-checkbox">
+            <input  class="in-the-know-form-block__form__checkbox" type="checkbox" name="" id="in-the-know-form-checkbox">
             <label for="in-the-know-form-checkbox"></label>
             <p class="in-the-know-form-block__form__checkbox-desc">Я согласен с обработкой персональных данных</p>
         </div>

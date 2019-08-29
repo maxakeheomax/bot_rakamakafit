@@ -88,4 +88,4 @@ $this->setFrameMode(true);
 		<!-- end of same articles block  -->
 	</div>
 </div>
-<? CMain::IncludeFile(SITE_DIR.'include/subscribe_form_yelow.php'); ?>
+<? //CMain::IncludeFile(SITE_DIR.'include/subscribe_form_yelow.php'); ?>

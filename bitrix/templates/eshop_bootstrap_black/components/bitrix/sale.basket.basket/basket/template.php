@@ -135,7 +135,7 @@ if ($arParams['USE_GIFTS'] === 'Y')
 
 \CJSCore::Init(array('fx', 'popup', 'ajax'));
 
-$this->addExternalCss('/bitrix/css/main/bootstrap.css');
+// $this->addExternalCss('/bitrix/css/main/bootstrap.css');
 $this->addExternalCss($templateFolder.'/themes/'.$arParams['TEMPLATE_THEME'].'/style.css');
 
 $this->addExternalJs($templateFolder.'/js/mustache.js');
@@ -203,7 +203,7 @@ if (empty($arResult['ERROR_MESSAGE']))
 		}
 		?>
 
-		<div class="row">
+		<div class="row" style="display: none;">
 			<div class="col-xs-12">
 				<div class="alert alert-warning alert-dismissable" id="basket-warning" style="display: none;">
 					<span class="close" data-entity="basket-items-warning-notification-close">&times;</span>
@@ -214,11 +214,11 @@ if (empty($arResult['ERROR_MESSAGE']))
 				</div>
 			</div>
 		</div>
-
-		<div class="row">
+<!-- style="display: none;" -->
+		<div class="row"  style="display: none;">
 			<div class="col-xs-12">
 				<div class="cart-block" id="basket-items-list-wrapper">
-                    <div class="cart-block__cart-items-list" id="basket-items-list-container">
+                    <div class="cart-block__cart-items-list1 js_item_list" id="basket-items-list-container">
 						<div class="basket-items-list-overlay" id="basket-items-list-overlay" style="display: none;"></div>
 						<div class="basket-items-list" id="her basket-item-list">
 							<div class="basket-search-not-found" id="basket-item-list-empty-result" style="display: none;">
@@ -227,10 +227,15 @@ if (empty($arResult['ERROR_MESSAGE']))
 									<?=Loc::getMessage('SBB_FILTER_EMPTY_RESULT')?>
 								</div>
 							</div>
+							<div class="cart-block__cart-items-list1">
 							<table class="basket-items-list-table" id="basket-item-table"></table>
+
+
+							</div>
+							
 						</div>
 					</div>
-                    <div class="cart-block__cart-review" data-entity="basket-items-list-header">
+                    <div class="cart-block__cart-review_old" data-entity="basket-items-list-header">
                         <div class="cart-block__cart-review__cart-items-counter-block">
                             <a href="javascript:void(0)" class="basket-items-list-header-filter-item active"
                                data-entity="basket-items-count" data-filter="all" style="display: none;"></a>
@@ -324,3 +329,196 @@ else
 {
 	ShowError($arResult['ERROR_MESSAGE']);
 }
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+?>
+
+<div class="breadcrumbs">
+	<div class="breadcrumbs-content">
+		<div class="breadcrumbs__item">Главная </div>
+		<div class="breadcrumbs__separator"> / </div>	
+		<div class="breadcrumbs__item">Корзина </div>
+	</div>
+</div>
+
+<div class="cart-block">	
+	<div class="cart-block__title-block">
+		<div class="up-hello-block__left-side__title">Корзина</div>
+		<div class="cart-block__title-block__clear-button">
+			<p>очистить <i class="fa fa-times" aria-hidden="true"></i></p>
+		</div>
+	</div>
+	<div class="cart-block__content">
+		<div class="cart-block__cart-items-list">
+			<div class="cart-block__cart-items-list__item-wrapper">
+				<div class="cart-block__cart-items-list__item d-table">	
+					<div class="item__image d-table__cell">						
+						<img src="assets/cart-items-list-img.jpg" alt="">					
+					</div>	
+					<div class="cart-block__item__info d-table__cell">	
+						<a href="	#">Набор латексных фитнес лент</a>
+						<div class="cart-block__item__meta">	160 гр.</div>
+					</div>
+					<div class="cart-block__item__quantity d-table__cell">
+						<div class="number">
+							<span class="minus">-</span>
+							<input type="text" value="1" size="5">
+							<span class="plus">+</span>
+						</div>	
+					</div>
+					<div class="cart-block__item__price d-table__cell">	
+						<p class="actual-price price"><span>1690</span> Р</p>
+						<p class="old-price price"><span>2210 Р</span> </p>
+						<p class="discount-price price">Скидка <span>520 Р</span></p>
+					</div>
+					<div class="cart-block__item__btns d-table__cell">	
+						<a href="	">
+							<i class="fa fa-trash" aria-hidden="true"></i>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="cart-block__cart-items-list__item-wrapper">
+				<div class="cart-block__cart-items-list__item d-table">	
+					<div class="item__image d-table__cell">						
+						<img src="assets/cart-items-list-img.jpg" alt="">					
+					</div>	
+					<div class="cart-block__item__info d-table__cell">	
+						<a href="	#">Набор латексных фитнес лент</a>
+						<div class="cart-block__item__meta">	160 гр.</div>
+					</div>
+					<div class="cart-block__item__quantity d-table__cell">
+						<div class="number">
+							<span class="minus">-</span>
+							<input type="text" value="1" size="5">
+							<span class="plus">+</span>
+						</div>	
+					</div>
+					<div class="cart-block__item__price d-table__cell">	
+						<p class="actual-price price"><span>1690</span> Р</p>
+						<p class="old-price price"><span>2210 Р</span> </p>
+						<p class="discount-price price">Скидка <span>520 Р</span></p>
+					</div>
+					<div class="cart-block__item__btns d-table__cell">	
+						<a href="	">
+							<i class="fa fa-trash" aria-hidden="true"></i>
+						</a>
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+		<div class="cart-block__cart-review">
+			<div class="cart-block__cart-review__cart-items-counter-block">	
+				<p>	В корзине <span class="items-counter">3</span> товара</p>
+			</div>
+			<div class="cart-block__cart-review__price_block">	
+				<div class="cart-block__cart-review__product-price">
+					<p class="cart-block__cart-review__price_name">Стоимость товаров</p>
+					<div class="price b-font"><span>22 800</span>Р</div>
+				</div>
+				<div class="cart-block__cart-review__discount-block">
+					<p class="cart-block__cart-review__price_name">Скидка</p>
+					<div class="discount-price b-font"><span>520</span>Р</div>
+				</div>
+				<div class="cart-block__cart-review__total-price-block">	
+					<p class="cart-block__cart-review__price_name">Итого к оплате</p>
+					<div class="total-price"><span>22 280</span>Р</div>
+				</div>
+			</div>
+
+			<button class="cart-block__cart-review__button">оформить заказ</button>
+			<p class="product-block__description__credit_link"><a class="how-start-block__help-link" href="#">Купить в рассрочку</a></p>
+			<p class="cart-block__cart-review__info-text">	Способы оплаты и адрес доставки можно выбрать при оформлении заказа.</p>
+		</div>
+	</div>
+</div>
+
+<script>
+	$('.cart-block__cart-items-list .cart-block__cart-items-list__item-wrapper').remove();
+	$('.js_item_list table tr').each(function (id, element) {
+		var image = $(element).find('.basket-item-block-image img').attr('src');
+		var link = $(element).find('.basket-item-block-image a').attr('href');
+		var title = $(element).find('.basket-item-info-name-link span').text();
+		var actual_price = $($(element).find('.basket-item-price-current')[1]).text();
+		actual_price = actual_price.substring(0, actual_price.indexOf('руб'));
+		var old_price = $(element).find('.basket-item-price-old').text().substring(5);
+		old_price = old_price.substring(0, old_price.indexOf('руб'));
+		var discount = $(element).find('.basket-item-block-image a').text();
+		var count = $(element).find('.basket-item-amount-filed').data('value');
+		var id = $(element).data('id');
+		$('.cart-block__cart-items-list').append(
+			'<div class="cart-block__cart-items-list__item-wrapper" id="'+ id +' ">'
+			+'	<div class="cart-block__cart-items-list__item d-table">	'
+			+'		<div class="item__image d-table__cell">	<a href="'+link+'"> '		
+			+'			<img src="'+image+'" alt=""> </a>'					
+			+'		</div>	'
+			+'		<div class="cart-block__item__info d-table__cell">	'
+			+'			<a href="'+link+'">'+title+'</a>'
+			+'			<div class="cart-block__item__meta"></div>'
+			+'		</div>'
+			+'		<div class="cart-block__item__quantity d-table__cell">'
+			+'			<div class="number">'
+			+'				<span class="minus">-</span>'
+			+'				<input type="text" value="'+count+'" size="5">'
+			+'				<span class="plus">+</span>'
+			+'			</div>	'
+			+'		</div>'
+			+'		<div class="cart-block__item__price d-table__cell">	'
+			+'			<p class="actual-price price"><span>'+actual_price+'</span> Р</p>'
+			+'			<p class="old-price price"><span>'+old_price+'</span> '+ (old_price.trim() ? 'Р' : '') +'</p>'
+			+'			<p class="discount-price price">'+ (discount.trim() ? 'Скидка' : '') +' <span>'+discount+' '+ (discount.trim() ? 'Р' : '') +'</span></p>'
+			+'		</div>'
+			+'		<div class="cart-block__item__btns d-table__cell">	'
+			+'			<a href="	">'
+			+'				<i class="fa fa-trash" aria-hidden="true"></i>'
+			+'			</a>'
+			+'		</div>'
+			+'	</div>'
+			+'</div>'
+		);
+	});
+
+	var block_cart_old = $('.cart-block__cart-review_old');
+	var total = $(block_cart_old).find('.total-price').text();
+	total = total.substring(0, total.indexOf('руб'));
+	var total_old = $(block_cart_old).find('.basket-coupon-block-total-price-old').text();
+	total_old = total_old.substring(0, total_old.indexOf('руб'));
+	var discount = $(block_cart_old).find('.basket-coupon-block-total-price-difference span').text();
+	discount = discount.substring(0, discount.indexOf('руб'));
+
+	var block_cart_old = $('.cart-block__cart-review');
+	$(block_cart_old).find('.price span').text(total_old.trim() ? total_old : total);
+	$(block_cart_old).find('.discount-price span').text(discount.trim() ? discount : '0');	
+	$(block_cart_old).find('.total-price').text(total);
+
+	$('.cart-block__cart-review__button').click(function () {
+		$('.cart-block__cart-review__button_old').click();
+	})	
+	$(document).ready(function() {
+		$('.minus').click(function (ev) {
+			//basket-item-amount-btn-minus basket-items-list-item-container
+			element = ev.currentTarget;
+			id = $($(element).closest('.cart-block__cart-items-list__item-wrapper')).attr('id');
+			old_emenet = $('.basket-items-list-item-container').find('[data-id="' + id + '"]');
+			var $input = $(this).parent().find('input');
+			var count = parseInt($input.val()) - 1;
+			count = count < 1 ? 1 : count;
+			$input.val(count);
+			$input.change();
+			return false;
+		});
+		$('.plus').click(function () {
+			var $input = $(this).parent().find('input');
+			$input.val(parseInt($input.val()) + 1);
+			$input.change();
+			return false;
+		});
+	});
+
+</script>

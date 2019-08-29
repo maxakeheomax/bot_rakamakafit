@@ -769,15 +769,15 @@ else
 		<div class="cart-block__cart-review__price_block">	
 			<div class="cart-block__cart-review__product-price">
 				<p class="cart-block__cart-review__price_name">Стоимость товаров</p>
-				<div class="price b-font"><span id="cart_items_total">22 800</span>Р</div>
+				<div class="price b-font"><span id="cart_items_total"></span>Р</div>
 			</div>
 			<div class="cart-block__cart-review__discount-block">
 				<p class="cart-block__cart-review__price_name">Скидка</p>
-				<div class="discount-price b-font"><span  id="cart_discount">520</span>Р</div>
+				<div class="discount-price b-font"><span  id="cart_discount"></span>Р</div>
 			</div>
 			<div class="cart-block__cart-review__total-price-block">	
 				<p class="cart-block__cart-review__price_name">Итого к оплате</p>
-				<div class="total-price"><span id="cart_total">22 280</span>Р</div>
+				<div class="total-price"><span id="cart_total"></span>Р</div>
 			</div>
 		</div>
 		<script>
@@ -1153,12 +1153,12 @@ else
 		discount = discount.substring(0, discount.length-5);
 		var discount_value = parseFloat(parseFloat(price.replace(/\s/g, '') ) - parseFloat(discount.replace(/\s/g, '') )).toFixed(0);
 
-		console.log(image_url.substring(4, image_url.length-2) );
+		console.log( image_url.substring(image_url.indexOf('"')+1, image_url.indexOf('"', image_url.indexOf('"')+1)) );
 
 		items.append(
 			'<div class="cart-block__cart-items-list__item d-table">	'
 			+'	<div class="item__image d-table__cell">						'
-			+'		<img src="'+ image_url.substring(5, image_url.length-2) +'" alt="">					'
+			+'		<img src="'+ ( image_url.substring(image_url.indexOf('"')+1, image_url.indexOf('"', image_url.indexOf('"')+1)) ) +'" alt="">					'
 			+'	</div>	'
 			+'	<div class="cart-block__item__info d-table__cell">	'
 			+'		<a href="'+title_link+'">'+title+'</a>'

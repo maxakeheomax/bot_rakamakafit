@@ -17,17 +17,28 @@ $items = $arResult['ITEMS'];
 ?>
 
 <div class="promo-train-block__slider-item" >
-    <div class="promo-train-block__slider-item__slider-content">
-        <p class="promo-train-block__slider-item__slider-content__promo-title">программа тренировок</p>
-        <p class="promo-train-block__slider-item__slider-content__slogan">При покупке любого оборудования Rakamakafit - <span class="promo-train-block__title_underline-block-up"> 7-дневный доступ<br> к программе в подарок</span> </p>
-        <p class="promo-train-block__slider-item__slider-content__description">Тебя ждет от 4 тренировки в неделю, программа питания на каждый день, мотивационные лекции и статьи, удобное отслеживание результатов.</p>
-        <div class="promo-train-block__slider__content_bottom">
-            <div class="promo-train-block__slider-item-button">
-                <span class="promo-train-block__slider-item-button__text">Купить</span>
-            </div>
-            <div class="promo-train-block__slider-item-more">
-                <span class="promo-train-block__slider-item-more__text">Подробнее</span>
+    <? foreach ($items as $item): ?>
+        <?foreach ($item['DISPLAY_PROPERTIES']['PRODUCT']['LINK_ELEMENT_VALUE'] as $arTovar):?>
+        <?
+        $url_page = $arTovar['DETAIL_PAGE_URL'];
+        $arTorPreds = CCatalogSKU::getOffersList($arTovar['ID'], 0, array('ACTIVE' => 'Y'), array('NAME'), array("CODE"=>array('HEIGHT', 'WIDTH')));
+        foreach ($arTorPreds as $arTorPred){
+            $url = '/catalog/?action=ADD2BASKET&amp;id='.array_keys($arTorPred)[0];
+        }
+        ?>
+        <?endforeach;?>
+        <div class="promo-train-block__slider-item__slider-content">
+            <p class="promo-train-block__slider-item__slider-content__promo-title"><?=$item['NAME']?></p>
+            <p class="promo-train-block__slider-item__slider-content__slogan"><?= $item['~PREVIEW_TEXT']?></p>
+            <p class="promo-train-block__slider-item__slider-content__description"><?=$item['~DETAIL_TEXT']?></p>
+            <div class="promo-train-block__slider__content_bottom">
+                <div class="promo-train-block__slider-item-button">
+                    <a href="<?=$url?>" class="promo-train-block__slider-item-button__text">Купить</a>
+                </div>
+                <div class="promo-train-block__slider-item-more">
+                    <a href="<?=$url_page?>" class="promo-train-block__slider-item-more__text">Подробнее</a>
+                </div>
             </div>
         </div>
-    </div>
+    <?endforeach;?>
 </div>

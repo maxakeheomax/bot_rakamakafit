@@ -124,7 +124,7 @@ else
                         {
                             if($ob['ID'] == $id){
                                 if(!empty($ob['PREVIEW_PICTURE'])){
-                                    $picture = CFile::GetPath(debug($ob['PREVIEW_PICTURE']));
+                                    $picture = CFile::GetPath(($ob['PREVIEW_PICTURE']));
                                 } else{
                                     $picture = CFile::GetPath($ob['DETAIL_PICTURE']);
                                 }
@@ -157,7 +157,6 @@ else
                                 </div>
                                 <div class="cart-block__item__info d-table__cell">
                                     <a href="	#"><?=$arItem['NAME']?></a>
-                                    <div class="cart-block__item__meta">	160 гр.</div>
                                 </div>
 
                                 <div class="cart-block__item__price d-table__cell">
@@ -247,7 +246,7 @@ else
                     {
                         if($ob['ID'] == $id){
                             if(!empty($ob['PREVIEW_PICTURE'])){
-                                $picture = CFile::GetPath(debug($ob['PREVIEW_PICTURE']));
+                                $picture = CFile::GetPath(($ob['PREVIEW_PICTURE']));
                             } else{
                                 $picture = CFile::GetPath($ob['DETAIL_PICTURE']);
                             }
@@ -282,7 +281,6 @@ else
                         </div>
                         <div class="cart-block__item__info d-table__cell">
                             <a href="	#"><?=$arItem['NAME']?></a>
-                            <div class="cart-block__item__meta">	160 гр.</div>
                         </div>
 
                         <div class="cart-block__item__price d-table__cell">

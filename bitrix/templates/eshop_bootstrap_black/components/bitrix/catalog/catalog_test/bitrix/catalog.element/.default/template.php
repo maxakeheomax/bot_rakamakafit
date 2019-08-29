@@ -7,8 +7,6 @@ $this->setFrameMode(true);
 	// var_dump($arResult);
 	// print_r(CCatalogDiscount::GetByID(2)) ?> 
 </pre>
-
-
 <!-- product block -->
 <div class="product-block">
 	<div class=" product-block__product-slider">
@@ -29,7 +27,6 @@ $this->setFrameMode(true);
 			<?endif;?>
 		</div>
 	</div>
-
 	<div class="product-block__description">
 		<div class="desc-block">
 			<div class="product-block__description__title"><?=$arResult["NAME"]?></div>
@@ -43,7 +40,7 @@ $this->setFrameMode(true);
 				</a>
 				<? endif ?>
 			</div>
-		</div>
+		
 
 		<div class="button-block">
 
@@ -133,9 +130,13 @@ $this->setFrameMode(true);
 		<?endif?>
 
 		</div>
+            <?if($arResult['PROPERTIES']['TITLE']['CHEK']['VALUE_ENUM'] == 'YES'):?>
 			<p class="product-block__description__credit_link"><a class="how-start-block__help-link" href="#">Купить в рассрочку</a></p>
-		</div>
+            <?endif;?>
+        </div>
+
 	</div>
+</div>
 </div>
 
 
@@ -144,7 +145,7 @@ $this->setFrameMode(true);
 <!-- Product description block -->
 <div class="product-description-block">
 	<div class="product-description-block__title">Описание и характеристики</div>
-	<div class="product-description-block__decription"><?=$arResult["DETAIL_TEXT"]?></div>
+	<div class="product-description-block__decription"><?=$arResult["PREVIEW_TEXT"]?></div>
 </div>
 <!-- end of Product description block -->
 
@@ -436,3 +437,4 @@ $APPLICATION->IncludeComponent(
 
 
 <? CMain::IncludeFile('/include/subscribe_form_blue.php'); ?>
+

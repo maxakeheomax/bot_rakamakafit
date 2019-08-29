@@ -11,9 +11,6 @@ $this->setFrameMode(true);
 <div class="tapes promo-train-block__slider-item">
 	<div class="promo-train-block__slider-item__slider-content">
 
-
-
-
 		<div class="promo-train-block__slider-item__slider-content-tabs">
 			<? $index = 0;
 			foreach ($arResult["ITEMS"] as $cell => $arElement) : ?>
@@ -30,11 +27,19 @@ $this->setFrameMode(true);
 				$this->AddEditAction($arElement['ID'], $arElement['EDIT_LINK'], CIBlock::GetArrayByID($arParams["IBLOCK_ID"], "ELEMENT_EDIT"));
 				$this->AddDeleteAction($arElement['ID'], $arElement['DELETE_LINK'], CIBlock::GetArrayByID($arParams["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BCS_ELEMENT_DELETE_CONFIRM')));
 				?>
+
+                <?
+                    $arTorPreds = CCatalogSKU::getOffersList($arElement['ID'], 0, array('ACTIVE' => 'Y'), array('NAME'), array("CODE"=>array('HEIGHT', 'WIDTH')));
+                    foreach ($arTorPreds as $arTorPred){
+                        $url = '/catalog/?action=ADD2BASKET&amp;id='.array_keys($arTorPred)[0];
+                    }
+                ?>
+
 				<p class="promo-train-block__slider-item__slider-content__slogan"><?= $arElement["PROPERTIES"]["SLOGAN"]['VALUE']['TEXT'] ?></p>
-				<p class="promo-train-block__slider-item__slider-content__dicription"><?= $arElement["PREVIEW_TEXT"] ?></p>
+				<p class="promo-train-block__slider-item__slider-content__dicription"><?= $arElement["DETAIL_TEXT"] ?></p>
 				<div class="promo-train-block__slider__content_bottom">
 					<div class="promo-train-block__slider-item-button">
-						<span class="promo-train-block__slider-item-button__text">Купить</span>
+						<a href="<?=$url?>" class="promo-train-block__slider-item-button__text">Купить</a>
 					</div>
 					<? if ($arElement["PROPERTIES"]["YUOTUBELINK"]['VALUE']) : ?>
 						<div class="promo-train-block__slider-item-more">
