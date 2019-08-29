@@ -32,4 +32,9 @@ foreach ($arResult["ITEMS"] as $count=>$arItem) {
     }
 }
 $arResult["SECTIONS"] = $arSection;
+//user fields
+$ar_result=CIBlockSection::GetList(Array("SORT"=>"ASC"), Array("IBLOCK_ID"=>$arParams['IBLOCK_ID'], "ID"=>$arResult['ID']),false, Array("UF_*"));
+if($res=$ar_result->GetNext()){
+    $arResult['USER_FIELDS'] = $res;
+}
 

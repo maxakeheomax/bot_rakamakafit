@@ -11,7 +11,7 @@ use Bitrix\Main,
  * @var SaleOrderAjax $component
  * @var string $templateFolder
  */
-
+//  dump($arResult);
 $context = Main\Application::getInstance()->getContext();
 $request = $context->getRequest();
 
@@ -769,11 +769,11 @@ else
 		<div class="cart-block__cart-review__price_block">	
 			<div class="cart-block__cart-review__product-price">
 				<p class="cart-block__cart-review__price_name">Стоимость товаров</p>
-				<div class="price b-font"><span id="cart_items_total"></span>Р</div>
+				<div class="price b-font"><span id="cart_items_total"><?= $arResult['ORDER_PRICE']?></span>Р</div>
 			</div>
 			<div class="cart-block__cart-review__discount-block">
 				<p class="cart-block__cart-review__price_name">Скидка</p>
-				<div class="discount-price b-font"><span  id="cart_discount"></span>Р</div>
+				<div class="discount-price b-font"><span  id="cart_discount"><?= $arResult['DISCOUNT_PRICE'] ?></span>Р</div>
 			</div>
 			<div class="cart-block__cart-review__total-price-block">	
 				<p class="cart-block__cart-review__price_name">Итого к оплате</p>
@@ -896,11 +896,11 @@ else
 			$('.popUp').fadeIn();
 		});
 
-		$('.close-button').click(function(){
-			$('body').css('overflow-y','inherit');
-				$('.page_content').css('filter', 'none')
-				$('.popUp').fadeOut();
-		})
+		// $('.close-button').click(function(){
+		// 	$('body').css('overflow-y','inherit');
+		// 		$('.page_content').css('filter', 'none')
+		// 		$('.popUp').fadeOut();
+		// })
 
 		
 
@@ -1116,23 +1116,15 @@ else
 		
 		$('.bx-soa-cart-total div').each(function(index, element){
 			if($(element).find('span').length > 1){
-				switch ( $($(element).find('span')[0]).text() ) {
-					case "Товаров на:":
-						price=$($(element).find('span')[1]).text()
-						if($(element).find('span')[2]){
-							var price_dicount=$($(element).find('span')[2]).text();
-							price = price.substring(0, (price.length - price_dicount.length)  );
-							this.price = price.substring(0, price.length-5);
-						}
-						$('#cart_items_total').text(this.price);
-						break;
+				switch ( $($(element).find('.bx-soa-cart-t')[0]).text() ) {
 					case "Итого:":
-						price_total = $($(element).find('span')[1]).text()
+						price_total = $($(element).find('.bx-soa-cart-d')[0]).text()
 						price_total = price_total.substring(0, price_total.length-5);
 						$('#cart_total').text(price_total);
-						var dicount = parseFloat($('#cart_total').text().replace(/\s/g, '') ) - parseFloat($('#cart_items_total').text().replace(/\s/g, '') );
-						$('#cart_discount').text(dicount);
 						break;
+					// case "Доставка:"
+					// 	t=0;
+					// 	break;
 											
 				}
 			}

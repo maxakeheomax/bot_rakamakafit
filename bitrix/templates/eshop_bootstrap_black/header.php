@@ -1,29 +1,35 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<?
+if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 IncludeTemplateLangFile($_SERVER["DOCUMENT_ROOT"]."/bitrix/templates/".SITE_TEMPLATE_ID."/header.php");
 CJSCore::Init(array("fx"));
 $curPage = $APPLICATION->GetCurPage(true);
 $theme = COption::GetOptionString("main", "wizard_eshop_bootstrap_theme_id", "blue", SITE_ID);
 global $arParams;
+if (!CModule::IncludeModule("sale")) return;
+require_once($_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php');
 ?>
 <!DOCTYPE html>
 <html xml:lang="<?=LANGUAGE_ID?>" lang="<?=LANGUAGE_ID?>">
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width">
-    <link rel="shortcut icon" type="image/x-icon" href="<?=htmlspecialcharsbx(SITE_DIR)?>favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width"> -->
+    <link rel="shortcut icon" type="image/x-icon" href="<?=htmlspecialcharsbx(SITE_DIR)?>favicon.ico?20" />
     <?$APPLICATION->ShowHead();?>
     
     <?
     //////////////////// CUSTOM CSS
     //  var_dump( !$APPLICATION->GetCurUri("", false)=="/personal/order/make/" );
     
-    $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH."/libs/bootstrap-4.3.1-dist/css/bootstrap-grid.min.css", true);
+    
     $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH."/libs/owl.carousel2/dist/assets/owl.carousel.min.css", true);
     $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH."/libs/owl.carousel2/dist/assets/owl.theme.default.min.css", true);
     $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH."/libs/slick-1.8.1/slick/slick-theme.css", true);
     $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH."/libs/slick-1.8.1/slick/slick.css", true);
     $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH."/libs/all.css", true);
     $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH."/libs/ion.rangeSlider-master/css/ion.rangeSlider.min.css", true);
+    $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH."/mobile.css", true);
+    $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH."/libs/bootstrap-4.3.1-dist/css/bootstrap-grid.min.css", true);
 ?>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
@@ -33,6 +39,7 @@ global $arParams;
     $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH."/libs/slick-1.8.1/slick/slick.min.js");
     $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH."/libs/hc-sticky-master/src/hc-sticky.js");
     $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH."/libs/ion.rangeSlider-master/js/ion.rangeSlider.min.js");
+    $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH."/libs/bootstrap-4.3.1-dist/js/bootstrap.min.js");
 
     ?>
     <title><?$APPLICATION->ShowTitle()?></title>
@@ -47,10 +54,12 @@ global $arParams;
 				<div class="close-button"></div>
 				<div class="promo-form-block__title">Не уходи без подарка!</div>
 				<div class="popUp-gift__form-block_desc">Я хочу подарить тебе книжку с рецептами очень вкусных десертов, которые совершенно не повредят твоей фигуре!</div>
-				<form class="" action="#">
+				<form class="" action="/forms_ajax.php" method="post">
+                    <input type="hidden" name="action" value="popup">
+                    <input type="hidden" name="url" value="<?=$APPLICATION->GetCurPage();?>">
 					<div class="">
-						<label name="mail">
-							<input class="promo-form-block__form__input" type="email" required pattern="\S+@[a-z]+.[a-z]+" placeholder='Email'>
+						<label >
+							<input name="email" class="promo-form-block__form__input" type="email" required pattern="\S+@[a-z]+.[a-z]+" placeholder='Email'>
 						</label>
 						<button class="promo-form-block__form__submit" type="submit">получить</button>
 					</div>
@@ -140,24 +149,53 @@ global $arParams;
                             )
                         );?>
                     </div>
+
+                    <?
+                    $cntBasketItems = CSaleBasket::GetList(
+                        array(),
+                        array(
+                            "FUSER_ID" => CSaleBasket::GetBasketUserID(),
+                            "LID" => SITE_ID,
+                            "ORDER_ID" => "NULL"
+                        ),
+                        array()
+                    );
+                   
+                    ?>
+
                     <div class="header__nav-bar__cart-block">
                         <a href="/personal/cart/" class="header__nav-bar__cart-block-link">	
                             <img src="<?= SITE_TEMPLATE_PATH ?>/assets/cart.svg" alt="" class="header__nav-bar__cart-block__cart-icon">
-                            <span class="header__nav-bar__cart-block__cart-text">Корзина</span>
+                            <span class="header__nav-bar__cart-block__cart-text">Корзина <?=$cntBasketItems > 0? "(".$cntBasketItems.")" : ''?></span>
                             <span class="header__nav-bar__cart-block__items-counter"><?= $arResult['NUM_PRODUCTS'] > 0 ? $arResult['NUM_PRODUCTS'] : "" ?></span>
                         </a>
                     </div>                        
                 </nav>
             </header>
-  
-            <div class="aside-block" style="display: none; zaebala: yes;">
+
+            <header class="header-mobile">
+                <div class="header__nav-bar__logo">
+                    <a href="/">
+                        <img src="<?= SITE_TEMPLATE_PATH ?>/assets/logo-svg.svg" alt="logo" class="header__nav-bar__logo-img">
+                    </a>
+                </div>
+                <div class="header-right-side">
+                    <div class="burger-menu header-right-side-item button-form-grey">меню <span class="burger-menu-icon"></span></div>
+                    <div class="cart-mobile header-right-side-item button-form-grey">
+                        <img src="<?= SITE_TEMPLATE_PATH ?>/assets/white-cart.svg" alt="">
+                    </div>
+                    <div class="login-block header-right-side-item button-form-grey"><img src="<?= SITE_TEMPLATE_PATH ?>/assets/white-login.svg" alt=""></div>
+                </div>
+            </header>
+
+            <div class="aside-block" >
                 <div class="aside-block__shedule">
                     <p class="aside-block__shedule-text">График работы</p>
                     <img src="<?= SITE_TEMPLATE_PATH ?>/assets/calendar.svg" alt="calendar" class="aside-block__shedule-logo">
                 </div>
-                <div class="aside-block__icons">
-                    <a target="_blank" href="https://vk.com/rakamakafit" class="aside-block__icons_link"><img src="<?= SITE_TEMPLATE_PATH ?>/assets/vk.svg" alt="" class="aside-block__icons-item"></a>
-                    <a target="_blank" href="https://www.youtube.com/channel/UCVZQTeZTLrz166tbN0bEGkg?sub_confirmation=1" class="aside-block__icons_link"><img src="<?= SITE_TEMPLATE_PATH ?>/assets/ytb.svg" alt="" class="aside-block__icons-item"></a>
-                    <a target="_blank" href="https://www.instagram.com/rakamaka.fit/" class="aside-block__icons_link"><img src="<?= SITE_TEMPLATE_PATH ?>/assets/inst.svg" alt="" class="aside-block__icons-item"></a>
-                </div>
+                <!-- <div class="aside-block__icons"> -->
+                    <!-- <a target="_blank" href="https://vk.com/rakamakafit" class="aside-block__icons_link"><img src="<?= SITE_TEMPLATE_PATH ?>/assets/vk.svg" alt="" class="aside-block__icons-item"></a> -->
+                    <!-- <a target="_blank" href="https://www.youtube.com/channel/UCVZQTeZTLrz166tbN0bEGkg?sub_confirmation=1" class="aside-block__icons_link"><img src="<?= SITE_TEMPLATE_PATH ?>/assets/ytb.svg" alt="" class="aside-block__icons-item"></a> -->
+                    <!-- <a target="_blank" href="https://www.instagram.com/rakamaka.fit/" class="aside-block__icons_link"><img src="<?= SITE_TEMPLATE_PATH ?>/assets/inst.svg" alt="" class="aside-block__icons-item"></a> -->
+                <!-- </div> -->
             </div>

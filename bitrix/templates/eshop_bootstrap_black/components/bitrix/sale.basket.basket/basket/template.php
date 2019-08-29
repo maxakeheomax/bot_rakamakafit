@@ -215,6 +215,7 @@ if (empty($arResult['ERROR_MESSAGE']))
 			</div>
 		</div>
 <!-- style="display: none;" -->
+		<!-- OLD CART BLOCK -->
 		<div class="row"  style="display: none;">
 			<div class="col-xs-12">
 				<div class="cart-block" id="basket-items-list-wrapper">
@@ -336,7 +337,7 @@ else
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ?>
-
+<? if($arResult['allSum'] != 0): ?>
 <div class="breadcrumbs">
 	<div class="breadcrumbs-content">
 		<div class="breadcrumbs__item">Главная </div>
@@ -349,7 +350,7 @@ else
 	<div class="cart-block__title-block">
 		<div class="up-hello-block__left-side__title">Корзина</div>
 		<div class="cart-block__title-block__clear-button">
-			<p>очистить <i class="fa fa-times" aria-hidden="true"></i></p>
+			<a href="/personal/cart/?BasketDelete=1"><p>очистить <i class="fa fa-times" aria-hidden="true"></i></p></a>
 		</div>
 	</div>
 	<div class="cart-block__content">
@@ -452,8 +453,11 @@ else
 		var discount = $(element).find('.basket-item-block-image a').text();
 		var count = $(element).find('.basket-item-amount-filed').data('value');
 		var id = $(element).data('id');
+		var one_item_price = $($(element).find('.basket-item-price-current-text')[0]).text();
+		one_item_price = one_item_price.substring(0, one_item_price.indexOf('руб'));
+		one_item_price = one_item_price.replace(/\s/g, '');
 		$('.cart-block__cart-items-list').append(
-			'<div class="cart-block__cart-items-list__item-wrapper" id="'+ id +' ">'
+			'<div class="cart-block__cart-items-list__item-wrapper" id="'+ id +'" data-one-item-price="'+ one_item_price +'">'
 			+'	<div class="cart-block__cart-items-list__item d-table">	'
 			+'		<div class="item__image d-table__cell">	<a href="'+link+'"> '		
 			+'			<img src="'+image+'" alt=""> </a>'					
@@ -475,7 +479,7 @@ else
 			+'			<p class="discount-price price">'+ (discount.trim() ? 'Скидка' : '') +' <span>'+discount+' '+ (discount.trim() ? 'Р' : '') +'</span></p>'
 			+'		</div>'
 			+'		<div class="cart-block__item__btns d-table__cell">	'
-			+'			<a href="	">'
+			+'			<a href="#">'
 			+'				<i class="fa fa-trash" aria-hidden="true"></i>'
 			+'			</a>'
 			+'		</div>'
@@ -484,41 +488,75 @@ else
 		);
 	});
 
-	var block_cart_old = $('.cart-block__cart-review_old');
-	var total = $(block_cart_old).find('.total-price').text();
-	total = total.substring(0, total.indexOf('руб'));
-	var total_old = $(block_cart_old).find('.basket-coupon-block-total-price-old').text();
-	total_old = total_old.substring(0, total_old.indexOf('руб'));
-	var discount = $(block_cart_old).find('.basket-coupon-block-total-price-difference span').text();
-	discount = discount.substring(0, discount.indexOf('руб'));
+	function prices(){
+		var block_cart_old = $('.cart-block__cart-review_old');
+		var total = $(block_cart_old).find('.total-price').text();
+		total = total.substring(0, total.indexOf('руб'));
+		var total_old = $(block_cart_old).find('.basket-coupon-block-total-price-old').text();
+		total_old = total_old.substring(0, total_old.indexOf('руб'));
+		var discount = $(block_cart_old).find('.basket-coupon-block-total-price-difference span').text();
+		discount = discount.substring(0, discount.indexOf('руб'));
 
-	var block_cart_old = $('.cart-block__cart-review');
-	$(block_cart_old).find('.price span').text(total_old.trim() ? total_old : total);
-	$(block_cart_old).find('.discount-price span').text(discount.trim() ? discount : '0');	
-	$(block_cart_old).find('.total-price').text(total);
+		var block_cart_old = $('.cart-block__cart-review');
+		$(block_cart_old).find('.price span').text(total_old.trim() ? total_old : total);
+		$(block_cart_old).find('.discount-price span').text(discount.trim() ? discount : '0');	
+		$(block_cart_old).find('.total-price').text(total);
 
+		$('.cart-block__cart-items-list__item-wrapper').each(function(index, element){		
+			one_item_price = $(element).data('one-item-price');
+			count = $($(element).find('.number')[0]).find('input').val();
+			actual_price = one_item_price * count;
+			$(element).find('.actual-price.price span').text(actual_price);
+		});
+	}	
+	prices();
 	$('.cart-block__cart-review__button').click(function () {
 		$('.cart-block__cart-review__button_old').click();
+
 	})	
 	$(document).ready(function() {
 		$('.minus').click(function (ev) {
 			//basket-item-amount-btn-minus basket-items-list-item-container
-			element = ev.currentTarget;
-			id = $($(element).closest('.cart-block__cart-items-list__item-wrapper')).attr('id');
-			old_emenet = $('.basket-items-list-item-container').find('[data-id="' + id + '"]');
-			var $input = $(this).parent().find('input');
-			var count = parseInt($input.val()) - 1;
+			var input = $(this).parent().find('input');
+			var count = parseInt(input.val()) - 1;
+			if(count > 1 ){
+				element = ev.currentTarget;
+				id = $(element).closest('.cart-block__cart-items-list__item-wrapper').attr('id');
+				old_emenet = $('.basket-items-list-item-container[data-id="' + id + '"]');
+				$(old_emenet).find('.basket-item-amount-btn-minus')[0].click();
+			}
 			count = count < 1 ? 1 : count;
-			$input.val(count);
-			$input.change();
+			input.val(count);
+			input.change();		
+			setTimeout(prices, 1000);	
 			return false;
 		});
-		$('.plus').click(function () {
-			var $input = $(this).parent().find('input');
-			$input.val(parseInt($input.val()) + 1);
-			$input.change();
+
+		$('.plus').click(function (ev) {
+			element = ev.currentTarget;
+			id = $(element).closest('.cart-block__cart-items-list__item-wrapper').attr('id');
+			old_emenet = $('.basket-items-list-item-container[data-id="' + id + '"]');
+			$(old_emenet).find('.basket-item-amount-btn-plus')[0].click();
+
+			var input = $(this).parent().find('input');
+			input.val(parseInt(input.val()) + 1);
+			input.change();	
+			setTimeout(prices, 1000);		
 			return false;
 		});
+
+		//basket-item-actions-remove visible-xs
+		$('.cart-block__item__btns a').click(function(ev){
+			ev.preventDefault();
+			element = ev.currentTarget;
+			id = $(element).closest('.cart-block__cart-items-list__item-wrapper').attr('id');
+			old_emenet = $('.basket-items-list-item-container[data-id="' + id + '"]');
+			$(old_emenet).find('.basket-item-actions-remove')[0].click();
+			$(element).closest('.cart-block__cart-items-list__item-wrapper').remove();
+			setTimeout(prices, 1000);
+		});
+
 	});
 
 </script>
+<? endif; ?>

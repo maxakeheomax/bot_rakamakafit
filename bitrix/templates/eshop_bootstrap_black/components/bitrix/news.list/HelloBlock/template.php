@@ -41,7 +41,7 @@ $item
 
                         В программу тренировок и питания RAKAMAKAFIT ONLINE я вложила всю свою душу и знания! Буду рада видеть тебя в своей команде спортивных и жизнерадостных!</p>
                     <div class="hello-block__content__hello__text__link-wrapper">
-                        <a class="hello-block__content__hello__text__link" href="#" class="link">Читай мой блог в <span class="underline-block">инстаграмме</span></a>
+                        <a class="hello-block__content__hello__text__link" href="#" class="link">Читай мой блог в <span class="underline-block">инстаграмм</span></a>
                         <img src="<?= SITE_TEMPLATE_PATH ?>/assets/hello-block-inst.svg" alt="">
                     </div>
                 </div>

@@ -45,3 +45,8 @@
 .img-wrapper img {
 	width: 100%;
 }
+.up-slider-pics .img-wrapper{
+	height:500px;
+	widows: 100%;
+	min-width: 100%;
+}

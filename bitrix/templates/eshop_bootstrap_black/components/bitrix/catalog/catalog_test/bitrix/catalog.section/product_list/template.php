@@ -16,9 +16,14 @@ $this->setFrameMode(true);
 <div class="catalog_block">
 	<div class="catalog__block__tabs">
 		<div class="catalog__block__tabs__title">Сортировать</div>
-		<a href="<?= $APPLICATION->GetCurPageParam("sort=popular",array("sort"), false) ?>">по популярности</a>
-		<a href="<?= $APPLICATION->GetCurPageParam("sort=price",array("sort"), false) ?>">по цене</a>
-		<a href="<?= $APPLICATION->GetCurPageParam("sort=available",array("sort"), false) ?>">по наличию</a>
+		<? if (isset($_GET['order']) && $_GET['order'] == "DESC") {
+			$order = "ASC";
+		} else {
+			$order = "DESC";
+		}?>
+		<a class="<?=((isset($_GET['sort']) && $_GET['sort'] == 'popular') ? $order : "")?>" href="<?= $APPLICATION->GetCurPageParam("sort=popular&order=".$order,array("sort","order"), false) ?>">по полуярности</a>
+		<a class="<?=((isset($_GET['sort']) && $_GET['sort'] == 'price') ? $order : "")?>" href="<?= $APPLICATION->GetCurPageParam("sort=price&order=".$order,array("sort","order"), false) ?>">по цене</a>
+		<a class="<?=((isset($_GET['sort']) && $_GET['sort'] == 'available') ? $order : "")?>" href="<?= $APPLICATION->GetCurPageParam("sort=available&order=".$order,array("sort","order"), false) ?>">по наличию</a>
 	</div>
 
 
@@ -47,7 +52,7 @@ $this->setFrameMode(true);
 					<img src="<?=$image?>" alt="<?=$arElement["NAME"]?>">
 				</div>
 			</a>
-			<div class="pop-products-block__item__title"><span class="title-span"><a href="<?=$arElement["DETAIL_PAGE_URL"]?>" title="<?=$arElement["NAME"]?>"><?=$arElement["NAME"]?></a></span></div>
+			<div class="pop-products-block__item__title"><span class="title-span"><a href="<?=$arElement["DETAIL_PAGE_URL"]?>" title="<?=$arElement["NAME"]?>"><?=TruncateText($arElement["NAME"],70)?></a></span></div>
 			<div class="pop-products-block__item__prices">
 				<div class="pop-products-block__item__price"><?= CPrice::GetBasePrice($arElement['ID'])['PRICE']?></div>
 				<div class="pop-products-block__item__old-price"><?=$arElement["DISCOUNT"]?></div>

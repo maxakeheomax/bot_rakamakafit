@@ -110,3 +110,12 @@ BX.namespace('BX.Sale.PersonalOrderComponent');
 		}
 	};
 })();
+
+$(document).on('click', '.cancel_button', function(){
+	$(this).parent(".order_manage_buttons.flex-line").prev().slideToggle();
+	if($(this).text() == 'Скрыть'){
+		$(this).text('Показать');
+	} else {
+		$(this).text('Скрыть');
+	}
+});

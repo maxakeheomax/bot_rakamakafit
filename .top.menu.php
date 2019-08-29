@@ -30,14 +30,14 @@ $aMenuLinks = Array(
 	),
 	Array(
 		"Полезная информация", 
-		"about/", 
+		"information/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
 		"О компании", 
-		"public-offer/", 
+		"about/", 
 		Array(), 
 		Array(), 
 		"" 

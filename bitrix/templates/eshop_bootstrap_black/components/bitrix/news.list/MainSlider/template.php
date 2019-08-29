@@ -23,17 +23,17 @@ $items = $arResult['ITEMS'];
 
 <div class="owl-carousel middle-slider owl-theme">
     <? foreach ($items as $item): ?>
-        <?foreach ($item['DISPLAY_PROPERTIES']['TOVAR']['LINK_ELEMENT_VALUE'] as $arTovar):?>
-            <?
-            $url_page = $arTovar['DETAIL_PAGE_URL'];
-            $arTorPreds = CCatalogSKU::getOffersList($arTovar['ID'], 0, array('ACTIVE' => 'Y'), array('NAME'), array("CODE"=>array('HEIGHT', 'WIDTH')));
-            foreach ($arTorPreds as $arTorPred){
-                $url = '/catalog/?action=ADD2BASKET&amp;id='.array_keys($arTorPred)[0];
-            }
-            ?>
-        <?endforeach;?>
+                <?
+				$arInfo = CCatalogSKU::GetInfoByOfferIBlock(4); 
+				$elem = CIBlockElement::GetByID($item['PROPERTIES']['TOVAR']['VALUE'])->GetNext();
+                $url_page = $elem['DETAIL_PAGE_URL'];
+				$rsOffers = CIBlockElement::GetList(array(),array('IBLOCK_ID' => $arInfo['IBLOCK_ID'], 'PROPERTY_'.$arInfo['SKU_PROPERTY_ID'] => $item['PROPERTIES']['product']['VALUE']));
+				if ($prod = $rsOffers->GetNext()) {
+					$url = '/catalog/?action=ADD2BASKET&amp;id='.$prod['ID'];
+				}
+                ?>
         <div class="owl-carousel__slider-item"
-             style="background: url('<?= CFile::GetPath($item['PROPERTIES']['PICTURE']['VALUE']); ?>');background-size: 100% 100%; ">
+             style="background: url('<?= CFile::GetPath($item['PROPERTIES']['PICTURE']['VALUE']); ?>');background-size: cover; ">
             <div class="owl-carousel__slider-item__slider-content">
                 <p class="promo-train-block__slider-item__slider-content__promo-title"><?= $item['NAME']?></p>
                 <p class="owl-carousel__slider-item__slider-content__slogan"><?= $item['PROPERTIES']['TEXT1']['VALUE']['TEXT']?></p>

@@ -1,9 +1,14 @@
 $(document).ready(function () {
     $('.slider-nav-block').slick({
-        slidesToShow: 3,
-        slidesToScroll: 1,
+        slidesToShow:6,
+        infinite: false,
+        slidesToScroll:1,
         focusOnSelect: true,
-        asNavFor: '.slider-product-view'
+        vertical: true,
+        verticalSwiping: true,
+        arrows: true,
+        asNavFor: '.slider-product-view',
+        
     });
 
     $('.slider-product-view').slick({

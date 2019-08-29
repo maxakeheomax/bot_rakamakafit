@@ -13,11 +13,9 @@ header('Content-type: application/json');
 ?>
 
 <?
-
 global $USER;
 if (!is_object($USER)) $USER = new CUser;
-
-$arResult = $USER->Register($_POST["mail"], $_POST["name"], "", $_POST['password'], $_POST['repeat-password'], $_POST['mail']);
+$arResult = $USER->Register($_REQUEST["mail"], $_REQUEST["name"], "", $_REQUEST['password'], $_REQUEST['repeat-password'], $_REQUEST['mail']);
 
 if ($arResult['TYPE'] == "ERROR") {
     echo json_encode(array(
@@ -27,7 +25,7 @@ if ($arResult['TYPE'] == "ERROR") {
 } else {
     echo json_encode(array(
         'type' => 'Ok',
-        'name' => $_POST["name"]
+        'name' => $_REQUEST["name"]
     ));      
 }
 ?>

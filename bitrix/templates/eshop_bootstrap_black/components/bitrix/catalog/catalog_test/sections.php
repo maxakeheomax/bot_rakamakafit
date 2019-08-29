@@ -90,17 +90,18 @@ $this->setFrameMode(true);
 			"CACHE_TYPE" => "A",
 			"FIELD_CODE" => array("",""),
 			"FILTER_NAME" => "arrFilter",
-			"IBLOCK_ID" => "15",
-			"IBLOCK_TYPE" => "catalog",
+			"IBLOCK_ID" => $arParams["IBLOCK_ID"],
+			"IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
 			"LIST_HEIGHT" => "5",
 			"NUMBER_WIDTH" => "5",
 			"OFFERS_FIELD_CODE" => array("",""),
-			"OFFERS_PROPERTY_CODE" => array("", "MATERIAL", "LENGTH", "WEIGHT"),
+			"OFFERS_PROPERTY_CODE" => array("", "MATERIAL", "LENGTH", "WEIGHT", 'AKCII', 'LEVEL', "NABOR", "INCLUDE"),
 			"PAGER_PARAMS_NAME" => "arrPager",
 			"PRICE_CODE" => array("BASE"),
 			"PROPERTY_CODE" => array("",""),
 			"SAVE_IN_SESSION" => "N",
-			"TEXT_WIDTH" => "20"
+			"TEXT_WIDTH" => "20",
+			"SHOW_ALL_WO_SECTION" => "Y"
 		)
 	);
 	?>
@@ -122,6 +123,12 @@ $this->setFrameMode(true);
 		{
 			$arParams["ELEMENT_SORT_FIELD2"] = "SHOW_COUNTER";
 		}
+		if ($_GET['order'] == "ASC") {
+			$arParams['ELEMENT_SORT_ORDER'] = $_GET['order'];
+		} else {
+			$arParams['ELEMENT_SORT_ORDER'] = "DESC";
+		}
+		
 		$APPLICATION->IncludeComponent(
 			"bitrix:catalog.section",
 			"product_list",
@@ -140,11 +147,11 @@ $this->setFrameMode(true);
 				"ACTION_VARIABLE" => $arParams["ACTION_VARIABLE"],
 				"PRODUCT_ID_VARIABLE" => $arParams["PRODUCT_ID_VARIABLE"],
 				"SECTION_ID_VARIABLE" => $arParams["SECTION_ID_VARIABLE"],
-				"FILTER_NAME" => $arParams["FILTER_NAME"],
+				"FILTER_NAME" => 'arrFilter',
 				"DISPLAY_PANEL" => $arParams["DISPLAY_PANEL"],
 				"CACHE_TYPE" => $arParams["CACHE_TYPE"],
 				"CACHE_TIME" => $arParams["CACHE_TIME"],
-				"CACHE_FILTER" => $arParams["CACHE_FILTER"],
+				"CACHE_FILTER" => 'N',
 				"CACHE_GROUPS" => $arParams["CACHE_GROUPS"],
 				"SET_TITLE" => $arParams["SET_TITLE"],
 				"SET_STATUS_404" => $arParams["SET_STATUS_404"],

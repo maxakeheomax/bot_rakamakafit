@@ -23,14 +23,14 @@ $items = $arResult['ITEMS'];
         $url_page = $arTovar['DETAIL_PAGE_URL'];
         $arTorPreds = CCatalogSKU::getOffersList($arTovar['ID'], 0, array('ACTIVE' => 'Y'), array('NAME'), array("CODE"=>array('HEIGHT', 'WIDTH')));
         foreach ($arTorPreds as $arTorPred){
-            $url = '/catalog/?action=ADD2BASKET&amp;id='.array_keys($arTorPred)[0];
+            $url = '/personal/cart/?action=ADD2BASKET&amp;id='.array_keys($arTorPred)[0];
         }
         ?>
         <?endforeach;?>
         <div class="promo-train-block__slider-item__slider-content">
             <p class="promo-train-block__slider-item__slider-content__promo-title"><?=$item['NAME']?></p>
             <p class="promo-train-block__slider-item__slider-content__slogan"><?= $item['~PREVIEW_TEXT']?></p>
-            <p class="promo-train-block__slider-item__slider-content__description"><?=$item['~DETAIL_TEXT']?></p>
+            <p class="promo-train-block__slider-item__slider-content__discription"><?=$item['~DETAIL_TEXT']?></p>
             <div class="promo-train-block__slider__content_bottom">
                 <div class="promo-train-block__slider-item-button">
                     <a href="<?=$url?>" class="promo-train-block__slider-item-button__text">Купить</a>
