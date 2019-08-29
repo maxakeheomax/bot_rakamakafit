@@ -1261,6 +1261,7 @@ button-form-grey {
     flex-flow: row wrap;
     margin-top: 34px;
 }
+
 .special-offer-block__items::after {
     content: '';
     display: flex;
@@ -1298,6 +1299,7 @@ button-form-grey {
     margin-left: 9px;
     margin-right: 9px;
 }
+
 .bootstrap-box .special-offer-block__item {
     margin-bottom: 106px;
 }
@@ -2769,10 +2771,6 @@ button-form-grey {
     transition: .8s;
 }
 
-.product-block .slick-slider .slick-track {
-    align-items: flex-start;
-}
-
 .slider-nav-block.slick-slider .slick-track {
     display: flex;
     align-items: flex-start;
@@ -2784,17 +2782,41 @@ button-form-grey {
 }
 
 .slider-nav-block.slick-slider img {
-    width: 93px!important;
-    height: 93px;
+    width: 93px;
     outline: none;
 }
 
+.slider-nav-block .slick-arrow-wrapper {
+    position: absolute;
+    bottom: 0;
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.75) 62%, #ffffff);
+    width: 100%;
+    height: 47px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.slider-nav-block .slick-arrow-wrapper img {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    bottom: 0;
+    transform: translate(-50%);
+}
+
 .slider-nav-block .slick-slide {
-    padding: 0 22px 22px 0;
+    width: 93px!important;
+    height: 93px!important;
+    margin-bottom: 24px;
 }
 
 .slider-product-view .slick-slide {
     padding: 0;
+}
+
+.slider-product-view .slick-slide {
+    width: 664px;
+    height: 664px;
 }
 
 .bottom-slider-block__slider-wrapper .slick-slide {
@@ -3326,7 +3348,8 @@ button-form-grey {
     color: #000000;
     position: absolute;
     bottom: 108px;
-    width: 100%;;
+    width: 100%;
+    ;
 }
 
 .personal-offer-block__right-side__button {
@@ -3762,6 +3785,9 @@ button-form-grey {
 
 .slider-nav-block {
     max-width: 123px;
+    margin-right: 24px;
+    max-height: 664px;
+    overflow: hidden;
 }
 
 .slider-product-view {
@@ -4284,10 +4310,13 @@ button-form-grey {
     margin-left: 5px;
     background-size: contain;
 }
-.catalog__block__tabs a.ASC, .catalog__block__tabs a.DESC {
+
+.catalog__block__tabs a.ASC,
+.catalog__block__tabs a.DESC {
     background-color: #e1fa61;
     color: #000;
 }
+
 .catalog__block__tabs a.ASC:after {
     content: '';
     width: 10px;
@@ -4309,7 +4338,10 @@ button-form-grey {
     color: #000;
 }
 
-.catalog_block .pop-products-block__item/*:not(:last-child)*/ {
+.catalog_block .pop-products-block__item
+/*:not(:last-child)*/
+
+{
     border: solid 1px #e5e5e5;
 }
 
@@ -4514,6 +4546,7 @@ button-form-grey {
 #public-offer_text-block ol ol ol {
     counter-reset: list3;
 }
+
 #public-offer_text-block ol ol ol>li:before {
     counter-increment: list3;
     /* Увеличиваем значение счетчика вложенного списка */
