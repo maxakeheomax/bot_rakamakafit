@@ -186,6 +186,9 @@
                                 #FAQaccordion .card-header h2 {
                                     max-width: 800px;
                                 }
+                                .bootstrap-box.special-offer-block {
+                                    margin: 76px 112px 105px;
+                                }
                             }
                             
                             @media(max-width: 1147px) {
@@ -757,6 +760,10 @@
                                     padding: 0;
                                     justify-content: center;
                                 }
+                                .special-offer-block__item,
+                                .bootstrap-box .special-offer-block__item {
+                                    width: 209px;
+                                }
                             }
                             
                             @media(max-width:768px) {
@@ -864,10 +871,6 @@
                                 }
                                 .hello-block__content__hello {
                                     justify-content: space-between;
-                                }
-                                .special-offer-block__item,
-                                .bootstrap-box .special-offer-block__item {
-                                    width: 209px;
                                 }
                                 .white-bg.ceo-text-block,
                                 .ceo-text-block {
