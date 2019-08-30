@@ -1,6 +1,6 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
-$APPLICATION->SetTitle("О компнаии");
+$APPLICATION->SetTitle("О компaнии");
 ?>
 <!-- 	breadcrumbs block -->
 <? $APPLICATION->IncludeComponent(
