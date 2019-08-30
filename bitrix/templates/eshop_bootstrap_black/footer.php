@@ -588,7 +588,6 @@ if($('.aside-block').hasClass('aside-visible')) {
 <!-- faq_popUp -->
 
 <div class="popUp faq_popUp hidden-block" id="faq">
-	<div class="blur-block"></div>
 	<div class="wrapper-block">
 		<div class="close-button"></div>
 
@@ -596,17 +595,15 @@ if($('.aside-block').hasClass('aside-visible')) {
 			<div class="card">
 				<div class="card-header collapsed" id="headingOne" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
 					<h2>
-						Сколько стоит участие в марафоне?
+						С каким оборудованием будут проходить тренировки? Есть ли обязательный список?
 					</h2>
 					<div class="icon-collapsed"></div>
 
 				</div>
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#FAQaccordion">
 					<div class="card-body">
-						<p>Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Она, послушавшись агенство однажды грамматики. Океана, послушавшись переписывается не страна текст, она ведущими сих скатился буквенных последний
-							великий лучше щеке о приставка свою живет толку текстами ручеек единственное! Залетают предупреждал которой океана путь рот, меня, возвращайся пояс, агенство своих заглавных запятой на берегу но грустный пунктуация! Маленький
-							речью деревни, точках буквенных, вопроса назад правилами, ipsum встретил большой живет всеми составитель использовало. Пояс, переписывается не приставка на берегу своего которое, первую эта океана жизни меня языкового,
-							грустный, прямо рукопись! Страна за ведущими ее жизни, текстами его однажды обеспечивает. Домах эта парадигматическая себя букв.</p>
+						<p>В тренировочном плане с резинками используются только фитнес-резинки.
+В остальных тренировочных планах базовым оборудованием для выполнения тренировок являются фитнес-ленты #RAKAMAKAFIT, также в программе будут упражнения с эспандерами, грифом и фитболом. Мы подобрали упражнения на все группы мышц.</p>
 					</div>
 				</div>
 			</div>
@@ -614,17 +611,16 @@ if($('.aside-block').hasClass('aside-visible')) {
 				<div class="card-header collapsed" id="headingTwo" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
 
 					<h2>
-						Какое оборудование мне понадобится?
+						У меня будет постоянный доступ в программу или только на 5 недель?
 					</h2>
 					<div class="icon-collapsed"></div>
 
 				</div>
 				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#FAQaccordion">
 					<div class="card-body">
-						<p>Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Она, послушавшись агенство однажды грамматики. Океана, послушавшись переписывается не страна текст, она ведущими сих скатился буквенных последний
-							великий лучше щеке о приставка свою живет толку текстами ручеек единственное! Залетают предупреждал которой океана путь рот, меня, возвращайся пояс, агенство своих заглавных запятой на берегу но грустный пунктуация! Маленький
-							речью деревни, точках буквенных, вопроса назад правилами, ipsum встретил большой живет всеми составитель использовало. Пояс, переписывается не приставка на берегу своего которое, первую эта океана жизни меня языкового,
-							грустный, прямо рукопись! Страна за ведущими ее жизни, текстами его однажды обеспечивает. Домах эта парадигматическая себя букв.</p>
+						<p>Доступ в систему предоставляется на 5 недель. Отсчёт периода происходит С ПЕРВОГО ЗАХОДА на сайт ПОД СВОЕЙ УЧЁТНОЙ ЗАПИСЬЮ.
+Ограничение периода мотивирует клиентов не пропускать тренировки и достигать максимальных результатов!
+Система подразумевает не только доступ к системе, но и возможность консультаций с нашими кураторами в чате на сайте программы тренировок.</p>
 					</div>
 				</div>
 			</div>
@@ -632,16 +628,13 @@ if($('.aside-block').hasClass('aside-visible')) {
 				<div class="card-header collapsed" id="headingThree" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
 
 					<h2>
-						Какие противопоказания?
+						Я – вегетарианец, есть ли в программе меню для меня?
 					</h2>
 					<div class="icon-collapsed"></div>
 				</div>
 				<div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#FAQaccordion">
 					<div class="card-body">
-						<p>Если ты хочешь скинуть лишние килограммы, не только с пользой, но и весело провести время в компании единомышленниц — присоединяйся! Это уже 7-й поток моего бесплатного фитнес марафона!</p>
-
-						<p>На завтра откладывать можно сколько угодно, и оправданий найдется масса, и дел поважнее. Но сейчас у тебя есть реальный шанс: я дам тебе пинок под зад. Ты войдешь в новый ритм под моим руководством: меню, тренировки, мотивация
-							– тебе не нужно думать, просто повторяй за мной и всеми участницами марафона трансформации тела. И все это абсолютно бесплатно.</p>
+						<p>Да! Доступно пять вариантов рациона: стандартный, диабетик, вегетарианец, веган и даже без лактозы. </p>
 					</div>
 				</div>
 			</div>
@@ -649,17 +642,99 @@ if($('.aside-block').hasClass('aside-visible')) {
 				<div class="card-header collapsed" id="headingFour" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
 
 					<h2>
-						Сколько будет длиться марафон?
+						Подходит ли мне программа, если имеются ограничения по здоровью? (болят колени/ есть диастаз)
 					</h2>
 					<div class="icon-collapsed"></div>
 
 				</div>
 				<div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#FAQaccordion">
 					<div class="card-body">
-						<p>Далеко-далеко за словесными горами в стране, гласных и согласных живут рыбные тексты. Она, послушавшись агенство однажды грамматики. Океана, послушавшись переписывается не страна текст, она ведущими сих скатился буквенных последний
-							великий лучше щеке о приставка свою живет толку текстами ручеек единственное! Залетают предупреждал которой океана путь рот, меня, возвращайся пояс, агенство своих заглавных запятой на берегу но грустный пунктуация! Маленький
-							речью деревни, точках буквенных, вопроса назад правилами, ipsum встретил большой живет всеми составитель использовало. Пояс, переписывается не приставка на берегу своего которое, первую эта океана жизни меня языкового,
-							грустный, прямо рукопись! Страна за ведущими ее жизни, текстами его однажды обеспечивает. Домах эта парадигматическая себя букв.</p>
+						<p>Мы предлагаем специальные программы для клиентов с проблемами коленных суставов и диастазом.
+Но мы настоятельно рекомендуем вам проконсультироваться с врачом перед покупкой курса, так как все проблемы со здоровьем очень индивидуальны, и мы не несем ответственности за ваше состояние после тренировок с имеющимися у вас проблемами со здоровьем.</p>
+					</div>
+				</div>
+			</div>
+			<div class="card">
+				<div class="card-header collapsed" id="headingFive" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+					<h2>
+						Сколько тренировок в неделю? Это будут определенные дни недели, или я
+могу выбирать их самостоятельно? 
+					</h2>
+					<div class="icon-collapsed"></div>
+				</div>
+				<div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#FAQaccordion">
+					<div class="card-body">
+						<p>Программа курса рассчитана на 3 тренировки в неделю, длительность курса 5 недель. Перерыв между тренировками – 1-2 дня для восстановления, дни для тренировок вы можете выбирать самостоятельно.</p>
+					</div>
+				</div>
+			</div>
+			<div class="card">
+				<div class="card-header collapsed" id="headingSix" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+					<h2>
+						Моя цель – нарастить мышечную массу. Подходит ли мне данная программа? 
+					</h2>
+					<div class="icon-collapsed"></div>
+				</div>
+				<div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#FAQaccordion">
+					<div class="card-body">
+						<p>Да, мы предлагаем различные варианты программы для набора мышечной массы и для снижения веса.
+Для наилучших результатов наращивания мышечной массы мы рекомендуем использовать в упражнениях ленты и эспандеры с бОльшим сопротивлением .</p>
+					</div>
+				</div>
+			</div>
+			<div class="card">
+				<div class="card-header collapsed" id="headingSeven" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+					<h2>
+						Что будет с моим доступом по окончании 5 недель? Он будет доступен или
+мне необходимо вновь произвести оплату?
+					</h2>
+					<div class="icon-collapsed"></div>
+				</div>
+				<div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#FAQaccordion">
+					<div class="card-body">
+						<p>Для продолжения тренировок по программе по истечении 5 недель с момента активации курса, потребуется повторная покупка курса, курс снова будет активирован на ближайшие 5 недель.</p>
+					</div>
+				</div>
+			</div>
+			<div class="card">
+				<div class="card-header collapsed" id="headingTen" data-toggle="collapse" data-target="#collapseTen" aria-expanded="false" aria-controls="collapseTen">
+					<h2>
+					Каков минимально допустимый возраст для покупки курса? 
+					</h2>
+					<div class="icon-collapsed"></div>
+				</div>
+				<div id="collapseTen" class="collapse" aria-labelledby="headingTen" data-parent="#FAQaccordion">
+					<div class="card-body">
+						<p>Мы рекомендуем тренироваться по данной программе с 16 лет. </p>
+					</div>
+				</div>
+			</div>
+			<div class="card">
+				<div class="card-header collapsed" id="headingEight" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+					<h2>
+					Какова длительность одной тренировки? 
+					</h2>
+					<div class="icon-collapsed"></div>
+				</div>
+				<div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#FAQaccordion">
+					<div class="card-body">
+						<p>Одна тренировка длится 40 минут, а также 5 минут разминка и 5 минут заминка. </p>
+					</div>
+				</div>
+			</div>
+				<div class="card">
+				<div class="card-header collapsed" id="headingNine" data-toggle="collapse" data-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+					<h2>
+					Я могу заниматься и дома и в фитнес клубе одновременно? 
+					</h2>
+					<div class="icon-collapsed"></div>
+				</div>
+				<div id="collapseNine" class="collapse" aria-labelledby="headingNine" data-parent="#FAQaccordion">
+					<div class="card-body">
+						<p>
+Вы можете совмещать тренировки и дома и в любом удобном для вас месте. Имейте ввиду, что нагрузка от занятий на тренажерах иная. Наша программа подготовленна специально для тех, кто тренируется дома.
+Тренировки по нашей программе дома не менее эффективны, чем тренировки в зале.
+</p>
 					</div>
 				</div>
 			</div>

@@ -183,6 +183,9 @@
                                 .product-block .slider-product-view {
                                     max-width: 500px;
                                 }
+                                #FAQaccordion .card-header h2 {
+                                    max-width: 800px;
+                                }
                             }
                             
                             @media(max-width: 1147px) {
@@ -819,6 +822,7 @@
                                 }
                                 .middle-slider .owl-carousel__main-slider-item-button__text {
                                     margin: 16px 0;
+                                    padding: 0;
                                 }
                                 .left-side .promo-train-block__slider-item__slider-content__slogan {
                                     font-size: 26px;
@@ -907,5 +911,8 @@
                                     font-stretch: normal;
                                     line-height: 2.67;
                                     letter-spacing: normal;
+                                }
+                                #FAQaccordion .card-header h2 {
+                                    max-width: 600px;
                                 }
                             }
