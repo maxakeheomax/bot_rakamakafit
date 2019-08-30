@@ -6,8 +6,9 @@ $(document).ready(function () {
         asNavFor: '.slider-product-view',
         vertical: true,
         verticalSwiping: true,
-        arrows:true,
-        nextArrow: `<div class="slick-arrow-wrapper"><img src="/bitrix/templates/eshop_bootstrap_black/assets/arrow_down.svg"></div>`
+        arrows: true,
+        nextArrow: `<div class="slick-arrow-wrapper wrapper_bottom"><img src="/bitrix/templates/eshop_bootstrap_black/assets/arrow_down.svg"></div>`,
+        prevArrow: `<div class="slick-arrow-wrapper wrapper_up"><img src="/bitrix/templates/eshop_bootstrap_black/assets/arrow_up.svg"></div>`
     });
 
     $('.slider-product-view').slick({
@@ -16,5 +17,4 @@ $(document).ready(function () {
         fade: true,
         arrows: false
     });
-
 });
