@@ -327,6 +327,21 @@
 				$('.aside-block').fadeIn();
 			}
 		});
+		$('.aside-block__shedule').click(function(){
+
+$('.aside-block').toggleClass('aside-visible');
+
+if($('.aside-block').hasClass('aside-visible')) {
+	$('.aside-block__shedule-text').text('Закрыть')
+	$('.aside-block__shedule-logo').fadeOut();
+	$('.hide-button').fadeIn();
+}else{
+	$('.aside-block__shedule-text').text('График работы');
+	$('.aside-block__shedule-logo').fadeIn();
+	$('.hide-button').fadeOut();
+}
+
+		});
 
 		($('.pass').next()).click(function() {
 			($(this).prev()).toggleClass('pass-visible');

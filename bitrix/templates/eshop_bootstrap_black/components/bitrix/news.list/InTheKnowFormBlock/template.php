@@ -34,7 +34,7 @@ $items = $arResult['ITEMS'];
         <div class="in-the-know-form-block__form__input-checkbox-wrapper">
             <input  class="in-the-know-form-block__form__checkbox" type="checkbox" name="" id="in-the-know-form-checkbox">
             <label for="in-the-know-form-checkbox"></label>
-            <p class="in-the-know-form-block__form__checkbox-desc">Я согласен с обработкой персональных данных</p>
+            <p class="in-the-know-form-block__form__checkbox-desc"><a class="underline_link" href='/agreement'>Я согласен с обработкой персональных данных</a></p>
         </div>
     </form>
 </div>
