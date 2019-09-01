@@ -189,10 +189,19 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php');
             </header>
 
             <div class="aside-block" >
+              <div class="aside-block__content">
+                    <p class="aside-block__content__header">Мы работаем каждый день с 10:00 до 20:00</p>
+                <p class="aside-block__content__text">А в каникулы отдыхаем 
+                        с 1-10 янаваря. 31 декабря сокращенный день до 16:00</p>
+
+                </div>
                 <div class="aside-block__shedule">
                     <p class="aside-block__shedule-text">График работы</p>
                     <img src="<?= SITE_TEMPLATE_PATH ?>/assets/calendar.svg" alt="calendar" class="aside-block__shedule-logo">
+                    <div class="hide-button"></div>
                 </div>
+              
+
                 <!-- <div class="aside-block__icons"> -->
                     <!-- <a target="_blank" href="https://vk.com/rakamakafit" class="aside-block__icons_link"><img src="<?= SITE_TEMPLATE_PATH ?>/assets/vk.svg" alt="" class="aside-block__icons-item"></a> -->
                     <!-- <a target="_blank" href="https://www.youtube.com/channel/UCVZQTeZTLrz166tbN0bEGkg?sub_confirmation=1" class="aside-block__icons_link"><img src="<?= SITE_TEMPLATE_PATH ?>/assets/ytb.svg" alt="" class="aside-block__icons-item"></a> -->

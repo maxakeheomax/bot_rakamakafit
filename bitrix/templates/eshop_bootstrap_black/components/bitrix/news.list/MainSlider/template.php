@@ -20,6 +20,7 @@ $items = $arResult['ITEMS'];
 
 ?>
 
+
 <div class="owl-carousel middle-slider owl-theme">
     <? foreach ($items as $item): ?>
                 <?

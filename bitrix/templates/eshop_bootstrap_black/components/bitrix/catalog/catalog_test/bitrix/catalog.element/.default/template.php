@@ -405,3 +405,4 @@ if ($arResult['ORIGINAL_PARAMETERS']['SECTION_CODE'])
 
 
 <? CMain::IncludeFile('/include/subscribe_form_blue.php'); ?>
+

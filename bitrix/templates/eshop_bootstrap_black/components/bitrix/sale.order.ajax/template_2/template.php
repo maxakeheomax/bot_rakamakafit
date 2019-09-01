@@ -707,7 +707,20 @@ else
 				</div>
 
 				<div class="full-width-block-list">
-															
+				<? //dump($arResult['GRID']['ROWS']) ?>
+				<? foreach ($arResult['GRID']['ROWS'] as $key => $item) : ?>
+					<div class="cart-block__cart-items-list__item d-table" id="<?=$key?>">
+						<div class="item__image d-table__cell"> <img src="<?= CFile::GetPath($item['data']['PREVIEW_PICTURE']) ?>" alt=""> </div>
+						<div class="cart-block__item__info d-table__cell"> <a href="<?= $item['data']['DETAIL_PAGE_URL'] ?>"><?= $item['data']['NAME'] ?></a>
+							<div class="cart-block__item__meta"> </div>
+						</div>
+						<div class="cart-block__item__price d-table__cell">
+							<p class="actual-price price"><span><?= $item['data']['SUM_NUM']?></span> Р</p>
+							<p class="old-price price"><span> </span> </p>
+							<p class="discount-price price"><span></span></p>
+						</div>
+					</div>
+				<? endforeach; ?>
 				</div> 
 			</div>							
 		</div>
@@ -908,8 +921,7 @@ else
 
 	});
 </script>
-<?/////////////////////////////////////////////////////////////////////////?>
-								
+<?/////////////////////////////////////////////////////////////////////////?>	
 
 	<div id="bx-soa-saved-files" style="display:none"></div>
 	<div id="bx-soa-soc-auth-services" style="display:none">
@@ -1135,36 +1147,6 @@ else
 	var cart_items_count= $('#bx-soa-basket .bx-soa-section-content .bx-soa-item-table>div').length;
 	$('#items-counter').text(cart_items_count);
 	var items = $('#items-list .cart-block__cart-order-reg-item');
-	$('#bx-soa-basket .bx-soa-section-content .bx-soa-item-table>div').each(function (index, element) {
-		var image_url = $(element).find('.bx-soa-item-imgcontainer').css('background-image');				
-		var title = $($(element).find('.bx-soa-item-title a')[0]).text();
-		var title_link = $($(element).find('.bx-soa-item-title a')[0]).attr('href');
-		var price = $($(element).find('.bx-price.all')[0]).text();
-		price = price.substring(0, price.length-5);
-		var discount = $($(element).find('.bx-price-old')[0]).text();
-		discount = discount.substring(0, discount.length-5);
-		var discount_value = parseFloat(parseFloat(price.replace(/\s/g, '') ) - parseFloat(discount.replace(/\s/g, '') )).toFixed(0);
-
-		console.log( image_url.substring(image_url.indexOf('"')+1, image_url.indexOf('"', image_url.indexOf('"')+1)) );
-
-		items.append(
-			'<div class="cart-block__cart-items-list__item d-table">	'
-			+'	<div class="item__image d-table__cell">						'
-			+'		<img src="'+ ( image_url.substring(image_url.indexOf('"')+1, image_url.indexOf('"', image_url.indexOf('"')+1)) ) +'" alt="">					'
-			+'	</div>	'
-			+'	<div class="cart-block__item__info d-table__cell">	'
-			+'		<a href="'+title_link+'">'+title+'</a>'
-			+'		<div class="cart-block__item__meta">	160 гр.</div>'
-			+'	</div>'
-
-			+'	<div class="cart-block__item__price d-table__cell">	'
-			+'		<p class="actual-price price"><span>'+price+'</span> Р</p>'
-			+'		<p class="old-price price"><span>'+ (discount ? discount+' Р' : '') +' </span> </p>'
-			+'		<p class="discount-price price">' + (!isNaN(discount_value) ? 'Скидка' : '') +'<span>'+ (!isNaN(discount_value) ? (discount_value * (-1) )+' P' : '') +'</span></p>'
-			+'	</div>'
-			+'</div>'
-		);
-	});
 	$('#button_form_submit').click(function(e){
 		e.preventDefault();
 		$('form[name="ORDER_FORM"]').ajaxSubmit({

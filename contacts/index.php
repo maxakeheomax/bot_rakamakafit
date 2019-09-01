@@ -89,9 +89,9 @@ $APPLICATION->SetTitle("Контакты");
 
 			</div>
 			<div class="promo-form-block__form__input-checkbox-wrapper">			
-				<input class="promo-form-block__form__checbox" type="checkbox" name="" id="promo-checkbox">
-				<label for="promo-checkbox"></label>
-				<p class="promo-form-block__form__checbox-desc">Я согласен с обработкой персональных данных</p>
+				<input class="promo-form-block__form__checbox" type="checkbox" name="" id="fake-detection-form-checkbox">
+				<label for="fake-detection-form-checkbox"></label>
+				<p class="promo-form-block__form__checbox-desc"><a class="underline_link" href='/agreement'>Я согласен с обработкой персональных данных</a></p>
 
 			</div>
 			<button class="promo-form-block__form__submit" type="submit">отправить</button>

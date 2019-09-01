@@ -57,6 +57,30 @@ a {
     z-index: 2;
 }
 
+.underline_link {
+    position: relative;
+}
+
+.underline_link::before,
+.underline_link::after {
+    content: '';
+    position: absolute;
+    transition: transform .5s ease;
+}
+
+.underline_link::before {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: #e31377;
+    transform: scaleX(0);
+}
+
+.underline_link:hover::before {
+    transform: scaleX(1);
+}
+
 .underline-block:after {
     content: '';
     display: block;
@@ -640,25 +664,93 @@ button-form-grey {
 
 /*aside block */
 
+.aside-visible {
+    left: 0!important;
+}
+
+.hide-button {
+    width: 22px;
+    height: 22px;
+    border: 2px solid #000000;
+    border-radius: 50%;
+    position: absolute;
+    display: none;
+    top: 70%;
+    left: 10%;
+    margin: 0 10px;
+}
+
+.hide-button::before,
+.hide-button::after {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 2px;
+    background-color: #000000;
+    position: absolute;
+}
+
+.hide-button::after {
+    top: 45%;
+    left: 25%;
+    transform: rotate(45deg);
+}
+
+.hide-button::before {
+    top: 45%;
+    left: 25%;
+    transform: rotate(-45deg);
+}
+
 .aside-block {
     position: fixed;
-    left: -60px;
-    top: 405px;
     display: flex;
     justify-content: space-between;
     z-index: 99999999;
-    transform: rotate(90deg);
-    height: 64px;
+    left: -300px;
+    transition: .7s;
+}
+
+.aside-block__content {
+    width: 218px;
+    min-height: 192px;
+    background-color: #f7f7fb;
+    padding: 24px 50px 41px 32px;
+}
+
+.aside-block__content__header {
+    font-family: 'FranklinGothicDemi', sans-serif;
+    font-size: 20px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.3;
+    letter-spacing: normal;
+    color: #131313;
+    margin-bottom: 16px;
+}
+
+.aside-block__content__text {
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.25;
+    letter-spacing: normal;
+    color: #000000;
+    margin: 0;
 }
 
 .aside-block__shedule {
-    width: 192px;
     height: inherit;
-    background-color: #f7f7fb;
+    background-color: #ededf3;
+    padding: 26px;
+    cursor: pointer;
+    position: relative;
 }
 
 .aside-block__shedule-text {
-    height: 16px;
     display: inline-block;
     font-size: 14px;
     font-weight: normal;
@@ -667,14 +759,19 @@ button-form-grey {
     line-height: normal;
     letter-spacing: normal;
     color: #000000;
-    margin-top: 22px;
-    margin-left: 27px;
-    margin-right: 13px;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    position: absolute;
+    top: 20%;
+    left: 10%;
 }
 
 .aside-block__shedule-logo {
-    transform: rotate(-90deg);
     vertical-align: middle;
+    position: absolute;
+    top: 70%;
+    left: 10%;
+    margin: 0 12px;
 }
 
 .aside-block__icons {
@@ -1257,10 +1354,10 @@ button-form-grey {
 
 .special-offer-block__items {
     display: flex;
-    justify-content: space-between;
     flex-flow: row wrap;
     margin-top: 34px;
 }
+
 .special-offer-block__items::after {
     content: '';
     display: flex;
@@ -1298,6 +1395,7 @@ button-form-grey {
     margin-left: 9px;
     margin-right: 9px;
 }
+
 .bootstrap-box .special-offer-block__item {
     margin-bottom: 106px;
 }
@@ -2769,10 +2867,6 @@ button-form-grey {
     transition: .8s;
 }
 
-.product-block .slick-slider .slick-track {
-    align-items: flex-start;
-}
-
 .slider-nav-block.slick-slider .slick-track {
     display: flex;
     align-items: flex-start;
@@ -2784,17 +2878,58 @@ button-form-grey {
 }
 
 .slider-nav-block.slick-slider img {
-    width: 93px!important;
-    height: 93px;
+    width: 93px;
     outline: none;
 }
 
+.slider-nav-block .slick-arrow-wrapper {
+    position: absolute;
+    height: 47px;
+    cursor: pointer;
+    text-align: center;
+    z-index: 1;
+}
+
+.slider-nav-block .slick-arrow-wrapper img {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    transform: translate(-50%);
+}
+
+.wrapper_up {
+    top: 0;
+    background-image: linear-gradient(to top, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.75) 62%, #ffffff);
+    width: 100%;
+}
+
+.wrapper_bottom {
+    bottom: 0;
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.75) 62%, #ffffff);
+    width: 100%;
+}
+
+.wrapper_bottom img {
+    bottom: 0;
+}
+
+.wrapper_up img {
+    top: 0;
+}
+
 .slider-nav-block .slick-slide {
-    padding: 0 22px 22px 0;
+    width: 93px!important;
+    height: 93px!important;
+    margin-bottom: 24px;
 }
 
 .slider-product-view .slick-slide {
     padding: 0;
+}
+
+.slider-product-view .slick-slide {
+    width: 664px;
+    height: 664px;
 }
 
 .bottom-slider-block__slider-wrapper .slick-slide {
@@ -3326,7 +3461,8 @@ button-form-grey {
     color: #000000;
     position: absolute;
     bottom: 108px;
-    width: 100%;;
+    width: 100%;
+    ;
 }
 
 .personal-offer-block__right-side__button {
@@ -3762,6 +3898,9 @@ button-form-grey {
 
 .slider-nav-block {
     max-width: 123px;
+    margin-right: 24px;
+    max-height: 664px;
+    overflow: hidden;
 }
 
 .slider-product-view {
@@ -4284,10 +4423,13 @@ button-form-grey {
     margin-left: 5px;
     background-size: contain;
 }
-.catalog__block__tabs a.ASC, .catalog__block__tabs a.DESC {
+
+.catalog__block__tabs a.ASC,
+.catalog__block__tabs a.DESC {
     background-color: #e1fa61;
     color: #000;
 }
+
 .catalog__block__tabs a.ASC:after {
     content: '';
     width: 10px;
@@ -4309,7 +4451,10 @@ button-form-grey {
     color: #000;
 }
 
-.catalog_block .pop-products-block__item/*:not(:last-child)*/ {
+.catalog_block .pop-products-block__item
+/*:not(:last-child)*/
+
+{
     border: solid 1px #e5e5e5;
 }
 
@@ -4514,6 +4659,7 @@ button-form-grey {
 #public-offer_text-block ol ol ol {
     counter-reset: list3;
 }
+
 #public-offer_text-block ol ol ol>li:before {
     counter-increment: list3;
     /* Увеличиваем значение счетчика вложенного списка */
@@ -5328,12 +5474,39 @@ button-form-grey {
     background-color: #ffffff;
 }
 
+#faq .wrapper-block {
+    max-height: none;
+}
+
+#faq.popUp {
+    top: 0;
+    left: 0;
+    width: 101%;
+    height: 100%;
+    overflow-y: scroll;
+}
+
+#faq.popUp .wrapper-block {
+    top: 0;
+    left: 50%;
+    width: 100%;
+    max-width: 1346px;
+    min-height: 604px;
+    background-color: #ffffff;
+    margin: 40px auto;
+    transform: none;
+}
+
 .accordion {
     width: 100%;
     max-width: 1120px;
     margin: 0 auto;
     padding: 113px 0 128px 0;
     border-collapse: collapse;
+}
+
+#FAQaccordion .card-header h2 {
+    max-width: 1024px;
 }
 
 .accordion>.card:not(:last-of-type) {
