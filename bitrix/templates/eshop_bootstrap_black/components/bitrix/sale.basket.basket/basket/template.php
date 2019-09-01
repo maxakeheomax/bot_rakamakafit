@@ -553,8 +553,12 @@ else
 			old_emenet = $('.basket-items-list-item-container[data-id="' + id + '"]');
 			$(old_emenet).find('.basket-item-actions-remove')[0].click();
 			$(element).closest('.cart-block__cart-items-list__item-wrapper').remove();
-			setTimeout(prices, 1000);
-		});
+			setTimeout(prices, 3000);
+			if ($('.cart-block__cart-items-list__item-wrapper').length == 0 ){
+				window.location.href = '/personal/cart/?BasketDelete=1';
+			}
+
+		});		
 
 	});
 
