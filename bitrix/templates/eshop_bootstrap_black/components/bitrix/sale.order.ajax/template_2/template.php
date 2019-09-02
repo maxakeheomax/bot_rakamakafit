@@ -735,35 +735,19 @@ else
 				</div>
 				
 				<input type="hidden" name="PAY_SYSTEM_ID">
+				<!-- <?=  dump($arResult) ?> -->
 				<div class="full-width-block-list">
-					<div class="full-width-block-list-item payment-select" data-value="3"> 
-						<div class="left-side">
-							<p class="item-title">Картой</p>
-						</div>
-						<div class="right-side">
-							<div class="icon_block" style="background: url('assets/cash_icon.svg') no-repeat center"></div>
-						</div> 
-					</div>
-
-					<div class="full-width-block-list-item payment-select" data-value="4">
-						<div class="left-side">
-							<p class="item-title">Платежной системой</p>
-						</div>
-						<div class="right-side">
-							<div class="icon_block" style="background: url('<?= SITE_TEMPLATE_PATH ?>/assets/cash_icon.svg')no-repeat center"></div>
-							<div class="icon_block" style="background: url('<?= SITE_TEMPLATE_PATH ?>/assets/cash_icon.svg')no-repeat center"></div>
-							<div class="icon_block" style="background: url('<?= SITE_TEMPLATE_PATH ?>/assets/cash_icon.svg')no-repeat center"></div>
-						</div> 
-					</div>
-
-					<div class="full-width-block-list-item payment-select" data-value="1">
-						<div class="left-side">
-							<p class="item-title">Наличными при получениями</p>
-						</div>
-						<div class="right-side">
-							<div class="icon_block" style="background: url('assets/cash_icon.svg')no-repeat center"></div>
-						</div> 
-					</div>
+					<? foreach($arResult['PAY_SYSTEM'] as $paymentMethod): ?>
+						<div class="full-width-block-list-item payment-select" data-value="<?= $paymentMethod['ID'] ?>"> 
+							<div class="left-side">
+								<p class="item-title"><?= $paymentMethod['NAME'] ?></p>
+							</div>
+							<div class="right-side">
+								<div class="icon_block" style="background: url('assets/cash_icon.svg') no-repeat center"></div>
+							</div> 
+						</div>	
+					<? endforeach; ?>
+					
 					<script>
 						$('.payment-select').click(function(){
 							var val = $(this).data('value');
