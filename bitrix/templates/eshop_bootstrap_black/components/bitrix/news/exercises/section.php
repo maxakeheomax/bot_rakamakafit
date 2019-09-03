@@ -11,8 +11,8 @@
 /** @var string $componentPath */
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
-?>
 
+?>
 <?if($arParams["USE_RSS"]=="Y"):?>
 	<?
 	$rss_url = CComponentEngine::makePathFromTemplate($arResult["FOLDER"].$arResult["URL_TEMPLATES"]["rss_section"], array_map("urlencode", $arResult["VARIABLES"]));
@@ -53,9 +53,10 @@ $this->setFrameMode(true);
 ?>
 
 <?endif?>
+
 <?$APPLICATION->IncludeComponent(
 	"bitrix:news.list",
-	"",
+	"section",
 	Array(
 		"IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
 		"IBLOCK_ID" => $arParams["IBLOCK_ID"],

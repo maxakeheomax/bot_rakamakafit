@@ -14,7 +14,6 @@ $this->setFrameMode(true);
 ?>
 <? //var_dump($APPLICATION->GetCurUri()); ?>
 <?
-if(!preg_match('|\/trainings\/exercises\/\w+|', $APPLICATION->GetCurUri()) ):
 	$arFilter = Array("IBLOCK_ID"=>'13', "ACTIVE"=>"Y");
 	$dbSection = CIBlockSection::GetList(Array(), $arFilter, false);
 
@@ -42,13 +41,17 @@ if(!preg_match('|\/trainings\/exercises\/\w+|', $APPLICATION->GetCurUri()) ):
 		<div class="row exercises-list-block__row">
 			<? foreach ($sections as $section):?>
 			<div class="col-md-6 exercises-list-block__item">
-				<div class="exercises-list-block__item-title"><span> <?= $section['NAME']?> </span></div>
+				<div class="exercises-list-block__item-title">
+					<a href="/trainings/<?=$section['IBLOCK_CODE']?>/<?= $section['CODE']?>/">
+						<span> <?= $section['NAME']?> </span>
+					</a>
+				</div>
 				<? $elements = CIBlockElement::GetList([],
 					["IBLOCK_SECTION_ID"=>$section['ID']]
 				);?>
 				<ul class="exercises-list-block__exercises-list">
 					<? while ($element = $elements->Fetch()):?>
-						<li><a href="/trainings/<?=$section['IBLOCK_CODE']?>/<?= $section['CODE'].'#'.$element['CODE'] ?>"><span> <?= $element['NAME'] ?> </span></a></li>
+						<li><a href="/trainings/<?=$section['IBLOCK_CODE']?>/<?= $section['CODE'].'/'.$element['CODE'] ?>/"><span> <?= $element['NAME'] ?> </span></a></li>
 					<? endwhile; ?>
 				</ul>
 			</div>
@@ -56,64 +59,7 @@ if(!preg_match('|\/trainings\/exercises\/\w+|', $APPLICATION->GetCurUri()) ):
 		</div>
 	</div>
 
-<? else: ?>
-	<?$APPLICATION->IncludeComponent(
-		"bitrix:breadcrumb",
-		"",
-		Array(
-			"PATH" => "",
-			"SITE_ID" => "s1",
-			"START_FROM" => "0"
-		)
-	);?>
 
-
-	<div class="personal-offer-block">
-		<div class="personal-offer-block__row">
-			<div class="personal-offer-block__left-side">
-				<div class="personal-offer-block__left-side__slogan">Мы подберем для тебя программу тренировок на все группы мышц</div>
-				<a href="/trainings/programm/">	<div class="personal-offer-block__left-side__button">
-					<span class="personal-offer-block__left-side__button__text">Купить</span>
-				</div></a>
-			</div>
-			<div class="personal-offer-block__right-side" style="background:url(<?=CFile::GetPath($arResult['section']['PICTURE']);?>)">
-				<div class="personal-offer-block__right-side__slogan"><?= $arResult['section']['DESCRIPTION']?></div>
-				<? $prod = CIBlockElement::GetByID($arResult['section']['UF_PRODUCT'])->GetNext();?>
-				<a href="<?=$prod['DETAIL_PAGE_URL']?>"><div class="personal-offer-block__right-side__button">
-					<span class="personal-offer-block__right-side__button__text">подробнее</span>
-				</div></a>
-			</div>
-		</div>
-	</div>
-
-
-	<div class="exercise-demos-list-blocks">
-	<? foreach($arResult['elements'] as $exercise): ?>
-	<? //echo '<pre>'; var_dump($exercise); echo '</pre>'; ?>
-	
-		<?
-			$this->AddEditAction($exercise['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($exercise["IBLOCK_ID"], "ELEMENT_EDIT"));
-			$this->AddDeleteAction($exercise['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($exercise["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
-		?>
-		<div class="exercise-demos-list-block" id="<?=$exercise['CODE']?>">
-			<div class="exercise-demos-list-block__left-side">
-				<div class="exercise-demos-list-block__left-side__img-block">
-					<img src="<?=CFile::GetPath($exercise["PREVIEW_PICTURE"])?>" alt="">
-				</div>	
-			</div>
-			<div class="exercise-demos-list-block__right-side">
-				<div class="exercise-demos-list-block__right-side__title"><?echo $exercise["NAME"]?></div>
-				<div class="exercise-demos-list-block__right-side__desc"><?echo $exercise["PREVIEW_TEXT"];?></div>
-				<!-- <a href="#"><div class="exercise-demos-list-block__right-side__button">
-					<span class="exercise-demos-list-block__right-side__button__text">смотреть</span>
-				</div></a> -->
-			</div>
-		</div>
-	<? endforeach;?>
-	</div>
-	
-
-<? endif; ?>
 
 <!-- CEO-text-block -->
 <div class="ceo-text-block">

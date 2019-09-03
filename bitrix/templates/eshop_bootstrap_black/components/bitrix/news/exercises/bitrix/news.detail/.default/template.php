@@ -1,4 +1,4 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
@@ -15,101 +15,114 @@ $this->setFrameMode(true);
 
 
 
-$arFilter = Array("IBLOCK_ID"=>'13', "ACTIVE"=>"Y");
+// $arFilter = Array("IBLOCK_ID"=>'13', "ACTIVE"=>"Y");
 
-$dbSection = CIBlockSection::GetList(Array(), $arFilter, false);
+// $dbSection = CIBlockSection::GetList(Array(), $arFilter, false);
 
-$sections = [];
-while ($arSection = $dbSection->Fetch()) {
-	if(!$arSection["IBLOCK_SECTION_ID"]){
-		$sections[$arSection["ID"]] = array(
-			"NAME" => "{$arSection["NAME"]}", 
-			"CODE" => $arSection["CODE"]
-		);
-	}else{
-		$sections[$arSection["IBLOCK_SECTION_ID"]]['sub'][] = array(
-			"NAME" => "{$arSection["NAME"]}", 
-			"CODE" => $arSection["CODE"]
-		);
-	}
-}
-$current_section = $sections[ $arResult['SECTION']['PATH'][0]['ID'] ];
-// var_dump($sections);
+// $sections = [];
+// while ($arSection = $dbSection->Fetch()) {
+// 	if(!$arSection["IBLOCK_SECTION_ID"]){
+// 		$sections[$arSection["ID"]] = array(
+// 			"NAME" => "{$arSection["NAME"]}", 
+// 			"CODE" => $arSection["CODE"]
+// 		);
+// 	}else{
+// 		$sections[$arSection["IBLOCK_SECTION_ID"]]['sub'][] = array(
+// 			"NAME" => "{$arSection["NAME"]}", 
+// 			"CODE" => $arSection["CODE"]
+// 		);
+// 	}
+// }
+// $current_section = $sections[ $arResult['SECTION']['PATH'][0]['ID'] ];
+// echo '<pre>';
+// var_dump($arResult['SECTION']['PATH'][0]['CODE']);
 ?>
 
-	
+<? $APPLICATION->IncludeComponent(
+	"bitrix:breadcrumb",
+	"",
+	array(
+		"PATH" => "",
+		"SITE_ID" => "s1",
+		"START_FROM" => "0"
+	)
+); ?>
 
 
 <!-- main sider -->
-<div class="article-slider owl-carousel middle-slider owl-theme">
-	<? foreach($arResult['PROPERTIES']['PICTURES']['VALUE'] as $image_id): ?>
-		<div class="owl-carousel__slider-item" style="background: url('<?= CFile::GetPath( $image_id )?>');background-size: 100% 100%; ">
+<div class="owl-carousel middle-slider owl-theme personal-offer-block">
+	<? foreach ($arResult['PROPERTIES']['FILES']['VALUE'] as $image_id) : ?>
+		<div class="owl-carousel__slider-item" style="background: url('<?= CFile::GetPath($image_id) ?>');background-size: 100% 100%; ">
 		</div>
-	<? endforeach;?>
+	<? endforeach; ?>
 </div>
-<!-- end of main sider -->
-
+<!-- CEO-text-block -->
 <div class="white-bg ceo-text-block">
 	<div class="ceo-text-block__content">
-	<?if($arParams["DISPLAY_NAME"]!="N" && $arResult["NAME"]):?>
-		<div class="ceo-text-block__title"><?=$arResult["NAME"]?></div>
-	<?endif;?>
-	
-	
-	<?if(strlen($arResult["DETAIL_TEXT"])>0):?>
+		<div class="ceo-text-block__title"><?=$arResult['SECTION']['PATH'][0]['NAME']?></div>
 		<div class="ceo-text-block__text">
-			<?echo $arResult["DETAIL_TEXT"];?>
+			<?=$arResult['DETAIL_TEXT']?>
 		</div>
-	<?else:?>
-		<div class="ceo-text-block__text">
-			<?echo $arResult["PREVIEW_TEXT"];?>
-		</div>
-	<?endif?>
-	<?if(array_key_exists("USE_SHARE", $arParams) && $arParams["USE_SHARE"] == "Y")
-	{
-		?>
-		<div class="news-detail-share">
-			<noindex>
-			<?
-			$APPLICATION->IncludeComponent("bitrix:main.share", "", array(
-					"HANDLERS" => $arParams["SHARE_HANDLERS"],
-					"PAGE_URL" => $arResult["~DETAIL_PAGE_URL"],
-					"PAGE_TITLE" => $arResult["~NAME"],
-					"SHORTEN_URL_LOGIN" => $arParams["SHARE_SHORTEN_URL_LOGIN"],
-					"SHORTEN_URL_KEY" => $arParams["SHARE_SHORTEN_URL_KEY"],
-					"HIDE" => $arParams["SHARE_HIDE"],
-				),
-				$component,
-				array("HIDE_ICONS" => "Y")
-			);
-			?>
-			</noindex>
-		</div>
-		<?
-	}
-	?>
 	</div>
 </div>
-
-<div class="exercises-tabs-block">
-		<div class="exercises-tabs-block__title"><?= $arResult['SECTION']['PATH'][0]['NAME']?></div>
-		<div class="exercises-tabs-block__tabs">
-			<? foreach($current_section['sub'] as $sub_section): ?>
-			<a href="<?= $current_section['CODE'].'/'.$sub_section['CODE']?>">
-				<div class="exercises-tabs-block__tabs__item hands"><p><?= $sub_section['NAME'] ?></p></div>
-			</a>	
-			<? endforeach; ?>
+<!-- exercises-tabs-block -->
+<!-- <div class="exercises-tabs-block">
+	<div class="exercises-tabs-block__title"><?=$arResult['SECTION']['PATH'][0]['NAME']?></div>
+	<div class="exercises-tabs-block__tabs">
+		<a href="#">
+			<div class="exercises-tabs-block__tabs__item" style="background: url('assets/hands.jpg') no-repeat;background-size: cover;">
+				<p>Для рук</p>
+			</div>
+		</a>
+		<a href="#">
+			<div class="exercises-tabs-block__tabs__item" style="background: url('assets/press.jpg') no-repeat;background-size: cover; ">
+				<p>Для пресса</p>
+			</div>
+		</a>
+		<a href="#">
+			<div class="exercises-tabs-block__tabs__item" style="background: url('assets/butts.jpg') no-repeat;background-size: cover;">
+				<p>Для ягодиц</p>
+			</div>
+		</a>
+		<a href="#">
+			<div class="exercises-tabs-block__tabs__item" style="background: url('assets/feet.jpg') no-repeat;background-size: cover; ">
+				<p>Для ног</p>
+			</div>
+		</a>
+		<a href="#">
+			<div class="exercises-tabs-block__tabs__item" style="background: url('assets/backbone.jpg') no-repeat;background-size: cover; ">
+				<p>Для спины</p>
+			</div>
+		</a>
+		<a href="#">
+			<div class="exercises-tabs-block__tabs__item" style="background: url('assets/chest.jpg') no-repeat;background-size: cover; ">
+				<p>На грудь</p>
+			</div>
+		</a>
 		</ul>
 	</div>
-</div>
-
-<div class="personal-programm promo-train-block__slider-item" >
-	<div class="promo-train-block__slider-item__slider-content">
-		<p class="promo-train-block__slider-item__slider-content__slogan">Мы подберем для тебя <span class="promo-train-block__title_underline-block-up"> программу тренировок</span> на все группы мышц </p>
-		<div class="promo-train-block__slider__content_bottom">
-			<div class="promo-train-block__slider-item-button">
-				<span class="promo-train-block__slider-item-button__text">Купить</span>
-			</div>
+</div> -->
+<!-- personal offer block -->
+<div class="personal-offer-block">
+	<div class="personal-offer-block__row">
+		<div class="personal-offer-block__left-side">
+			<div class="personal-offer-block__left-side__slogan">Мы подберем для тебя программу тренировок на все группы мышц</div>
+			<a href="#">
+				<div class="personal-offer-block__left-side__button">
+					<span class="personal-offer-block__left-side__button__text">Купить</span>
+				</div>
+			</a>
+		</div>
+		<?
+		$arFilter = Array("IBLOCK_ID"=>'13', "ACTIVE"=>"Y", "CODE"  => $arResult['SECTION']['PATH'][0]['CODE']);
+		$dbSection = CIBlockSection::GetList(Array(), $arFilter, false, ['*', "UF_*"])->Fetch();?>
+		<div class="personal-offer-block__right-side" style="background:url(<?=CFile::GetPath($dbSection['PICTURE']);?>)">
+			<div class="personal-offer-block__right-side__slogan"><?= $dbSection['DESCRIPTION']?></div>
+			<? $prod = CIBlockElement::GetByID($dbSection['UF_PRODUCT'])->GetNext();?>
+			<a href="<?=$prod['DETAIL_PAGE_URL']?>"><div class="personal-offer-block__right-side__button">
+				<span class="personal-offer-block__right-side__button__text">подробнее</span>
+			</div></a>
 		</div>
 	</div>
 </div>
+
