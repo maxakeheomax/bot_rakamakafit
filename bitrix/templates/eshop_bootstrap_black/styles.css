@@ -5957,6 +5957,7 @@ button-form-grey {
     max-height: 361px;
     background-color: #ffffff;
     padding: 40px 0 0 40px;
+    box-sizing: border-box;
 }
 
 .personal-cabinet__navbar {

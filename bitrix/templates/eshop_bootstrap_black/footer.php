@@ -30,6 +30,7 @@
 					<li><a href="/about/">Полезная информация</a></li>
 					<li><a href="/about/">О компании</a></li>
 					<li><a href="/contacts/">Контакты</a></li>
+					<li><a href="/opt/">Опт</a></li>
 					<li><a href="/agreement/">Политика конфиденциальности</a></li>
 				</ul>
 			</div>

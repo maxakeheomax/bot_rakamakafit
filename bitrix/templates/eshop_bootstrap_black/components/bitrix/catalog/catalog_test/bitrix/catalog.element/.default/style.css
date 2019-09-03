@@ -5199,6 +5199,7 @@ h2{
     height: 259px;
     background-color: #ffffff;
     padding: 40px 0 0 40px;
+    box-sizing: border-box;
 }
 .personal-cabinet__navbar{
     padding: 0;

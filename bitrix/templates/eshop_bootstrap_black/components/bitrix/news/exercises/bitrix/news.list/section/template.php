@@ -53,7 +53,7 @@ $this->setFrameMode(true);
 		<div class="exercise-demos-list-block" id="<?=$exercise['CODE']?>">
 			<div class="exercise-demos-list-block__left-side">
 				<div class="exercise-demos-list-block__left-side__img-block">
-					<img src="<?=CFile::GetPath($exercise["PREVIEW_PICTURE"])?>" alt="">
+					<img src="<?=$exercise["PREVIEW_PICTURE"]['SRC']?>" alt="">
 				</div>	
 			</div>
 			<div class="exercise-demos-list-block__right-side">
