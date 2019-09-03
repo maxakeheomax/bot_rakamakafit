@@ -21,7 +21,7 @@ $this->setFrameMode(true);
 		} else {
 			$order = "DESC";
 		}?>
-		<a class="<?=((isset($_GET['sort']) && $_GET['sort'] == 'popular') ? $order : "")?>" href="<?= $APPLICATION->GetCurPageParam("sort=popular&order=".$order,array("sort","order"), false) ?>">по полуярности</a>
+		<a class="<?=((isset($_GET['sort']) && $_GET['sort'] == 'popular') ? $order : "")?>" href="<?= $APPLICATION->GetCurPageParam("sort=popular&order=".$order,array("sort","order"), false) ?>">по популярности</a>
 		<a class="<?=((isset($_GET['sort']) && $_GET['sort'] == 'price') ? $order : "")?>" href="<?= $APPLICATION->GetCurPageParam("sort=price&order=".$order,array("sort","order"), false) ?>">по цене</a>
 		<a class="<?=((isset($_GET['sort']) && $_GET['sort'] == 'available') ? $order : "")?>" href="<?= $APPLICATION->GetCurPageParam("sort=available&order=".$order,array("sort","order"), false) ?>">по наличию</a>
 	</div>
