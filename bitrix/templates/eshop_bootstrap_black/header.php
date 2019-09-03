@@ -37,7 +37,7 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php');
     $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH."/libs/jquery.min.js");
     $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH."/libs/owl.carousel2/dist/owl.carousel.min.js");
     $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH."/libs/slick-1.8.1/slick/slick.min.js");
-    $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH."/libs/hc-sticky-master/src/hc-sticky.js");
+    $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH."/libs/hc-sticky-master/docs/hc-sticky.js");
     $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH."/libs/ion.rangeSlider-master/js/ion.rangeSlider.min.js");
     $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH."/libs/bootstrap-4.3.1-dist/js/bootstrap.min.js");
 
@@ -187,12 +187,13 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php');
                     <div class="login-block header-right-side-item button-form-grey"><img src="<?= SITE_TEMPLATE_PATH ?>/assets/white-login.svg" alt=""></div>
                 </div>
             </header>
-
+            <? if (!defined("HIDE_SIDEBAR")) : ?>
             <div class="aside-block" >
-              <div class="aside-block__content">
-                    <p class="aside-block__content__header">Мы работаем каждый день с 10:00 до 20:00</p>
-                <p class="aside-block__content__text">А в каникулы отдыхаем 
-                        с 1-10 янаваря. 31 декабря сокращенный день до 16:00</p>
+                <div class="aside-block__content">
+                    <? CModule::IncludeModule("iblock");
+                       $time = CIBlockElement::GetByID(749)->Fet;?>
+                    <p class="aside-block__content__header"><?=$time['NAME']?></p>
+                    <p class="aside-block__content__text"><?=$time['PREVIEW_TEXT']?></p>
 
                 </div>
                 <div class="aside-block__shedule">
@@ -208,3 +209,4 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php');
                     <!-- <a target="_blank" href="https://www.instagram.com/rakamaka.fit/" class="aside-block__icons_link"><img src="<?= SITE_TEMPLATE_PATH ?>/assets/inst.svg" alt="" class="aside-block__icons-item"></a> -->
                 <!-- </div> -->
             </div>
+            <? endif ?>

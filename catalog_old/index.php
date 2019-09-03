@@ -1,5 +1,5 @@
 <?
-define("HIDE_SIDEBAR", true);
+// define("HIDE_SIDEBAR", true);
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 ?>
 <?$APPLICATION->IncludeComponent("bitrix:catalog", "", array(
@@ -122,7 +122,7 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 	"PAGER_TEMPLATE" => "round",
 	"DISPLAY_TOP_PAGER" => "N",
 	"DISPLAY_BOTTOM_PAGER" => "Y",
-	"PAGER_TITLE" => "Товары",
+	"PAGER_TITLE" => "пїЅпїЅпїЅпїЅпїЅпїЅ",
 	"PAGER_SHOW_ALWAYS" => "N",
 	"PAGER_DESC_NUMBERING" => "N",
 	"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000000",
@@ -141,11 +141,11 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 	),
 	"SHOW_DISCOUNT_PERCENT" => "Y",
 	"SHOW_OLD_PRICE" => "Y",
-	"MESS_BTN_BUY" => "Купить",
-	"MESS_BTN_ADD_TO_BASKET" => "В корзину",
-	"MESS_BTN_COMPARE" => "Сравнение",
-	"MESS_BTN_DETAIL" => "Подробнее",
-	"MESS_NOT_AVAILABLE" => "Нет в наличии",
+	"MESS_BTN_BUY" => "пїЅпїЅпїЅпїЅпїЅпїЅ",
+	"MESS_BTN_ADD_TO_BASKET" => "пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ",
+	"MESS_BTN_COMPARE" => "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ",
+	"MESS_BTN_DETAIL" => "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ",
+	"MESS_NOT_AVAILABLE" => "пїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ",
 	"DETAIL_USE_VOTE_RATING" => "Y",
 	"DETAIL_VOTE_DISPLAY_AS_RATING" => "rating",
 	"DETAIL_USE_COMMENTS" => "Y",
@@ -161,7 +161,7 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 	),
 	"USE_MIN_AMOUNT" => "N",
 	"STORE_PATH" => "/store/#store_id#",
-	"MAIN_TITLE" => "Наличие на складах",
+	"MAIN_TITLE" => "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ",
 	"MIN_AMOUNT" => "10",
 	"DETAIL_BRAND_USE" => "Y",
 	"DETAIL_BRAND_PROP_CODE" => "BRAND_REF",
