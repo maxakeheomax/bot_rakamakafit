@@ -151,22 +151,22 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php');
                     </div>
 
                     <?
-                    $cntBasketItems = CSaleBasket::GetList(
-                        array(),
-                        array(
-                            "FUSER_ID" => CSaleBasket::GetBasketUserID(),
-                            "LID" => SITE_ID,
-                            "ORDER_ID" => "NULL"
-                        ),
-                        array()
+                    $basket = \Bitrix\Sale\Basket::loadItemsForFUser(
+                        \Bitrix\Sale\Fuser::getId(),
+                        \Bitrix\Main\Context::getCurrent()->getSite()
                     );
+                    $basketQntList = $basket->getQuantityList();
+                    $cnt = 0;
+                    foreach ($basketQntList as $val) {
+                        $cnt += $val;
+                    }
                    
                     ?>
 
                     <div class="header__nav-bar__cart-block">
                         <a href="/personal/cart/" class="header__nav-bar__cart-block-link">	
                             <img src="<?= SITE_TEMPLATE_PATH ?>/assets/cart.svg" alt="" class="header__nav-bar__cart-block__cart-icon">
-                            <span class="header__nav-bar__cart-block__cart-text">Корзина <?=$cntBasketItems > 0? "(".$cntBasketItems.")" : ''?></span>
+                            <span class="header__nav-bar__cart-block__cart-text">Корзина <span><?=$cnt > 0? "(".$cnt.")" : ''?></span></span>
                             <span class="header__nav-bar__cart-block__items-counter"><?= $arResult['NUM_PRODUCTS'] > 0 ? $arResult['NUM_PRODUCTS'] : "" ?></span>
                         </a>
                     </div>                        

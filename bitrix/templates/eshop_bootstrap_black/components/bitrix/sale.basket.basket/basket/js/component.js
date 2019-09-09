@@ -588,7 +588,8 @@
 
 		checkOutAction: function()
 		{
-			document.location.href = this.params.PATH_TO_ORDER;
+			console.log(this.params.PATH_TO_ORDER);
+			// document.location.href = this.params.PATH_TO_ORDER;
 		},
 
 		addCouponAction: function(event)
@@ -2382,6 +2383,7 @@
 
 			if (plus.length)
 			{
+				console.log('1');
 				window[this.params.DATA_LAYER_NAME].push({
 					event: 'addToCart',
 					ecommerce: {

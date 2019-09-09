@@ -5030,6 +5030,7 @@ button-form-grey {
     text-align: right;
     color: #000000;
     margin-bottom: 16px;
+    white-space: nowrap;
 }
 
 .cart-block__item__price .old-price {
@@ -5196,6 +5197,9 @@ button-form-grey {
     text-transform: uppercase;
     margin-top: 24px;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .cart-block .cart-block__cart-review__info-text {
@@ -5437,7 +5441,7 @@ button-form-grey {
 }
 
 .full-width-block-list-item .right-side .icon_block {
-    width: 50px;
+    width: 150px;
     min-height: 30px;
 }
 

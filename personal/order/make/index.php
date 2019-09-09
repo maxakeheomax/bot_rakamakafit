@@ -79,4 +79,4 @@ $APPLICATION->SetTitle("Заказы");
 		"USE_PREPAYMENT" => "N",
 		"USE_YM_GOALS" => "N"
 	)
-);?><br><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+);?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

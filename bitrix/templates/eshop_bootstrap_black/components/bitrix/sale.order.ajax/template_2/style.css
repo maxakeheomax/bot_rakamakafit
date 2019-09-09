@@ -1528,3 +1528,9 @@ label[data-bx-user-consent] input{
     margin-bottom: 20px;
     padding-bottom: 20px;
 }
+
+
+
+.page_content {
+    background-color: #f8f8f8;
+}

@@ -62,7 +62,7 @@ $arParams['SHOW_NEAREST_PICKUP'] = $arParams['SHOW_NEAREST_PICKUP'] === 'Y' ? 'Y
 $arParams['DELIVERIES_PER_PAGE'] = isset($arParams['DELIVERIES_PER_PAGE']) ? intval($arParams['DELIVERIES_PER_PAGE']) : 9;
 $arParams['PAY_SYSTEMS_PER_PAGE'] = isset($arParams['PAY_SYSTEMS_PER_PAGE']) ? intval($arParams['PAY_SYSTEMS_PER_PAGE']) : 9;
 $arParams['PICKUPS_PER_PAGE'] = isset($arParams['PICKUPS_PER_PAGE']) ? intval($arParams['PICKUPS_PER_PAGE']) : 5;
-$arParams['SHOW_PICKUP_MAP'] = $arParams['SHOW_PICKUP_MAP'] === 'N' ? 'N' : 'Y';
+// $arParams['SHOW_PICKUP_MAP'] = $arParams['SHOW_PICKUP_MAP'] === 'N' ? 'N' : 'Y';
 $arParams['SHOW_MAP_IN_PROPS'] = $arParams['SHOW_MAP_IN_PROPS'] === 'Y' ? 'Y' : 'N';
 $arParams['USE_YM_GOALS'] = $arParams['USE_YM_GOALS'] === 'Y' ? 'Y' : 'N';
 $arParams['USE_ENHANCED_ECOMMERCE'] = isset($arParams['USE_ENHANCED_ECOMMERCE']) && $arParams['USE_ENHANCED_ECOMMERCE'] === 'Y' ? 'Y' : 'N';
@@ -245,9 +245,9 @@ switch (LANGUAGE_ID) {
 }
 
 // $this->addExternalCss('/bitrix/css/main/bootstrap.css');
-$APPLICATION->SetAdditionalCSS('/bitrix/css/main/themes/' . $arParams['TEMPLATE_THEME'] . '/style.css', true);
+//$APPLICATION->SetAdditionalCSS('/bitrix/css/main/themes/' . $arParams['TEMPLATE_THEME'] . '/style.css', true);
 $APPLICATION->SetAdditionalCSS($templateFolder . '/style.css', true);
-$this->addExternalJs($templateFolder . '/order_ajax.js');
+//$this->addExternalJs($templateFolder . '/order_ajax.js');
 \Bitrix\Sale\PropertyValueCollection::initJs();
 $this->addExternalJs($templateFolder . '/script.js');
 ?>
@@ -263,7 +263,7 @@ $this->addExternalJs($templateFolder . '/script.js');
 	} else {
 		$hideDelivery = empty($arResult['DELIVERY']);
 		?>
-		<div class="page_content bg-lightgray">
+		<!-- <div class="page_content bg-lightgray"> -->
 			<? $APPLICATION->IncludeComponent(
 					"bitrix:breadcrumb",
 					"",
@@ -501,9 +501,9 @@ $this->addExternalJs($templateFolder . '/script.js');
 										</div>
 										<div class="cart-block__cart-order-reg-item__input-checkbox-wrapper">
 											<input class="cart-block__cart-order-reg-item__checbox" type="checkbox" name="" id="cart-block__cart-order-reg-item-checkbox">
-											<label for="cart-block__cart-order-reg-item-checkbox">
+											<!--<label for="cart-block__cart-order-reg-item-checkbox">
 												<p class="cart-block__cart-order-reg-item__checbox-desc">Заказать как юрлицо</p>
-											</label>
+											</label>-->
 										</div>
 									</div>
 									<div class="form-fields">
@@ -537,25 +537,28 @@ $this->addExternalJs($templateFolder . '/script.js');
 										<div class="input-wrapper">
 											<div class="text-input">
 												<label class="cart-block__cart-order-reg-item__input">
-													<select placeholder='Страна'>
-														<option value="0">Страна</option>
-														<option value="1">1</option>
-														<option value="2">2</option>
-														<option value="3">3</option>
-													</select>
+												<select name="PERSONAL_CITY"  id="my_country" placeholder='Страна'>
+													<option value="0" selected disabled>Страна</option>
+													<?
+													$res = \Bitrix\Sale\Location\LocationTable::getList(array(
+														'filter' => array('=TYPE.ID' => '1', '=NAME.LANGUAGE_ID' => LANGUAGE_ID),
+														'select' => array('*','NAME_RU' => 'NAME.NAME')
+													));
+													while ($item = $res->fetch()) {?>
+														<option value="<? print_r($item['CODE']); ?>">
+															<? print_r($item['NAME_RU']); ?>
+														</option>
+													<?} ?>
+												</select>
 												</label>
 											</div>
 											<div class="text-input">
 												<label class="cart-block__cart-order-reg-item__input">
-													<select placeholder='Город'>
+													<select placeholder='Город' id="my_city">
 														<option value="0">Город</option>
-														<option value="1">1</option>
-														<option value="2">2</option>
-														<option value="3">3</option>
 													</select>
 												</label>
 											</div>
-
 										</div>
 
 										<div class="input-wrapper">
@@ -618,16 +621,34 @@ $this->addExternalJs($templateFolder . '/script.js');
 									</div>
 									<input type="hidden" name="DELIVERY_ID">
 									<div class="full-width-block-list">
-										<div id="pickup" class="full-width-block-list-item delivery-select" data-value="3">
+										<?
+										$allDeliveries = CSaleDelivery::GetLocationList(
+											array(
+											   'LOCATION_ID' => '216',
+											   'LOCATION_TYPE' => 'L',
+											)
+										 );
+										 while($location = $allDeliveries->Fetch())
+											$locations[] = $location['DELIVERY_ID'];
+										print_r($locations);
+										?>
+										<?
+										$res = \Bitrix\Sale\Delivery\Services\Table::getList(array('filter' => array('ACTIVE' => 'Y')));
+										while ($dev = $res->Fetch()) : ?>
+										<? if ($dev['CODE']) : ?>
+											<?//  $result[] = array("ID" => $dev['ID'], 'NAME' => $dev['NAME']);?>
+										<div class="full-width-block-list-item delivery-select" data-value="3" id="<?=$dev['CODE']?>">
 											<div class="left-side">
-												<p class="item-title">Самовывоз</p>
+												<p class="item-title"><?=$dev['NAME']?></p>
 												<p class="item-desc">Бесплатно</p>
 											</div>
 											<div class="right-side">
-												<p class="item-option" id="popUp_call">Выбрать<br> адрес получения</p>
+												<!-- <p class="item-option" id="popUp_call">Выбрать<br> адрес получения</p> -->
 											</div>
 										</div>
-										<div class="full-width-block-list-item delivery-select" data-value="2">
+										<? endif ?>
+										<? endwhile ?>
+										<!-- <div class="full-width-block-list-item delivery-select" data-value="2">
 											<div class="left-side">
 												<p class="item-title">Курьерская доставка</p>
 												<p class="item-desc">От 1500 Р</p>
@@ -647,7 +668,7 @@ $this->addExternalJs($templateFolder . '/script.js');
 												<p class="item-desc">В зависимости от адреса</p>
 											</div>
 											<div class="right-side"></div>
-										</div>
+										</div> -->
 
 										<script>
 											$('.delivery-select').click(function() {
@@ -675,8 +696,6 @@ $this->addExternalJs($templateFolder . '/script.js');
 									</div>
 
 									<div class="full-width-block-list">
-										<? //dump($arResult['GRID']['ROWS']) 
-											?>
 										<? foreach ($arResult['GRID']['ROWS'] as $key => $item) : ?>
 											<div class="cart-block__cart-items-list__item d-table" id="<?= $key ?>">
 												<div class="item__image d-table__cell"> <img src="<?= CFile::GetPath($item['data']['PREVIEW_PICTURE']) ?>" alt=""> </div>
@@ -714,7 +733,7 @@ $this->addExternalJs($templateFolder . '/script.js');
 													<p class="item-title"><?= $paymentMethod['NAME'] ?></p>
 												</div>
 												<div class="right-side">
-													<div class="icon_block" style="background: url('assets/cash_icon.svg') no-repeat center"></div>
+													<div class="icon_block" style="background: url('<?=$paymentMethod['PSA_LOGOTIP']['SRC']?>') no-repeat right;background-size:contain"></div>
 												</div>
 											</div>
 										<? endforeach; ?>
@@ -834,16 +853,16 @@ $this->addExternalJs($templateFolder . '/script.js');
 
 							$('.full-width-block-list-item').removeClass('active');
 							$(this).addClass('active');
-							if ($(this).is('#pickup')) {
-								$('.delivery-fields-block, .pickup-fields-block').toggleClass('hidden-block');
-								$('.pickup-fields-block').find('.text-input__input').addClass('empty_field');
-								$('.delivery-fields-block').find('.text-input__input').removeClass('empty_field');
-							} else {
-								$('.pickup-fields-block').addClass('hidden-block');
-								$('.delivery-fields-block').removeClass('hidden-block');
-								$('.pickup-fields-block').find('.text-input__input').removeClass('empty_field');
-								$('.delivery-fields-block').find('.text-input__input').addClass('empty_field');
-							}
+							// if ($(this).is('#pickup')) {
+							// 	$('.delivery-fields-block, .pickup-fields-block').toggleClass('hidden-block');
+							// 	$('.pickup-fields-block').find('.text-input__input').addClass('empty_field');
+							// 	$('.delivery-fields-block').find('.text-input__input').removeClass('empty_field');
+							// } else {
+							// 	$('.pickup-fields-block').addClass('hidden-block');
+							// 	$('.delivery-fields-block').removeClass('hidden-block');
+							// 	$('.pickup-fields-block').find('.text-input__input').removeClass('empty_field');
+							// 	$('.delivery-fields-block').find('.text-input__input').addClass('empty_field');
+							// }
 
 
 						})
@@ -876,40 +895,6 @@ $this->addExternalJs($templateFolder . '/script.js');
 			</script>
 			<? /////////////////////////////////////////////////////////////////////////
 				?>
-
-			<div id="bx-soa-saved-files" style="display:none"></div>
-			<div id="bx-soa-soc-auth-services" style="display:none">
-				<?
-					$arServices = false;
-					$arResult['ALLOW_SOCSERV_AUTHORIZATION'] = Main\Config\Option::get('main', 'allow_socserv_authorization', 'Y') != 'N' ? 'Y' : 'N';
-					$arResult['FOR_INTRANET'] = false;
-
-					if (Main\ModuleManager::isModuleInstalled('intranet') || Main\ModuleManager::isModuleInstalled('rest'))
-						$arResult['FOR_INTRANET'] = true;
-
-					if (Main\Loader::includeModule('socialservices') && $arResult['ALLOW_SOCSERV_AUTHORIZATION'] === 'Y') {
-						$oAuthManager = new CSocServAuthManager();
-						$arServices = $oAuthManager->GetActiveAuthServices(array(
-							'BACKURL' => $this->arParams['~CURRENT_PAGE'],
-							'FOR_INTRANET' => $arResult['FOR_INTRANET'],
-						));
-
-						if (!empty($arServices)) {
-							$APPLICATION->IncludeComponent(
-								'bitrix:socserv.auth.form',
-								'flat',
-								array(
-									'AUTH_SERVICES' => $arServices,
-									'AUTH_URL' => $arParams['~CURRENT_PAGE'],
-									'POST' => $arResult['POST'],
-								),
-								$component,
-								array('HIDE_ICONS' => 'Y')
-							);
-						}
-					}
-					?>
-			</div>
 
 			<div style="display: none">
 				<?
@@ -950,6 +935,7 @@ $this->addExternalJs($templateFolder . '/script.js');
 				$signedParams = $signer->sign(base64_encode(serialize($arParams)), 'sale.order.ajax');
 				$messages = Loc::loadLanguageFile(__FILE__);
 				?>
+				<?/*
 			<script>
 				BX.message(<?= CUtil::PhpToJSObject($messages) ?>);
 				BX.Sale.OrderAjaxComponent.init({
@@ -991,6 +977,8 @@ $this->addExternalJs($templateFolder . '/script.js');
 					totalBlockId: 'bx-soa-total'
 				});
 			</script>
+			*/?>
+			<?/*
 			<script>
 				<?
 					// spike: for children of cities we place this prompt
@@ -1009,6 +997,7 @@ $this->addExternalJs($templateFolder . '/script.js');
 												)
 											)) ?>);
 			</script>
+			*/?>
 			<?
 				if ($arParams['SHOW_PICKUP_MAP'] === 'Y' || $arParams['SHOW_MAP_IN_PROPS'] === 'Y') {
 					if ($arParams['PICKUP_MAP_TYPE'] === 'yandex') {
@@ -1107,3 +1096,19 @@ $this->addExternalJs($templateFolder . '/script.js');
 			});
 		</script>
 		<script src="http://malsup.github.com/jquery.form.js"></script>
+
+<script>
+$("[name='PERSONAL_CITY']").change(function() {
+	$("#my_city").html("");
+	// console.log('s');
+	$.post('/bitrix/templates/eshop_bootstrap_black/components/bitrix/sale.order.ajax/template_2/city.php', {
+		city: $(this).val()
+	},function(data) {
+		p_data = jQuery.parseJSON(data);
+		$.each(p_data, function(i, item) {
+			console.log(item['S_NAME_RU']);
+        	$('#my_city').append('<option>'+item['S_NAME_RU']+'</option>');
+    	});
+	})
+})
+  </script>

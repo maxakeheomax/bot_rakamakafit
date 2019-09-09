@@ -18,7 +18,6 @@ use Bitrix\Main\Localization\Loc;
 
 $documentRoot = Main\Application::getDocumentRoot();
 ?>
-
 <?
 if (empty($arParams['TEMPLATE_THEME']))
 {
@@ -338,13 +337,15 @@ else
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ?>
 <? if($arResult['allSum'] != 0): ?>
-<div class="breadcrumbs">
-	<div class="breadcrumbs-content">
-		<div class="breadcrumbs__item">Главная </div>
-		<div class="breadcrumbs__separator"> / </div>	
-		<div class="breadcrumbs__item">Корзина </div>
-	</div>
-</div>
+<? $APPLICATION->IncludeComponent(
+	"bitrix:breadcrumb",
+	"",
+	array(
+		"PATH" => "",
+		"SITE_ID" => SITE_ID,
+		"START_FROM" => 0
+	)
+); ?>
 
 <div class="cart-block">	
 	<div class="cart-block__title-block">
@@ -353,28 +354,61 @@ else
 			<a href="/personal/cart/?BasketDelete=1"><p>очистить <i class="fa fa-times" aria-hidden="true"></i></p></a>
 		</div>
 	</div>
+	<?
+	$basket = \Bitrix\Sale\Basket::loadItemsForFUser(
+		\Bitrix\Sale\Fuser::getId(),
+		\Bitrix\Main\Context::getCurrent()->getSite()
+	);
+	$basketQntList = $basket->getQuantityList();
+	$cnt = 0;
+	foreach ($basketQntList as $val) {
+		$cnt += $val;
+	}
+	$dbRes = \Bitrix\Sale\Basket::getList([
+		'select' => ['*'],
+		'filter' => [
+			'=FUSER_ID' => \Bitrix\Sale\Fuser::getId(), 
+			'=ORDER_ID' => null,
+			'=LID' => \Bitrix\Main\Context::getCurrent()->getSite(),
+			'=CAN_BUY' => 'Y',
+		]
+	]);
+	?>
 	<div class="cart-block__content">
 		<div class="cart-block__cart-items-list">
-			<div class="cart-block__cart-items-list__item-wrapper">
+			<? while ($item = $dbRes->fetch()) : ?>
+			<? $product = CCatalogSku::GetProductInfo($item['PRODUCT_ID']);
+				$image = CIBlockElement::GetByID($product['ID'])->Fetch();
+				if (!empty($image['PREVIEW_PICTURE'])) {
+					$picture = CFile::GetPath($image['PREVIEW_PICTURE']);
+				} else {
+					$picture = CFile::GetPath($image['DETAIL_PICTURE']);
+				}
+			?>
+			<div class="cart-block__cart-items-list__item-wrapper" id="<?=$item['ID']?>">
 				<div class="cart-block__cart-items-list__item d-table">	
-					<div class="item__image d-table__cell">						
-						<img src="assets/cart-items-list-img.jpg" alt="">					
+					<div class="item__image d-table__cell">			
+						<img src="<?=$picture?>" alt="">					
 					</div>	
 					<div class="cart-block__item__info d-table__cell">	
-						<a href="	#">Набор латексных фитнес лент</a>
-						<div class="cart-block__item__meta">	160 гр.</div>
+						<a href="<?=$item['DETAIL_PAGE_URL']?>"><?=$item['NAME']?></a>
+						<!-- <div class="cart-block__item__meta">160 гр.</div> -->
 					</div>
 					<div class="cart-block__item__quantity d-table__cell">
 						<div class="number">
 							<span class="minus">-</span>
-							<input type="text" value="1" size="5">
+							<input type="text" value="<?=intVal($item['QUANTITY'])?>" size="5">
 							<span class="plus">+</span>
 						</div>	
 					</div>
 					<div class="cart-block__item__price d-table__cell">	
+						<? if (intVal($item['DISCOUNT_PRICE'])) : ?>
 						<p class="actual-price price"><span>1690</span> Р</p>
 						<p class="old-price price"><span>2210 Р</span> </p>
 						<p class="discount-price price">Скидка <span>520 Р</span></p>
+						<? else : ?>
+						<p class="actual-price price"><span><?=number_format(intVal($item['QUANTITY'])*$item['PRICE'], 2, '.', ' '); ?></span> Р</p>
+						<? endif ?>
 					</div>
 					<div class="cart-block__item__btns d-table__cell">	
 						<a href="	">
@@ -383,57 +417,28 @@ else
 					</div>
 				</div>
 			</div>
-			<div class="cart-block__cart-items-list__item-wrapper">
-				<div class="cart-block__cart-items-list__item d-table">	
-					<div class="item__image d-table__cell">						
-						<img src="assets/cart-items-list-img.jpg" alt="">					
-					</div>	
-					<div class="cart-block__item__info d-table__cell">	
-						<a href="	#">Набор латексных фитнес лент</a>
-						<div class="cart-block__item__meta">	160 гр.</div>
-					</div>
-					<div class="cart-block__item__quantity d-table__cell">
-						<div class="number">
-							<span class="minus">-</span>
-							<input type="text" value="1" size="5">
-							<span class="plus">+</span>
-						</div>	
-					</div>
-					<div class="cart-block__item__price d-table__cell">	
-						<p class="actual-price price"><span>1690</span> Р</p>
-						<p class="old-price price"><span>2210 Р</span> </p>
-						<p class="discount-price price">Скидка <span>520 Р</span></p>
-					</div>
-					<div class="cart-block__item__btns d-table__cell">	
-						<a href="	">
-							<i class="fa fa-trash" aria-hidden="true"></i>
-						</a>
-					</div>
-				</div>
-			</div>
-
-
+			<? endwhile; ?>
 		</div>
 		<div class="cart-block__cart-review">
 			<div class="cart-block__cart-review__cart-items-counter-block">	
-				<p>	В корзине <span class="items-counter">3</span> товара</p>
+				<p>	В корзине <span class="items-counter"><?=$cnt?></span> товара</p>
 			</div>
 			<div class="cart-block__cart-review__price_block">	
 				<div class="cart-block__cart-review__product-price">
 					<p class="cart-block__cart-review__price_name">Стоимость товаров</p>
-					<div class="price b-font"><span>22 800</span>Р</div>
+					<div class="price b-font"><span><?= number_format($basket->getBasePrice(), 2, '.', ' '); ?></span> Р</div>
 				</div>
 				<div class="cart-block__cart-review__discount-block">
 					<p class="cart-block__cart-review__price_name">Скидка</p>
-					<div class="discount-price b-font"><span>520</span>Р</div>
+					<div class="discount-price b-font"><span><?= number_format($basket->getBasePrice()-$basket->getPrice(), 2, '.', ' '); ?></span> Р</div>
 				</div>
 				<div class="cart-block__cart-review__total-price-block">	
 					<p class="cart-block__cart-review__price_name">Итого к оплате</p>
-					<div class="total-price"><span>22 280</span>Р</div>
+					<div class="total-price"><span><?= number_format($basket->getPrice(), 2, '.', ' '); ?></span> Р</div>
 				</div>
 			</div>
 
-			<button class="cart-block__cart-review__button">оформить заказ</button>
+			<a href="/personal/order/make/" class="cart-block__cart-review__button">оформить заказ</a>
 			<p class="product-block__description__credit_link"><a class="how-start-block__help-link" href="#">Купить в рассрочку</a></p>
 			<p class="cart-block__cart-review__info-text">	Способы оплаты и адрес доставки можно выбрать при оформлении заказа.</p>
 		</div>
@@ -441,107 +446,129 @@ else
 </div>
 
 <script>
-	$('.cart-block__cart-items-list .cart-block__cart-items-list__item-wrapper').remove();
-	$('.js_item_list table tr').each(function (id, element) {
-		var image = $(element).find('.basket-item-block-image img').attr('src');
-		var link = $(element).find('.basket-item-block-image a').attr('href');
-		var title = $(element).find('.basket-item-info-name-link span').text();
-		var actual_price = $($(element).find('.basket-item-price-current')[1]).text();
-		actual_price = actual_price.substring(0, actual_price.indexOf('руб'));
-		var old_price = $(element).find('.basket-item-price-old').text().substring(5);
-		old_price = old_price.substring(0, old_price.indexOf('руб'));
-		var discount = $(element).find('.basket-item-block-image a').text();
-		var count = $(element).find('.basket-item-amount-filed').data('value');
-		var id = $(element).data('id');
-		var one_item_price = $($(element).find('.basket-item-price-current-text')[0]).text();
-		one_item_price = one_item_price.substring(0, one_item_price.indexOf('руб'));
-		one_item_price = one_item_price.replace(/\s/g, '');
-		$('.cart-block__cart-items-list').append(
-			'<div class="cart-block__cart-items-list__item-wrapper" id="'+ id +'" data-one-item-price="'+ one_item_price +'">'
-			+'	<div class="cart-block__cart-items-list__item d-table">	'
-			+'		<div class="item__image d-table__cell">	<a href="'+link+'"> '		
-			+'			<img src="'+image+'" alt=""> </a>'					
-			+'		</div>	'
-			+'		<div class="cart-block__item__info d-table__cell">	'
-			+'			<a href="'+link+'">'+title+'</a>'
-			+'			<div class="cart-block__item__meta"></div>'
-			+'		</div>'
-			+'		<div class="cart-block__item__quantity d-table__cell">'
-			+'			<div class="number">'
-			+'				<span class="minus">-</span>'
-			+'				<input type="text" value="'+count+'" size="5">'
-			+'				<span class="plus">+</span>'
-			+'			</div>	'
-			+'		</div>'
-			+'		<div class="cart-block__item__price d-table__cell">	'
-			+'			<p class="actual-price price"><span>'+actual_price+'</span> Р</p>'
-			+'			<p class="old-price price"><span>'+old_price+'</span> '+ (old_price.trim() ? 'Р' : '') +'</p>'
-			+'			<p class="discount-price price">'+ (discount.trim() ? 'Скидка' : '') +' <span>'+discount+' '+ (discount.trim() ? 'Р' : '') +'</span></p>'
-			+'		</div>'
-			+'		<div class="cart-block__item__btns d-table__cell">	'
-			+'			<a href="#">'
-			+'				<i class="fa fa-trash" aria-hidden="true"></i>'
-			+'			</a>'
-			+'		</div>'
-			+'	</div>'
-			+'</div>'
-		);
-	});
+	// $('.cart-block__cart-items-list .cart-block__cart-items-list__item-wrapper').remove();
+	// $('.js_item_list table tr').each(function (id, element) {
+	// 	var image = $(element).find('.basket-item-block-image img').attr('src');
+	// 	var link = $(element).find('.basket-item-block-image a').attr('href');
+	// 	var title = $(element).find('.basket-item-info-name-link span').text();
+	// 	var actual_price = $($(element).find('.basket-item-price-current')[1]).text();
+	// 	actual_price = actual_price.substring(0, actual_price.indexOf('руб'));
+	// 	var old_price = $(element).find('.basket-item-price-old').text().substring(5);
+	// 	old_price = old_price.substring(0, old_price.indexOf('руб'));
+	// 	var discount = $(element).find('.basket-item-block-image a').text();
+	// 	var count = $(element).find('.basket-item-amount-filed').data('value');
+	// 	var id = $(element).data('id');
+	// 	var one_item_price = $($(element).find('.basket-item-price-current-text')[0]).text();
+	// 	one_item_price = one_item_price.substring(0, one_item_price.indexOf('руб'));
+	// 	one_item_price = one_item_price.replace(/\s/g, '');
+	// 	$('.cart-block__cart-items-list').append(
+	// 		'<div class="cart-block__cart-items-list__item-wrapper" id="'+ id +'" data-one-item-price="'+ one_item_price +'">'
+	// 		+'	<div class="cart-block__cart-items-list__item d-table">	'
+	// 		+'		<div class="item__image d-table__cell">	<a href="'+link+'"> '		
+	// 		+'			<img src="'+image+'" alt=""> </a>'					
+	// 		+'		</div>	'
+	// 		+'		<div class="cart-block__item__info d-table__cell">	'
+	// 		+'			<a href="'+link+'">'+title+'</a>'
+	// 		+'			<div class="cart-block__item__meta"></div>'
+	// 		+'		</div>'
+	// 		+'		<div class="cart-block__item__quantity d-table__cell">'
+	// 		+'			<div class="number">'
+	// 		+'				<span class="minus">-</span>'
+	// 		+'				<input type="text" value="'+count+'" size="5">'
+	// 		+'				<span class="plus">+</span>'
+	// 		+'			</div>	'
+	// 		+'		</div>'
+	// 		+'		<div class="cart-block__item__price d-table__cell">	'
+	// 		+'			<p class="actual-price price"><span>'+actual_price+'</span> Р</p>'
+	// 		+'			<p class="old-price price"><span>'+old_price+'</span> '+ (old_price.trim() ? 'Р' : '') +'</p>'
+	// 		+'			<p class="discount-price price">'+ (discount.trim() ? 'Скидка' : '') +' <span>'+discount+' '+ (discount.trim() ? 'Р' : '') +'</span></p>'
+	// 		+'		</div>'
+	// 		+'		<div class="cart-block__item__btns d-table__cell">	'
+	// 		+'			<a href="#">'
+	// 		+'				<i class="fa fa-trash" aria-hidden="true"></i>'
+	// 		+'			</a>'
+	// 		+'		</div>'
+	// 		+'	</div>'
+	// 		+'</div>'
+	// 	);
+	// });
 
-	function prices(){
-		var block_cart_old = $('.cart-block__cart-review_old');
-		var total = $(block_cart_old).find('.total-price').text();
-		total = total.substring(0, total.indexOf('руб'));
-		var total_old = $(block_cart_old).find('.basket-coupon-block-total-price-old').text();
-		total_old = total_old.substring(0, total_old.indexOf('руб'));
-		var discount = $(block_cart_old).find('.basket-coupon-block-total-price-difference span').text();
-		discount = discount.substring(0, discount.indexOf('руб'));
-
-		var block_cart_old = $('.cart-block__cart-review');
-		$(block_cart_old).find('.price span').text(total_old.trim() ? total_old : total);
-		$(block_cart_old).find('.discount-price span').text(discount.trim() ? discount : '0');	
-		$(block_cart_old).find('.total-price').text(total);
-
-		$('.cart-block__cart-items-list__item-wrapper').each(function(index, element){		
-			one_item_price = $(element).data('one-item-price');
-			count = $($(element).find('.number')[0]).find('input').val();
-			actual_price = one_item_price * count;
-			$(element).find('.actual-price.price span').text(actual_price);
+	function price(data){
+		data = $.parseJSON(data);
+		$(".total-price span").text(data['finish']);
+		$(".discount-price span").text(data['discount']);
+		$(".cart-block__cart-review .price span").text(data['total']);
+		$(".items-counter").text(data['count']);
+		$(".header__nav-bar__cart-block__cart-text span").text("("+data['count']+")");
+		$.each(data['items'], function(k, v) {
+			$("#"+k).find(".price span").text(v);
 		});
-	}	
-	prices();
-	$('.cart-block__cart-review__button').click(function () {
-		$('.cart-block__cart-review__button_old').click();
+	// 	var block_cart_old = $('.cart-block__cart-review_old');
+	// 	var total = $(block_cart_old).find('.total-price').text();
+	// 	total = total.substring(0, total.indexOf('руб'));
+	// 	var total_old = $(block_cart_old).find('.basket-coupon-block-total-price-old').text();
+	// 	total_old = total_old.substring(0, total_old.indexOf('руб'));
+	// 	var discount = $(block_cart_old).find('.basket-coupon-block-total-price-difference span').text();
+	// 	discount = discount.substring(0, discount.indexOf('руб'));
 
-	})	
+	// 	var block_cart_old = $('.cart-block__cart-review');
+	// 	$(block_cart_old).find('.price span').text(total_old.trim() ? total_old : total);
+	// 	$(block_cart_old).find('.discount-price span').text(discount.trim() ? discount : '0');	
+	// 	$(block_cart_old).find('.total-price').text(total);
+
+	// 	$('.cart-block__cart-items-list__item-wrapper').each(function(index, element){		
+	// 		one_item_price = $(element).data('one-item-price');
+	// 		count = $($(element).find('.number')[0]).find('input').val();
+	// 		actual_price = one_item_price * count;
+	// 		$(element).find('.actual-price.price span').text(actual_price);
+	// 	});
+	}	
+	// prices();
+	// $('.cart-block__cart-review__button').click(function () {
+	// 	$('.cart-block__cart-review__button_old').click();
+
+	// })	
 	$(document).ready(function() {
 		$('.minus').click(function (ev) {
-			//basket-item-amount-btn-minus basket-items-list-item-container
+			element = ev.currentTarget;
 			var input = $(this).parent().find('input');
-			var count = parseInt(input.val()) - 1;
-			if(count > 1 ){
-				element = ev.currentTarget;
-				id = $(element).closest('.cart-block__cart-items-list__item-wrapper').attr('id');
-				old_emenet = $('.basket-items-list-item-container[data-id="' + id + '"]');
-				$(old_emenet).find('.basket-item-amount-btn-minus')[0].click();
+
+			id = $(element).closest('.cart-block__cart-items-list__item-wrapper').attr('id');
+			count = parseInt(input.val()) - 1
+			if (count < 1) {
+				count = 1;
 			}
-			count = count < 1 ? 1 : count;
+
 			input.val(count);
-			input.change();		
-			setTimeout(prices, 1000);	
+			$.post("/include/ajax/basket.php", {
+				countbasketid: id,
+				count: count,
+				ajaxaction: 'update'
+				}, function(data) {
+					console.log(data)
+					price(data);
+			});
+
 			return false;
 		});
 
 		$('.plus').click(function (ev) {
 			element = ev.currentTarget;
-			id = $(element).closest('.cart-block__cart-items-list__item-wrapper').attr('id');
-			old_emenet = $('.basket-items-list-item-container[data-id="' + id + '"]');
-			$(old_emenet).find('.basket-item-amount-btn-plus')[0].click();
-
 			var input = $(this).parent().find('input');
-			input.val(parseInt(input.val()) + 1);
-			input.change();	
-			setTimeout(prices, 1000);		
+
+			id = $(element).closest('.cart-block__cart-items-list__item-wrapper').attr('id');
+			count = parseInt(input.val()) + 1
+
+			input.val(count);
+			$.post("/include/ajax/basket.php", {
+				countbasketid: id,
+				count: count,
+				ajaxaction: 'update'
+				}, function(data) {
+					console.log(data)
+					price(data);
+			});
+
 			return false;
 		});
 
@@ -550,10 +577,16 @@ else
 			ev.preventDefault();
 			element = ev.currentTarget;
 			id = $(element).closest('.cart-block__cart-items-list__item-wrapper').attr('id');
-			old_emenet = $('.basket-items-list-item-container[data-id="' + id + '"]');
-			$(old_emenet).find('.basket-item-actions-remove')[0].click();
+
+			$.post("/include/ajax/basket.php", {
+				countbasketid: id,
+				ajaxaction: 'delete'
+				}, function(data) {
+					console.log(data)
+			});
 			$(element).closest('.cart-block__cart-items-list__item-wrapper').remove();
-			setTimeout(prices, 3000);
+
+
 			if ($('.cart-block__cart-items-list__item-wrapper').length == 0 ){
 				window.location.href = '/personal/cart/?BasketDelete=1';
 			}
