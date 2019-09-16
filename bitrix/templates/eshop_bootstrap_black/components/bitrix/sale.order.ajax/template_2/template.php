@@ -537,7 +537,7 @@ $this->addExternalJs($templateFolder . '/script.js');
 										<div class="input-wrapper">
 											<div class="text-input">
 												<label class="cart-block__cart-order-reg-item__input">
-												<select name="PERSONAL_CITY"  id="my_country" placeholder='Страна'>
+												<select name="PERSONAL_COUNTRY"  id="my_country" placeholder='Страна'>
 													<option value="0" selected disabled>Страна</option>
 													<?
 													$res = \Bitrix\Sale\Location\LocationTable::getList(array(
@@ -554,7 +554,7 @@ $this->addExternalJs($templateFolder . '/script.js');
 											</div>
 											<div class="text-input">
 												<label class="cart-block__cart-order-reg-item__input">
-													<select placeholder='Город' id="my_city">
+													<select placeholder='Город' id="my_city" name="PERSONAL_CITY">
 														<option value="0">Город</option>
 													</select>
 												</label>
@@ -567,41 +567,15 @@ $this->addExternalJs($templateFolder . '/script.js');
 											</div>
 
 											<div class="text-input quarter">
-												<input class="text-input__input" type="text" name="" id="building" placeholder=""><label class="text-input__label" for="building">Дом</label>
+												<input class="text-input__input" type="text" name="building" id="building" placeholder=""><label class="text-input__label" for="building">Дом</label>
 											</div>
 
 											<div class="text-input quarter">
-												<input class="text-input__input" type="text" name="" id="room" placeholder=''><label class="text-input__label" for="room">Квартира/офис</label>
+												<input class="text-input__input" type="text" name="room" id="room" placeholder=''><label class="text-input__label" for="room">Квартира/офис</label>
 											</div>
 
 											<div class="text-input quarter">
-												<input class="text-input__input" type="text" name="ORDER_PROP_4" id="post_index" placeholder=""><label class="text-input__label" for="post_index">Индекс</label>
-											</div>
-
-										</div>
-									</div>
-
-									<div class="form-fields pickup-fields-block hidden-block">
-										<div class="input-wrapper">
-											<div class="text-input">
-												<input class="text-input__input" type="text" name="" id="country"><label class="text-input__label" for="country">Страна</label>
-											</div>
-											<div class="text-input">
-												<input class="text-input__input" type="text" name="" id="city"><label class="text-input__label" for="city">Город</label>
-											</div>
-
-										</div>
-										<div class="input-wrapper">
-											<div class="text-input quarter">
-												<input class="text-input__input" type="text" name="" id="street" placeholder=''><label class="text-input__label" for="street">Улица</label>
-											</div>
-
-											<div class="text-input quarter">
-												<input class="text-input__input" type="text" name="" id="building" placeholder=""><label class="text-input__label" for="building">Дом</label>
-											</div>
-
-											<div class="text-input quarter">
-												<input class="text-input__input" type="text" name="" id="room" placeholder=''><label class="text-input__label" for="room">Квартира/офис</label>
+												<input class="text-input__input" type="text" name="index" id="post_index" placeholder=""><label class="text-input__label" for="post_index">Индекс</label>
 											</div>
 
 										</div>
@@ -621,7 +595,7 @@ $this->addExternalJs($templateFolder . '/script.js');
 									</div>
 									<input type="hidden" name="DELIVERY_ID">
 									<div class="full-width-block-list">
-										<?
+										<?/*
 										$allDeliveries = CSaleDelivery::GetLocationList(
 											array(
 											   'LOCATION_ID' => '216',
@@ -630,45 +604,39 @@ $this->addExternalJs($templateFolder . '/script.js');
 										 );
 										 while($location = $allDeliveries->Fetch())
 											$locations[] = $location['DELIVERY_ID'];
-										print_r($locations);
+										print_r($locations);*/
 										?>
 										<?
+										/*
 										$res = \Bitrix\Sale\Delivery\Services\Table::getList(array('filter' => array('ACTIVE' => 'Y')));
-										while ($dev = $res->Fetch()) : ?>
-										<? if ($dev['CODE']) : ?>
+										while ($dev = $res->Fetch()) :
+										if ($dev['CODE']) : */?>
 											<?//  $result[] = array("ID" => $dev['ID'], 'NAME' => $dev['NAME']);?>
 										<div class="full-width-block-list-item delivery-select" data-value="3" id="<?=$dev['CODE']?>">
 											<div class="left-side">
-												<p class="item-title"><?=$dev['NAME']?></p>
-												<p class="item-desc">Бесплатно</p>
+												<p class="item-title">Самовывоз</p>
+												<p class="item-desc">Заполните адрес</p>
 											</div>
 											<div class="right-side">
-												<!-- <p class="item-option" id="popUp_call">Выбрать<br> адрес получения</p> -->
+												<p class="item-option" id="popUp_call">Выбрать<br> адрес получения</p>
 											</div>
 										</div>
-										<? endif ?>
-										<? endwhile ?>
-										<!-- <div class="full-width-block-list-item delivery-select" data-value="2">
+										<?/* endif;
+										endwhile */?>
+										<div class="full-width-block-list-item delivery-select" data-value="23,24">
 											<div class="left-side">
 												<p class="item-title">Курьерская доставка</p>
-												<p class="item-desc">От 1500 Р</p>
-											</div>
-											<div class="right-side"></div>
-										</div>
-										<div class="full-width-block-list-item delivery-select" data-value="20">
-											<div class="left-side">
-												<p class="item-title">Транспортная компания</p>
-												<p class="item-desc">От 350 Р</p>
+												<p class="item-desc">Заполните адрес</p>
 											</div>
 											<div class="right-side"></div>
 										</div>
 										<div class="full-width-block-list-item delivery-select" data-value="18">
 											<div class="left-side">
 												<p class="item-title">Почта России</p>
-												<p class="item-desc">В зависимости от адреса</p>
+												<p class="item-desc">Заполните адрес</p>
 											</div>
 											<div class="right-side"></div>
-										</div> -->
+										</div>
 
 										<script>
 											$('.delivery-select').click(function() {
@@ -771,7 +739,7 @@ $this->addExternalJs($templateFolder . '/script.js');
 							</script>
 							<button id='button_form_submit' type="submit" class="cart-block__cart-review__button" disabled="disabled">оформить заказ</button>
 							<p class="product-block__description__credit_link"><a class="how-start-block__help-link" href="#">Купить в рассрочку</a></p>
-							<p class="cart-block__cart-review__info-text"> Нажимая на кнопку, вы подтверждаете своё совершеннолетие, соглашаетесь на обработку персональных данных в соответствии с Условиями, а также с Условиями продажи.</p>
+							<p class="cart-block__cart-review__info-text">Нажимая на кнопку, вы подтверждаете свое согласие на обработку персональных данных. Политика конфиденциальности <a href="/agreement">Rakamakafit</a></p>
 						</aside>
 
 					</div>
@@ -780,7 +748,47 @@ $this->addExternalJs($templateFolder . '/script.js');
 
 			<script>
 				$(document).ready(function() {
+					$("#adress_fields input").keyup(function() {
+						var empty = $("#adress_fields input, #adress_fields select").filter(function() {
+							return this.value === "";
+						});
+						if(empty.length) {
+							//At least one input is empty
+						} else {
+							calcDelivery();
+						}
+					});
 
+					$("#adress_fields select").change(function() {
+						var empty = $("#adress_fields input, #adress_fields select").filter(function() {
+							return this.value === "";
+						});
+						if(empty.length) {
+							//At least one input is empty
+						} else {
+							calcDelivery();
+						}
+					})
+
+					function calcDelivery() {
+						var data = getAllValues();
+						$.post('/bitrix/templates/eshop_bootstrap_black/components/bitrix/sale.order.ajax/template_2/calc.php', data,
+						function(data) {
+							console.log(data);
+							// p_data = jQuery.parseJSON(data);
+							// $.each(p_data, function(i, item) {
+								// $('#my_city').append('<option>'+item['S_NAME_RU']+'</option>');
+							// });
+						})
+					}
+
+					function getAllValues() {
+						var map = {};
+						$("#adress_fields :input").each(function() {
+							map[$(this).attr("name")] = $(this).val();
+						});
+						return map;
+					}
 					// $('.text-input__input').val('');
 
 					$('.text-input__input').each(function() {
@@ -878,7 +886,7 @@ $this->addExternalJs($templateFolder . '/script.js');
 					$('#popUp_call').click(function() {
 						$('body').css('overflow-y', 'hidden');
 						$('.page_content').css('filter', 'blur(10px)');
-						$('.popUp').fadeIn();
+						$('#popUp_pvz').fadeIn();
 					});
 
 					// $('.close-button').click(function(){
@@ -1098,7 +1106,7 @@ $this->addExternalJs($templateFolder . '/script.js');
 		<script src="http://malsup.github.com/jquery.form.js"></script>
 
 <script>
-$("[name='PERSONAL_CITY']").change(function() {
+$("[name='PERSONAL_COUNTRY']").change(function() {
 	$("#my_city").html("");
 	// console.log('s');
 	$.post('/bitrix/templates/eshop_bootstrap_black/components/bitrix/sale.order.ajax/template_2/city.php', {
@@ -1106,8 +1114,7 @@ $("[name='PERSONAL_CITY']").change(function() {
 	},function(data) {
 		p_data = jQuery.parseJSON(data);
 		$.each(p_data, function(i, item) {
-			console.log(item['S_NAME_RU']);
-        	$('#my_city').append('<option>'+item['S_NAME_RU']+'</option>');
+        	$('#my_city').append('<option value="'+item['ID']+'">'+item['S_NAME_RU']+'</option>');
     	});
 	})
 })

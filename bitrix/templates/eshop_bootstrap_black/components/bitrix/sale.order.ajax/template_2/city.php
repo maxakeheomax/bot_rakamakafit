@@ -23,6 +23,7 @@ $res = \Bitrix\Sale\Location\LocationTable::getList(array(
         'S_NAME_RU' => 'SUB.NAME.NAME',
         'S_TYPE_CODE' => 'SUB.TYPE.CODE',
         'CODE'        =>  'CODE',
+        'ID'          =>  'SUB.ID'
     )
 ));
 while($item = $res->fetch())

@@ -403,9 +403,9 @@ else
 					</div>
 					<div class="cart-block__item__price d-table__cell">	
 						<? if (intVal($item['DISCOUNT_PRICE'])) : ?>
-						<p class="actual-price price"><span>1690</span> Р</p>
-						<p class="old-price price"><span>2210 Р</span> </p>
-						<p class="discount-price price">Скидка <span>520 Р</span></p>
+						<p class="actual-price price"><span><?=number_format(intVal($item['QUANTITY'])*$item['PRICE'], 2, '.', ' '); ?></span> Р</p>
+						<p class="old-price price"><span><?=number_format(intVal($item['QUANTITY'])*$item['PRICE'], 2, '.', ' '); ?> Р</span> </p>
+						<p class="discount-price price">Скидка <span><?=number_format(intVal($item['QUANTITY'])*$item['PRICE'], 2, '.', ' '); ?> Р</span></p>
 						<? else : ?>
 						<p class="actual-price price"><span><?=number_format(intVal($item['QUANTITY'])*$item['PRICE'], 2, '.', ' '); ?></span> Р</p>
 						<? endif ?>
