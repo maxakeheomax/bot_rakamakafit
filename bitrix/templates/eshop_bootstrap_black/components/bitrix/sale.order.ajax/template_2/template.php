@@ -583,7 +583,7 @@ $this->addExternalJs($templateFolder . '/script.js');
 								</div>
 							</div>
 
-							<div class="cart-block__cart-items-list__item-wrapper list__item-wrapper-product-reg ">
+							<div class="cart-block__cart-items-list__item-wrapper list__item-wrapper-product-reg " id="delivery">
 								<div class="cart-block__cart-order-reg-item">
 									<div class="cart-block__cart-order-reg-item__title-block">
 										<div class="number_title-block">
@@ -612,7 +612,7 @@ $this->addExternalJs($templateFolder . '/script.js');
 										while ($dev = $res->Fetch()) :
 										if ($dev['CODE']) : */?>
 											<?//  $result[] = array("ID" => $dev['ID'], 'NAME' => $dev['NAME']);?>
-										<div class="full-width-block-list-item delivery-select" data-value="3" id="<?=$dev['CODE']?>">
+										<div class="full-width-block-list-item delivery-select" data-value="pvz" id="<?=$dev['CODE']?>">
 											<div class="left-side">
 												<p class="item-title">Самовывоз</p>
 												<p class="item-desc">Заполните адрес</p>
@@ -623,7 +623,7 @@ $this->addExternalJs($templateFolder . '/script.js');
 										</div>
 										<?/* endif;
 										endwhile */?>
-										<div class="full-width-block-list-item delivery-select" data-value="23,24">
+										<div class="full-width-block-list-item delivery-select" data-value="courier">
 											<div class="left-side">
 												<p class="item-title">Курьерская доставка</p>
 												<p class="item-desc">Заполните адрес</p>
@@ -638,14 +638,14 @@ $this->addExternalJs($templateFolder . '/script.js');
 											<div class="right-side"></div>
 										</div>
 
-										<script>
+										<!-- <script>
 											$('.delivery-select').click(function() {
 												$('input[id="ID_DELIVERY_ID_' + val + '"]').closest('div').click();
 												prices();
 												var val = $(this).data('value');
 												$('input[name="DELIVERY_ID"]').val(val);
 											});
-										</script>
+										</script> -->
 									</div>
 								</div>
 							</div>
@@ -664,8 +664,13 @@ $this->addExternalJs($templateFolder . '/script.js');
 									</div>
 
 									<div class="full-width-block-list">
+										<? $allowTinkoff = true;?>
 										<? foreach ($arResult['GRID']['ROWS'] as $key => $item) : ?>
-											<div class="cart-block__cart-items-list__item d-table" id="<?= $key ?>">
+										<? $element = CCatalogSKU::GetProductInfo($item['data']['PRODUCT_ID']);?>
+										<? $element = CIBlockElement::GetByID($element['ID'])->GetNextElement()->GetProperties();?>
+										<? if (!$element['CHEK']['VALUE']) 
+											$allowTinkoff = false;?>
+											<div class="cart-block__cart-items-list__item d-table" id="<?= $key ?>" data-check="<?=$element['CHEK']['VALUE']?>">
 												<div class="item__image d-table__cell"> <img src="<?= CFile::GetPath($item['data']['PREVIEW_PICTURE']) ?>" alt=""> </div>
 												<div class="cart-block__item__info d-table__cell"> <a href="<?= $item['data']['DETAIL_PAGE_URL'] ?>"><?= $item['data']['NAME'] ?></a>
 													<div class="cart-block__item__meta"> </div>
@@ -681,7 +686,7 @@ $this->addExternalJs($templateFolder . '/script.js');
 								</div>
 							</div>
 
-							<div class="cart-block__cart-items-list__item-wrapper list__item-wrapper-product-reg ">
+							<div class="cart-block__cart-items-list__item-wrapper list__item-wrapper-product-reg " id="payment">
 								<div class="cart-block__cart-order-reg-item">
 									<div class="cart-block__cart-order-reg-item__title-block">
 										<div class="number_title-block">
@@ -693,10 +698,16 @@ $this->addExternalJs($templateFolder . '/script.js');
 									</div>
 
 									<input type="hidden" name="PAY_SYSTEM_ID">
-									<!-- <?= dump($arResult) ?> -->
 									<div class="full-width-block-list">
 										<? foreach ($arResult['PAY_SYSTEM'] as $paymentMethod) : ?>
-											<div class="full-width-block-list-item payment-select" data-value="<?= $paymentMethod['ID'] ?>">
+											<? $text ='';?>
+											<? if ($paymentMethod['CODE'] == 'tinkoff' && !$allowTinkoff) : ?>
+												<? $payment = 'payment-disable';?>
+												<? $text = 'В корзине находятся акционные товары. На акционные товары рассрочка не распространяется. Удалите товары из корзины и попробуйте снова';?>
+											<? else: ?>
+												<? $payment = 'payment-select';?>
+											<? endif;?>
+											<div class="full-width-block-list-item <?=$payment?>" data-value="<?= $paymentMethod['ID'] ?>" data-text="<?=$text?>">
 												<div class="left-side">
 													<p class="item-title"><?= $paymentMethod['NAME'] ?></p>
 												</div>
@@ -705,13 +716,6 @@ $this->addExternalJs($templateFolder . '/script.js');
 												</div>
 											</div>
 										<? endforeach; ?>
-
-										<script>
-											$('.payment-select').click(function() {
-												var val = $(this).data('value');
-												$('input[name="PAY_SYSTEM_ID"]').val(val);
-											});
-										</script>
 									</div>
 								</div>
 							</div>
@@ -748,6 +752,7 @@ $this->addExternalJs($templateFolder . '/script.js');
 
 			<script>
 				$(document).ready(function() {
+					ymaps.ready(init);
 					$("#adress_fields input").keyup(function() {
 						var empty = $("#adress_fields input, #adress_fields select").filter(function() {
 							return this.value === "";
@@ -771,15 +776,63 @@ $this->addExternalJs($templateFolder . '/script.js');
 					})
 
 					function calcDelivery() {
+						init();
+						// Создает метку в центре Москвы
+						
+
+
 						var data = getAllValues();
 						$.post('/bitrix/templates/eshop_bootstrap_black/components/bitrix/sale.order.ajax/template_2/calc.php', data,
 						function(data) {
 							console.log(data);
+							data = $.parseJSON(data);
+							$.each(data, function(k, v) {
+								price = parseInt(v['price']);
+								if (!isNaN(price)) {
+									price = price + ' Р';
+								} else {
+									price = v['price'];
+								}
+								$("div[data-value*='"+k+"']").find(".item-desc").text(price);
+								$("div[data-value*='"+k+"']").data("price",parseInt(v['price']));
+									
+							})
 							// p_data = jQuery.parseJSON(data);
 							// $.each(p_data, function(i, item) {
 								// $('#my_city').append('<option>'+item['S_NAME_RU']+'</option>');
 							// });
 						})
+					}
+
+					function init() {
+						var myMap = new ymaps.Map("map", {
+							center: [55.684757999993806, 37.73852099999997],
+							zoom: 11,
+							controls: ['zoomControl']
+						});
+    					myMap.geoObjects.add(new ymaps.Placemark([55.684758, 37.738521], {
+            				balloonContent: 'цвет <strong>воды пляжа бонди</strong>'
+        				}, {
+            				preset: 'islands#icon',
+            				iconColor: '#0095b6'
+        				}));
+						myMap.geoObjects.add(new ymaps.Placemark([56.684758, 37.738521], {
+            				balloonContent: 'цвет <strong>воды пляжа бонди</strong>'
+        				}, {
+            				preset: 'islands#icon',
+            				iconColor: '#0095b6'
+        				}));
+
+						// myMap.setBounds([[55.684757999993806, 37.73852099999997], [56.6847579999927, 37.73852099999997]]);
+						// console.log('s');
+						
+		// myMap.controls.add(new ymaps.control.ZoomControl());
+// myMap.controls.add('typeSelector');
+
+
+						
+		// myMap.setZoom(myMap.getZoom()-0.4);
+		// myMap.margin.setDefaultMargin(50);
 					}
 
 					function getAllValues() {
@@ -853,14 +906,10 @@ $this->addExternalJs($templateFolder . '/script.js');
 
 
 
-					$('.full-width-block-list-item').each(function() {
-						$(this).click(function() {
-							if ($(this).hasClass('active')) {
-								return false;
-							}
-
-							$('.full-width-block-list-item').removeClass('active');
-							$(this).addClass('active');
+					// $('.full-width-block-list-item').each(function() {
+					$(".delivery-select").click(function() {
+						$("#delivery .delivery-select.active").removeClass('active')
+						$(this).addClass('active');
 							// if ($(this).is('#pickup')) {
 							// 	$('.delivery-fields-block, .pickup-fields-block').toggleClass('hidden-block');
 							// 	$('.pickup-fields-block').find('.text-input__input').addClass('empty_field');
@@ -873,9 +922,17 @@ $this->addExternalJs($templateFolder . '/script.js');
 							// }
 
 
-						})
-
 					})
+
+
+					$('.payment-select').click(function() {
+						$("#payment .delivery-select.active").removeClass('active')
+						$(this).addClass('active');
+						// var val = $(this).data('value');
+					// 	$('input[name="PAY_SYSTEM_ID"]').val(val);
+					});
+
+					// })
 
 						
 					$('.cart-block__cart-review').hcSticky({
@@ -1118,4 +1175,5 @@ $("[name='PERSONAL_COUNTRY']").change(function() {
     	});
 	})
 })
-  </script>
+</script>
+<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&apikey=9bfc5b40-ebf1-44fe-8c5a-90dfaccd011f" type="text/javascript"></script>

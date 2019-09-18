@@ -19,15 +19,32 @@ $basket = \Bitrix\Sale\Basket::loadItemsForFUser(
     \Bitrix\Main\Context::getCurrent()->getSite()
 );
 $weight = $basket->getWeight();
-$return = [];
+$return = [
+    '18'        => [
+        'price'     =>  'Недоступно для вашего региона',
+    ],
+    '2'        => [
+        'price'     =>  'Недоступно для вашего региона',
+    ],
+    '3'        => [
+        'price'     =>  'Недоступно для вашего региона',
+    ],
+    'pvz'       => [
+        'price'     =>  'Недоступно для вашего региона',
+    ],
+    'courier'       => [
+        'price'     =>  'Недоступно для вашего региона',
+    ],
+];
 $pvz = [];
+// print_r($locations);
 foreach($locations as $locs) {
     if ($locs == 18) {
         $post = calcRussianPost($weight);
         if (isset($post['pkg']))
-            $return[$locs] = $post['pkg'];
+            $return[$locs]['price'] = $post['pkg'];
         else 
-            $return[$locs] = 'Ошибка. Проверьте адрес.';
+            $return[$locs]['price'] = 'Ошибка. Проверьте адрес.';
         //russian post
     }
     if ($locs == 'SafeRoute') {
@@ -36,24 +53,27 @@ foreach($locations as $locs) {
         if (!empty($safeRouteCity)) {
             $safeRouteDelivery = calcSafeRoute($safeRouteCity, $weight);
             if (isset($safeRouteDelivery['2']['delivery'][0]['total_price'])) {
-                $return[$locs] = $safeRouteDelivery['2']['delivery'][0]['total_price'];
+                $return['courier']['price'] = $safeRouteDelivery['2']['delivery'][0]['total_price'];
             } else {
-                $return[$locs] = 'Ошибка. Проверьте адрес.';
+                $return['courier']['price'] = 'Ошибка. Проверьте адрес.';
             }
             $safeRoutePVZ = getPVZ($safeRouteCity);
-            foreach($safeRoutePVZ as $srPVZ) {
-                $pvz[$srPVZ['id']] = [
-                    'longitude'     => $srPVZ['longitude'],
-                    'latitude'      => $srPVZ['latitude'],
-                    'address'       => $srPVZ['address']
-                ];
+            if (isset($safeRoutePVZ['1']['points'])) {
+                foreach($safeRoutePVZ['1']['points'] as $srPVZ) {
+                    $pvz[$srPVZ['id']] = [
+                        'longitude'     => $srPVZ['longitude'],
+                        'latitude'      => $srPVZ['latitude'],
+                        'address'       => $srPVZ['address'],
+                        'price'         => $srPVZ['price_delivery']
+                    ];
+                }
             }
         } else {
             $return[$locs] = 'Недоступно для вашего региона';
         }
     }
     if ($locs == 'courier') {
-        $return[$locs] = '300';
+        $return['courier']['price'] = '300';
     }
 }
 
@@ -64,7 +84,10 @@ if (in_array(3, $locations)) {
         'address'   => 'г.Москва,  шоссе Фрезер, д.17 А, стр 2',
     ];
 }
-$return['pvz']  = $pvz;
+if (!empty($pvz)) {
+    $return['pvz']['price'] = 'Выберите пункт выдачи';
+}
+$return['pvz']['pvz']  = $pvz;
 print_r(Json_encode($return));
 
 function calcRussianPost($weight) {
@@ -100,12 +123,12 @@ function calcSafeRoute($city, $weight) {
 
 function getPVZ($city) {
     $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, "https://api.saferoute.ru/api/_x13hcccdvioiuqmf1g7sxovogvalvpi/list/delivery-point.json?city_id=".$city);
+    curl_setopt($ch, CURLOPT_URL, "https://api.saferoute.ru/api/".safeRouteTOKEN."/calculator.json?city_to=".$city."&side1=50&side2=50&side3=50&weight=4&item_count=1&type=1&is_cheap=0&is_declared=1&is_payment=0");
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($ch,CURLOPT_SSL_VERIFYPEER, false);
     $result = curl_exec($ch); 
     curl_close($ch); 
-    return @json_decode($result,1);
+    return @json_decode($result,1)['data'];
 }
 
 die;

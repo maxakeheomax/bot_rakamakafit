@@ -5473,7 +5473,7 @@ button-form-grey {
     left: 50%;
     width: 100%;
     max-width: 1346px;
-    min-height: 604px;
+    /* min-height: 604px; */
     max-height: 952px;
     transform: translate(-50%, -50%);
     background-color: #ffffff;
@@ -5803,9 +5803,12 @@ button-form-grey {
 /*map-block*/
 
 .map-block {
-    margin-top: 113px;
+    margin: 50px;
+    height: 500px;
 }
-
+.right-side {
+    overflow: hidden;
+}
 .map-block-header,
 .map-block-tabs ul {
     display: flex;

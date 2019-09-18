@@ -70,11 +70,22 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php');
 					</div>
 				</form>
 			</div>
-
-
-
 		</div>
-	</div>
+    </div>
+    
+    <div class="popUp pickup_map-popUp hidden-block" id="popUp_pvz">
+        <div class="blur-block"></div>
+        <div class="wrapper-block">
+            <div class="close-button"></div>
+                <!-- <div class="left-side">
+                    <div class="img-block"></div>
+                </div> -->
+            <div class="right-side">
+                <div class="map-block" id="map" style="background:red;">
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 	<script>
