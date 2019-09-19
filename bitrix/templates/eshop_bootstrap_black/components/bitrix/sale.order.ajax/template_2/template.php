@@ -703,13 +703,14 @@ $this->addExternalJs($templateFolder . '/script.js');
 											<? $text ='';?>
 											<? if ($paymentMethod['CODE'] == 'tinkoff' && !$allowTinkoff) : ?>
 												<? $payment = 'payment-disable';?>
-												<? $text = 'В корзине находятся акционные товары. На акционные товары рассрочка не распространяется. Удалите товары из корзины и попробуйте снова';?>
+												<? $text = 'Недоступно, при покупке акционных товаров.';?>
 											<? else: ?>
 												<? $payment = 'payment-select';?>
 											<? endif;?>
 											<div class="full-width-block-list-item <?=$payment?>" data-value="<?= $paymentMethod['ID'] ?>" data-text="<?=$text?>">
 												<div class="left-side">
 													<p class="item-title"><?= $paymentMethod['NAME'] ?></p>
+													<p><?=$text?></p>
 												</div>
 												<div class="right-side">
 													<div class="icon_block" style="background: url('<?=$paymentMethod['PSA_LOGOTIP']['SRC']?>') no-repeat right;background-size:contain"></div>
