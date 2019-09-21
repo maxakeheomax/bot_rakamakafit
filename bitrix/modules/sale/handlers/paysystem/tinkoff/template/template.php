@@ -6,41 +6,32 @@ use \Bitrix\Main\Localization\Loc;
 use \Bitrix\Main\Loader;
 
 Loc::loadMessages(__FILE__);
-echo '23';die;
-if (isset($_POST["SET_NEW_PHONE"]))
-	$params['BUYER_PERSON_PHONE'] = trim($_POST["NEW_PHONE"]);
+$dbRes = \Bitrix\Sale\Basket::getList([
+    'select' => ['NAME', 'QUANTITY', "PRICE"],
+    'filter' => [
+        '=ORDER_ID' => $params['PAYMENT_ORDER_ID'],
+        '=LID' => \Bitrix\Main\Context::getCurrent()->getSite(),
+        '=CAN_BUY' => 'Y',
+    ]
+]);
+$i=0;
 ?>
 
-<?if (!preg_match('/^\+7\d{10}$/', $params['BUYER_PERSON_PHONE'])):?>
-	<?if ($params['BUYER_PERSON_PHONE']):?>
-		<div class="alert alert-danger mb-3"><?=Loc::getMessage("SALE_HPS_QIWI_INCORRECT_PHONE_NUMBER")?></div>
-		<div class="mb-1"><?=htmlspecialcharsbx(Loc::getMessage("SALE_HPS_QIWI_INPUT_PHONE"))?></div>
-	<?endif;?>
-	<form  action="<?=POST_FORM_ACTION_URI?>" method="post" class="form-inline">
-		<div class="form-group mb-0 mr-3">
-			<input type="text" name="NEW_PHONE" size="30" value="+7" placeholder="+7" class="form-control"/>
-		</div>
-		<input type="submit" class="btn btn-primary" name="SET_NEW_PHONE" value="<?= Loc::getMessage("SALE_HPS_QIWI_SEND_PHONE")?>" />
-	</form>
-<?else:?>
-	<form action="<?=$params['URL']?>" method="post">
-		<p>
-			<?=Loc::getMessage("SALE_HPS_QIWI_SUMM_TO_PAY")?>:
-			<?if (Loader::includeModule("currency")):?>
-				<strong><?=CCurrencyLang::CurrencyFormat($params['PAYMENT_SHOULD_PAY'], $params['PAYMENT_CURRENCY'], true);?></strong>
-			<?else:?>
-				<strong><?=htmlspecialcharsbx($params['SHOULD_PAY']);?> <?=htmlspecialcharsbx($params['CURRENCY'])?></strong>
-			<?endif;?>
-		</p>
-		<input type="hidden" name="to" value="<?=htmlspecialcharsbx($params['BUYER_PERSON_PHONE']);?>"/>
-		<input type="hidden" name="from" value="<?=htmlspecialcharsbx($params['QIWI_SHOP_ID']);?>"/>
-		<input type="hidden" name="summ" value="<?=htmlspecialcharsbx($params['PAYMENT_SHOULD_PAY']);?>"/>
-		<input type="hidden" name="currency" value="<?=htmlspecialcharsbx($params['PAYMENT_CURRENCY']);?>"/>
-		<input type="hidden" name="comm" value="<?=htmlspecialcharsbx(Loc::getMessage("SALE_HPS_QIWI_COMMENT", array("#ID#" => $params['PAYMENT_ID'])))?>"/>
-		<input type="hidden" name="txn_id" value="<?=htmlspecialcharsbx($params['PAYMENT_ID']);?>"/>
-		<input type="hidden" name="successUrl" value="<?=htmlspecialcharsbx($params['QIWI_SUCCESS_URL']);?>"/>
-		<input type="hidden" name="failUrl" value="<?=htmlspecialcharsbx($params['QIWI_FAIL_URL']);?>"/>
-		<input type="hidden" name="lifetime" value="<?=htmlspecialcharsbx($params['QIWI_BILL_LIFETIME']);?>"/>
-		<input type="submit" class="btn btn-primary" value="<?=Loc::getMessage("SALE_HPS_QIWI_DO_BILL");?>" />
-	</form>
-<?endif?>
+
+<form id="myForm" action="https://loans.tinkoff.ru/api/partners/v1/lightweight/create" onsubmit="yaCounter44861320.reachGoal('credit'); return true;" method="post" class="creditForm">
+	<input name="shopId" value="rakamakafit" type="hidden"/>
+	<input name="showcaseId" value="rakamakafit" type="hidden"/>
+	<input name="promoCode" value="default" type="hidden"/>
+	<input name="sum" value="<?=$params['PAYMENT_SHOULD_PAY']?>.00" type="hidden">
+	<? while ($item = $dbRes->fetch()) : ?>
+	<input name="itemName_<?=$i?>" value="<?=$item['NAME']?>" type="hidden"/>
+	<input name="itemQuantity_<?=$i?>" value="<?=(int)$item['QUANTITY']?>" type="hidden"/>
+	<input name="itemPrice_<?=$i?>" value="<?=(int)$item['PRICE']?>.00" type="hidden"/>
+	<?$i++;?>
+	<? endwhile; ?>
+	<input name="promoCode" value="installment_0_0_5" type="hidden" />
+	<input type="submit" value="Купить в рассрочку" class="creditButton"/>
+</form>
+<script type="text/javascript">
+    // document.getElementById('myForm').submit();
+</script>

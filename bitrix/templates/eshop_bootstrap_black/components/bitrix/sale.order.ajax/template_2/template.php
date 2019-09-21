@@ -539,22 +539,20 @@ $this->addExternalJs($templateFolder . '/script.js');
 							<div class="cart-block__cart-review__cart-items-counter-block">
 								<p> В корзине <span class="items-counter" id="cart_items_count"><?=$cnt?></span> товар</p>
 							</div>
-							<div class="cart-block__cart-review__price_block">
+							<div class="cart-block__cart-review__price_block">	
 								<div class="cart-block__cart-review__product-price">
 									<p class="cart-block__cart-review__price_name">Стоимость товаров</p>
-									<div class="price b-font"><span id="cart_items_total"><?= $arResult['ORDER_PRICE'] ?></span>Р</div>
+									<div class="price b-font"><span><?= number_format($basket->getBasePrice(), 2, '.', ' '); ?></span> Р</div>
 								</div>
 								<div class="cart-block__cart-review__discount-block">
 									<p class="cart-block__cart-review__price_name">Скидка</p>
-									<div class="discount-price b-font"><span id="cart_discount"><?= $arResult['DISCOUNT_PRICE'] ?></span>Р</div>
+									<div class="discount-price b-font"><span><?= number_format($basket->getBasePrice()-$basket->getPrice(), 2, '.', ' '); ?></span> Р</div>
 								</div>
-								<div class="cart-block__cart-review__total-price-block">
+								<div class="cart-block__cart-review__total-price-block">	
 									<p class="cart-block__cart-review__price_name">Итого к оплате</p>
-									<div class="total-price"><span id="cart_total"></span>Р</div>
+									<div class="total-price"><span><?= number_format($basket->getPrice(), 2, '.', ' '); ?></span> Р</div>
 								</div>
 							</div>
-							<script>
-							</script>
 							<button id='button_form_submit' type="submit" class="cart-block__cart-review__button" disabled="disabled">оформить заказ</button>
 							<p class="product-block__description__credit_link"><a class="how-start-block__help-link" href="#">Купить в рассрочку</a></p>
 							<p class="cart-block__cart-review__info-text">Нажимая на кнопку, вы подтверждаете свое согласие на обработку персональных данных. Политика конфиденциальности <a href="/agreement">Rakamakafit</a></p>
