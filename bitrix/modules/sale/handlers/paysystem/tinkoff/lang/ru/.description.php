@@ -1,5 +1,5 @@
 <?php
-$MESS["SALE_HPS_SBERBANK_TITLE"] = "Квитанция Сбербанка";
+$MESS["SALE_HPS_tinkoff_TITLE"] = "TINKOFF рассрочка";
 $MESS["SALE_HPS_SBERBANK_COMPANY_NAME_DESC"] = "Наименование получателя платежа";
 $MESS["SALE_HPS_SBERBANK_INN_DESC"] = "ИНН получателя платежа";
 $MESS["SALE_HPS_SBERBANK_KPP_DESC"] = "КПП получателя платежа";
