@@ -419,7 +419,7 @@ else
 			</div>
 			<? endwhile; ?>
 		</div>
-		<div class="cart-block__cart-review">
+		<div class="cart-block__cart-review cart-main">
 			<div class="cart-block__cart-review__cart-items-counter-block">	
 				<p>	В корзине <span class="items-counter"><?=$cnt?></span> товара</p>
 			</div>
@@ -440,10 +440,24 @@ else
 
 			<a href="/personal/order/make/" class="cart-block__cart-review__button">оформить заказ</a>
 			<p class="product-block__description__credit_link"><a class="how-start-block__help-link" href="#">Купить в рассрочку</a></p>
-			<p class="cart-block__cart-review__info-text">	Способы оплаты и адрес доставки можно выбрать при оформлении заказа.</p>
+			
+
+			<div class="footer__line"></div>
+			
+				<p>	Есть промокод?</p>
+				<div class="promocode-block">
+				<label>
+                <input name="promocode" class="promo-form-block__form__input" type="text" required="" pattern="^[0-9]+$" placeholder="Введите промокод">
+			</label>
+			<button class="promo-form-block__form__submit" type="submit">применить</button>
+			
+				</div>	
+				<p class="cart-block__cart-review__info-text"> некорректный промокод</p>
+			
 		</div>
 	</div>
 </div>
+
 
 <script>
 	// $('.cart-block__cart-items-list .cart-block__cart-items-list__item-wrapper').remove();

@@ -193,9 +193,11 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php');
                 <div class="header-right-side">
                     <div class="burger-menu header-right-side-item button-form-grey">меню <span class="burger-menu-icon"></span></div>
                     <div class="cart-mobile header-right-side-item button-form-grey">
-                        <img src="<?= SITE_TEMPLATE_PATH ?>/assets/white-cart.svg" alt="">
+                        <a href="/personal/cart/"><img src="<?= SITE_TEMPLATE_PATH ?>/assets/white-cart.svg" alt=""></a>
                     </div>
-                    <div class="login-block header-right-side-item button-form-grey"><img src="<?= SITE_TEMPLATE_PATH ?>/assets/white-login.svg" alt=""></div>
+                    <div class="login-block header-right-side-item button-form-grey">
+                        <a href="/personal"><img src="<?= SITE_TEMPLATE_PATH ?>/assets/white-login.svg" alt=""></a>
+                    </div>
                 </div>
             </header>
             <? if (!defined("HIDE_SIDEBAR")) : ?>
