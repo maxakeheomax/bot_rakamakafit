@@ -328,19 +328,19 @@
 				$('.aside-block').fadeIn();
 			}
 		});
-		$('.aside-block__shedule').click(function(){
+		$('.aside-block__shedule').click(function() {
 
-$('.aside-block').toggleClass('aside-visible');
+			$('.aside-block').toggleClass('aside-visible');
 
-if($('.aside-block').hasClass('aside-visible')) {
-	$('.aside-block__shedule-text').text('Закрыть')
-	$('.aside-block__shedule-logo').fadeOut();
-	$('.hide-button').fadeIn();
-}else{
-	$('.aside-block__shedule-text').text('График работы');
-	$('.aside-block__shedule-logo').fadeIn();
-	$('.hide-button').fadeOut();
-}
+			if ($('.aside-block').hasClass('aside-visible')) {
+				$('.aside-block__shedule-text').text('Закрыть')
+				$('.aside-block__shedule-logo').fadeOut();
+				$('.hide-button').fadeIn();
+			} else {
+				$('.aside-block__shedule-text').text('График работы');
+				$('.aside-block__shedule-logo').fadeIn();
+				$('.hide-button').fadeOut();
+			}
 
 		});
 
@@ -505,57 +505,57 @@ if($('.aside-block').hasClass('aside-visible')) {
 <script>
 	<? global $USER;
 	if (!$USER->IsAdmin()) : ?>
-	$(document).ready(function() {
-		var popupTimer, TIME_OUT = 6 * 1000; //one minute
-		// function that displays the popup
-		function displayPopup() {
-			if ($('.popUp').css('display') == 'block') {
-				return false
-			} else {
-				$('body').css('overflow-y', 'hidden');
-				$('.page_content, .page_wrapper').css('filter', 'blur(10px)');
-				$('.popUp').fadeIn();
+		$(document).ready(function() {
+			var popupTimer, TIME_OUT = 6 * 1000; //one minute
+			// function that displays the popup
+			function displayPopup() {
+				if ($('.popUp').css('display') == 'block') {
+					return false
+				} else {
+					$('body').css('overflow-y', 'hidden');
+					$('.page_content, .page_wrapper').css('filter', 'blur(10px)');
+					$('.popUp').fadeIn();
+				}
 			}
-		}
-		if (!getCookie('popup')) {
-			popupTimer = setTimeout(displayPopup, TIME_OUT);
-		}
-		$(document).on('click change keypress', function() {
-			clearTimeout(popupTimer);
 			if (!getCookie('popup')) {
 				popupTimer = setTimeout(displayPopup, TIME_OUT);
 			}
-		});
+			$(document).on('click change keypress', function() {
+				clearTimeout(popupTimer);
+				if (!getCookie('popup')) {
+					popupTimer = setTimeout(displayPopup, TIME_OUT);
+				}
+			});
 
-		$('.close-button').click(function() {
-			clearTimeout(popupTimer);
-			setCookie("popup", "true", 2);
-			$('body').css('overflow-y', 'inherit');
-			$('.page_content, .page_wrapper').css('filter', 'none')
-			$('.popUp').fadeOut();
-		});
-	})
+			$('.close-button').click(function() {
+				clearTimeout(popupTimer);
+				setCookie("popup", "true", 2);
+				$('body').css('overflow-y', 'inherit');
+				$('.page_content, .page_wrapper').css('filter', 'none')
+				$('.popUp').fadeOut();
+			});
+		})
 
-	function setCookie(name, value, days) {
-		var expires = "";
-		if (days) {
-			var date = new Date();
-			date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-			expires = "; expires=" + date.toUTCString();
+		function setCookie(name, value, days) {
+			var expires = "";
+			if (days) {
+				var date = new Date();
+				date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+				expires = "; expires=" + date.toUTCString();
+			}
+			document.cookie = name + "=" + (value || "") + expires + "; path=/";
 		}
-		document.cookie = name + "=" + (value || "") + expires + "; path=/";
-	}
 
-	function getCookie(name) {
-		var nameEQ = name + "=";
-		var ca = document.cookie.split(';');
-		for (var i = 0; i < ca.length; i++) {
-			var c = ca[i];
-			while (c.charAt(0) == ' ') c = c.substring(1, c.length);
-			if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+		function getCookie(name) {
+			var nameEQ = name + "=";
+			var ca = document.cookie.split(';');
+			for (var i = 0; i < ca.length; i++) {
+				var c = ca[i];
+				while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+				if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+			}
+			return null;
 		}
-		return null;
-	}
 
 	<? endif ?>
 </script>
@@ -604,7 +604,7 @@ if($('.aside-block').hasClass('aside-visible')) {
 				<div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#FAQaccordion">
 					<div class="card-body">
 						<p>В тренировочном плане с резинками используются только фитнес-резинки.
-В остальных тренировочных планах базовым оборудованием для выполнения тренировок являются фитнес-ленты #RAKAMAKAFIT, также в программе будут упражнения с эспандерами, грифом и фитболом. Мы подобрали упражнения на все группы мышц.</p>
+							В остальных тренировочных планах базовым оборудованием для выполнения тренировок являются фитнес-ленты #RAKAMAKAFIT, также в программе будут упражнения с эспандерами, грифом и фитболом. Мы подобрали упражнения на все группы мышц.</p>
 					</div>
 				</div>
 			</div>
@@ -620,8 +620,8 @@ if($('.aside-block').hasClass('aside-visible')) {
 				<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#FAQaccordion">
 					<div class="card-body">
 						<p>Доступ в систему предоставляется на 5 недель. Отсчёт периода происходит С ПЕРВОГО ЗАХОДА на сайт ПОД СВОЕЙ УЧЁТНОЙ ЗАПИСЬЮ.
-Ограничение периода мотивирует клиентов не пропускать тренировки и достигать максимальных результатов!
-Система подразумевает не только доступ к системе, но и возможность консультаций с нашими кураторами в чате на сайте программы тренировок.</p>
+							Ограничение периода мотивирует клиентов не пропускать тренировки и достигать максимальных результатов!
+							Система подразумевает не только доступ к системе, но и возможность консультаций с нашими кураторами в чате на сайте программы тренировок.</p>
 					</div>
 				</div>
 			</div>
@@ -651,7 +651,7 @@ if($('.aside-block').hasClass('aside-visible')) {
 				<div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#FAQaccordion">
 					<div class="card-body">
 						<p>Мы предлагаем специальные программы для клиентов с проблемами коленных суставов и диастазом.
-Но мы настоятельно рекомендуем вам проконсультироваться с врачом перед покупкой курса, так как все проблемы со здоровьем очень индивидуальны, и мы не несем ответственности за ваше состояние после тренировок с имеющимися у вас проблемами со здоровьем.</p>
+							Но мы настоятельно рекомендуем вам проконсультироваться с врачом перед покупкой курса, так как все проблемы со здоровьем очень индивидуальны, и мы не несем ответственности за ваше состояние после тренировок с имеющимися у вас проблемами со здоровьем.</p>
 					</div>
 				</div>
 			</div>
@@ -659,7 +659,7 @@ if($('.aside-block').hasClass('aside-visible')) {
 				<div class="card-header collapsed" id="headingFive" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
 					<h2>
 						Сколько тренировок в неделю? Это будут определенные дни недели, или я
-могу выбирать их самостоятельно? 
+						могу выбирать их самостоятельно?
 					</h2>
 					<div class="icon-collapsed"></div>
 				</div>
@@ -672,14 +672,14 @@ if($('.aside-block').hasClass('aside-visible')) {
 			<div class="card">
 				<div class="card-header collapsed" id="headingSix" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
 					<h2>
-						Моя цель – нарастить мышечную массу. Подходит ли мне данная программа? 
+						Моя цель – нарастить мышечную массу. Подходит ли мне данная программа?
 					</h2>
 					<div class="icon-collapsed"></div>
 				</div>
 				<div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#FAQaccordion">
 					<div class="card-body">
 						<p>Да, мы предлагаем различные варианты программы для набора мышечной массы и для снижения веса.
-Для наилучших результатов наращивания мышечной массы мы рекомендуем использовать в упражнениях ленты и эспандеры с бОльшим сопротивлением .</p>
+							Для наилучших результатов наращивания мышечной массы мы рекомендуем использовать в упражнениях ленты и эспандеры с бОльшим сопротивлением .</p>
 					</div>
 				</div>
 			</div>
@@ -687,7 +687,7 @@ if($('.aside-block').hasClass('aside-visible')) {
 				<div class="card-header collapsed" id="headingSeven" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
 					<h2>
 						Что будет с моим доступом по окончании 5 недель? Он будет доступен или
-мне необходимо вновь произвести оплату?
+						мне необходимо вновь произвести оплату?
 					</h2>
 					<div class="icon-collapsed"></div>
 				</div>
@@ -700,7 +700,7 @@ if($('.aside-block').hasClass('aside-visible')) {
 			<div class="card">
 				<div class="card-header collapsed" id="headingTen" data-toggle="collapse" data-target="#collapseTen" aria-expanded="false" aria-controls="collapseTen">
 					<h2>
-					Каков минимально допустимый возраст для покупки курса? 
+						Каков минимально допустимый возраст для покупки курса?
 					</h2>
 					<div class="icon-collapsed"></div>
 				</div>
@@ -713,7 +713,7 @@ if($('.aside-block').hasClass('aside-visible')) {
 			<div class="card">
 				<div class="card-header collapsed" id="headingEight" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
 					<h2>
-					Какова длительность одной тренировки? 
+						Какова длительность одной тренировки?
 					</h2>
 					<div class="icon-collapsed"></div>
 				</div>
@@ -723,19 +723,19 @@ if($('.aside-block').hasClass('aside-visible')) {
 					</div>
 				</div>
 			</div>
-				<div class="card">
+			<div class="card">
 				<div class="card-header collapsed" id="headingNine" data-toggle="collapse" data-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
 					<h2>
-					Я могу заниматься и дома и в фитнес клубе одновременно? 
+						Я могу заниматься и дома и в фитнес клубе одновременно?
 					</h2>
 					<div class="icon-collapsed"></div>
 				</div>
 				<div id="collapseNine" class="collapse" aria-labelledby="headingNine" data-parent="#FAQaccordion">
 					<div class="card-body">
 						<p>
-Вы можете совмещать тренировки и дома и в любом удобном для вас месте. Имейте ввиду, что нагрузка от занятий на тренажерах иная. Наша программа подготовленна специально для тех, кто тренируется дома.
-Тренировки по нашей программе дома не менее эффективны, чем тренировки в зале.
-</p>
+							Вы можете совмещать тренировки и дома и в любом удобном для вас месте. Имейте ввиду, что нагрузка от занятий на тренажерах иная. Наша программа подготовленна специально для тех, кто тренируется дома.
+							Тренировки по нашей программе дома не менее эффективны, чем тренировки в зале.
+						</p>
 					</div>
 				</div>
 			</div>
@@ -744,6 +744,72 @@ if($('.aside-block').hasClass('aside-visible')) {
 </div>
 
 <!-- end of faq_popUp -->
+
+<!-- buy_in_1_click_popUp  -->
+
+
+<div class="popUp buy_in_click_popUp hidden-block" id="buy_in_click">
+	<div class="blur-block"></div>
+	<div class="wrapper-block">
+	<div class="close-button"></div>
+<div class="buy_in_click_popUp__left-side">
+<div class="pop-products-block__item">
+			<div class="pop-products-block__item__img-block">
+				<img src="assets/ipad-03.jpg" alt="">
+			</div>
+			<div class="pop-products-block__item__title"><span class="title-span">Программа тренировок Rakamakafit Online</span></div>
+			<div class="pop-products-block__item__prices">
+				<div class="pop-products-block__item__price">5980 ₽</div>
+				
+			</div>
+		</div>
+</div>
+	<div class="buy_in_click_popUp__right-side">
+	<div class="fake-detection-form">
+	<h2>Заказ в один клик</h2>
+	<span>Заполните форму ниже, чтобы наш менеджер смог связаться с вами и обсудить детали заказа.</span>
+<form action="#">
+	<div class="fake-detection-form-block__form__input-wrapper">
+						<label name="mail">
+							<input class="promo-form-block__form__input" type="email" pattern="\S+@[a-z]+.[a-z]+" placeholder="Email">
+						</label>
+						<label name="phone">
+							<input class="promo-form-block__form__input" type="text" required="" mask="" pattern="[0-9]{11}" placeholder="Телефон">
+						</label>
+						<label name="name">
+							<input class="promo-form-block__form__input" type="text" required="" pattern="\W+\S+" placeholder="Имя">
+						</label>
+						
+						
+					</div>
+										<div class="promo-form-block__form__input-checkbox-wrapper">			
+						<input class="promo-form-block__form__checbox" type="checkbox" name="" id="promo-checkbox">
+						
+				
+					</div>
+					<button class="promo-form-block__form__submit" type="submit">отправить</button>
+</form>
+</div>
+	</div>
+
+
+	</div>
+</div>
+<script>
+	$('#popUp_call').click(function() {
+		$('body').css('overflow-y', 'hidden');
+		$('.page_content').css('filter', 'blur(10px)');
+		$('.buy_in_click_popUp').fadeIn();
+	});
+
+	$('.close-button').click(function() {
+		$('body').css('overflow-y', 'inherit');
+		$('.page_content').css('filter', 'none')
+		$('.buy_in_click_popUp').fadeOut();
+	})
+</script>
+<!-- end of buy_in_1_click_popUp -->
+
 
 </body>
 

@@ -2833,8 +2833,6 @@ button-form-grey {
   margin-right: 77px;
 }
 
-.before-after .bottom-slider-block____slider-header__right-block_img {}
-
 .bottom-slider-block__slider-footer {
   height: 273px;
   background-color: #353535;
@@ -6290,7 +6288,37 @@ button-form-grey {
 
 
 /*end of personal-cabinet*/
+/* buy_in_click popUp */
 
+.buy_in_click_popUp .wrapper-block{
+  width: 720px;
+  height: 500px;
+  display: flex;
+}
+.buy_in_click_popUp__left-side {
+width: 258px;
+border-right: 0.5px solid #979797;
+
+}
+.buy_in_click_popUp__right-side {
+  width: 460px;
+  border-left: 0.5px solid #979797;
+  
+}
+.buy_in_click_popUp__right-side .fake-detection-form {
+  width: 320px;
+  margin: 0 auto;
+}
+.buy_in_click_popUp__right-side .fake-detection-form input {
+  margin-top: 16px;
+  width: 295px;
+  height: 45px;
+}
+
+.buy_in_click_popUp__left-side .pop-products-block__item__price {
+  left: 50%;
+}
+/*  end of buy_in_click popUp */
 
 /*footer */
 
