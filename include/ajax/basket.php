@@ -3,8 +3,19 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_before.ph
 ?>
   
 <?
-CModule::IncludeModule("sale");
-CModule::IncludeModule("catalog");
+use \Bitrix\Main,
+Bitrix\Main\Loader,
+Bitrix\Main\Config\Option,
+Bitrix\Sale\Delivery,
+Bitrix\Sale\PaySystem,
+Bitrix\Sale,
+Bitrix\Sale\Order,
+Bitrix\Sale\DiscountCouponsManager,
+Bitrix\Main\Context;
+CModule::IncludeModule('sale');
+CModule::IncludeModule('iblock');
+CModule::IncludeModule('catalog');
+
 /* Addition of the goods in a basket at addition in a basket */
 if($_POST["ajaxaddid"] && $_POST["ajaxaction"] == 'add'){
     Add2BasketByProductID($_POST["ajaxaddid"], 1, array());
@@ -20,7 +31,18 @@ if($_POST["countbasketid"] && $_POST["count"] && $_POST["ajaxaction"] == 'update
     );
     CSaleBasket::Update($_POST["countbasketid"], $arFields);
 }
-  
+if ($_POST['ajaxaction'] == 'promo') {
+    Sale\DiscountCouponsManager::add($_POST['code']);
+    $basket  = \Bitrix\Sale\Basket::loadItemsForFUser(
+        \Bitrix\Sale\Fuser::getId(),
+        \Bitrix\Main\Context::getCurrent()->getSite()
+    );
+    $discounts  = Discount::loadByBasket($basket);
+    $basket->refreshData(['PRICE', 'COUPONS']);
+    $discounts->calculate();
+    $discountResult = $discounts->getApplyResult(); 
+    $basket->save();
+}
 
 $basket = \Bitrix\Sale\Basket::loadItemsForFUser(
     \Bitrix\Sale\Fuser::getId(),

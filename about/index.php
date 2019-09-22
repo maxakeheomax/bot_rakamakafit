@@ -29,15 +29,16 @@ $APPLICATION->SetTitle("О компaнии");
 	<span>Эспандеры и ленты RAKAMAKAFIT изготовлены из 100% натурального латекса. Он безвреден для аллергиков, детишек и животных. Я сама - мама, и для меня очень важно, чтобы все оборудование было безопасным для моего ребенка.</span>
 	<div class="img-container" style="background:url(<?= SITE_TEMPLATE_PATH ?>/assets/fake-slider.jpg);background-size: cover;"></div>
 
+	<?global $USER;?>
 
 	<!-- fake-detection-form -->
 	<div class="fake-detection-form">
 		<h2>Внимание, остерегайтесь подделок! </h2>
 		<span>В последнее время участились случаи продажи «наших» фитнес лент другими компаниями. Если вы столкнулись с фактом мошенничества или у вас есть замечания к качеству продукции, пожалуйста, отправьте нам свой запрос.</span>
-		<form action="#">
+		<form action="/include/fakeForm.php" method="POST">
 			<div class="fake-detection-form-block__form__input-wrapper">
 				<label name="mail">
-					<input class="promo-form-block__form__input" type="email" pattern="\S+@[a-z]+.[a-z]+" placeholder='Email'>
+					<input class="promo-form-block__form__input" type="email" name="email" pattern="\S+@[a-z]+.[a-z]+" placeholder='Email' value="<?=$USER->GetEmail()?>">
 				</label>
 				<label name=fake-detection-form-textarea">
 					<textarea class="promo-form-block__form__input" name="fake-detection-form-textarea" id="" cols="30" rows="10" placeholder="Введите текст"></textarea>
