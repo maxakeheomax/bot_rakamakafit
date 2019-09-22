@@ -421,7 +421,7 @@ else
 		</div>
 		<div class="cart-block__cart-review cart-main">
 			<div class="cart-block__cart-review__cart-items-counter-block">	
-				<p>	В корзине <span class="items-counter"><?=$cnt?></span> товара</p>
+				<p>	В корзине <span class="items-counter"><?=$cnt?></span> товар</p>
 			</div>
 			<div class="cart-block__cart-review__price_block">	
 				<div class="cart-block__cart-review__product-price">
