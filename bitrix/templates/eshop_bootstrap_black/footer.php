@@ -796,7 +796,7 @@
 	</div>
 </div>
 <script>
-	$('#popUp_call').click(function() {
+	$('#popUp_buy_in_click_call').click(function() {
 		$('body').css('overflow-y', 'hidden');
 		$('.page_content').css('filter', 'blur(10px)');
 		$('.buy_in_click_popUp').fadeIn();
