@@ -136,6 +136,9 @@ $arUser = $rsUser->Fetch();
                     <a <?=($item == 0)? 'class="personal-cabinet__navbar_link__active"' : '' ?> href="<?=$blockElement['path']?>"><?=$blockElement['name']?></a>
                 </li>
             <?endforeach;?>
+            <li>
+                <a href="/?logout=yes">Выход</a>
+            </li>
         </ul>
     </div>
 <?$APPLICATION->IncludeComponent(

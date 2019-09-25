@@ -414,40 +414,31 @@ $this->addExternalJs($templateFolder . '/script.js');
 										while ($dev = $res->Fetch()) :
 										if ($dev['CODE']) : */?>
 											<?//  $result[] = array("ID" => $dev['ID'], 'NAME' => $dev['NAME']);?>
-										<div class="full-width-block-list-item delivery-select" data-value="pvz" id="<?=$dev['CODE']?>">
+										<div class="full-width-block-list-item delivery-select" data-price="" data-value="pvz" id="<?=$dev['CODE']?>">
 											<div class="left-side">
 												<p class="item-title">Самовывоз</p>
 												<p class="item-desc">Заполните адрес</p>
 											</div>
 											<div class="right-side">
-												<p class="item-option" id="popUp_call">Выбрать<br> адрес получения</p>
+												<p class="item-option" id="popUp_call"></p>
 											</div>
 										</div>
 										<?/* endif;
 										endwhile */?>
-										<div class="full-width-block-list-item delivery-select" data-value="courier">
+										<div class="full-width-block-list-item delivery-select" data-price="" data-value="courier">
 											<div class="left-side">
 												<p class="item-title">Курьерская доставка</p>
 												<p class="item-desc">Заполните адрес</p>
 											</div>
 											<div class="right-side"></div>
 										</div>
-										<div class="full-width-block-list-item delivery-select" data-value="18">
+										<div class="full-width-block-list-item delivery-select" data-price="" data-value="18">
 											<div class="left-side">
 												<p class="item-title">Почта России</p>
 												<p class="item-desc">Заполните адрес</p>
 											</div>
 											<div class="right-side"></div>
 										</div>
-
-										<!-- <script>
-											$('.delivery-select').click(function() {
-												$('input[id="ID_DELIVERY_ID_' + val + '"]').closest('div').click();
-												prices();
-												var val = $(this).data('value');
-												$('input[name="DELIVERY_ID"]').val(val);
-											});
-										</script> -->
 									</div>
 								</div>
 							</div>
@@ -563,6 +554,7 @@ $this->addExternalJs($templateFolder . '/script.js');
 			</form>
 
 			<script>
+				var myMap;
 				$(document).ready(function() {
 					ymaps.ready(init);
 					$("#adress_fields input").keyup(function() {
@@ -588,17 +580,33 @@ $this->addExternalJs($templateFolder . '/script.js');
 					})
 
 					function calcDelivery() {
-						init();
-						// Создает метку в центре Москвы
-						
-
+						console.log(myMap);
+						// myMap.destroy();
 
 						var data = getAllValues();
 						$.post('/bitrix/templates/eshop_bootstrap_black/components/bitrix/sale.order.ajax/template_2/calc.php', data,
 						function(data) {
-							console.log(data);
 							data = $.parseJSON(data);
 							$.each(data, function(k, v) {
+								if (k == 'pvz') {
+									$("#popUp_call").html("Выбрать<br>адрес получения");
+									myMap = new ymaps.Map('map', {
+										// При инициализации карты обязательно нужно указать
+										// её центр и коэффициент масштабирования.
+										center: [55.76, 37.64], // Москва
+										zoom: 10
+									}, {
+										searchControlProvider: 'yandex#search'
+									});
+									$.each(v['pvz'], function(kmap, vmap) {
+										myMap.geoObjects.add(new ymaps.Placemark([vmap['latitude'], vmap['longitude']], {
+											balloonContent: vmap['address'] + "<br><a href='#' class='selectPVZ' data-price="+vmap['price']+" class=''>Выбрать</a>"
+										}, {
+											preset: 'islands#icon',
+											iconColor: '#0095b6'
+										}));
+									})
+								}
 								price = parseInt(v['price']);
 								if (!isNaN(price)) {
 									price = price + ' Р';
@@ -607,8 +615,13 @@ $this->addExternalJs($templateFolder . '/script.js');
 								}
 								$("div[data-value*='"+k+"']").find(".item-desc").text(price);
 								$("div[data-value*='"+k+"']").data("price",parseInt(v['price']));
-									
+								
 							})
+							// myMap.geoObjects.events.add('click', function (e) {
+							// 	alert('Дошло до коллекции объектов карты');
+							// 	// Получение ссылки на дочерний объект, на котором произошло событие.
+							// 	var object = e.get('target');
+							// });
 							// p_data = jQuery.parseJSON(data);
 							// $.each(p_data, function(i, item) {
 								// $('#my_city').append('<option>'+item['S_NAME_RU']+'</option>');
@@ -616,24 +629,38 @@ $this->addExternalJs($templateFolder . '/script.js');
 						})
 					}
 
+					$("body").on("click", ".selectPVZ", function() {
+						$("div[data-value='pvz'] .item-desc").text($(this).data("price")+' Р');
+						$(".close-button").click();
+						// console.log($(this).data("price"));
+					})
+
 					function init() {
-						var myMap = new ymaps.Map("map", {
-							center: [55.684757999993806, 37.73852099999997],
-							zoom: 11,
-							controls: ['zoomControl']
-						});
-    					myMap.geoObjects.add(new ymaps.Placemark([55.684758, 37.738521], {
-            				balloonContent: 'цвет <strong>воды пляжа бонди</strong>'
-        				}, {
-            				preset: 'islands#icon',
-            				iconColor: '#0095b6'
-        				}));
-						myMap.geoObjects.add(new ymaps.Placemark([56.684758, 37.738521], {
-            				balloonContent: 'цвет <strong>воды пляжа бонди</strong>'
-        				}, {
-            				preset: 'islands#icon',
-            				iconColor: '#0095b6'
-        				}));
+						// myMap = new ymaps.Map('map', {
+						// 	// При инициализации карты обязательно нужно указать
+						// 	// её центр и коэффициент масштабирования.
+						// 	center: [55.76, 37.64], // Москва
+						// 	zoom: 10
+						// }, {
+						// 	searchControlProvider: 'yandex#search'
+						// });
+						// var myMap = new ymaps.Map("map", {
+							// center: [55.684757999993806, 37.73852099999997],
+							// zoom: 11,
+							// controls: ['zoomControl']
+						// });
+    					// myMap.geoObjects.add(new ymaps.Placemark([55.684758, 37.738521], {
+            				// balloonContent: 'цвет <strong>воды пляжа бонди</strong>'
+        				// }, {
+            				// preset: 'islands#icon',
+            				// iconColor: '#0095b6'
+        				// }));
+						// myMap.geoObjects.add(new ymaps.Placemark([56.684758, 37.738521], {
+            				// balloonContent: 'цвет <strong>воды пляжа бонди</strong>'
+        				// }, {
+            				// preset: 'islands#icon',
+            				// iconColor: '#0095b6'
+        				// }));
 
 						// myMap.setBounds([[55.684757999993806, 37.73852099999997], [56.6847579999927, 37.73852099999997]]);
 						// console.log('s');
@@ -675,41 +702,40 @@ $this->addExternalJs($templateFolder . '/script.js');
 					const form = $('.form-fields');
 					form.not($('.pickup-fields-block')).find('.text-input__input').addClass('empty_field');
 
-					function checkInput() {
-						if ($('#pickup').is('.active')) {
-							form.not($('.delivery-fields-block')).find('.text-input__input').each(function() {
+					// function checkInput() {
+					// 	if ($('#pickup').is('.active')) {
+					// 		form.not($('.delivery-fields-block')).find('.text-input__input').each(function() {
 
-								if ($(this).val() != '') {
-									$(this).removeClass('empty_field');
-								} else {
-									$(this).addClass('empty_field');
-								}
-							});
-						} else {
-							form.not($('.pickup-fields-block')).find('.text-input__input').each(function() {
+					// 			if ($(this).val() != '') {
+					// 				$(this).removeClass('empty_field');
+					// 			} else {
+					// 				$(this).addClass('empty_field');
+					// 			}
+					// 		});
+					// 	} else {
+					// 		form.not($('.pickup-fields-block')).find('.text-input__input').each(function() {
 
-								if ($(this).val() != '') {
-									$(this).removeClass('empty_field');
-								} else {
-									$(this).addClass('empty_field');
-								}
-							});
-
-						}
-					}
+					// 			if ($(this).val() != '') {
+					// 				$(this).removeClass('empty_field');
+					// 			} else {
+					// 				$(this).addClass('empty_field');
+					// 			}
+					// 		});
+					// 	}
+					// }
 
 					setInterval(function() {
-						checkInput();
+						delivery = $("#delivery").find(".active").length;
+						payment = $("#payment").find(".active").length;
+						// console.log(delivery);
+						// console.log(payment);
+						// checkInput();
 						const sizeEmpty = form.find('.empty_field').length;
-
-						if (sizeEmpty > 0) {
-
+						if (sizeEmpty > 0 && payment == 0 && delivery == 0) {
 							$('.cart-block__cart-review__button').attr('disabled', 'disabled');
-
 						} else {
 							$('.cart-block__cart-review__button').removeAttr('disabled');
 						}
-
 					}, 500);
 
 
@@ -722,6 +748,8 @@ $this->addExternalJs($templateFolder . '/script.js');
 					$(".delivery-select").click(function() {
 						$("#delivery .delivery-select.active").removeClass('active')
 						$(this).addClass('active');
+						// var val = $(this).data('delivery');
+						// $('input[name="DELIVERY_ID"]').val(val);
 							// if ($(this).is('#pickup')) {
 							// 	$('.delivery-fields-block, .pickup-fields-block').toggleClass('hidden-block');
 							// 	$('.pickup-fields-block').find('.text-input__input').addClass('empty_field');
@@ -738,7 +766,7 @@ $this->addExternalJs($templateFolder . '/script.js');
 
 
 					$('.payment-select').click(function() {
-						$("#payment .delivery-select.active").removeClass('active')
+						$("#payment .payment-select.active").removeClass('active')
 						$(this).addClass('active');
 						var val = $(this).data('value');
 						$('input[name="PAY_SYSTEM_ID"]').val(val);

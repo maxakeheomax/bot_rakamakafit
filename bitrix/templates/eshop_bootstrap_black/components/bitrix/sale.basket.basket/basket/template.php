@@ -429,53 +429,6 @@ if (empty($arResult['ERROR_MESSAGE'])) {
 
 
 	<script>
-		// $('.cart-block__cart-items-list .cart-block__cart-items-list__item-wrapper').remove();
-		// $('.js_item_list table tr').each(function (id, element) {
-		// 	var image = $(element).find('.basket-item-block-image img').attr('src');
-		// 	var link = $(element).find('.basket-item-block-image a').attr('href');
-		// 	var title = $(element).find('.basket-item-info-name-link span').text();
-		// 	var actual_price = $($(element).find('.basket-item-price-current')[1]).text();
-		// 	actual_price = actual_price.substring(0, actual_price.indexOf('руб'));
-		// 	var old_price = $(element).find('.basket-item-price-old').text().substring(5);
-		// 	old_price = old_price.substring(0, old_price.indexOf('руб'));
-		// 	var discount = $(element).find('.basket-item-block-image a').text();
-		// 	var count = $(element).find('.basket-item-amount-filed').data('value');
-		// 	var id = $(element).data('id');
-		// 	var one_item_price = $($(element).find('.basket-item-price-current-text')[0]).text();
-		// 	one_item_price = one_item_price.substring(0, one_item_price.indexOf('руб'));
-		// 	one_item_price = one_item_price.replace(/\s/g, '');
-		// 	$('.cart-block__cart-items-list').append(
-		// 		'<div class="cart-block__cart-items-list__item-wrapper" id="'+ id +'" data-one-item-price="'+ one_item_price +'">'
-		// 		+'	<div class="cart-block__cart-items-list__item d-table">	'
-		// 		+'		<div class="item__image d-table__cell">	<a href="'+link+'"> '		
-		// 		+'			<img src="'+image+'" alt=""> </a>'					
-		// 		+'		</div>	'
-		// 		+'		<div class="cart-block__item__info d-table__cell">	'
-		// 		+'			<a href="'+link+'">'+title+'</a>'
-		// 		+'			<div class="cart-block__item__meta"></div>'
-		// 		+'		</div>'
-		// 		+'		<div class="cart-block__item__quantity d-table__cell">'
-		// 		+'			<div class="number">'
-		// 		+'				<span class="minus">-</span>'
-		// 		+'				<input type="text" value="'+count+'" size="5">'
-		// 		+'				<span class="plus">+</span>'
-		// 		+'			</div>	'
-		// 		+'		</div>'
-		// 		+'		<div class="cart-block__item__price d-table__cell">	'
-		// 		+'			<p class="actual-price price"><span>'+actual_price+'</span> Р</p>'
-		// 		+'			<p class="old-price price"><span>'+old_price+'</span> '+ (old_price.trim() ? 'Р' : '') +'</p>'
-		// 		+'			<p class="discount-price price">'+ (discount.trim() ? 'Скидка' : '') +' <span>'+discount+' '+ (discount.trim() ? 'Р' : '') +'</span></p>'
-		// 		+'		</div>'
-		// 		+'		<div class="cart-block__item__btns d-table__cell">	'
-		// 		+'			<a href="#">'
-		// 		+'				<i class="fa fa-trash" aria-hidden="true"></i>'
-		// 		+'			</a>'
-		// 		+'		</div>'
-		// 		+'	</div>'
-		// 		+'</div>'
-		// 	);
-		// });
-
 		function price(data) {
 			data = $.parseJSON(data);
 			$(".total-price span").text(data['finish']);
