@@ -117,6 +117,12 @@
 		</div>
 	</div>
 </footer>
+<div class="footer-mobie">
+<div class="footer__nav__logo">
+				<img src="<?= SITE_TEMPLATE_PATH ?>/assets/logo-svg.svg" alt="">
+			</div>
+
+</div>
 </div>
 
 

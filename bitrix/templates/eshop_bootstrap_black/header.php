@@ -200,6 +200,22 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php');
                     </div>
                 </div>
             </header>
+            <header class="header-mini">
+           
+            <div class="header-mini__block header-mini__left-block">
+            <span class="burger-menu-icon"></span>
+            <a href="/"><img src="<?= SITE_TEMPLATE_PATH ?>/assets/phone.svg" alt="logo"></a>
+            </div>
+
+            <a class="header-mini__big-logo" href="/"><img src="<?= SITE_TEMPLATE_PATH ?>/assets/logo-svg.svg" alt="logo"></a>
+            <a class="header-mini__min-logo" href="/"><img src="<?= SITE_TEMPLATE_PATH ?>/assets/logo-mini.svg" alt="logo"></a>
+            
+            <div class="header-mini__block header-min__right-block">
+            <a href="/personal"><img src="<?= SITE_TEMPLATE_PATH ?>/assets/white-login.svg" alt=""></a>
+            <a href="/personal/cart/"><img src="<?= SITE_TEMPLATE_PATH ?>/assets/white-cart.svg" alt=""></a>
+            </div>
+
+            </header>
             <? if (!defined("HIDE_SIDEBAR")) : ?>
             <div class="aside-block" >
                 <div class="aside-block__content">
