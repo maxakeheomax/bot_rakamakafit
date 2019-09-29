@@ -509,12 +509,12 @@
 			var popupTimer, TIME_OUT = 6 * 1000; //one minute
 			// function that displays the popup
 			function displayPopup() {
-				if ($('.popUp').css('display') == 'block') {
+				if ($('.popUp-gift').css('display') == 'block') {
 					return false
 				} else {
 					$('body').css('overflow-y', 'hidden');
 					$('.page_content, .page_wrapper').css('filter', 'blur(10px)');
-					$('.popUp').fadeIn();
+					$('.popUp-gift').fadeIn();
 				}
 			}
 			if (!getCookie('popup')) {
@@ -532,7 +532,7 @@
 				setCookie("popup", "true", 2);
 				$('body').css('overflow-y', 'inherit');
 				$('.page_content, .page_wrapper').css('filter', 'none')
-				$('.popUp').fadeOut();
+				$('.popUp-gift').fadeOut();
 			});
 		})
 
