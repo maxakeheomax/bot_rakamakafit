@@ -936,7 +936,12 @@
    .trainings_category_block-item {
      width: 96%;
    }
-   
+   .footer-tablet {
+     display: none;
+   }
+   .footer-mobile {
+     display: block;
+   }
  }
  
  @media (max-width: 640px) {
@@ -968,9 +973,6 @@
     display: block;
   }
   .header-mini__big-logo {
-    display: none;
-  }
-  .footer__footer-credits__icons {
     display: none;
   }
   .footer__nav {

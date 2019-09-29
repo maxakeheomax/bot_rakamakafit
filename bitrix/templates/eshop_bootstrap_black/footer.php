@@ -117,11 +117,81 @@
 		</div>
 	</div>
 </footer>
-<div class="footer-mobie">
+<div class="footer-mobile">
 <div class="footer__nav__logo">
 				<img src="<?= SITE_TEMPLATE_PATH ?>/assets/logo-svg.svg" alt="">
 			</div>
+			
+			<div class="accordion" id="footerAccordion">
+			<div class="card">
+				<div class="card-header collapsed" id="headingOne" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+					<h2>
+						Оборудование
+					</h2>
+					<div class="icon-collapsed"></div>
 
+				</div>
+				<div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#footerAccordion">
+					<div class="card-body">
+					<ul>
+					<li>
+						<a href="">Фитнес ленты</a>
+					</li>
+					<li>
+						<a href="">Эспандеры</a>
+					</li>
+					<li>
+						<a href="">Фитбол</a>
+					</li>
+					<li>
+						<a href="">Наборы</a>
+					</li>
+					<li>
+						<a href="">Питание</a>
+					</li>
+					<li>
+						<a href="">Дневник тренировок</a>
+					</li>
+				</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer-mobile__flex-block">
+			<div class="footer__footer-credits__official-info">
+		<ul>
+		<li><a href="#">Доставка </a></li>
+		<li><a href="#">Oплата</a></li>
+		<li><a href="#">Полезная информация</a></li>
+		<li><a href="#">О компании</a></li>
+		<li><a href="#">Контакты</a></li>
+		</ul>
+		</div>
+		<div class="footer-mobile__right-side-block">
+		<div class="footer__footer-credits__phones">
+		<ul>
+		<li>
+		<nobr><a href="tel:+74957874058">+7 (495) 787 40 58</a></nobr>
+		</li>
+		<li>
+		<nobr><a href="mailto:hello@rakamakafit.ru">hello@rakamakafit.ru</a></nobr>
+		</li>
+		</ul>
+		</div>
+		<div class="footer__footer-credits__icons">
+		<a href="https://vk.com/rakamakafit"><img src="<?= SITE_TEMPLATE_PATH ?>/assets/vk-color-tablet.svg" alt=""></a>
+		<a href="https://www.youtube.com/channel/UCVZQTeZTLrz166tbN0bEGkg?sub_confirmation=1"><img src="<?= SITE_TEMPLATE_PATH ?>/assets/ytb-color-tablet.svg" alt=""></a>
+		<a href="https://www.instagram.com/rakamaka.fit/"><img src="<?= SITE_TEMPLATE_PATH ?>/assets/inst-color-tablet.svg" alt=""></a>
+		</div>
+		</div>
+	</div>
+			<a target="_blank" href="/"><div class="link-to-main">
+				Перейти на основной сайт
+			</div></a>
+			<div class="footer__brand">
+					© 2019. RAKAMAKAFIT
+				</div>
+			
 </div>
 </div>
 

@@ -5566,6 +5566,126 @@ button-form-grey {
 /*end of popUp*/
 
 
+/* footer accordion */
+
+#retailcrm-consultant-app {
+  display: none;
+}
+
+.footer-mobile {
+  background-color: #353535;
+  padding: 0 10px;
+  display: none;
+}
+
+.footer-mobile .footer__nav__logo {
+  margin: 0 auto;
+  width: 260px;
+}
+
+#footerAccordion {
+  padding: 19px 0;
+  color: #fff;
+  background-color: #353535;
+}
+
+#footerAccordion .card {
+  background-color: #353535;
+  border-top: solid 1px #979797;
+  border-bottom: solid 1px #979797;
+  border-left: none;
+  border-right: none;
+}
+
+#footerAccordion .card-header {
+  border-bottom: solid 1px #979797;
+}
+
+#footerAccordion .card-header.collapsed {
+  border-bottom: none;
+}
+
+.footer-mobile .footer-mobile__flex-block {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-mobile .footer-mobile__right-side-block {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.footer-mobile .footer__footer-credits__phones {
+  margin: 0;
+}
+
+#footerAccordion .card-header.collapsed .icon-collapsed {
+  background: url('/bitrix/templates/eshop_bootstrap_black/assets/chevron-down-solid.svg');
+  background-repeat: no-repeat;
+  background-size: 30%;
+  background-position: center;
+}
+
+#footerAccordion .card-header .icon-collapsed {
+  background: url('/bitrix/templates/eshop_bootstrap_black/assets/chevron-up-solid.svg');
+  background-repeat: no-repeat;
+  background-size: 30%;
+  background-position: center;
+}
+
+#footerAccordion h2 {
+  color: #fff;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+#footerAccordion .card-body {
+  padding: 10px 0 ;
+}
+
+#footerAccordion .card-body ul {
+  margin: 0;
+  padding: 0 26px;
+}
+
+#footerAccordion .card-body ul li {
+  padding: 8px 0;
+}
+
+#footerAccordion .card-body ul li a {
+  color: #fff;
+  font-size: 14px;
+}
+
+.footer-mobile .footer__footer-credits__official-info ul li,
+.footer-mobile .footer__footer-credits__phones ul li {
+  padding: 8px;
+}
+
+.footer-mobile .footer__footer-credits__official-info,
+.footer-mobile .footer__footer-credits__phones {
+  font-size: 14px;
+}
+
+.footer-mobile .footer__brand {
+  margin: 0 auto;
+}
+
+.footer-mobile .link-to-main {
+  width: 300px;
+  border-radius: 2px;
+  border: solid 1px #616161;
+  margin: 0 auto;
+  color: #e7ff6a;
+  text-align: center;
+  padding: 14px 0;
+  margin-bottom: 16px;
+}
+
+
+/* end of footer sccorfion */
+
+
 /*bootstrap classes*/
 
 .collapse:not(.show) {
@@ -6289,27 +6409,31 @@ button-form-grey {
 
 
 /*end of personal-cabinet*/
+
+
 /* buy_in_click popUp */
 
-.buy_in_click_popUp .wrapper-block{
+.buy_in_click_popUp .wrapper-block {
   width: 720px;
   height: 500px;
   display: flex;
 }
-.buy_in_click_popUp__left-side {
-width: 258px;
-border-right: 0.5px solid #979797;
 
+.buy_in_click_popUp__left-side {
+  width: 258px;
+  border-right: 0.5px solid #979797;
 }
+
 .buy_in_click_popUp__right-side {
   width: 460px;
   border-left: 0.5px solid #979797;
-  
 }
+
 .buy_in_click_popUp__right-side .fake-detection-form {
   width: 320px;
   margin: 0 auto;
 }
+
 .buy_in_click_popUp__right-side .fake-detection-form input {
   margin-top: 16px;
   width: 295px;
@@ -6319,7 +6443,10 @@ border-right: 0.5px solid #979797;
 .buy_in_click_popUp__left-side .pop-products-block__item__price {
   left: 50%;
 }
+
+
 /*  end of buy_in_click popUp */
+
 
 /*footer */
 
