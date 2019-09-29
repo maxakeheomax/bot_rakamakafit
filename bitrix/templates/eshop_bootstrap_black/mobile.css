@@ -1,940 +1,979 @@
-                            @media(max-width:1360px) {
-                                header,
-                                .aside-block,
-                                .footer-desktop {
-                                    display: none;
-                                }
-                                .footer-tablet {
-                                    display: block;
-                                    padding: 0 16px;
-                                }
-                                .header-mobile {
-                                    display: flex;
-                                    justify-content: space-between;
-                                    align-items: center;
-                                    height: 72px;
-                                    background-color: #000;
-                                    color: #ffffff;
-                                    padding: 0 15px;
-                                }
-                                .header-right-side {
-                                    display: flex;
-                                    align-items: center;
-                                    cursor: pointer;
-                                }
-                                .header-right-side-item {
-                                    padding: 14px 16px;
-                                }
-                                .burger-menu-icon {
-                                    margin-left: 16px;
-                                }
-                                .burger-menu-icon,
-                                .burger-menu-icon::after,
-                                .burger-menu-icon::before {
-                                    vertical-align: middle;
-                                    content: '';
-                                    display: inline-block;
-                                    width: 16px;
-                                    height: 2px;
-                                    background-color: #ffffff;
-                                    position: relative;
-                                    bottom: 1px;
-                                }
-                                .burger-menu-icon::before {
-                                    position: absolute;
-                                    top: -5px;
-                                }
-                                .burger-menu-icon::after {
-                                    position: absolute;
-                                    top: 5px;
-                                }
-                                .footer__nav-bar-block {
-                                    padding-left: 0;
-                                }
-                                .footer__nav-bar__navs,
-                                .footer__inner-nav-bar__navs {
-                                    width: auto;
-                                }
-                                .footer__footer-credits__official-info {
-                                    margin-left: 0;
-                                }
-                                .footer__footer-credits__official-info ul {
-                                    width: 152px;
-                                }
-                                .footer__footer-credits__official-info ul li {
-                                    padding: 1px 0;
-                                    font-size: 14px;
-                                    font-weight: normal;
-                                    font-style: normal;
-                                    font-stretch: normal;
-                                    line-height: 2.29;
-                                    letter-spacing: normal;
-                                }
-                                .footer__brand {
-                                    margin-top: 16px;
-                                }
-                                .footer__footer-credits {
-                                    justify-content: space-between;
-                                }
-                                .footer__footer-credits__phones {
-                                    margin-left: 0;
-                                }
-                                .footer__footer-credits__requisites {
-                                    margin-left: 0;
-                                }
-                                .footer__footer-credits {
-                                    /* margin-block-end: 31px; */
-                                    padding-block-end: 31px;
-                                }
-                                .footer__footer-credits__icons {
-                                    width: 128px;
-                                }
-                                .footer__line {
-                                    width: 100%;
-                                }
-                                .bottom-slider-block__slider-wrapper {
-                                    bottom: 44px;
-                                    height: auto;
-                                    width: calc(100% - 16px);
-                                    margin-left: 16px;
-                                }
-                                .training .pop-products-block__item-cart {
-                                    width: 36px;
-                                    height: 36px;
-                                    background: url(/bitrix/templates/eshop_bootstrap_black/assets/cart-mobile.svg) no-repeat;
-                                    right: 0;
-                                }
-                                .training .pop-products-block__item-cart:hover {
-                                    background: url(/bitrix/templates/eshop_bootstrap_black/assets/pop-cart-hover.svg) no-repeat;
-                                    width: 36px;
-                                    height: 36px;
-                                    right: 0;
-                                    right: 0;
-                                    top: 0;
-                                }
-                                .exercises-tabs-block,
-                                .product_catalog_block {
-                                    margin: 0 15px;
-                                }
-                                .slider-nav-block {
-                                    display: none;
-                                }
-                                .product-description-block {
-                                    width: auto;
-                                }
-                                .exercises-tabs-block__tabs__item {
-                                    margin: 5px;
-                                }
-                                .tapes.exercises-tabs-block__tabs {
-                                    padding: 0 340px;
-                                }
-                                .exercises-tabs-block__title {
-                                    text-align: center;
-                                }
-                                #text-block {
-                                    margin: 0 auto;
-                                    padding: 0 16px;
-                                }
-                                .bottom-text-block {
-                                    margin: 0 auto 172px;
-                                }
-                                .exercises-list-block__item {
-                                    padding: 0 80px;
-                                }
-                                .trainings_category_block-item {
-                                    width: 307px;
-                                }
-                            }
-                            
-                            @media(max-width:1280px) {
-                                .personal-offer-block__right-side {
-                                    display: none;
-                                }
-                                .personal-offer-block__left-side {
-                                    max-width: none;
-                                    width: 100%;
-                                    margin: 0 16px;
-                                }
-                                .personal-offer-block__left-side__slogan {
-                                    left: 50%;
-                                }
-                                .personal-offer-block__left-side__button {
-                                    left: 50%;
-                                }
-                                .grey-bg .special-offer-block__items {
-                                    margin: 39px auto 0;
-                                }
-                                .pop_exercises.special-offer-block {
-                                    padding: 76px 16px 0;
-                                }
-                                .exercises-tabs-block__tabs {
-                                    padding: 0 302px;
-                                }
-                                .popUp-gift .wrapper-block {
-                                    background-color: #fff;
-                                    background-image: none;
-                                }
-                                .popUp-gift__form-block {
-                                    top: 12%;
-                                    right: 12%;
-                                }
-                                .popUp-gift .wrapper-block {
-                                    min-width: auto;
-                                    width: 600px;
-                                    min-height: 450px;
-                                }
-                                .product-block .slider-product-view {
-                                    max-width: 500px;
-                                }
-                                #FAQaccordion .card-header h2 {
-                                    max-width: 800px;
-                                }
-                                .bootstrap-box.special-offer-block {
-                                    margin: 76px 112px 105px;
-                                }
-                                .trainings_category_block-item {
-                                    width: 280px;
-                                }
-                            }
-                            
-                            @media(max-width: 1147px) {
-                                .exercises-tabs-block__tabs {
-                                    padding: 0 161px;
-                                    justify-content: center;
-                                }
-                                .trainings_category_block-item {
-                                    width: 256px;
-                                }
-                            }
-                            
-                            @media(max-width:1024px) {
-                                .tablet {
-                                    display: block;
-                                }
-                                .desktop {
-                                    display: none;
-                                }
-                                .mobile {
-                                    display: block;
-                                }
-                                .up-block {
-                                    flex-flow: row wrap;
-                                }
-                                .up-slider-wrapper {
-                                    margin-bottom: 30px;
-                                }
-                                .up-slider-wrapper .up-slider {
-                                    height: 100%;
-                                }
-                                .up-slider-wrapper,
-                                .img-wrapper {
-                                    width: 100%;
-                                    min-height: 428px;
-                                }
-                                .up-slider-wrapper .owl-stage,
-                                .up-slider-wrapper .owl-stage-outer {
-                                    height: 100%;
-                                }
-                                .up-slider-pics {
-                                    z-index: 0;
-                                    filter: blur(5px);
-                                    position: absolute;
-                                }
-                                .owl-carousel__up-slider-item__slider-content {
-                                    padding: 107px 55px 0;
-                                    text-align: center;
-                                }
-                                .owl-carousel__up-slider-item__slider-content__promo-title {
-                                    width: auto;
-                                }
-                                .owl-carousel__up-slider-item__slider-content__slogan,
-                                .owl-carousel__slider-item__slider-content__dicription,
-                                .promo-train-block__slider-item__slider-content__dicription,
-                                .promo-train-block__slider-item__slider-content__discription,
-                                .owl-carousel__slider-item__slider-content__slogan::after,
-                                .special-offer-block__item__desc,
-                                .special-offer--block__item-cart,
-                                .pop-products-block.desktop,
-                                .up-hello-block__right-side__down-decor-item,
-                                .up-hello-block__right-side__up-decor-item,
-                                .same-articles-block,
-                                .article-navigation-block,
-                                .personal-offer-block__right-side {
-                                    display: none;
-                                }
-                                .mixit .owl-carousel__slider-item__slider-content__dicription,
-                                .blue-bg .promo-train-block__slider-item__slider-content__dicription,
-                                .left-side .promo-train-block__slider-item__slider-content__dicription {
-                                    display: block;
-                                }
-                                .owl-carousel__slider-item-button {
-                                    margin: auto;
-                                }
-                                .owl-carousel__slider-item,
-                                .promo-train-block__slider-item {
-                                    height: 337px;
-                                    background-position-x: 38% !important;
-                                    margin: 20px 0 0;
-                                }
-                                .mixit .owl-carousel__slider-item {
-                                    margin: 23px 16px 99px;
-                                    background-position-x: 80% !important;
-                                    background-size: cover !important;
-                                }
-                                .owl-carousel__slider-item__slider-content {
-                                    margin-top: 50px;
-                                    margin-inline-end: 95px;
-                                    width: 37%;
-                                }
-                                .promo-train-block__slider-item__slider-content {
-                                    margin-top: 29px;
-                                    margin-right: 35px;
-                                    width: 45%;
-                                }
-                                .owl-carousel__slider-item__slider-content__promo-title,
-                                .promo-train-block__slider-item__slider-content__promo-title {
-                                    font-family: 'Roboto', sans-serif;
-                                    font-size: 12px;
-                                    font-weight: bold;
-                                    text-transform: uppercase;
-                                    font-style: normal;
-                                    font-stretch: normal;
-                                    line-height: normal;
-                                    letter-spacing: 3px;
-                                    padding: 0;
-                                    margin-bottom: 24px;
-                                }
-                                .mixit .owl-carousel__slider-item__slider-content__promo-title {
-                                    font-family: 'FranklinGothicDemi', sans-serif;
-                                    font-size: 24px;
-                                    font-weight: normal;
-                                    font-style: normal;
-                                    font-stretch: normal;
-                                    line-height: 1.25;
-                                    letter-spacing: normal;
-                                }
-                                .owl-carousel__slider-item__slider-content__slogan {
-                                    font-size: 26px;
-                                    box-shadow: inset -2px -16px 0 -2px #e7ff6a;
-                                    display: inline;
-                                }
-                                .promo-train-block__slider-item__slider-content__slogan {
-                                    font-size: 26px;
-                                    display: inline;
-                                    margin-left: 0;
-                                    margin-bottom: 20px;
-                                }
-                                .owl-carousel__slider__content_bottom {
-                                    margin-top: 30px;
-                                }
-                                .promo-train-block__slider__content_bottom {
-                                    margin-top: 30px;
-                                    margin-left: 0;
-                                }
-                                .special-offer-block,
-                                .bootstrap-box.special-offer-block {
-                                    margin: 20px 16px 64px;
-                                }
-                                .training.special-offer-block {
-                                    padding: 53px 16px 91px;
-                                }
-                                .special-offer-block__title__link-to-all {
-                                    width: 101px;
-                                    text-align: center;
-                                    padding: 16px 0;
-                                    border-radius: 32px;
-                                    background-color: #f3f3f3;
-                                }
-                                .special-offer-block__item img,
-                                .bootstrap-box .special-offer-block__item img {
-                                    height: 209px;
-                                    width: 209px;
-                                }
-                                .special-offer-block__item__title:hover {
-                                    color: #e31377
-                                }
-                                .special-offer-block__item__prices {
-                                    justify-content: start;
-                                }
-                                .special-offer-block__item__old-price,
-                                .training .special-offer-block__item__old-price {
-                                    margin-left: 18px;
-                                }
-                                .promo-form-block__title {
-                                    width: auto;
-                                }
-                                .promo-form-block__form__input-checkbox-wrapper,
-                                .in-the-know-form-block__form__input-checkbox-wrapper {
-                                    margin: 1px auto;
-                                }
-                                .pop-products-block {
-                                    padding: 71px 16px 56px;
-                                }
-                                .pop-products-block__title {
-                                    margin-bottom: 24px;
-                                }
-                                .pop-products-block__title__link-to-all {
-                                    width: 101px;
-                                    text-align: center;
-                                    padding: 16px 0;
-                                    border-radius: 32px;
-                                    background-color: #ffffff;
-                                }
-                                .owl-carousel.slider-tablet .owl-stage {
-                                    left: -36px;
-                                }
-                                .advantages-block,
-                                .advantages-block.mini {
-                                    padding: 0 16px;
-                                }
-                                /* .in-the-know-form-block {
+ @media(max-width:1360px) {
+   header,
+   .aside-block,
+   .footer-desktop {
+     display: none;
+   }
+   .footer-tablet {
+     display: block;
+     padding: 0 16px;
+   }
+   .header-mobile {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     height: 72px;
+     background-color: #000;
+     color: #ffffff;
+     padding: 0 15px;
+   }
+   .header-right-side {
+     display: flex;
+     align-items: center;
+     cursor: pointer;
+   }
+   .header-right-side-item {
+     padding: 14px 16px;
+   }
+   .burger-menu-icon {
+     margin-left: 16px;
+   }
+   .burger-menu-icon,
+   .burger-menu-icon::after,
+   .burger-menu-icon::before {
+     vertical-align: middle;
+     content: '';
+     display: inline-block;
+     width: 16px;
+     height: 2px;
+     background-color: #ffffff;
+     position: relative;
+     bottom: 1px;
+   }
+   .burger-menu-icon::before {
+     position: absolute;
+     top: -5px;
+   }
+   .burger-menu-icon::after {
+     position: absolute;
+     top: 5px;
+   }
+   .footer__nav-bar-block {
+     padding-left: 0;
+   }
+   .footer__nav-bar__navs,
+   .footer__inner-nav-bar__navs {
+     width: auto;
+   }
+   .footer__footer-credits__official-info {
+     margin-left: 0;
+   }
+   .footer__footer-credits__official-info ul {
+     width: 152px;
+   }
+   .footer__footer-credits__official-info ul li {
+     padding: 1px 0;
+     font-size: 14px;
+     font-weight: normal;
+     font-style: normal;
+     font-stretch: normal;
+     line-height: 2.29;
+     letter-spacing: normal;
+   }
+   .footer__brand {
+     margin-top: 16px;
+   }
+   .footer__footer-credits {
+     justify-content: space-between;
+   }
+   .footer__footer-credits__phones {
+     margin-left: 0;
+   }
+   .footer__footer-credits__requisites {
+     margin-left: 0;
+   }
+   .footer__footer-credits {
+     /* margin-block-end: 31px; */
+     padding-block-end: 31px;
+   }
+   .footer__footer-credits__icons {
+     width: 128px;
+   }
+   .footer__line {
+     width: 100%;
+   }
+   .bottom-slider-block__slider-wrapper {
+     bottom: 44px;
+     height: auto;
+     width: calc(100% - 16px);
+     margin-left: 16px;
+   }
+   .training .pop-products-block__item-cart {
+     width: 36px;
+     height: 36px;
+     background: url(/bitrix/templates/eshop_bootstrap_black/assets/cart-mobile.svg) no-repeat;
+     right: 0;
+   }
+   .training .pop-products-block__item-cart:hover {
+     background: url(/bitrix/templates/eshop_bootstrap_black/assets/pop-cart-hover.svg) no-repeat;
+     width: 36px;
+     height: 36px;
+     right: 0;
+     right: 0;
+     top: 0;
+   }
+   .exercises-tabs-block,
+   .product_catalog_block {
+     margin: 0 15px;
+   }
+   .slider-nav-block {
+     display: none;
+   }
+   .product-description-block {
+     width: auto;
+   }
+   .exercises-tabs-block__tabs__item {
+     margin: 5px;
+   }
+   .tapes.exercises-tabs-block__tabs {
+     padding: 0 340px;
+   }
+   .exercises-tabs-block__title {
+     text-align: center;
+   }
+   #text-block {
+     margin: 0 auto;
+     padding: 0 16px;
+   }
+   .bottom-text-block {
+     margin: 0 auto 172px;
+   }
+   .exercises-list-block__item {
+     padding: 0 80px;
+   }
+   .trainings_category_block-item {
+     width: 307px;
+   }
+ }
+ 
+ @media(max-width:1280px) {
+   .personal-offer-block__right-side {
+     display: none;
+   }
+   .personal-offer-block__left-side {
+     max-width: none;
+     width: 100%;
+     margin: 0 16px;
+   }
+   .personal-offer-block__left-side__slogan {
+     left: 50%;
+   }
+   .personal-offer-block__left-side__button {
+     left: 50%;
+   }
+   .grey-bg .special-offer-block__items {
+     margin: 39px auto 0;
+   }
+   .pop_exercises.special-offer-block {
+     padding: 76px 16px 0;
+   }
+   .exercises-tabs-block__tabs {
+     padding: 0 302px;
+   }
+   .popUp-gift .wrapper-block {
+     background-color: #fff;
+     background-image: none;
+   }
+   .popUp-gift__form-block {
+     top: 12%;
+     right: 12%;
+   }
+   .popUp-gift .wrapper-block {
+     min-width: auto;
+     width: 600px;
+     min-height: 450px;
+   }
+   .product-block .slider-product-view {
+     max-width: 500px;
+   }
+   #FAQaccordion .card-header h2 {
+     max-width: 800px;
+   }
+   .bootstrap-box.special-offer-block {
+     margin: 76px 112px 105px;
+   }
+   .trainings_category_block-item {
+     width: 280px;
+   }
+ }
+ 
+ @media(max-width: 1147px) {
+   .exercises-tabs-block__tabs {
+     padding: 0 161px;
+     justify-content: center;
+   }
+   .trainings_category_block-item {
+     width: 256px;
+   }
+ }
+ 
+ @media(max-width:1024px) {
+   .tablet {
+     display: block;
+   }
+   .desktop {
+     display: none;
+   }
+   .mobile {
+     display: block;
+   }
+   .up-block {
+     flex-flow: row wrap;
+   }
+   .up-slider-wrapper {
+     margin-bottom: 30px;
+   }
+   .up-slider-wrapper .up-slider {
+     height: 100%;
+   }
+   .up-slider-wrapper,
+   .img-wrapper {
+     width: 100%;
+     min-height: 428px;
+   }
+   .up-slider-wrapper .owl-stage,
+   .up-slider-wrapper .owl-stage-outer {
+     height: 100%;
+   }
+   .up-slider-pics {
+     z-index: 0;
+     filter: blur(5px);
+     position: absolute;
+   }
+   .owl-carousel__up-slider-item__slider-content {
+     padding: 107px 55px 0;
+     text-align: center;
+   }
+   .owl-carousel__up-slider-item__slider-content__promo-title {
+     width: auto;
+   }
+   .owl-carousel__up-slider-item__slider-content__slogan,
+   .owl-carousel__slider-item__slider-content__dicription,
+   .promo-train-block__slider-item__slider-content__dicription,
+   .promo-train-block__slider-item__slider-content__discription,
+   .owl-carousel__slider-item__slider-content__slogan::after,
+   .special-offer-block__item__desc,
+   .special-offer--block__item-cart,
+   .pop-products-block.desktop,
+   .up-hello-block__right-side__down-decor-item,
+   .up-hello-block__right-side__up-decor-item,
+   .same-articles-block,
+   .article-navigation-block,
+   .personal-offer-block__right-side {
+     display: none;
+   }
+   .mixit .owl-carousel__slider-item__slider-content__dicription,
+   .blue-bg .promo-train-block__slider-item__slider-content__dicription,
+   .left-side .promo-train-block__slider-item__slider-content__dicription {
+     display: block;
+   }
+   .owl-carousel__slider-item-button {
+     margin: auto;
+   }
+   .owl-carousel__slider-item,
+   .promo-train-block__slider-item {
+     height: 337px;
+     background-position-x: 38% !important;
+     margin: 20px 0 0;
+   }
+   .mixit .owl-carousel__slider-item {
+     margin: 23px 16px 99px;
+     background-position-x: 80% !important;
+     background-size: cover !important;
+   }
+   .owl-carousel__slider-item__slider-content {
+     margin-top: 50px;
+     margin-inline-end: 95px;
+     width: 37%;
+   }
+   .promo-train-block__slider-item__slider-content {
+     margin-top: 29px;
+     margin-right: 35px;
+     width: 45%;
+   }
+   .owl-carousel__slider-item__slider-content__promo-title,
+   .promo-train-block__slider-item__slider-content__promo-title {
+     font-family: 'Roboto', sans-serif;
+     font-size: 12px;
+     font-weight: bold;
+     text-transform: uppercase;
+     font-style: normal;
+     font-stretch: normal;
+     line-height: normal;
+     letter-spacing: 3px;
+     padding: 0;
+     margin-bottom: 24px;
+   }
+   .mixit .owl-carousel__slider-item__slider-content__promo-title {
+     font-family: 'FranklinGothicDemi', sans-serif;
+     font-size: 24px;
+     font-weight: normal;
+     font-style: normal;
+     font-stretch: normal;
+     line-height: 1.25;
+     letter-spacing: normal;
+   }
+   .owl-carousel__slider-item__slider-content__slogan {
+     font-size: 26px;
+     box-shadow: inset -2px -16px 0 -2px #e7ff6a;
+     display: inline;
+   }
+   .promo-train-block__slider-item__slider-content__slogan {
+     font-size: 26px;
+     display: inline;
+     margin-left: 0;
+     margin-bottom: 20px;
+   }
+   .owl-carousel__slider__content_bottom {
+     margin-top: 30px;
+   }
+   .promo-train-block__slider__content_bottom {
+     margin-top: 30px;
+     margin-left: 0;
+   }
+   .special-offer-block,
+   .bootstrap-box.special-offer-block {
+     margin: 20px 16px 64px;
+   }
+   .training.special-offer-block {
+     padding: 53px 16px 91px;
+   }
+   .special-offer-block__title__link-to-all {
+     width: 101px;
+     text-align: center;
+     padding: 16px 0;
+     border-radius: 32px;
+     background-color: #f3f3f3;
+   }
+   .special-offer-block__item img,
+   .bootstrap-box .special-offer-block__item img {
+     height: 209px;
+     width: 209px;
+   }
+   .special-offer-block__item__title:hover {
+     color: #e31377
+   }
+   .special-offer-block__item__prices {
+     justify-content: start;
+   }
+   .special-offer-block__item__old-price,
+   .training .special-offer-block__item__old-price {
+     margin-left: 18px;
+   }
+   .promo-form-block__title {
+     width: auto;
+   }
+   .promo-form-block__form__input-checkbox-wrapper,
+   .in-the-know-form-block__form__input-checkbox-wrapper {
+     margin: 1px auto;
+   }
+   .pop-products-block {
+     padding: 71px 16px 56px;
+   }
+   .pop-products-block__title {
+     margin-bottom: 24px;
+   }
+   .pop-products-block__title__link-to-all {
+     width: 101px;
+     text-align: center;
+     padding: 16px 0;
+     border-radius: 32px;
+     background-color: #ffffff;
+   }
+   .owl-carousel.slider-tablet .owl-stage {
+     left: -36px;
+   }
+   .advantages-block,
+   .advantages-block.mini {
+     padding: 0 16px;
+   }
+   /* .in-the-know-form-block {
                                 margin-top: 56px;
                             } */
-                                .big-height-in-the-know-block.in-the-know-form-block {
-                                    margin-top: 0;
-                                }
-                                .in-the-know-form-block__form__input {
-                                    width: 214px;
-                                }
-                                .in-the-know-form-block__form {
-                                    width: 704px;
-                                    margin: 13px auto 0;
-                                }
-                                .bottom-slider-block__slider-wrapper .slick-slide {
-                                    margin-left: -35px;
-                                    width: 298px;
-                                    height: 298px;
-                                    background-position: right bottom !important;
-                                    background-size: 83% !important;
-                                }
-                                .bottom-slider-block____slider-header__right-block_img {
-                                    margin-top: 43px;
-                                    float: right;
-                                    margin-right: 0;
-                                    width: 502px;
-                                }
-                                .bottom-slider-block__slider-wrapper {
-                                    bottom: 44px;
-                                    height: auto;
-                                    width: calc(100% - 16px);
-                                    margin-left: 16px;
-                                }
-                                .bottom-slider-block__slider-header {
-                                    height: 281px;
-                                }
-                                .bottom-slider-block__slider-footer {
-                                    height: 230px;
-                                    background-color: #353535;
-                                }
-                                .bottom-slider-block__slider-header_top-content {
-                                    justify-content: center;
-                                }
-                                .bottom-slider-block__slogan-button-wrapper {
-                                    justify-content: space-between;
-                                    margin-right: 0;
-                                    margin-left: 48px;
-                                    margin-top: 14px;
-                                }
-                                .bottom-slider-block__slider-header__left-block.mobile {
-                                    display: flex;
-                                    justify-content: space-between;
-                                    position: absolute;
-                                    right: 16px;
-                                    margin-top: 80px;
-                                    align-items: flex-end;
-                                }
-                                .bottom-slider-block__slider-header {
-                                    padding-top: 42px;
-                                }
-                                .product-catalog .exercises-tabs-block__tabs__item {
-                                    width: 110px;
-                                    height: 146px;
-                                }
-                                .exercises-tabs-block__tabs__item p {
-                                    font-size: 14px;
-                                }
-                                .exercises-tabs-block,
-                                .product_catalog_block {
-                                    padding: 0 16px;
-                                }
-                                .promo-form-block__title_underline-block::after {
-                                    display: none;
-                                }
-                                .mixit .owl-carousel__slider-item__slider-content {
-                                    width: 70%;
-                                }
-                                .mixit .owl-carousel__slider-item__slider-content__promo-title {
-                                    padding: 36px 0 0 40px;
-                                }
-                                .mixit .owl-carousel__slider-item__slider-content__dicription {
-                                    padding: 0 0 0 40px;
-                                }
-                                .product_catalog_block .catalog_block {
-                                    margin: 0 39px;
-                                }
-                                .catalog__block__tabs__header {
-                                    display: flex;
-                                    justify-content: space-between;
-                                }
-                                .filters_block-title.tablet {
-                                    padding: 5px;
-                                    text-align: left;
-                                }
-                                .filters_block-title .burger-menu-icon,
-                                .filters_block-title .burger-menu-icon::before,
-                                .filters_block-title .burger-menu-icon::after {
-                                    background-color: #e31377;
-                                }
-                                .filters_block-title.tablet .burger-menu-icon {
-                                    margin: 0 16px 0 0;
-                                }
-                                .special-offer-block__item__title,
-                                .bootstrap-box .special-offer-block__item__title {
-                                    font-size: 16px;
-                                }
-                                .left-side .promo-train-block__slider-item-button {
-                                    width: 168px;
-                                    height: 48px;
-                                }
-                                .left-side .promo-train-block__slider-item-button__text {
-                                    margin: 15px 0;
-                                }
-                                .white-bg.how-start-block {
-                                    min-height: 300px;
-                                    padding-top: 0;
-                                }
-                                .how-start-block__content {
-                                    padding: 0;
-                                }
-                                .how-start-wprapper-block {
-                                    padding: 0;
-                                }
-                                .how-start-block__item:nth-child(2) .how-start-wprapper-block {
-                                    padding: 0 4px;
-                                }
-                                .how-start-block__item {
-                                    width: 234px;
-                                    padding: 0;
-                                }
-                                .how-start-block__item__number {
-                                    font-size: 0;
-                                    width: 16px;
-                                    height: 16px;
-                                    border-radius: 50%;
-                                    background-color: #beeafc;
-                                }
-                                .how-start-block__item:last-child .how-start-block__item__number {
-                                    background-color: #ffd2d8;
-                                }
-                                .how-start-block__item:nth-child(2) .how-start-block__item__number {
-                                    background-color: #e7ff6a;
-                                }
-                                .how-start-block__item__title,
-                                .hello-block__content__hello__desc__title__main {
-                                    font-size: 26px;
-                                    font-weight: normal;
-                                    font-style: normal;
-                                    font-stretch: normal;
-                                    line-height: 1.23;
-                                }
-                                .how-start-block__item__desc,
-                                .hello-block__content__hello__text,
-                                .faq-block__right-block__desc {
-                                    width: auto;
-                                    height: auto;
-                                    font-size: 11px;
-                                    font-weight: normal;
-                                    font-style: normal;
-                                    font-stretch: normal;
-                                    line-height: 1.45;
-                                    letter-spacing: normal;
-                                }
-                                .left-side.promo-train-block__slider-item {
-                                    margin-top: 0;
-                                }
-                                .blue-bg .promo-train-block__slider-item-more__text {
-                                    margin-left: 26px;
-                                }
-                                .hello-block__content {
-                                    margin: 78px 0 40px;
-                                }
-                                .hello-block__content__hello {
-                                    padding: 0 16px;
-                                    align-items: flex-start;
-                                }
-                                .hello-block__content__hello div {
-                                    width: 337px;
-                                }
-                                .hello-block__content__hello__desc__title__main,
-                                .hello-block__content__hello__text {
-                                    width: auto;
-                                }
-                                .hello-block__content__hello__desc__title {
-                                    margin-bottom: 20px;
-                                }
-                                .hello-block__content__hello__text p {
-                                    margin-bottom: 16px;
-                                }
-                                .hello-block__content__hello__text__link-wrapper img {
-                                    width: 42px;
-                                }
-                                .hello-block__content__hello .hello-block__content__hello__desc {
-                                    min-height: auto;
-                                }
-                                .faq-block__left-block {
-                                    width: auto;
-                                }
-                                .faq-block {
-                                    justify-content: space-between;
-                                    margin: 0 16px 40px;
-                                    padding: 30px 41px;
-                                }
-                                .before-after .bottom-slider-block__slider-header_top-content {
-                                    flex-flow: row-reverse;
-                                }
-                                .before-after .bottom-slider-block__slider-header__left-block {
-                                    flex-flow: column;
-                                    align-items: flex-start;
-                                    margin-left: 0;
-                                }
-                                .before-after .bottom-slider-block__slider-header__left-block__slogan {
-                                    margin: 0 0 16px 0;
-                                }
-                                .product-block .slider-product-view {
-                                    max-width: 361px;
-                                }
-                                .slider-product-view .slick-slide {
-                                    width: 361px;
-                                    height: 361px;
-                                }
-                                .product-description-block {
-                                    padding-left: 16px;
-                                }
-                                .training.special-offer-block__title,
-                                .bootstrap-box.special-offer-block__title {
-                                    margin: 53px 16px 0;
-                                }
-                                .training-slider .owl-carousel__slider-item {
-                                    margin: 20px 0 0;
-                                }
-                                .training-slider .owl-dots {
-                                    bottom: -73px;
-                                }
-                                .training-slider .owl-dots .owl-dot span,
-                                .training-slider .owl-dots .owl-dot:hover span,
-                                .training-slider .owl-dots .owl-dot.active span,
-                                .training-slider .owl-dots .owl-dot.active:hover span {
-                                    background-color: #838383;
-                                }
-                                .exercises-tabs-block,
-                                .product_catalog_block {
-                                    margin: 0 auto;
-                                }
-                                .exercises-promo-block__left-side {
-                                    padding: 89px 0 0 16px;
-                                    max-width: 300px;
-                                }
-                                .exercises-promo-block__left-side__title {
-                                    font-size: 26px;
-                                }
-                                .exercises-promo-block__left-side__desc {
-                                    font-size: 14px;
-                                }
-                                .exercises-promo-block__left-side__title::after {
-                                    display: none;
-                                }
-                                .exercises-promo-block__right-side .img-block {
-                                    left: auto;
-                                }
-                                .product-block {
-                                    margin: 0 15px;
-                                }
-                                .product-block__description {
-                                    padding-left: 34px;
-                                    max-width: 450px;
-                                }
-                                .product-block__description__title {
-                                    font-size: 18px;
-                                }
-                                .product-block__description__desc {
-                                    font-size: 14px;
-                                }
-                                .product-block__description-more__text {
-                                    font-size: 12px;
-                                }
-                                .product-block__description__prices .price {
-                                    font-size: 40px;
-                                }
-                                .product-block__description__prices .old-price {
-                                    font-size: 18px;
-                                }
-                                .product-block__description__buttons {
-                                    justify-content: flex-start;
-                                }
-                                .product-block__description__buttons .product-block__description__buy-in-click,
-                                .product-block__description__buttons .product-block__description__add-to-cart {
-                                    width: 157px;
-                                    height: 40px;
-                                    vertical-align: middle;
-                                    line-height: 2.5;
-                                    margin: 0 10px;
-                                }
-                                .product-block__description__buy-in-click__text,
-                                .product-block__description__add-to-cart__text {
-                                    font-size: 12px;
-                                    margin: 4px 0;
-                                }
-                                .product-description-block__title {
-                                    font-size: 26px;
-                                }
-                                .product-description-block__decription {
-                                    max-width: 768px;
-                                    font-size: 16px;
-                                }
-                                .advantages-block.mini {
-                                    width: auto;
-                                }
-                                .advantages-block.mini .advantages-block__item {
-                                    display: block;
-                                    width: 168px;
-                                }
-                                .advantages-block.mini .advantages-block_disc {
-                                    text-align: center;
-                                    margin-left: 0;
-                                }
-                                .training-slider .owl-carousel__slider-item {
-                                    height: 350px;
-                                }
-                                .feedback.difference-block__title {
-                                    width: auto;
-                                    padding: 0 16px;
-                                }
-                                .tapes .promo-train-block__slider-item__slider-content {
-                                    width: 100%;
-                                }
-                                .up-hello-block {
-                                    height: auto;
-                                    margin-left: 10px;
-                                }
-                                .up-hello-block__right-side__img {
-                                    width: 236px;
-                                }
-                                .up-hello-block__right-side__img img {
-                                    width: 100%;
-                                }
-                                .how-start-block__help-link {
-                                    border: none;
-                                    font-size: 11px;
-                                }
-                                .hello-block__content__title {
-                                    font-size: 26px;
-                                }
-                                .personal-offer-block__left-side__slogan {
-                                    font-size: 26px;
-                                    width: 360px;
-                                }
-                                .hello-block__content__desc {
-                                    font-size: 11px;
-                                }
-                                .hello-block__content__item {
-                                    width: 234px;
-                                }
-                                .exercise-demos-list-block__right-side__title {
-                                    font-size: 26px;
-                                }
-                                .exercise-demos-list-block__right-side__desc {
-                                    max-width: 380px;
-                                }
-                                .pop_exercises.special-offer-block {
-                                    padding: 76px 16px 0;
-                                    margin: 0;
-                                }
-                                .pop_exercises .special-offer-block__item img {
-                                    width: 100%;
-                                    height: auto;
-                                }
-                                .exercises-list-block__exercises-list {
-                                    font-size: 16px;
-                                }
-                                .exercises-list-block__item-title {
-                                    font-size: 26px;
-                                }
-                                .exercises-list-block__item {
-                                    padding: 0 16px;
-                                }
-                                .personal-programm.promo-train-block__slider-item {
-                                    margin: 39px 16px;
-                                }
-                                .exercises-tabs-block__tabs {
-                                    padding: 0;
-                                    justify-content: center;
-                                }
-                                .special-offer-block__item,
-                                .bootstrap-box .special-offer-block__item {
-                                    width: 209px;
-                                }
-                            
-                            .trainings_category_block-item {
-                                width: 47%;
-                            }
-                            .trainings_category_block .special-offer--block__item-cart {
-                                display: block;
-                            }
-                        }
-                            
-                            @media(max-width:768px) {
-                                .hello-block__content__hello div {
-                                    width: 337px;
-                                }
-                                .promo-train-block__slider-item__slider-content {
-                                    width: 48%;
-                                }
-                                .owl-carousel__slider-item__slider-content {
-                                    width: 50%;
-                                }
-                                .blue-bg .promo-train-block__slider-item__slider-content {
-                                    max-width: 100%;
-                                    width: 320px;
-                                    margin-right: 80px;
-                                }
-                                .left-side.promo-train-block__slider-item {
-                                    height: 337px;
-                                    background: url('/bitrix/templates/eshop_bootstrap_black/assets/ipad-green-bg-tablet.jpg') no-repeat;
-                                    background-color: #e7ff6a;
-                                    margin-top: 52px;
-                                    padding-left: 48px;
-                                }
-                                .promo-form-block {
-                                    background: url('/bitrix/templates/eshop_bootstrap_black/assets/promo-form-bg-768.svg') no-repeat;
-                                    padding: 0 16px;
-                                    background-position-y: -2px
-                                }
-                                .blue-bg.promo-train-block__slider-item {
-                                    height: 363px;
-                                    background: url('/bitrix/templates/eshop_bootstrap_black/assets/blue_bg_tablet.png') no-repeat;
-                                    background-position-x: 0%;
-                                    background-size: cover;
-                                    background-color: #fff;
-                                }
-                                .blue-bg .promo-train-block__slider-item-more__text {
-                                    font-size: 9px;
-                                    margin-left: 16px;
-                                    width: 185px;
-                                }
-                                .blue-bg .promo-train-block__slider-item-button__text {
-                                    margin: 15px 0;
-                                }
-                                .blue-bg .promo-train-block__slider-item__slider-content__slogan {
-                                    font-size: 26px;
-                                    display: inline;
-                                    margin-left: 0;
-                                    margin-bottom: 20px;
-                                }
-                                .blue-bg .promo-train-block__slider-item__slider-content__dicription {
-                                    font-size: 11px;
-                                    font-weight: normal;
-                                    font-style: normal;
-                                    font-stretch: normal;
-                                    line-height: 1.45;
-                                    letter-spacing: normal;
-                                }
-                                .blue-bg .promo-train-block__slider-item-button,
-                                .middle-slider .owl-carousel__slider-item-button {
-                                    width: 121px;
-                                    height: 48px;
-                                }
-                                .middle-slider .owl-carousel__main-slider-item-button__text {
-                                    margin: 16px 0;
-                                    padding: 0;
-                                }
-                                .left-side .promo-train-block__slider-item__slider-content__slogan {
-                                    font-size: 26px;
-                                    display: inline;
-                                    margin-left: 0;
-                                    margin-bottom: 20px;
-                                }
-                                .left-side .promo-train-block__slider-item__slider-content__dicription {
-                                    font-size: 11px;
-                                    font-weight: normal;
-                                    font-style: normal;
-                                    font-stretch: normal;
-                                    line-height: 1.45;
-                                    letter-spacing: normal;
-                                }
-                                .product-description-block__decription {
-                                    font-size: 12px;
-                                    max-width: 674px;
-                                }
-                                .product-block__description__desc {
-                                    font-size: 11px;
-                                }
-                                .difference-block {
-                                    margin: 0 16px 67px;
-                                }
-                                .difference-block__item img {
-                                    width: 209px;
-                                }
-                                .up-hello-block {
-                                    height: auto;
-                                    margin-left: 16px;
-                                    margin-right: 60px;
-                                }
-                                .articles.special-offer-block {
-                                    padding: 141px 16px 98px;
-                                }
-                                .hello-block__content__up-items {
-                                    padding: 0 16px;
-                                }
-                                .hello-block__content__hello {
-                                    justify-content: space-between;
-                                }
-                                .white-bg.ceo-text-block,
-                                .ceo-text-block {
-                                    padding: 0 16px;
-                                }
-                                .tapes.exercises-tabs-block__tabs {
-                                    padding: 0 16px;
-                                }
-                                .exercises-tabs-block__tabs {
-                                    padding: 0;
-                                }
-                                .personal-programm .promo-train-block__slider-item__slider-content__slogan {
-                                    font-size: 30px;
-                                }
-                                .product-block__description__buttons {
-                                    flex-flow: column-reverse;
-                                }
-                                .product-block .product-block__description__buttons {
-                                    flex-flow: row;
-                                }
-                                .discount-timer-slogan {
-                                    width: auto;
-                                }
-                                .discount_block {
-                                    display: none;
-                                }
-                                .discount .product-block__description__buttons {
-                                    margin-top: 10px;
-                                }
-                                .discount-timer {
-                                    font-size: 26px;
-                                    margin-bottom: 27px;
-                                }
-                                .discount.product-block .product-block__description__desc {
-                                    margin-bottom: 13px;
-                                }
-                                .footer__nav-bar__navs-item__link {
-                                    font-size: 12px;
-                                    font-weight: bold;
-                                    font-style: normal;
-                                    font-stretch: normal;
-                                    line-height: 2.67;
-                                    letter-spacing: normal;
-                                }
-                                #FAQaccordion .card-header h2 {
-                                    max-width: 600px;
-                                }
-                                .trainings_category_block-item {
-                                    width: 96%;
-                                }
-                            }
+   .big-height-in-the-know-block.in-the-know-form-block {
+     margin-top: 0;
+   }
+   .in-the-know-form-block__form__input {
+     width: 214px;
+   }
+   .in-the-know-form-block__form {
+     width: 704px;
+     margin: 13px auto 0;
+   }
+   .bottom-slider-block__slider-wrapper .slick-slide {
+     margin-left: -35px;
+     width: 298px;
+     height: 298px;
+     background-position: right bottom !important;
+     background-size: 83% !important;
+   }
+   .bottom-slider-block____slider-header__right-block_img {
+     margin-top: 43px;
+     float: right;
+     margin-right: 0;
+     width: 502px;
+   }
+   .bottom-slider-block__slider-wrapper {
+     bottom: 44px;
+     height: auto;
+     width: calc(100% - 16px);
+     margin-left: 16px;
+   }
+   .bottom-slider-block__slider-header {
+     height: 281px;
+   }
+   .bottom-slider-block__slider-footer {
+     height: 230px;
+     background-color: #353535;
+   }
+   .bottom-slider-block__slider-header_top-content {
+     justify-content: center;
+   }
+   .bottom-slider-block__slogan-button-wrapper {
+     justify-content: space-between;
+     margin-right: 0;
+     margin-left: 48px;
+     margin-top: 14px;
+   }
+   .bottom-slider-block__slider-header__left-block.mobile {
+     display: flex;
+     justify-content: space-between;
+     position: absolute;
+     right: 16px;
+     margin-top: 80px;
+     align-items: flex-end;
+   }
+   .bottom-slider-block__slider-header {
+     padding-top: 42px;
+   }
+   .product-catalog .exercises-tabs-block__tabs__item {
+     width: 110px;
+     height: 146px;
+   }
+   .exercises-tabs-block__tabs__item p {
+     font-size: 14px;
+   }
+   .exercises-tabs-block,
+   .product_catalog_block {
+     padding: 0 16px;
+   }
+   .promo-form-block__title_underline-block::after {
+     display: none;
+   }
+   .mixit .owl-carousel__slider-item__slider-content {
+     width: 70%;
+   }
+   .mixit .owl-carousel__slider-item__slider-content__promo-title {
+     padding: 36px 0 0 40px;
+   }
+   .mixit .owl-carousel__slider-item__slider-content__dicription {
+     padding: 0 0 0 40px;
+   }
+   .product_catalog_block .catalog_block {
+     margin: 0 39px;
+   }
+   .catalog__block__tabs__header {
+     display: flex;
+     justify-content: space-between;
+   }
+   .filters_block-title.tablet {
+     padding: 5px;
+     text-align: left;
+   }
+   .filters_block-title .burger-menu-icon,
+   .filters_block-title .burger-menu-icon::before,
+   .filters_block-title .burger-menu-icon::after {
+     background-color: #e31377;
+   }
+   .filters_block-title.tablet .burger-menu-icon {
+     margin: 0 16px 0 0;
+   }
+   .special-offer-block__item__title,
+   .bootstrap-box .special-offer-block__item__title {
+     font-size: 16px;
+   }
+   .left-side .promo-train-block__slider-item-button {
+     width: 168px;
+     height: 48px;
+   }
+   .left-side .promo-train-block__slider-item-button__text {
+     margin: 15px 0;
+   }
+   .white-bg.how-start-block {
+     min-height: 300px;
+     padding-top: 0;
+   }
+   .how-start-block__content {
+     padding: 0;
+   }
+   .how-start-wprapper-block {
+     padding: 0;
+   }
+   .how-start-block__item:nth-child(2) .how-start-wprapper-block {
+     padding: 0 4px;
+   }
+   .how-start-block__item {
+     width: 234px;
+     padding: 0;
+   }
+   .how-start-block__item__number {
+     font-size: 0;
+     width: 16px;
+     height: 16px;
+     border-radius: 50%;
+     background-color: #beeafc;
+   }
+   .how-start-block__item:last-child .how-start-block__item__number {
+     background-color: #ffd2d8;
+   }
+   .how-start-block__item:nth-child(2) .how-start-block__item__number {
+     background-color: #e7ff6a;
+   }
+   .how-start-block__item__title,
+   .hello-block__content__hello__desc__title__main {
+     font-size: 26px;
+     font-weight: normal;
+     font-style: normal;
+     font-stretch: normal;
+     line-height: 1.23;
+   }
+   .how-start-block__item__desc,
+   .hello-block__content__hello__text,
+   .faq-block__right-block__desc {
+     width: auto;
+     height: auto;
+     font-size: 11px;
+     font-weight: normal;
+     font-style: normal;
+     font-stretch: normal;
+     line-height: 1.45;
+     letter-spacing: normal;
+   }
+   .left-side.promo-train-block__slider-item {
+     margin-top: 0;
+   }
+   .blue-bg .promo-train-block__slider-item-more__text {
+     margin-left: 26px;
+   }
+   .hello-block__content {
+     margin: 78px 0 40px;
+   }
+   .hello-block__content__hello {
+     padding: 0 16px;
+     align-items: flex-start;
+   }
+   .hello-block__content__hello div {
+     width: 337px;
+   }
+   .hello-block__content__hello__desc__title__main,
+   .hello-block__content__hello__text {
+     width: auto;
+   }
+   .hello-block__content__hello__desc__title {
+     margin-bottom: 20px;
+   }
+   .hello-block__content__hello__text p {
+     margin-bottom: 16px;
+   }
+   .hello-block__content__hello__text__link-wrapper img {
+     width: 42px;
+   }
+   .hello-block__content__hello .hello-block__content__hello__desc {
+     min-height: auto;
+   }
+   .faq-block__left-block {
+     width: auto;
+   }
+   .faq-block {
+     justify-content: space-between;
+     margin: 0 16px 40px;
+     padding: 30px 41px;
+   }
+   .before-after .bottom-slider-block__slider-header_top-content {
+     flex-flow: row-reverse;
+   }
+   .before-after .bottom-slider-block__slider-header__left-block {
+     flex-flow: column;
+     align-items: flex-start;
+     margin-left: 0;
+   }
+   .before-after .bottom-slider-block__slider-header__left-block__slogan {
+     margin: 0 0 16px 0;
+   }
+   .product-block .slider-product-view {
+     max-width: 361px;
+   }
+   .slider-product-view .slick-slide {
+     width: 361px;
+     height: 361px;
+   }
+   .product-description-block {
+     padding-left: 16px;
+   }
+   .training.special-offer-block__title,
+   .bootstrap-box.special-offer-block__title {
+     margin: 53px 16px 0;
+   }
+   .training-slider .owl-carousel__slider-item {
+     margin: 20px 0 0;
+   }
+   .training-slider .owl-dots {
+     bottom: -73px;
+   }
+   .training-slider .owl-dots .owl-dot span,
+   .training-slider .owl-dots .owl-dot:hover span,
+   .training-slider .owl-dots .owl-dot.active span,
+   .training-slider .owl-dots .owl-dot.active:hover span {
+     background-color: #838383;
+   }
+   .exercises-tabs-block,
+   .product_catalog_block {
+     margin: 0 auto;
+   }
+   .exercises-promo-block__left-side {
+     padding: 89px 0 0 16px;
+     max-width: 300px;
+   }
+   .exercises-promo-block__left-side__title {
+     font-size: 26px;
+   }
+   .exercises-promo-block__left-side__desc {
+     font-size: 14px;
+   }
+   .exercises-promo-block__left-side__title::after {
+     display: none;
+   }
+   .exercises-promo-block__right-side .img-block {
+     left: auto;
+   }
+   .product-block {
+     margin: 0 15px;
+   }
+   .product-block__description {
+     padding-left: 34px;
+     max-width: 450px;
+   }
+   .product-block__description__title {
+     font-size: 18px;
+   }
+   .product-block__description__desc {
+     font-size: 14px;
+   }
+   .product-block__description-more__text {
+     font-size: 12px;
+   }
+   .product-block__description__prices .price {
+     font-size: 40px;
+   }
+   .product-block__description__prices .old-price {
+     font-size: 18px;
+   }
+   .product-block__description__buttons {
+     justify-content: flex-start;
+   }
+   .product-block__description__buttons .product-block__description__buy-in-click,
+   .product-block__description__buttons .product-block__description__add-to-cart {
+     width: 157px;
+     height: 40px;
+     vertical-align: middle;
+     line-height: 2.5;
+     margin: 0 10px;
+   }
+   .product-block__description__buy-in-click__text,
+   .product-block__description__add-to-cart__text {
+     font-size: 12px;
+     margin: 4px 0;
+   }
+   .product-description-block__title {
+     font-size: 26px;
+   }
+   .product-description-block__decription {
+     max-width: 768px;
+     font-size: 16px;
+   }
+   .advantages-block.mini {
+     width: auto;
+   }
+   .advantages-block.mini .advantages-block__item {
+     display: block;
+     width: 168px;
+   }
+   .advantages-block.mini .advantages-block_disc {
+     text-align: center;
+     margin-left: 0;
+   }
+   .training-slider .owl-carousel__slider-item {
+     height: 350px;
+   }
+   .feedback.difference-block__title {
+     width: auto;
+     padding: 0 16px;
+   }
+   .tapes .promo-train-block__slider-item__slider-content {
+     width: 100%;
+   }
+   .up-hello-block {
+     height: auto;
+     margin-left: 10px;
+   }
+   .up-hello-block__right-side__img {
+     width: 236px;
+   }
+   .up-hello-block__right-side__img img {
+     width: 100%;
+   }
+   .how-start-block__help-link {
+     border: none;
+     font-size: 11px;
+   }
+   .hello-block__content__title {
+     font-size: 26px;
+   }
+   .personal-offer-block__left-side__slogan {
+     font-size: 26px;
+     width: 360px;
+   }
+   .hello-block__content__desc {
+     font-size: 11px;
+   }
+   .hello-block__content__item {
+     width: 234px;
+   }
+   .exercise-demos-list-block__right-side__title {
+     font-size: 26px;
+   }
+   .exercise-demos-list-block__right-side__desc {
+     max-width: 380px;
+   }
+   .pop_exercises.special-offer-block {
+     padding: 76px 16px 0;
+     margin: 0;
+   }
+   .pop_exercises .special-offer-block__item img {
+     width: 100%;
+     height: auto;
+   }
+   .exercises-list-block__exercises-list {
+     font-size: 16px;
+   }
+   .exercises-list-block__item-title {
+     font-size: 26px;
+   }
+   .exercises-list-block__item {
+     padding: 0 16px;
+   }
+   .personal-programm.promo-train-block__slider-item {
+     margin: 39px 16px;
+   }
+   .exercises-tabs-block__tabs {
+     padding: 0;
+     justify-content: center;
+   }
+   .special-offer-block__item,
+   .bootstrap-box .special-offer-block__item {
+     width: 209px;
+   }
+   .trainings_category_block-item {
+     width: 47%;
+   }
+   .trainings_category_block .special-offer--block__item-cart {
+     display: block;
+   }
+ }
+ 
+ @media(max-width:768px) {
+   .hello-block__content__hello div {
+     width: 337px;
+   }
+   .promo-train-block__slider-item__slider-content {
+     width: 48%;
+   }
+   .owl-carousel__slider-item__slider-content {
+     width: 50%;
+   }
+   .blue-bg .promo-train-block__slider-item__slider-content {
+     max-width: 100%;
+     width: 320px;
+     margin-right: 80px;
+   }
+   .left-side.promo-train-block__slider-item {
+     height: 337px;
+     background: url('/bitrix/templates/eshop_bootstrap_black/assets/ipad-green-bg-tablet.jpg') no-repeat;
+     background-color: #e7ff6a;
+     margin-top: 52px;
+     padding-left: 48px;
+   }
+   .promo-form-block {
+     background: url('/bitrix/templates/eshop_bootstrap_black/assets/promo-form-bg-768.svg') no-repeat;
+     padding: 0 16px;
+     background-position-y: -2px
+   }
+   .blue-bg.promo-train-block__slider-item {
+     height: 363px;
+     background: url('/bitrix/templates/eshop_bootstrap_black/assets/blue_bg_tablet.png') no-repeat;
+     background-position-x: 0%;
+     background-size: cover;
+     background-color: #fff;
+   }
+   .blue-bg .promo-train-block__slider-item-more__text {
+     font-size: 9px;
+     margin-left: 16px;
+     width: 185px;
+   }
+   .blue-bg .promo-train-block__slider-item-button__text {
+     margin: 15px 0;
+   }
+   .blue-bg .promo-train-block__slider-item__slider-content__slogan {
+     font-size: 26px;
+     display: inline;
+     margin-left: 0;
+     margin-bottom: 20px;
+   }
+   .blue-bg .promo-train-block__slider-item__slider-content__dicription {
+     font-size: 11px;
+     font-weight: normal;
+     font-style: normal;
+     font-stretch: normal;
+     line-height: 1.45;
+     letter-spacing: normal;
+   }
+   .blue-bg .promo-train-block__slider-item-button,
+   .middle-slider .owl-carousel__slider-item-button {
+     width: 121px;
+     height: 48px;
+   }
+   .middle-slider .owl-carousel__main-slider-item-button__text {
+     margin: 16px 0;
+     padding: 0;
+   }
+   .left-side .promo-train-block__slider-item__slider-content__slogan {
+     font-size: 26px;
+     display: inline;
+     margin-left: 0;
+     margin-bottom: 20px;
+   }
+   .left-side .promo-train-block__slider-item__slider-content__dicription {
+     font-size: 11px;
+     font-weight: normal;
+     font-style: normal;
+     font-stretch: normal;
+     line-height: 1.45;
+     letter-spacing: normal;
+   }
+   .product-description-block__decription {
+     font-size: 12px;
+     max-width: 674px;
+   }
+   .product-block__description__desc {
+     font-size: 11px;
+   }
+   .difference-block {
+     margin: 0 16px 67px;
+   }
+   .difference-block__item img {
+     width: 209px;
+   }
+   .up-hello-block {
+     height: auto;
+     margin-left: 16px;
+     margin-right: 60px;
+   }
+   .articles.special-offer-block {
+     padding: 141px 16px 98px;
+   }
+   .hello-block__content__up-items {
+     padding: 0 16px;
+   }
+   .hello-block__content__hello {
+     justify-content: space-between;
+   }
+   .white-bg.ceo-text-block,
+   .ceo-text-block {
+     padding: 0 16px;
+   }
+   .tapes.exercises-tabs-block__tabs {
+     padding: 0 16px;
+   }
+   .exercises-tabs-block__tabs {
+     padding: 0;
+   }
+   .personal-programm .promo-train-block__slider-item__slider-content__slogan {
+     font-size: 30px;
+   }
+   .product-block__description__buttons {
+     flex-flow: column-reverse;
+   }
+   .product-block .product-block__description__buttons {
+     flex-flow: row;
+   }
+   .discount-timer-slogan {
+     width: auto;
+   }
+   .discount_block {
+     display: none;
+   }
+   .discount .product-block__description__buttons {
+     margin-top: 10px;
+   }
+   .discount-timer {
+     font-size: 26px;
+     margin-bottom: 27px;
+   }
+   .discount.product-block .product-block__description__desc {
+     margin-bottom: 13px;
+   }
+   .footer__nav-bar__navs-item__link {
+     font-size: 12px;
+     font-weight: bold;
+     font-style: normal;
+     font-stretch: normal;
+     line-height: 2.67;
+     letter-spacing: normal;
+   }
+   #FAQaccordion .card-header h2 {
+     max-width: 600px;
+   }
+   .trainings_category_block-item {
+     width: 96%;
+   }
+   
+ }
+ 
+ @media (max-width: 640px) {
+   .header-mobile {
+     display: none;
+   }
+   .header-mini__min-logo {
+     display: none;
+   }
+   .header-mini {
+     display: flex;
+     height: 36px;
+     background-color: #000;
+     padding: 10px;
+     justify-content: space-between;
+     align-items: center;
+   }
+   .header-mini__block {
+     display: flex;
+     width: 68px;
+     justify-content: space-between;
+     align-items: center;
+   }
+   
+ }
+
+ @media (max-width: 460px) {
+  .header-mini__min-logo {
+    display: block;
+  }
+  .header-mini__big-logo {
+    display: none;
+  }
+  .footer__footer-credits__icons {
+    display: none;
+  }
+  .footer__nav {
+    justify-content: center;
+  }
+ }
