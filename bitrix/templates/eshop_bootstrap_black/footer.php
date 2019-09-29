@@ -118,9 +118,9 @@
 	</div>
 </footer>
 <div class="footer-mobie">
-<div class="footer__nav__logo">
-				<img src="<?= SITE_TEMPLATE_PATH ?>/assets/logo-svg.svg" alt="">
-			</div>
+	<div class="footer__nav__logo">
+		<img src="<?= SITE_TEMPLATE_PATH ?>/assets/logo-svg.svg" alt="">
+	</div>
 
 </div>
 </div>
@@ -303,29 +303,7 @@
 		});
 
 
-		$('.slick-slider').slick({
-			slidesToShow: 3,
-			slidesToScroll: 1,
-			arrows: true,
-			appendArrows: $('.bottom-slider-nav-buttons'),
-			prevArrow: `<img src="<?= SITE_TEMPLATE_PATH ?>/assets/arrow-white-left.svg">`,
-			nextArrow: `<img src="<?= SITE_TEMPLATE_PATH ?>/assets/arrow-white-right.svg">`,
-			swipe: true,
-			draggable: true,
-			speed: 400,
-			variableWidth: true,
-			easing: 'ease-in-out',
-			cssEase: 'ease-in-out',
-			autoplay: true,
-			responsive: {
-				1360: {
-					nav: true
-				},
-				320: {
-					nav: false
-				}
-			}
-		});
+
 
 		$(window).scroll(function() {
 			if ($(window).scrollTop() > 200) {
@@ -485,6 +463,31 @@
 		$('#after_login_submit').click(function() {
 			window.location.reload(false);
 		});
+	});
+</script>
+<script>
+	$('.slick-slider').slick({
+		slidesToShow: 3,
+		slidesToScroll: 1,
+		arrows: true,
+		appendArrows: $('.bottom-slider-nav-buttons'),
+		prevArrow: `<img src="<?= SITE_TEMPLATE_PATH ?>/assets/arrow-white-left.svg">`,
+		nextArrow: `<img src="<?= SITE_TEMPLATE_PATH ?>/assets/arrow-white-right.svg">`,
+		swipe: true,
+		draggable: true,
+		speed: 400,
+		variableWidth: true,
+		easing: 'ease-in-out',
+		cssEase: 'ease-in-out',
+		autoplay: true,
+		responsive: {
+			1360: {
+				nav: true
+			},
+			320: {
+				nav: false
+			}
+		}
 	});
 </script>
 <script>
@@ -752,30 +755,80 @@
 <!-- end of faq_popUp -->
 
 <!-- buy_in_1_click_popUp  -->
+<script>
+	$(document).ready(function() {
+		$(".product-block__description__buy-in-click").click(function(e) {
+			e.preventDefault();
+			$id = $(this).attr("href");
+			$product = $(this).closest(".product-block");
+			$image = $product.find(".slick-track img:first-child").attr("src");
+			$name = $product.find(".product-block__description__title").text();
+			$price = $product.find(".product-block__description__prices .price").text();
+			$("#buy_in_click").show();
+			$("#buy_in_click .pop-products-block__item__img-block img").attr("src", $image);
+			$("#buy_in_click .pop-products-block__item__title span").text($name);
+			$("#buy_in_click .pop-products-block__item__price").text($price);
+			$("#buy_in_click .product_id").val($id);
+			$(".fake-detection-form .promo-form-block__form__input").val("");
+		})
 
+		$(".promo-form-block__form__submit").click(function() {
+			if ($(".fake-detection-form .promo-form-block__form__input").val().length == 0) {
+				return false;
+			}
+			$.post("/include/ajax/buyOneClick.php",
+			{
+				id: $("#buy_in_click .product_id").val(),
+				name: $(".fake-detection-form-block__form__input-wrapper label[name='name'] input").val(),
+				email: $(".fake-detection-form-block__form__input-wrapper label[name='mail'] input").val(),
+				phone: $(".fake-detection-form-block__form__input-wrapper label[name='phone'] input").val(),
+			},function(data) {
+				$('body').css('overflow-y', 'inherit');
+				$('.page_content').css('filter', 'none')
+				$('.buy_in_click_popUp').fadeOut();
+				data = $.parseJSON(data);
+				if (data[0] == 'ok') {
+					Swal.fire({
+						title: 'Спасибо за заказ!',
+						text: 'Наш менеджер перезвонит вам в ближайшее время',
+						type: 'success',
+						confirmButtonText: 'Продолжить покупки'
+					})
+				} else {
+					Swal.fire({
+						title: 'Ошибка!',
+						html: "Свяжитесь с нами для оформления заказа:<br> +7 (495) 787 40 58",
+						type: 'error',
+						confirmButtonText: 'Продолжить покупки'
+					})
+				}
+			})
+		})
+	});
+</script>
 
 <div class="popUp buy_in_click_popUp hidden-block" id="buy_in_click">
 	<div class="blur-block"></div>
 	<div class="wrapper-block">
-	<div class="close-button"></div>
-<div class="buy_in_click_popUp__left-side">
-<div class="pop-products-block__item">
-			<div class="pop-products-block__item__img-block">
-				<img src="assets/ipad-03.jpg" alt="">
-			</div>
-			<div class="pop-products-block__item__title"><span class="title-span">Программа тренировок Rakamakafit Online</span></div>
-			<div class="pop-products-block__item__prices">
-				<div class="pop-products-block__item__price">5980 ₽</div>
-				
+		<div class="close-button"></div>
+		<div class="buy_in_click_popUp__left-side">
+			<div class="pop-products-block__item">
+				<div class="pop-products-block__item__img-block">
+					<img src="assets/ipad-03.jpg" alt="">
+				</div>
+				<div class="pop-products-block__item__title"><span class="title-span">Программа тренировок Rakamakafit Online</span></div>
+				<div class="pop-products-block__item__prices">
+					<div class="pop-products-block__item__price">5980 ₽</div>
+
+				</div>
 			</div>
 		</div>
-</div>
-	<div class="buy_in_click_popUp__right-side">
-	<div class="fake-detection-form">
-	<h2>Заказ в один клик</h2>
-	<span>Заполните форму ниже, чтобы наш менеджер смог связаться с вами и обсудить детали заказа.</span>
-<form action="#">
-	<div class="fake-detection-form-block__form__input-wrapper">
+		<div class="buy_in_click_popUp__right-side">
+			<div class="fake-detection-form">
+				<h2>Заказ в один клик</h2>
+				<span>Заполните форму ниже, чтобы наш менеджер смог связаться с вами и обсудить детали заказа.</span>
+				<form action="#">
+					<div class="fake-detection-form-block__form__input-wrapper">
 						<label name="mail">
 							<input class="promo-form-block__form__input" type="email" pattern="\S+@[a-z]+.[a-z]+" placeholder="Email">
 						</label>
@@ -785,18 +838,17 @@
 						<label name="name">
 							<input class="promo-form-block__form__input" type="text" required="" pattern="\W+\S+" placeholder="Имя">
 						</label>
-						
-						
+
+
 					</div>
-										<div class="promo-form-block__form__input-checkbox-wrapper">			
+					<div class="promo-form-block__form__input-checkbox-wrapper">
 						<input class="promo-form-block__form__checbox" type="checkbox" name="" id="promo-checkbox">
-						
-				
 					</div>
+					<input type="hidden" value="" class="product_id">
 					<button class="promo-form-block__form__submit" type="submit">отправить</button>
-</form>
-</div>
-	</div>
+				</form>
+			</div>
+		</div>
 
 
 	</div>
