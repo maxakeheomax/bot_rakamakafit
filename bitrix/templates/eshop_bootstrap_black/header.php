@@ -43,6 +43,7 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php');
 
     ?>
     <title><?$APPLICATION->ShowTitle()?></title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 </head>
 <body class="bx-background-image bx-theme-<?=$theme?>" <?=$APPLICATION->ShowProperty("backgroundImage")?>>
 	<!-- popUp-gift-block -->

@@ -78,9 +78,10 @@ $this->setFrameMode(true);
 					<input style="display:none" type="submit" name="<? echo $arParams["ACTION_VARIABLE"] . "BUY" ?>">
 					<input style="display:none" type="submit" name="<? echo $arParams["ACTION_VARIABLE"] . "ADD2BASKET" ?>">
 					<div class="product-block__description__buttons">
-						<a id="BUY" href="#" onclick="">
-							<div class="product-block__description__buy-in-click"><span class="product-block__description__buy-in-click__text">купить в 1 клик</span></div>
+						<a href="<?=$arOffer["ID"];?>" class="product-block__description__buy-in-click">
+							<span class="product-block__description__buy-in-click__text">купить в 1 клик</span>
 						</a>
+
 						<a id="ADD2BASKET" href="#" onclick="">
 							<div class="product-block__description__add-to-cart"><span class="product-block__description__add-to-cart__text">добавить в корзину</span></div>
 						</a>
@@ -93,9 +94,9 @@ $this->setFrameMode(true);
 
 				<script>
 					$(document).ready(function() {
-						$('#BUY').click(function() {
-							$('input[name="<? echo $arParams["ACTION_VARIABLE"] . "BUY" ?>"]').click();
-						});
+						// $('#BUY').click(function() {
+							// $('input[name="<? echo $arParams["ACTION_VARIABLE"] . "BUY" ?>"]').click();
+						// });
 						$('#ADD2BASKET').click(function() {
 							$('input[name="<? echo $arParams["ACTION_VARIABLE"] . "ADD2BASKET" ?>"]').click();
 						});
@@ -126,9 +127,7 @@ $this->setFrameMode(true);
 					<input type="hidden" name="<? echo $arParams["PRODUCT_ID_VARIABLE"] ?>" value="<? echo $arResult["ID"] ?>">
 					<input type="submit" name="<? echo $arParams["ACTION_VARIABLE"] . "BUY" ?>" value="<? echo GetMessage("CATALOG_BUY") ?>">
 					<input type="submit" name="<? echo $arParams["ACTION_VARIABLE"] . "ADD2BASKET" ?>" value="<? echo GetMessage("CATALOG_ADD_TO_BASKET") ?>">
-					<a id="BUY" href="" onclick="">
-						<div class="product-block__description__buy-in-click"><span class="product-block__description__buy-in-click__text">купить в 1 клик</span></div>
-					</a>
+						<a href="#" class="product-block__description__buy-in-click"><span class="product-block__description__buy-in-click__text">купить в 1 клик</span></a>
 					<a id="ADD2BASKET" href="" onclick="">
 						<div class="product-block__description__add-to-cart"><span class="product-block__description__add-to-cart__text">добавить в корзину</span></div>
 					</a>
