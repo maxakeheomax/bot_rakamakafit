@@ -10,13 +10,14 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php');
 ?>
 <!DOCTYPE html>
 <html xml:lang="<?=LANGUAGE_ID?>" lang="<?=LANGUAGE_ID?>">
+
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <!-- <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width"> -->
     <link rel="shortcut icon" type="image/x-icon" href="<?=htmlspecialcharsbx(SITE_DIR)?>favicon.ico?20" />
     <?$APPLICATION->ShowHead();?>
-    
+
     <?
     //////////////////// CUSTOM CSS
     //  var_dump( !$APPLICATION->GetCurUri("", false)=="/personal/order/make/" );
@@ -31,9 +32,10 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php');
     $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH."/mobile.css", true);
     $APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH."/libs/bootstrap-4.3.1-dist/css/bootstrap-grid.min.css", true);
 ?>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
-<?  //////////////////// CUSTOM JS
+    <?  //////////////////// CUSTOM JS
     $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH."/libs/jquery.min.js");
     $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH."/libs/owl.carousel2/dist/owl.carousel.min.js");
     $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH."/libs/slick-1.8.1/slick/slick.min.js");
@@ -42,43 +44,48 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php');
     $APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH."/libs/bootstrap-4.3.1-dist/js/bootstrap.min.js");
 
     ?>
-    <title><?$APPLICATION->ShowTitle()?></title>
+    <title>
+        <?$APPLICATION->ShowTitle()?>
+    </title>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 </head>
-<body class="bx-background-image bx-theme-<?=$theme?>" <?=$APPLICATION->ShowProperty("backgroundImage")?>>
-	<!-- popUp-gift-block -->
-	<div class="popUp popUp-gift hidden-block">
-		<div class="blur-block"></div>	
-		<div class="wrapper-block">
 
-			<div class="popUp-gift__form-block">
-				<div class="close-button"></div>
-				<div class="promo-form-block__title">Не уходи без подарка!</div>
-				<div class="popUp-gift__form-block_desc">Я хочу подарить тебе книжку с рецептами очень вкусных десертов, которые совершенно не повредят твоей фигуре!</div>
-				<form class="" action="/forms_ajax.php" method="post">
+<body class="bx-background-image bx-theme-<?=$theme?>" <?=$APPLICATION->ShowProperty("backgroundImage")?>>
+    <!-- popUp-gift-block -->
+    <div class="popUp popUp-gift hidden-block">
+        <div class="blur-block"></div>
+        <div class="wrapper-block">
+
+            <div class="popUp-gift__form-block">
+                <div class="close-button"></div>
+                <div class="promo-form-block__title">Не уходи без подарка!</div>
+                <div class="popUp-gift__form-block_desc">Я хочу подарить тебе книжку с рецептами очень вкусных десертов,
+                    которые совершенно не повредят твоей фигуре!</div>
+                <form class="" action="/forms_ajax.php" method="post">
                     <input type="hidden" name="action" value="popup">
                     <input type="hidden" name="url" value="<?=$APPLICATION->GetCurPage();?>">
-					<div class="">
-						<label >
-							<input name="email" class="promo-form-block__form__input" type="email" required pattern="\S+@[a-z]+.[a-z]+" placeholder='Email'>
-						</label>
-						<button class="promo-form-block__form__submit" type="submit">получить</button>
-					</div>
-					<div class="promo-form-block__form__input-checkbox-wrapper">			
-						<input  class="promo-form-block__form__checbox"  type="checkbox" name="" id="promo-checkbox">
-						<label for="promo-checkbox"></label>
-						<p class="promo-form-block__form__checbox-desc">Я согласен с обработкой персональных данных</p>
-					</div>
-				</form>
-			</div>
-		</div>
+                    <div class="">
+                        <label>
+                            <input name="email" class="promo-form-block__form__input" type="email" required
+                                pattern="\S+@[a-z]+.[a-z]+" placeholder='Email'>
+                        </label>
+                        <button class="promo-form-block__form__submit" type="submit">получить</button>
+                    </div>
+                    <div class="promo-form-block__form__input-checkbox-wrapper">
+                        <input class="promo-form-block__form__checbox" type="checkbox" name="" id="promo-checkbox">
+                        <label for="promo-checkbox"></label>
+                        <p class="promo-form-block__form__checbox-desc">Я согласен с обработкой персональных данных</p>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-    
+
     <div class="popUp pickup_map-popUp hidden-block" id="popUp_pvz">
         <div class="blur-block"></div>
         <div class="wrapper-block">
             <div class="close-button"></div>
-                <!-- <div class="left-side">
+            <!-- <div class="left-side">
                     <div class="img-block"></div>
                 </div> -->
             <div class="right-side">
@@ -89,45 +96,47 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php');
     </div>
 
 
-	<script>
-		// $(document).ready(function(){
-		// 	 function ShowPopUp(delay_time){setInterval(function(){
-		// 		if($('.popUp').css('display') == 'block'){
-		// 			return false
-		// 		}else{						
-		// 			$('body').css('overflow-y','hidden');
-		// 			$('.page_content, .page_wrapper').css('filter', 'blur(10px)');
-		// 			$('.popUp').fadeIn();
-		// 		}
-		// 	}, delay_time);
-		// 	}
+    <script>
+    // $(document).ready(function(){
+    // 	 function ShowPopUp(delay_time){setInterval(function(){
+    // 		if($('.popUp').css('display') == 'block'){
+    // 			return false
+    // 		}else{						
+    // 			$('body').css('overflow-y','hidden');
+    // 			$('.page_content, .page_wrapper').css('filter', 'blur(10px)');
+    // 			$('.popUp').fadeIn();
+    // 		}
+    // 	}, delay_time);
+    // 	}
 
-        //     // ShowPopUp(15000);
+    //     // ShowPopUp(15000);
 
-		// 	$('.close-button').click(function(){
-		// 		$('body').css('overflow-y','inherit');
-		// 		$('.page_content, .page_wrapper').css('filter', 'none')
-		// 		$('.popUp').fadeOut();
-		// 	});
-		// });
-
-	</script>
-	<!-- end of popUp-gift-block -->
-<div id="panel"><?$APPLICATION->ShowPanel();?></div>
-<?$APPLICATION->IncludeComponent("bitrix:eshop.banner", "", array());?>
-<div class="bx-wrapper" id="bx_eshop_wrap">
-    <div class="page_wrapper">
-        <div class="page_content">
-            <header class="header">
-                <nav class="header__nav-bar">
-                    <div class="header__nav-bar__logo">
-                        <a href="/">
-                            <img src="<?= SITE_TEMPLATE_PATH ?>/assets/logo-svg.svg" alt="logo" class="header__nav-bar__logo-img">
-                        </a>
-                    </div>
-                    <div class="header__nav-bar-block">
-                        <ul class="header__nav-bar__navs">
-                        <?$APPLICATION->IncludeComponent(
+    // 	$('.close-button').click(function(){
+    // 		$('body').css('overflow-y','inherit');
+    // 		$('.page_content, .page_wrapper').css('filter', 'none')
+    // 		$('.popUp').fadeOut();
+    // 	});
+    // });
+    </script>
+    <!-- end of popUp-gift-block -->
+    <div id="panel">
+        <?$APPLICATION->ShowPanel();?>
+    </div>
+    <?$APPLICATION->IncludeComponent("bitrix:eshop.banner", "", array());?>
+    <div class="bx-wrapper" id="bx_eshop_wrap">
+        <div class="page_wrapper">
+            <div class="page_content">
+                <header class="header">
+                    <nav class="header__nav-bar">
+                        <div class="header__nav-bar__logo">
+                            <a href="/">
+                                <img src="<?= SITE_TEMPLATE_PATH ?>/assets/logo-svg.svg" alt="logo"
+                                    class="header__nav-bar__logo-img">
+                            </a>
+                        </div>
+                        <div class="header__nav-bar-block">
+                            <ul class="header__nav-bar__navs">
+                                <?$APPLICATION->IncludeComponent(
                             "bitrix:menu",
                             "top_menu",
                             Array(
@@ -137,20 +146,24 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php');
                                 "USE_EXT" => "Y" 
                             )
                         );?>
-                    </div>
-                     <? if($USER->IsAuthorized()): ?>
-                     <a href="/personal/"><div class="header__nav-bar__login-button no_js">
-                            <span class="header__nav-bar__login-button__text">Личный кабинет</span>
-                        </div> </a>
-                    <? else:?>
-                        <a href="#"><div class="header__nav-bar__login-button">
-                            <span class="header__nav-bar__login-button__text">Войти</span>
-                        </div></a>                           
-                    <?endif;?>
-                </nav>	
-                <nav class="header__inner-nav-bar">
-                    <div class="header__inner-nav-bar-block">                        
-                        <?$APPLICATION->IncludeComponent(
+                        </div>
+                        <? if($USER->IsAuthorized()): ?>
+                        <a href="/personal/">
+                            <div class="header__nav-bar__login-button no_js">
+                                <span class="header__nav-bar__login-button__text">Личный кабинет</span>
+                            </div>
+                        </a>
+                        <? else:?>
+                        <a href="#">
+                            <div class="header__nav-bar__login-button">
+                                <span class="header__nav-bar__login-button__text">Войти</span>
+                            </div>
+                        </a>
+                        <?endif;?>
+                    </nav>
+                    <nav class="header__inner-nav-bar">
+                        <div class="header__inner-nav-bar-block">
+                            <?$APPLICATION->IncludeComponent(
                             "bitrix:menu",
                             "equipment_menu",
                             Array(
@@ -160,9 +173,9 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php');
                                 "USE_EXT" => "Y" 
                             )
                         );?>
-                    </div>
+                        </div>
 
-                    <?
+                        <?
                     $basket = \Bitrix\Sale\Basket::loadItemsForFUser(
                         \Bitrix\Sale\Fuser::getId(),
                         \Bitrix\Main\Context::getCurrent()->getSite()
@@ -175,68 +188,164 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php');
                    
                     ?>
 
-                    <div class="header__nav-bar__cart-block">
-                        <a href="/personal/cart/" class="header__nav-bar__cart-block-link">	
-                            <img src="<?= SITE_TEMPLATE_PATH ?>/assets/cart.svg" alt="" class="header__nav-bar__cart-block__cart-icon">
-                            <span class="header__nav-bar__cart-block__cart-text">Корзина <span><?=$cnt > 0? "(".$cnt.")" : ''?></span></span>
-                            <span class="header__nav-bar__cart-block__items-counter"><?= $arResult['NUM_PRODUCTS'] > 0 ? $arResult['NUM_PRODUCTS'] : "" ?></span>
-                        </a>
-                    </div>                        
-                </nav>
-            </header>
+                        <div class="header__nav-bar__cart-block">
+                            <a href="/personal/cart/" class="header__nav-bar__cart-block-link">
+                                <img src="<?= SITE_TEMPLATE_PATH ?>/assets/cart.svg" alt=""
+                                    class="header__nav-bar__cart-block__cart-icon">
+                                <span class="header__nav-bar__cart-block__cart-text">Корзина
+                                    <span><?=$cnt > 0? "(".$cnt.")" : ''?></span></span>
+                                <span
+                                    class="header__nav-bar__cart-block__items-counter"><?= $arResult['NUM_PRODUCTS'] > 0 ? $arResult['NUM_PRODUCTS'] : "" ?></span>
+                            </a>
+                        </div>
+                    </nav>
+                </header>
 
-            <header class="header-mobile">
-                <div class="header__nav-bar__logo">
-                    <a href="/">
-                        <img src="<?= SITE_TEMPLATE_PATH ?>/assets/logo-svg.svg" alt="logo" class="header__nav-bar__logo-img">
-                    </a>
-                </div>
-                <div class="header-right-side">
-                    <div class="burger-menu header-right-side-item button-form-grey">меню <span class="burger-menu-icon"></span></div>
-                    <div class="cart-mobile header-right-side-item button-form-grey">
+                <header class="header-mobile">
+                    <div class="header__nav-bar__logo">
+                        <a href="/">
+                            <img src="<?= SITE_TEMPLATE_PATH ?>/assets/logo-svg.svg" alt="logo"
+                                class="header__nav-bar__logo-img">
+                        </a>
+                    </div>
+                    <div class="header-right-side">
+                        <div class="burger-menu header-right-side-item button-form-grey">меню <span
+                                class="burger-menu-icon"></span></div>
+                        <div class="cart-mobile header-right-side-item button-form-grey">
+                            <a href="/personal/cart/"><img src="<?= SITE_TEMPLATE_PATH ?>/assets/white-cart.svg"
+                                    alt=""></a>
+                        </div>
+                        <div class="login-block header-right-side-item button-form-grey">
+                            <a href="/personal"><img src="<?= SITE_TEMPLATE_PATH ?>/assets/white-login.svg" alt=""></a>
+                        </div>
+                    </div>
+                </header>
+                <header class="header-mini">
+
+                    <div class="header-mini__block header-mini__left-block">
+                        <span class="burger-menu-icon"></span>
+                        <a href="/"><img src="<?= SITE_TEMPLATE_PATH ?>/assets/phone.svg" alt="logo"></a>
+                    </div>
+
+                    <a class="header-mini__big-logo" href="/"><img src="<?= SITE_TEMPLATE_PATH ?>/assets/logo-svg.svg"
+                            alt="logo"></a>
+                    <a class="header-mini__min-logo" href="/"><img src="<?= SITE_TEMPLATE_PATH ?>/assets/logo-mini.svg"
+                            alt="logo"></a>
+
+                    <div class="header-mini__block header-min__right-block">
+                        <a href="/personal"><img src="<?= SITE_TEMPLATE_PATH ?>/assets/white-login.svg" alt=""></a>
                         <a href="/personal/cart/"><img src="<?= SITE_TEMPLATE_PATH ?>/assets/white-cart.svg" alt=""></a>
                     </div>
-                    <div class="login-block header-right-side-item button-form-grey">
-                        <a href="/personal"><img src="<?= SITE_TEMPLATE_PATH ?>/assets/white-login.svg" alt=""></a>
+
+                    
+
+
+                </header>
+                <div class="aside-menu">
+                        <div class="aside-menu__header-nav-logo">
+                            <img class ="aside-menu__logo" src="<?= SITE_TEMPLATE_PATH ?>/assets/logo-svg-black.svg" alt="">
+                            <div class="close-button"></div>
+                        </div>
+
+
+                        <div id="headerAccordeon">
+                            <div class="acc-head">
+                                Оборудование
+                                <div class="icon-collapsed"></div>
+                            </div>
+                            <div class="acc-body">
+                                <ul>
+                                    <li><a href="">Фитнес ленты</a></li>
+                                    <li><a href="">Эспандеры</a></li>
+                                    <li><a href="">Фитбол</a></li>
+                                    <li>Наборы</li>
+                                    <li>Питание</li>
+                                    <li>Дневник тренировок</li>
+
+
+                                </ul>
+                            </div>
+                            <div class="acc-card">
+                                <div class="acc-head">
+                                    Тренировки
+                                    <div class="icon-collapsed"></div>
+                                </div>
+                                <div class="acc-body">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum saepe ex nesciunt,
+                                    quidem quis illo cupiditate, quod maxime. Tenetur, ex quos. Magnam quasi iure facere
+                                    minus velit voluptate accusamus hic!
+                                </div>
+                            </div>
+                            <div class="acc-card">
+                                <div class="acc-head">
+                                    Оплата
+                                    <div class="icon-collapsed"></div>
+                                </div>
+                                <div class="acc-body">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum saepe ex nesciunt,
+                                    quidem quis illo cupiditate, quod maxime. Tenetur, ex quos. Magnam quasi iure facere
+                                    minus velit voluptate accusamus hic!
+                                </div>
+                            </div>
+                            <div class="acc-card">
+                                <div class="acc-head">
+                                    Доставка
+                                    <div class="icon-collapsed"></div>
+                                </div>
+                                <div class="acc-body">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum saepe ex nesciunt,
+                                    quidem quis illo cupiditate, quod maxime. Tenetur, ex quos. Magnam quasi iure facere
+                                    minus velit voluptate accusamus hic!
+                                </div>
+                            </div>
+                            <div class="acc-card">
+                                <div class="acc-head">
+                                    Полезная информация
+                                    <div class="icon-collapsed"></div>
+                                </div>
+                                <div class="acc-body">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum saepe ex nesciunt,
+                                    quidem quis illo cupiditate, quod maxime. Tenetur, ex quos. Magnam quasi iure facere
+                                    minus velit voluptate accusamus hic!
+                                </div>
+                            </div>
+                            <div class="acc-card">
+                                <div class="acc-head">
+                                    О компании
+                                    <div class="icon-collapsed"></div>
+                                </div>
+                                <div class="acc-body">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum saepe ex nesciunt,
+                                    quidem quis illo cupiditate, quod maxime. Tenetur, ex quos. Magnam quasi iure facere
+                                    minus velit voluptate accusamus hic!
+                                </div>
+                            </div>
+                        </div>
+
+
+
                     </div>
-                </div>
-            </header>
-            <header class="header-mini">
-           
-            <div class="header-mini__block header-mini__left-block">
-            <span class="burger-menu-icon"></span>
-            <a href="/"><img src="<?= SITE_TEMPLATE_PATH ?>/assets/phone.svg" alt="logo"></a>
-            </div>
-
-            <a class="header-mini__big-logo" href="/"><img src="<?= SITE_TEMPLATE_PATH ?>/assets/logo-svg.svg" alt="logo"></a>
-            <a class="header-mini__min-logo" href="/"><img src="<?= SITE_TEMPLATE_PATH ?>/assets/logo-mini.svg" alt="logo"></a>
-            
-            <div class="header-mini__block header-min__right-block">
-            <a href="/personal"><img src="<?= SITE_TEMPLATE_PATH ?>/assets/white-login.svg" alt=""></a>
-            <a href="/personal/cart/"><img src="<?= SITE_TEMPLATE_PATH ?>/assets/white-cart.svg" alt=""></a>
-            </div>
-
-            </header>
-            <? if (!defined("HIDE_SIDEBAR")) : ?>
-            <div class="aside-block" >
-                <div class="aside-block__content">
-                    <? CModule::IncludeModule("iblock");
+                <? if (!defined("HIDE_SIDEBAR")) : ?>
+                <div class="aside-block">
+                    <div class="aside-block__content">
+                        <? CModule::IncludeModule("iblock");
                        $time = CIBlockElement::GetByID(749)->Fet;?>
-                    <p class="aside-block__content__header"><?=$time['NAME']?></p>
-                    <p class="aside-block__content__text"><?=$time['PREVIEW_TEXT']?></p>
+                        <p class="aside-block__content__header"><?=$time['NAME']?></p>
+                        <p class="aside-block__content__text"><?=$time['PREVIEW_TEXT']?></p>
 
-                </div>
-                <div class="aside-block__shedule">
-                    <p class="aside-block__shedule-text">График работы</p>
-                    <img src="<?= SITE_TEMPLATE_PATH ?>/assets/calendar.svg" alt="calendar" class="aside-block__shedule-logo">
-                    <div class="hide-button"></div>
-                </div>
-              
+                    </div>
+                    <div class="aside-block__shedule">
+                        <p class="aside-block__shedule-text">График работы</p>
+                        <img src="<?= SITE_TEMPLATE_PATH ?>/assets/calendar.svg" alt="calendar"
+                            class="aside-block__shedule-logo">
+                        <div class="hide-button"></div>
+                    </div>
 
-                <!-- <div class="aside-block__icons"> -->
+
+                    <!-- <div class="aside-block__icons"> -->
                     <!-- <a target="_blank" href="https://vk.com/rakamakafit" class="aside-block__icons_link"><img src="<?= SITE_TEMPLATE_PATH ?>/assets/vk.svg" alt="" class="aside-block__icons-item"></a> -->
                     <!-- <a target="_blank" href="https://www.youtube.com/channel/UCVZQTeZTLrz166tbN0bEGkg?sub_confirmation=1" class="aside-block__icons_link"><img src="<?= SITE_TEMPLATE_PATH ?>/assets/ytb.svg" alt="" class="aside-block__icons-item"></a> -->
                     <!-- <a target="_blank" href="https://www.instagram.com/rakamaka.fit/" class="aside-block__icons_link"><img src="<?= SITE_TEMPLATE_PATH ?>/assets/inst.svg" alt="" class="aside-block__icons-item"></a> -->
-                <!-- </div> -->
-            </div>
-            <? endif ?>
+                    <!-- </div> -->
+                </div>
+                <? endif ?>
