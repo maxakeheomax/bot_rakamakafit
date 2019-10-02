@@ -5642,7 +5642,7 @@ button-form-grey {
 }
 
 #footerAccordion .card-body {
-  padding: 10px 0 ;
+  padding: 10px 0;
 }
 
 #footerAccordion .card-body ul {
@@ -5661,7 +5661,7 @@ button-form-grey {
 
 .footer-mobile .footer__footer-credits__official-info ul li,
 .footer-mobile .footer__footer-credits__phones ul li {
-  padding: 8px;
+  padding: 4px;
 }
 
 .footer-mobile .footer__footer-credits__official-info,
@@ -6662,3 +6662,77 @@ div#basket-items-list-container {
 .tablet {
   display: none;
 }
+
+
+/* aside menu */
+
+.aside-menu {
+  position: absolute;
+  z-index: 9;
+  right: -500px;
+  display: none;
+  width: 300px;
+  box-shadow: 0 0 10px grey;
+  padding: 10px;
+  background-color: #fff;
+}
+
+.aside-menu__logo {
+  width: 144px;
+}
+
+
+/* accordeon */
+
+#headerAccordeon {
+  margin: 10px 0 10px;
+}
+
+.aside-menu__header-nav-logo {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.aside-menu__header-nav-logo .close-button {
+  position: static;
+}
+
+.acc-head {
+  font-size: 12px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 3;
+  letter-spacing: 0.86px;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-top: solid 1px #979797;
+}
+
+.acc-body {
+  padding: 10px;
+  margin-bottom: 5px;
+  display: none;
+}
+
+#headerAccordeon .acc-head .icon-collapsed {
+  background: url('/bitrix/templates/eshop_bootstrap_black/assets/chevron-down-solid.svg');
+  background-repeat: no-repeat;
+  background-size: 30%;
+  background-position: center;
+}
+
+#headerAccordeon .acc-head.active .icon-collapsed {
+  background: url('/bitrix/templates/eshop_bootstrap_black/assets/chevron-up-solid.svg');
+  background-repeat: no-repeat;
+  background-size: 30%;
+  background-position: center;
+}
+
+
+/* end of accordeon */
