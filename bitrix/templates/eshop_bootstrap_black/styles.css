@@ -164,7 +164,9 @@ h2 {
   position: relative;
   height: 152px;
 }
-
+.header-mini {
+    display: none;
+}
 .header__nav-bar {
   height: 72px;
   display: flex;
