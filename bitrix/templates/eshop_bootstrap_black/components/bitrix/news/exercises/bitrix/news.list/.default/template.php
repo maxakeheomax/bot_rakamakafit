@@ -30,7 +30,7 @@ $this->setFrameMode(true);
 			<p class="promo-train-block__slider-item__slider-content__slogan">Мы подберем для тебя <span class="promo-train-block__title_underline-block-up"> программу тренировок</span> на все группы мышц </p>
 			<div class="promo-train-block__slider__content_bottom">
 				<div class="promo-train-block__slider-item-button">
-					<span class="promo-train-block__slider-item-button__text">Купить</span>
+					<a href="" class="promo-train-block__slider-item-button__text">Купить</a>
 				</div>
 			</div>
 		</div>

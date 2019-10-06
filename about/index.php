@@ -75,5 +75,5 @@ $APPLICATION->SetTitle("О компaнии");
 	</div>
 </div>
 <!-- end of CEO-text-block -->
-<? CMain::IncludeFile(SITE_DIR . '/include/subscribe_form_yelow.php'); ?>
+<? CMain::IncludeFile(SITE_DIR . '/include/subscribe_form_blue.php'); ?>
 <? require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php"); ?>

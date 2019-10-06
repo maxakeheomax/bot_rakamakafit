@@ -42,7 +42,7 @@ $items = $arResult['ITEMS'];
             <div class="pop-products-block__item__img-block">
                 <img src="<?=$arItem['PREVIEW_PICTURE']['SRC']?>" alt="">
             </div>
-            <div class="pop-products-block__item__title"><span class="title-span"><?=$arItem['NAME']?></span></div>
+            <div class="pop-products-block__item__title"><a href="<?=$arItem['DETAIL_PAGE_URL']?>" class="title-span"><?=$arItem['NAME']?></a></div>
             <div class="pop-products-block__item__prices">
                 <div class="pop-products-block__item__price"><?=$ar_res['PRICE']?>₽</div>
                 <!--div class="pop-products-block__item__old-price">7980 ₽</div-->
@@ -81,7 +81,7 @@ $items = $arResult['ITEMS'];
                     <div class="pop-products-block__item__img-block">
                             <img src="<?=$arItem['PREVIEW_PICTURE']['SRC']?>" alt="">
                     </div>
-                    <div class="pop-products-block__item__title"><span class="title-span"><?=$arItem['NAME']?></span></div>
+                    <div class="pop-products-block__item__title"><a href="<?=$arItem['DETAIL_PAGE_URL']?>" class="title-span"><?=$arItem['NAME']?></a></div>
                     <div class="pop-products-block__item__prices">
                             <div class="pop-products-block__item__price"><?=$ar_res['PRICE']?> ₽</div>
                             <!-- <div class="pop-products-block__item__old-price">7980 ₽</div> -->

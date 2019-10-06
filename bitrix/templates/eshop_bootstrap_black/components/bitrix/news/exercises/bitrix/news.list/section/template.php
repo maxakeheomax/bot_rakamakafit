@@ -28,7 +28,7 @@ $this->setFrameMode(true);
 		<div class="personal-offer-block__row">
 			<div class="personal-offer-block__left-side">
 				<div class="personal-offer-block__left-side__slogan">Мы подберем для тебя программу тренировок на все группы мышц</div>
-				<a href="/trainings/programm/">	<div class="personal-offer-block__left-side__button">
+				<a href="/trainings/exercises/">	<div class="personal-offer-block__left-side__button">
 					<span class="personal-offer-block__left-side__button__text">Купить</span>
 				</div></a>
 			</div>
