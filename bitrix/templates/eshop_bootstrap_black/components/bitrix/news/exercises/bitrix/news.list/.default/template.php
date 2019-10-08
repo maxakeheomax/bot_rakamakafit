@@ -24,13 +24,12 @@ $this->setFrameMode(true);
 		}
 	}
 ?>
-
 	<div class="personal-programm promo-train-block__slider-item" >
 		<div class="promo-train-block__slider-item__slider-content">
 			<p class="promo-train-block__slider-item__slider-content__slogan">Мы подберем для тебя <span class="promo-train-block__title_underline-block-up"> программу тренировок</span> на все группы мышц </p>
 			<div class="promo-train-block__slider__content_bottom">
 				<div class="promo-train-block__slider-item-button">
-					<a href="" class="promo-train-block__slider-item-button__text">Купить</a>
+					<a href="/trainings/programm/" class="promo-train-block__slider-item-button__text">Купить</a>
 				</div>
 			</div>
 		</div>
