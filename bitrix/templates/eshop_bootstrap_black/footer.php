@@ -641,8 +641,8 @@ if ($(window).width() > 760) {
 }
 </script>
 <script>
-< ? global $USER;
-if (!$USER - > IsAdmin()): ? >
+<?php global $USER;
+if (!$USER->IsAdmin()): ?>
     $(document).ready(function() {
         var popupTimer, TIME_OUT = 6 * 1000; //one minute
         // function that displays the popup
@@ -695,8 +695,7 @@ function getCookie(name) {
     return null;
 }
 
-<
-? endif ? >
+<? endif ?>
 </script>
 <script>
 $(document).ready(function() {
