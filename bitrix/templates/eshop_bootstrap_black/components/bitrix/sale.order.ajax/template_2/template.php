@@ -496,7 +496,7 @@ $this->addExternalJs($templateFolder . '/script.js');
 											<? $text ='';?>
 											<? if ($paymentMethod['CODE'] == 'tinkoff' && !$allowTinkoff) : ?>
 												<? $payment = 'payment-disable';?>
-												<? $text = 'Недоступно, при покупке акционных товаров.';?>
+												<? $text = 'Недоступно при покупке акционных товаров.';?>
 											<? else: ?>
 												<? $payment = 'payment-select';?>
 											<? endif;?>

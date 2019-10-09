@@ -348,6 +348,7 @@ if (empty($arResult['ERROR_MESSAGE'])) {
 			<div class="cart-block__cart-items-list">
 				<? while ($item = $dbRes->fetch()) : ?>
 					<? $product = CCatalogSku::GetProductInfo($item['PRODUCT_ID']);
+						$prod = CCatalogProduct::GetByID($item['PRODUCT_ID']);
 							$image = CIBlockElement::GetByID($product['ID'])->Fetch();
 							if (!empty($image['PREVIEW_PICTURE'])) {
 								$picture = CFile::GetPath($image['PREVIEW_PICTURE']);
@@ -362,7 +363,7 @@ if (empty($arResult['ERROR_MESSAGE'])) {
 							</div>
 							<div class="cart-block__item__info d-table__cell">
 								<a href="<?= $item['DETAIL_PAGE_URL'] ?>"><?= $item['NAME'] ?></a>
-								<!-- <div class="cart-block__item__meta">160 гр.</div> -->
+								<div class="cart-block__item__meta"><?=$prod['WEIGHT']?> гр. (1 ед.)</div>
 							</div>
 							<div class="cart-block__item__quantity d-table__cell">
 								<div class="number">

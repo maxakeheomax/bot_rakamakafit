@@ -73,7 +73,7 @@ foreach($locations as $locs) {
         }
     }
     if ($locs == 'courier') {
-        $return['courier']['price'] = '300';
+        $return['courier']['price'] = '350';
     }
 }
 
@@ -81,7 +81,7 @@ if (in_array(3, $locations)) {
     $pvz['1']   = [
         'longitude'     => "37.73785685581972",
         'latitude'      => "55.73652938838389",
-        'address'       => 'г.Москва,  шоссе Фрезер, д.17 А, стр 2',
+        'address'       => 'г.Москва, шоссе Фрезер, д.17 А, стр 2',
         'price'         => '0'
     ];
 }

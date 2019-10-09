@@ -166,7 +166,9 @@ h2 {
   position: relative;
   height: 152px;
 }
-
+.header-mini {
+    display: none;
+}
 .header__nav-bar {
   height: 72px;
   display: flex;
@@ -1461,6 +1463,7 @@ button-form-grey {
   align-items: center;
   margin-top: 24px;
   width: 100%;
+  position: relative;
 }
 
 .training .special-offer-block__item__prices {
@@ -3577,7 +3580,7 @@ button-form-grey {
 /*difference-block*/
 
 .difference-block {
-  margin-bottom: 290px;
+  margin-bottom: 90px;
 }
 
 .difference-block__title {
@@ -4540,7 +4543,7 @@ button-form-grey {
 
 .trainings_category_block-item__title {
   font-family: 'FranklinGothicDemi', sans-serif;
-  font-size: 32px;
+  font-size: 28px;
   font-weight: normal;
   font-style: normal;
   font-stretch: normal;
@@ -4548,7 +4551,7 @@ button-form-grey {
   letter-spacing: normal;
   color: #000000;
   width: 180px;
-  margin: 40px auto;
+  margin: 20px auto 40px;
   text-align: center;
 }
 
@@ -4936,6 +4939,7 @@ button-form-grey {
   font-family: 'Roboto', sans-serif;
   position: absolute;
   right: 0;
+  cursor: pointer;
 }
 
 .content-block ol {
@@ -6736,5 +6740,22 @@ div#basket-items-list-container {
   background-position: center;
 }
 
-
+.selectPVZ {
+  display: block;
+  font-family: 'Roboto', sans-serif;
+  border-radius: 32px;
+  background-color: #e31377;
+  border: none;
+  padding: 0.2em;
+  font-size: 14px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 0.9px;
+  text-align: center;
+  color: #ffffff;
+  cursor: pointer;
+  text-transform: uppercase;
+}
 /* end of accordeon */

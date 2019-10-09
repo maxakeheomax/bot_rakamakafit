@@ -82,7 +82,8 @@ $APPLICATION->SetTitle("статьи");
 		"USE_SHARE" => "N"
 	)
 );?>
-<?$APPLICATION->IncludeComponent(
+<? CMain::IncludeFile(SITE_DIR . '/include/subscribe_form_blue.php'); ?>
+<?/*$APPLICATION->IncludeComponent(
 	"bitrix:news.list",
 	"ExercisesForm",
 	Array(
@@ -138,5 +139,5 @@ $APPLICATION->SetTitle("статьи");
 		"SORT_ORDER2" => "ASC",
 		"STRICT_SECTION_CHECK" => "N"
 	)
-);?>
+);*/?>
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

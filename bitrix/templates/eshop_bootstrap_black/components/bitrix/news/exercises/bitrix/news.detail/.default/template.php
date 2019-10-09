@@ -107,11 +107,9 @@ $this->setFrameMode(true);
 	<div class="personal-offer-block__row">
 		<div class="personal-offer-block__left-side">
 			<div class="personal-offer-block__left-side__slogan">Мы подберем для тебя программу тренировок на все группы мышц</div>
-			<a href="#">
-				<div class="personal-offer-block__left-side__button">
-					<span class="personal-offer-block__left-side__button__text">Купить</span>
-				</div>
-			</a>
+			<div class="personal-offer-block__left-side__button">
+				<a href="/trainings/exercises/" class="personal-offer-block__left-side__button__text">Купить</a>
+			</div>
 		</div>
 		<?
 		$arFilter = Array("IBLOCK_ID"=>'13', "ACTIVE"=>"Y", "CODE"  => $arResult['SECTION']['PATH'][0]['CODE']);

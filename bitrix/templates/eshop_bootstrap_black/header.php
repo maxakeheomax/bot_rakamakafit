@@ -329,7 +329,7 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php');
                 <div class="aside-block">
                     <div class="aside-block__content">
                         <? CModule::IncludeModule("iblock");
-                       $time = CIBlockElement::GetByID(749)->Fet;?>
+                       $time = CIBlockElement::GetByID(749)->Fetch();?>
                         <p class="aside-block__content__header"><?=$time['NAME']?></p>
                         <p class="aside-block__content__text"><?=$time['PREVIEW_TEXT']?></p>
 

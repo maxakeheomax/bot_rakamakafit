@@ -21,27 +21,27 @@ $APPLICATION->SetTitle("Опт");
 <div class="big-width-block center-block">
     <h2>#RAKAMAKAFIT - бренд №1 по продажам фитнес резинок и эспандеров в России и СНГ </h2>
     <span>Наша миссия - дать женщинам простое в обращении, легкое, недорогое и качественное оборудование для того, чтобы быть в отличной форме вне зависимости от обстоятельств. Мы активно сотрудничаем со звездами и известными блоггерами. Более 9000 счастливых обладательниц наборов #RAKAMAKAFIT, более 900 реальных отзывов в Инстаграм.</span>
-    <div class="owl-carousel owl-theme">
-    <div class="owl-carousel__slider-item">
-    <div class="img-container" style="background:url(<?= SITE_TEMPLATE_PATH ?>/assets/fake-slider.jpg);background-size: cover;"></div>
-</div>
-<div class="owl-carousel__slider-item">
-    <div class="img-container" style="background:url(<?= SITE_TEMPLATE_PATH ?>/assets/fake-slider.jpg);background-size: cover;"></div>
-</div>
-<div class="owl-carousel__slider-item">
-    <div class="img-container" style="background:url(<?= SITE_TEMPLATE_PATH ?>/assets/fake-slider.jpg);background-size: cover;"></div>
-</div>
-<div class="owl-carousel__slider-item">
-    <div class="img-container" style="background:url(<?= SITE_TEMPLATE_PATH ?>/assets/fake-slider.jpg);background-size: cover;"></div>
-</div>
-<div class="owl-carousel__slider-item">
-    <div class="img-container" style="background:url(<?= SITE_TEMPLATE_PATH ?>/assets/fake-slider.jpg);background-size: cover;"></div>
-</div>
-<div class="owl-carousel__slider-item">
-    <div class="img-container" style="background:url(<?= SITE_TEMPLATE_PATH ?>/assets/fake-slider.jpg);background-size: cover;"></div>
-</div>
+    <div class="owl-carousel middle-slider owl-theme owl-loaded owl-drag">
+        <div class="owl-carousel__slider-item">
+            <div class="img-container" style="background:url(<?= SITE_TEMPLATE_PATH ?>/assets/fake-slider.jpg);background-size: cover;"></div>
+        </div>
+        <div class="owl-carousel__slider-item">
+            <div class="img-container" style="background:url(<?= SITE_TEMPLATE_PATH ?>/assets/fake-slider.jpg);background-size: cover;"></div>
+        </div>
+        <div class="owl-carousel__slider-item">
+            <div class="img-container" style="background:url(<?= SITE_TEMPLATE_PATH ?>/assets/fake-slider.jpg);background-size: cover;"></div>
+        </div>
+        <div class="owl-carousel__slider-item">
+            <div class="img-container" style="background:url(<?= SITE_TEMPLATE_PATH ?>/assets/fake-slider.jpg);background-size: cover;"></div>
+        </div>
+        <div class="owl-carousel__slider-item">
+            <div class="img-container" style="background:url(<?= SITE_TEMPLATE_PATH ?>/assets/fake-slider.jpg);background-size: cover;"></div>
+        </div>
+        <div class="owl-carousel__slider-item">
+            <div class="img-container" style="background:url(<?= SITE_TEMPLATE_PATH ?>/assets/fake-slider.jpg);background-size: cover;"></div>
+        </div>
 
-</div>
+    </div>
     <!-- end of  text-block -->
 </div>
 
@@ -96,17 +96,17 @@ $APPLICATION->SetTitle("Опт");
         <br>
         ★ Быстрая и надежная доставка в любой уголок России.
     </span>
-    <div class="owl-carousel owl-theme">
-    <div class="owl-carousel__slider-item">
-    <div class="img-container" style="background:url(<?= SITE_TEMPLATE_PATH ?>/assets/block2-1.jpg);background-size: cover;"></div>
+    <div class="owl-carousel middle-slider owl-theme owl-loaded owl-drag">
+        <div class="owl-carousel__slider-item">
+            <div class="img-container" style="background:url(<?= SITE_TEMPLATE_PATH ?>/assets/block2-1.jpg);background-size: cover;"></div>
+        </div>
+        <div class="owl-carousel__slider-item">
+            <div class="img-container" style="background:url(<?= SITE_TEMPLATE_PATH ?>/assets/block2-2.jpg);background-size: cover;"></div>
+        </div>
+    </div>
 </div>
-<div class="owl-carousel__slider-item">
-    <div class="img-container" style="background:url(<?= SITE_TEMPLATE_PATH ?>/assets/block2-2.jpg);background-size: cover;"></div>
-</div>
-</div>
-</div>
-   
-    <!-- end of  text-block -->
+
+<!-- end of  text-block -->
 </div>
 <!-- CEO-text-block -->
 <div class=" wholesale big-block ceo-text-block">
@@ -154,19 +154,19 @@ $APPLICATION->SetTitle("Опт");
     <h2>Собственное производство #RAKAMAKAFIT</h2>
     <span>Заглянем в наше самое сокровенное место - на фабрику Rakamakafit. Эспандеры RAKAMAKAFIT сделаны из двухслойного латекса высокого качества. Их просто невозможно порвать! </span>
     <div class="owl-carousel owl-theme">
-    <div class="owl-carousel__slider-item">
-    <div class="img-container" style="background:url(<?= SITE_TEMPLATE_PATH ?>/assets/fabrika1.jpg);background-size: cover;"></div>
-</div>
-<div class="owl-carousel__slider-item">
-    <div class="img-container" style="background:url(<?= SITE_TEMPLATE_PATH ?>/assets/fabrika2.jpg);background-size: cover;"></div>
-</div>
-<div class="owl-carousel__slider-item">
-    <div class="img-container" style="background:url(<?= SITE_TEMPLATE_PATH ?>/assets/fabrika3.jpg);background-size: cover;"></div>
-</div>
+        <div class="owl-carousel__slider-item">
+            <div class="img-container" style="background:url(<?= SITE_TEMPLATE_PATH ?>/assets/fabrika1.jpg);background-size: cover;"></div>
+        </div>
+        <div class="owl-carousel__slider-item">
+            <div class="img-container" style="background:url(<?= SITE_TEMPLATE_PATH ?>/assets/fabrika2.jpg);background-size: cover;"></div>
+        </div>
+        <div class="owl-carousel__slider-item">
+            <div class="img-container" style="background:url(<?= SITE_TEMPLATE_PATH ?>/assets/fabrika3.jpg);background-size: cover;"></div>
+        </div>
 
 
 
-</div>
+    </div>
 </div>
 <!-- footer -->
 
@@ -192,14 +192,17 @@ $APPLICATION->SetTitle("Опт");
     toggleTabs('.ceo-text-blocke__tab', '.img-link-block');
 
     $('.owl-carousel').owlCarousel({
-			items:1,
-			lazyLoad:true,
-			loop:true,
-			margin:10,
-			smartSpeed: 800,
-			dots: true,
-			nav: false
-		});
+        items: 1,
+        lazyLoad: true,
+        loop: true,
+        margin: 10,
+        smartSpeed: 800,
+        dots: true,
+        nav: true,
+        navText: [`<img src="<?= SITE_TEMPLATE_PATH ?>/assets/nav-arrow-left.svg">`,
+            `<img src="<?= SITE_TEMPLATE_PATH ?>/assets/nav-arrow-right.svg">`
+        ],
+    });
 </script>
 
 <? require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php"); ?>
