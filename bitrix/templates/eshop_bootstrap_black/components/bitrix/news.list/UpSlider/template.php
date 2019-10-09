@@ -47,9 +47,65 @@ $items = $arResult['ITEMS'];
 			<? endforeach; ?>			
 		</div>
 	</div>
-	<div class="owl-carousel up-slider-pics owl-theme">
+	<div class="owl-carousel up-slider-pics up-slider-pics--desktop owl-theme">
 	<? foreach ($items as $item): ?>
 		<div class="img-wrapper" style="background: url(<?=$item['PREVIEW_PICTURE']['SRC']?>) no-repeat center; background-size: cover;"></div>
 	<?endforeach;?>
+	</div>
+	<div class="up-block-mobile">
+  <div class="up-block-mobile__up-slider-wrapper">
+    <div class="owl-carousel up-slider-mobile owl-theme">
+      <div class="owl-carousel__up-up-slider-item">		  
+        <div class="owl-carousel__up-slider-item__slider-content">
+		
+          <p class="owl-carousel__up-slider-item__slider-content__promo-title">Выбери свой RAKAMAKAFIT</p>
+          <p class="owl-carousel__up-slider-item__slider-content__slogan">Самое легкое и компактное фитнес оборудование для фитнеса! Тренируйся дома или на улице, на работе или в отпуске.</p>
+          <div class="owl-carousel__up-slider__content_bottom">
+            <div class="owl-carousel__slider-item-button">
+			  <a href="<?=$url_page?>" class="owl-carousel__slider-item-button__text">Подробнее</a>
+			  </div>
+          </div>
+			  
+            
+        </div>
+	  </div>
+	  <div class="owl-carousel__up-up-slider-item">		  
+        <div class="owl-carousel__up-slider-item__slider-content">
+		
+          <p class="owl-carousel__up-slider-item__slider-content__promo-title">Выбери свой RAKAMAKAFIT</p>
+          <p class="owl-carousel__up-slider-item__slider-content__slogan">Самое легкое и компактное фитнес оборудование для фитнеса! Тренируйся дома или на улице, на работе или в отпуске.</p>
+          <div class="owl-carousel__up-slider__content_bottom">
+            <div class="owl-carousel__slider-item-button">
+			  <a href="<?=$url_page?>" class="owl-carousel__slider-item-button__text">Подробнее</a>
+			  </div>
+          </div>
+			  
+            
+        </div>
+	  </div>
+	  <div class="owl-carousel__up-up-slider-item">		  
+        <div class="owl-carousel__up-slider-item__slider-content">
+		
+          <p class="owl-carousel__up-slider-item__slider-content__promo-title">Выбери свой RAKAMAKAFIT</p>
+          <p class="owl-carousel__up-slider-item__slider-content__slogan">Самое легкое и компактное фитнес оборудование для фитнеса! Тренируйся дома или на улице, на работе или в отпуске.</p>
+          <div class="owl-carousel__up-slider__content_bottom">
+            <div class="owl-carousel__slider-item-button">
+			  <a href="<?=$url_page?>" class="owl-carousel__slider-item-button__text">Подробнее</a>
+			  </div>
+          </div>
+			  
+            
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="owl-carousel up-slider-pics up-slider-pics--mobile owl-theme">
+
+<div class="img-wrapper" style="background:url(http://bot.rakamakafit.ru/bitrix/templates/eshop_bootstrap_black/assets/mobile-main-slider.jpg); background-size:cover;"></div>
+<div class="img-wrapper" style="background:url(http://bot.rakamakafit.ru/bitrix/templates/eshop_bootstrap_black/assets/mobile-main-slider.jpg); background-size:cover;"></div>
+<div class="img-wrapper" style="background:url(http://bot.rakamakafit.ru/bitrix/templates/eshop_bootstrap_black/assets/mobile-main-slider.jpg); background-size:cover;"></div>
+<div class="img-wrapper" style="background:url(http://bot.rakamakafit.ru/bitrix/templates/eshop_bootstrap_black/assets/mobile-main-slider.jpg); background-size:cover;"></div>
+	
 	</div>
 </div>

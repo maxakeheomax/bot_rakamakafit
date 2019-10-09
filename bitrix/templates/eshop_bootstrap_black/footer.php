@@ -325,8 +325,11 @@ $(document).ready(function() {
         stagePadding: 36,
         mergeFit: true
     });
+
+
     $pic = $('.owl-carousel.up-slider-pics');
     $text = $('.owl-carousel.up-slider');
+    $mobile = $('.owl-carousel.up-slider-mobile')
     $pic.owlCarousel({
         items: 1,
         lazyLoad: true,
@@ -337,7 +340,15 @@ $(document).ready(function() {
         touchDrag: false,
         mouseDrag: false,
         animateIn: 'fadeIn', // add this
-        animateOut: 'fadeOut' // and this
+        animateOut: 'fadeOut',
+        responsive: {
+            1360: {
+                nav: true
+            },
+            320: {
+                nav: false
+            }
+        } // and this
     });
     $text.owlCarousel({
         items: 1,
@@ -358,6 +369,22 @@ $(document).ready(function() {
             }
         }
     });
+    $mobile.owlCarousel({
+        items: 1,
+        smartSpeed: 800,
+        lazyLoad: true,
+        loop: true,
+        margin: 10,
+        dots: true,
+        nav: false,
+        responsive: {
+            320: {
+                nav: false
+            }
+        }
+    });
+
+
 
     $text.on('change.owl.carousel', function(event) {
         if (event.namespace && event.property.name === 'position') {

@@ -155,7 +155,9 @@ h2 {
 .footer-tablet {
   display: none;
 }
-
+.up-slider-pics.up-slider-pics--mobile{
+  filter:none;
+}
 
 /*index page styles*/
 
@@ -378,7 +380,9 @@ button-form-grey {
 .breadcrumbs__item.active {
   color: #000000;
 }
-
+.header-mini{
+  display: none;
+}
 
 /*auth-reg-block*/
 
