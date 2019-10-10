@@ -241,7 +241,7 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php');
 
 
                 </header>
-                <div class="aside-menu">
+                <div class="aside-menu hidden-block">
                         <div class="aside-menu__header-nav-logo">
                             <img class ="aside-menu__logo" src="<?= SITE_TEMPLATE_PATH ?>/assets/logo-svg-black.svg" alt="">
                             <div class="close-button"></div>

@@ -323,7 +323,17 @@ $(document).ready(function() {
         smartSpeed: 800,
         nav: false,
         stagePadding: 36,
-        mergeFit: true
+        mergeFit: true,
+         responsive: {
+            460: {
+               items: 2,
+               margin: 10,
+               stagePadding: 0,
+            },
+            320: {
+                items: 1
+            }
+        } 
     });
 
 
@@ -455,14 +465,14 @@ $(document).ready(function() {
     });
 
     $('.burger-menu, .burger-menu-icon').click(function() {
-        $('.aside-menu').animate({
+        $('.aside-menu').fadeIn().animate({
             'right': 0
-        }, 500);
+        }, 500, "linear");
 		if($('.aside-menu').css('right') === '0px') {
 			$('.aside-menu').animate({
             'right': -500
-        }, 300);
-		}
+        }, 500, "linear").fadeOut();
+        }
     });
 
     ($('.pass').next()).click(function() {

@@ -144,9 +144,6 @@
    .trainings_category_block-item {
      width: 307px;
    }
-   .aside-menu {
-     display: block;
-   }
  }
  
  @media(max-width:1280px) {
@@ -976,7 +973,8 @@
    .special-offer-block,
    .bottom-slider-block__slider-header__right-block,
    .up-block .up-slider-wrapper,
-   .up-slider-pics--desktop {
+   .up-slider-pics--desktop,
+   .pop-products-block__title__name::after {
      display: none;
    }
    .header-mini__min-logo {
@@ -1020,6 +1018,9 @@
    }
    .up-block-mobile .owl-carousel__up-slider__content_bottom {
      margin-top: 10px;
+   }
+   .pop-products-block__title__name {
+     font-size: 20px;
    }
  }
  
