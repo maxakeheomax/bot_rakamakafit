@@ -1985,7 +1985,6 @@ button-form-grey {
 
 .pop-products-block__item-cart:hover {
   right: 0;
- 
 }
 
 .special-offer-block .pop-products-block__item-cart {
@@ -2763,7 +2762,7 @@ button-form-grey {
 .bottom-slider-block__slider-header__left-block {
   display: flex;
   width: 397px;
-  height: 56px;
+  min-height: 56px;
   justify-content: space-between;
   align-items: center;
   margin-left: 48px;
@@ -2992,6 +2991,10 @@ button-form-grey {
 .bottom-slider-block__slider-wrapper .slick-slide.slick-current {
   background-size: 100% !important;
   position: relative;
+}
+
+.bottom-slider-block--mobile {
+  display: none;
 }
 
 
@@ -5604,7 +5607,7 @@ button-form-grey {
 
 .footer-mobile {
   background-color: #353535;
-  padding: 0 10px;
+  padding: 30px 10px 0;
   display: none;
 }
 

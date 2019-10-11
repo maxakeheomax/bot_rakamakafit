@@ -635,7 +635,7 @@ $(document).ready(function() {
 $('.slick-slider').slick({
     slidesToShow: 3,
     slidesToScroll: 1,
-    arrows: true,
+    arrows: false,
     appendArrows: $('.bottom-slider-nav-buttons'),
     prevArrow: `<img src="<?= SITE_TEMPLATE_PATH ?>/assets/arrow-white-left.svg">`,
     nextArrow: `<img src="<?= SITE_TEMPLATE_PATH ?>/assets/arrow-white-right.svg">`,
@@ -650,8 +650,13 @@ $('.slick-slider').slick({
         1360: {
             nav: true
         },
+        460: {
+            arrows: false
+        },
         320: {
-            nav: false
+            nav: false,
+            arrows: false
+           
         }
     }
 });
