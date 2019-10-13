@@ -393,6 +393,20 @@ $(document).ready(function() {
             }
         }
     });
+    $('.middle-slider-mobile').owlCarousel({
+        items: 3,
+        smartSpeed: 800,
+        lazyLoad: true,
+        loop: true,
+        margin: 10,
+        dots: true,
+        nav: false,
+        responsive: {
+            320: {
+                nav: false
+            }
+        }
+    });
 
 
 

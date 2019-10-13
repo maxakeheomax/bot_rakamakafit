@@ -21,7 +21,7 @@ $items = $arResult['ITEMS'];
 ?>
 
 
-<div class="owl-carousel middle-slider owl-theme">
+<div class="owl-carousel middle-slider middle_slider--desktop owl-theme">
     <? foreach ($items as $item): ?>
                 <?
 				$arInfo = CCatalogSKU::GetInfoByOfferIBlock(4); 
@@ -50,3 +50,25 @@ $items = $arResult['ITEMS'];
         </div>
     <? endforeach; ?>    
 </div>
+
+<div class="owl-carousel middle-slider-mobile owl-theme">
+<div class="owl-carousel__slider-item" style="background-image: url('http://bot.rakamakafit.ru/bitrix/templates/eshop_bootstrap_black/assets/middle-slider-mobile-1.jpg');background-size:cover;">
+<p class="owl-carousel__slider-item__desc">Все товары</p>
+</div>
+<div class="owl-carousel__slider-item" style="background-image: url('http://bot.rakamakafit.ru/bitrix/templates/eshop_bootstrap_black/assets/middle-slider-mobile-2.jpg');background-size:cover;">
+<p class="owl-carousel__slider-item__desc">Оборудование</p>
+</div>
+<div class="owl-carousel__slider-item" style="background-image: url('http://bot.rakamakafit.ru/bitrix/templates/eshop_bootstrap_black/assets/middle-slider-mobile-3.jpg');background-size:cover;">
+<p class="owl-carousel__slider-item__desc">Программа тренировок</p>
+</div>
+<div class="owl-carousel__slider-item" style="background-image: url('http://bot.rakamakafit.ru/bitrix/templates/eshop_bootstrap_black/assets/middle-slider-mobile-1.jpg');background-size:cover;">
+<p class="owl-carousel__slider-item__desc">Программа тренировок</p>
+</div>
+<div class="owl-carousel__slider-item" style="background-image: url('http://bot.rakamakafit.ru/bitrix/templates/eshop_bootstrap_black/assets/middle-slider-mobile-3.jpg');background-size:cover;">
+<p class="owl-carousel__slider-item__desc">Программа тренировок</p>
+</div>
+<div class="owl-carousel__slider-item" style="background-image: url('http://bot.rakamakafit.ru/bitrix/templates/eshop_bootstrap_black/assets/middle-slider-mobile-2.jpg');background-size:cover;">
+<p class="owl-carousel__slider-item__desc">Программа тренировок</p>
+</div>
+</div>
+
