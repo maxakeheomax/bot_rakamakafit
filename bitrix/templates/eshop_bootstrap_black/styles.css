@@ -155,7 +155,8 @@ h2 {
 
 .footer-tablet,
 .middle-slider-block .middle-slider-mobile,
- .up-block-mobile {
+.up-block-mobile,
+.filter-block--mobile {
   display: none;
 }
 

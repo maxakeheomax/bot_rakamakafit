@@ -940,7 +940,8 @@
     .footer-tablet {
       display: none;
     }
-    .footer-mobile {
+    .footer-mobile,
+    .filter-block--mobile {
       display: block;
     }
     .pop-products-block__item {
