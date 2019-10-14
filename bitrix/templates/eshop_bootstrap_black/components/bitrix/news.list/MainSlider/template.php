@@ -20,55 +20,58 @@ $items = $arResult['ITEMS'];
 
 ?>
 
-
-<div class="owl-carousel middle-slider middle_slider--desktop owl-theme">
-    <? foreach ($items as $item): ?>
-                <?
-				$arInfo = CCatalogSKU::GetInfoByOfferIBlock(4); 
-				$elem = CIBlockElement::GetByID($item['PROPERTIES']['TOVAR']['VALUE'])->GetNext();
-                $url_page = $elem['DETAIL_PAGE_URL'];
-				$rsOffers = CIBlockElement::GetList(array(),array('IBLOCK_ID' => $arInfo['IBLOCK_ID'], 'PROPERTY_'.$arInfo['SKU_PROPERTY_ID'] => $item['PROPERTIES']['product']['VALUE']));
-				if ($prod = $rsOffers->GetNext()) {
-					$url = '/catalog/?action=ADD2BASKET&amp;id='.$prod['ID'];
-				}
-                ?>
-        <div class="owl-carousel__slider-item"
-             style="background: url('<?= CFile::GetPath($item['PROPERTIES']['PICTURE']['VALUE']); ?>');background-size: cover; ">
-            <div class="owl-carousel__slider-item__slider-content">
-                <p class="promo-train-block__slider-item__slider-content__promo-title"><?= $item['NAME']?></p>
-                <p class="owl-carousel__slider-item__slider-content__slogan"><?= $item['PROPERTIES']['TEXT1']['VALUE']['TEXT']?></p>
-                <p class="owl-carousel__slider-item__slider-content__dicription"><?= $item['PROPERTIES']['TEXT2']['VALUE']['TEXT']?></p>
-                <div class="owl-carousel__slider__content_bottom">
-                    <div class="owl-carousel__slider-item-button">
-                        <a href="<?=$url?>" class="owl-carousel__main-slider-item-button__text">Купить</a>
-                    </div>
-                    <div class="owl-carousel__slider-item-more">
-                        <a href="<?=$url_page?>" class="owl-carousel__slider-item-more__text">Подробнее</a>
+<div class="middle-slider-block">
+    
+    <div class="owl-carousel middle-slider middle_slider--desktop owl-theme">
+        <? foreach ($items as $item): ?>
+                    <?
+    				$arInfo = CCatalogSKU::GetInfoByOfferIBlock(4); 
+    				$elem = CIBlockElement::GetByID($item['PROPERTIES']['TOVAR']['VALUE'])->GetNext();
+                    $url_page = $elem['DETAIL_PAGE_URL'];
+    				$rsOffers = CIBlockElement::GetList(array(),array('IBLOCK_ID' => $arInfo['IBLOCK_ID'], 'PROPERTY_'.$arInfo['SKU_PROPERTY_ID'] => $item['PROPERTIES']['product']['VALUE']));
+    				if ($prod = $rsOffers->GetNext()) {
+    					$url = '/catalog/?action=ADD2BASKET&amp;id='.$prod['ID'];
+    				}
+                    ?>
+            <div class="owl-carousel__slider-item"
+                 style="background: url('<?= CFile::GetPath($item['PROPERTIES']['PICTURE']['VALUE']); ?>');background-size: cover; ">
+                <div class="owl-carousel__slider-item__slider-content">
+                    <p class="promo-train-block__slider-item__slider-content__promo-title"><?= $item['NAME']?></p>
+                    <p class="owl-carousel__slider-item__slider-content__slogan"><?= $item['PROPERTIES']['TEXT1']['VALUE']['TEXT']?></p>
+                    <p class="owl-carousel__slider-item__slider-content__dicription"><?= $item['PROPERTIES']['TEXT2']['VALUE']['TEXT']?></p>
+                    <div class="owl-carousel__slider__content_bottom">
+                        <div class="owl-carousel__slider-item-button">
+                            <a href="<?=$url?>" class="owl-carousel__main-slider-item-button__text">Купить</a>
+                        </div>
+                        <div class="owl-carousel__slider-item-more">
+                            <a href="<?=$url_page?>" class="owl-carousel__slider-item-more__text">Подробнее</a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    <? endforeach; ?>    
-</div>
+        <? endforeach; ?>    
+    </div>
+    
+    <div class="owl-carousel middle-slider-mobile owl-theme">
+    <div class="owl-carousel__slider-item" style="background-image: url('http://bot.rakamakafit.ru/bitrix/templates/eshop_bootstrap_black/assets/middle-slider-mobile-1.jpg');background-size:cover;">
+    <p class="owl-carousel__slider-item__desc">Все товары</p>
+    </div>
+    <div class="owl-carousel__slider-item" style="background-image: url('http://bot.rakamakafit.ru/bitrix/templates/eshop_bootstrap_black/assets/middle-slider-mobile-2.jpg');background-size:cover;">
+    <p class="owl-carousel__slider-item__desc">Оборудование</p>
+    </div>
+    <div class="owl-carousel__slider-item" style="background-image: url('http://bot.rakamakafit.ru/bitrix/templates/eshop_bootstrap_black/assets/middle-slider-mobile-3.jpg');background-size:cover;">
+    <p class="owl-carousel__slider-item__desc">Программа тренировок</p>
+    </div>
+    <div class="owl-carousel__slider-item" style="background-image: url('http://bot.rakamakafit.ru/bitrix/templates/eshop_bootstrap_black/assets/middle-slider-mobile-1.jpg');background-size:cover;">
+    <p class="owl-carousel__slider-item__desc">Программа тренировок</p>
+    </div>
+    <div class="owl-carousel__slider-item" style="background-image: url('http://bot.rakamakafit.ru/bitrix/templates/eshop_bootstrap_black/assets/middle-slider-mobile-3.jpg');background-size:cover;">
+    <p class="owl-carousel__slider-item__desc">Программа тренировок</p>
+    </div>
+    <div class="owl-carousel__slider-item" style="background-image: url('http://bot.rakamakafit.ru/bitrix/templates/eshop_bootstrap_black/assets/middle-slider-mobile-2.jpg');background-size:cover;">
+    <p class="owl-carousel__slider-item__desc">Программа тренировок</p>
+    </div>
+    </div>
+    
 
-<div class="owl-carousel middle-slider-mobile owl-theme">
-<div class="owl-carousel__slider-item" style="background-image: url('http://bot.rakamakafit.ru/bitrix/templates/eshop_bootstrap_black/assets/middle-slider-mobile-1.jpg');background-size:cover;">
-<p class="owl-carousel__slider-item__desc">Все товары</p>
 </div>
-<div class="owl-carousel__slider-item" style="background-image: url('http://bot.rakamakafit.ru/bitrix/templates/eshop_bootstrap_black/assets/middle-slider-mobile-2.jpg');background-size:cover;">
-<p class="owl-carousel__slider-item__desc">Оборудование</p>
-</div>
-<div class="owl-carousel__slider-item" style="background-image: url('http://bot.rakamakafit.ru/bitrix/templates/eshop_bootstrap_black/assets/middle-slider-mobile-3.jpg');background-size:cover;">
-<p class="owl-carousel__slider-item__desc">Программа тренировок</p>
-</div>
-<div class="owl-carousel__slider-item" style="background-image: url('http://bot.rakamakafit.ru/bitrix/templates/eshop_bootstrap_black/assets/middle-slider-mobile-1.jpg');background-size:cover;">
-<p class="owl-carousel__slider-item__desc">Программа тренировок</p>
-</div>
-<div class="owl-carousel__slider-item" style="background-image: url('http://bot.rakamakafit.ru/bitrix/templates/eshop_bootstrap_black/assets/middle-slider-mobile-3.jpg');background-size:cover;">
-<p class="owl-carousel__slider-item__desc">Программа тренировок</p>
-</div>
-<div class="owl-carousel__slider-item" style="background-image: url('http://bot.rakamakafit.ru/bitrix/templates/eshop_bootstrap_black/assets/middle-slider-mobile-2.jpg');background-size:cover;">
-<p class="owl-carousel__slider-item__desc">Программа тренировок</p>
-</div>
-</div>
-

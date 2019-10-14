@@ -56,7 +56,7 @@ $items = $arResult['ITEMS'];
   <div class="up-block-mobile__up-slider-wrapper">
     <div class="owl-carousel up-slider-mobile owl-theme">
       <div class="owl-carousel__up-up-slider-item">		  
-        <div class="owl-carousel__up-slider-item__slider-content">
+        <div class="owl-carousel__up-slider-item__slider-content"style="background:url(http://bot.rakamakafit.ru/bitrix/templates/eshop_bootstrap_black/assets/mobile-main-slider.jpg); background-size:cover;">
 		
           <p class="owl-carousel__up-slider-item__slider-content__promo-title">Выбери свой RAKAMAKAFIT</p>
           <p class="owl-carousel__up-slider-item__slider-content__slogan">Самое легкое и компактное фитнес оборудование для фитнеса! Тренируйся дома или на улице, на работе или в отпуске.</p>
@@ -69,8 +69,8 @@ $items = $arResult['ITEMS'];
             
         </div>
 	  </div>
-	  <div class="owl-carousel__up-up-slider-item">		  
-        <div class="owl-carousel__up-slider-item__slider-content">
+	  <div class="owl-carousel__up-up-slider-item"style="background:url(http://bot.rakamakafit.ru/bitrix/templates/eshop_bootstrap_black/assets/mobile-main-slider.jpg); background-size:cover;">		  
+        <div class="owl-carousel__up-slider-item__slider-content"style="background:url(http://bot.rakamakafit.ru/bitrix/templates/eshop_bootstrap_black/assets/mobile-main-slider.jpg); background-size:cover;">
 		
           <p class="owl-carousel__up-slider-item__slider-content__promo-title">Выбери свой RAKAMAKAFIT</p>
           <p class="owl-carousel__up-slider-item__slider-content__slogan">Самое легкое и компактное фитнес оборудование для фитнеса! Тренируйся дома или на улице, на работе или в отпуске.</p>
@@ -83,7 +83,7 @@ $items = $arResult['ITEMS'];
             
         </div>
 	  </div>
-	  <div class="owl-carousel__up-up-slider-item">		  
+	  <div class="owl-carousel__up-up-slider-item"style="background:url(http://bot.rakamakafit.ru/bitrix/templates/eshop_bootstrap_black/assets/mobile-main-slider.jpg); background-size:cover;">		  
         <div class="owl-carousel__up-slider-item__slider-content">
 		
           <p class="owl-carousel__up-slider-item__slider-content__promo-title">Выбери свой RAKAMAKAFIT</p>
@@ -100,12 +100,4 @@ $items = $arResult['ITEMS'];
     </div>
   </div>
 </div>
-<div class="owl-carousel up-slider-pics up-slider-pics--mobile owl-theme">
-
-<div class="img-wrapper" style="background:url(http://bot.rakamakafit.ru/bitrix/templates/eshop_bootstrap_black/assets/mobile-main-slider.jpg); background-size:cover;"></div>
-<div class="img-wrapper" style="background:url(http://bot.rakamakafit.ru/bitrix/templates/eshop_bootstrap_black/assets/mobile-main-slider.jpg); background-size:cover;"></div>
-<div class="img-wrapper" style="background:url(http://bot.rakamakafit.ru/bitrix/templates/eshop_bootstrap_black/assets/mobile-main-slider.jpg); background-size:cover;"></div>
-<div class="img-wrapper" style="background:url(http://bot.rakamakafit.ru/bitrix/templates/eshop_bootstrap_black/assets/mobile-main-slider.jpg); background-size:cover;"></div>
-	
-	</div>
 </div>

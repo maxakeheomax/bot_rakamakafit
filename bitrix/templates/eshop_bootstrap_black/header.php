@@ -223,7 +223,7 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php');
                 <header class="header-mini">
 
                     <div class="header-mini__block header-mini__left-block">
-                        <span class="burger-menu-icon"></span>
+                        <div class="burger-menu"><span class="burger-menu-icon"></span></div>
                         <a href="/"><img src="<?= SITE_TEMPLATE_PATH ?>/assets/phone.svg" alt="logo"></a>
                     </div>
 
@@ -248,7 +248,7 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php');
                         </div>
 
 
-                        <div id="headerAccordeon">
+                        <div id="Accordeon">
                             <div class="acc-head">
                                 Оборудование
                                 <div class="icon-collapsed"></div>
@@ -261,8 +261,6 @@ require_once($_SERVER['DOCUMENT_ROOT'].'/vendor/autoload.php');
                                     <li>Наборы</li>
                                     <li>Питание</li>
                                     <li>Дневник тренировок</li>
-
-
                                 </ul>
                             </div>
                             <div class="acc-card">

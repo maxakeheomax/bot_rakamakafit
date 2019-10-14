@@ -128,43 +128,22 @@
     <div class="footer__nav__logo">
         <img src="<?= SITE_TEMPLATE_PATH ?>/assets/logo-svg.svg" alt="">
     </div>
-
-    <div class="accordion" id="footerAccordion">
-        <div class="card">
-            <div class="card-header collapsed" id="headingOne" data-toggle="collapse" data-target="#collapseOne"
-                aria-expanded="true" aria-controls="collapseOne">
-                <h2>
-                    Оборудование
-                </h2>
-                <div class="icon-collapsed"></div>
-
-            </div>
-            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#footerAccordion">
-                <div class="card-body">
-                    <ul>
-                        <li>
-                            <a href="#">Фитнес ленты</a>
-                        </li>
-                        <li>
-                            <a href="#">Эспандеры</a>
-                        </li>
-                        <li>
-                            <a href="#">Фитбол</a>
-                        </li>
-                        <li>
-                            <a href="#">Наборы</a>
-                        </li>
-                        <li>
-                            <a href="#">Питание</a>
-                        </li>
-                        <li>
-                            <a href="#">Дневник тренировок</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div id="Accordeon" class="footerAccordeon">
+                            <div class="acc-head">
+                                ОБОРУДОВАНИЕ
+                                <div class="icon-collapsed"></div>
+                            </div>
+                            <div class="acc-body">
+                                <ul>
+                                    <li><a href="">Фитнес ленты</a></li>
+                                    <li><a href="">Эспандеры</a></li>
+                                    <li><a href="">Фитбол</a></li>
+                                    <li><a href="">Наборы</a></li>
+                                    <li><a href="">Питание</a></li>
+                                    <li><a href="">Дневник тренировок</a></li>
+                                </ul>
+                            </div>                         
+                        </div>
     <div class="footer-mobile__flex-block">
         <div class="footer__footer-credits__official-info">
             <ul>
@@ -483,10 +462,17 @@ $(document).ready(function() {
             'right': 0
         }, 500, "linear");
 		if($('.aside-menu').css('right') === '0px') {
-			$('.aside-menu').animate({
-            'right': -500
-        }, 500, "linear").fadeOut();
+		return false;
         }
+    });
+
+    $('.aside-menu.hidden-block .close-button').click(function() {
+	if($('.aside-menu').css('right') === '-500px') {
+return false;
+    } else{$('.aside-menu').animate({
+            'right': -500
+        }, 500, "linear").fadeOut();}
+    
     });
 
     ($('.pass').next()).click(function() {
@@ -629,10 +615,10 @@ $(document).ready(function() {
 
 
     //прикрепляем клик по заголовкам acc-head
-    $('#headerAccordeon .acc-head').on('click', f_acc);
+    $('#Accordeon .acc-head').on('click', f_acc);
 
     function f_acc() {
-        $('#headerAccordeon .acc-head').removeClass('active');
+        $('#Accordeon .acc-head').removeClass('active');
         $(this).addClass('active');
         $(this).on('click', function() {
             $(this).toggleClass('active');
@@ -641,7 +627,7 @@ $(document).ready(function() {
         $(this).next().slideToggle(500);
 
         //скрываем все кроме того, что должны открыть
-        $('#headerAccordeon .acc-body').not($(this).next()).slideUp(500);
+        $('#Accordeon .acc-body').not($(this).next()).slideUp(500);
     }
 });
 </script>

@@ -154,6 +154,8 @@ if($arrElement = $dbElements->Fetch()){
 		</table>
 	</form>
 </div>
+
+
 <script>
 	$(".js-range-slider").ionRangeSlider({
 		type: "double",

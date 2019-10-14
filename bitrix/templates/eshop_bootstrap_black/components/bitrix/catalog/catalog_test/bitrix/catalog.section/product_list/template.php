@@ -15,6 +15,12 @@ $this->setFrameMode(true);
 <?endif;?>
 <div class="catalog_block">
 	<div class="catalog__block__tabs">
+		
+<div class="filter-block--mobile">
+<div class="filter-icon"></div><span class="burger-menu-icon"></span> ФИЛЬТР
+</div>
+
+
 		<div class="catalog__block__tabs__title">Сортировать</div>
 		<? if (isset($_GET['order']) && $_GET['order'] == "DESC") {
 			$order = "ASC";
